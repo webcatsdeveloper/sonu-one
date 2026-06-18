@@ -18,25 +18,28 @@
 
   <div class="therapy-content page-width">
 
-    <h2 class="therapy-heading">
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    <{{ head_tag }} class="therapy-heading typography-{{ head_tag }}">
       {{ section.settings.heading }}
-    </h2>
+    </{{ head_tag }}>
 
     <div class="therapy-nav">
 
       {% for block in section.blocks %}
         <div class="therapy-item">
 
+          {%- assign title_style = section.settings.title_style | default: 'h4' -%}
           <button
-            class="therapy-nav-item {% if forloop.first %}active{% endif %}"
+            class="therapy-nav-item {% if forloop.first %}active{% endif %} typography-{{ title_style }}"
             data-index="{{ forloop.index0 }}"
             type="button"
           >
             {{ block.settings.title }}
           </button>
 
+          {%- assign desc_style = section.settings.description_style | default: 'p' -%}
           <div
-            class="therapy-desc {% if forloop.first %}active{% endif %}"
+            class="therapy-desc {% if forloop.first %}active{% endif %} typography-{{ desc_style }}"
             data-index="{{ forloop.index0 }}"
           >
             <p>{{ block.settings.description }}</p>
@@ -115,12 +118,8 @@
 
 #therapy-{{ section.id }} .therapy-heading{
   color:#fff;
-  font-size:56px;
-  line-height:1.05;
-  font-weight:400;
   max-width:500px;
   margin:0 0 100px;
-  letter-spacing:-1px;
 }
 
 #therapy-{{ section.id }} .therapy-nav{
@@ -138,8 +137,6 @@
   padding:0 0 0 0px;
   position:relative;
   color:rgba(255,255,255,.5);
-  font-size:26px;
-  line-height:1.3;
   cursor:pointer;
   text-align:left;
   transition:.3s;
@@ -230,8 +227,6 @@
 
 #therapy-{{ section.id }} .therapy-desc p{
   color:#fff;
-  font-size:18px;
-  line-height:1.8;
   margin-left:0px;
   max-width:500px;
 }
@@ -325,6 +320,51 @@ document.addEventListener('DOMContentLoaded', function(){
       "id": "heading",
       "label": "Main Heading",
       "default": "Personalized to you. No guesswork."
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

@@ -104,10 +104,6 @@
         margin-bottom: 36px !important;
       }
       #shopify-section-{{ section.id }} .custom-step-heading {
-        font-family: var(--sonu-font-family, sans-serif) !important;
-        font-size: 32px !important;
-        line-height: 1.25 !important;
-        font-weight: normal !important;
         text-align: center !important;
         color: #3D1B03 !important;
         margin-bottom: 0 !important;
@@ -154,18 +150,11 @@
         margin-bottom: 16px !important;
       }
       #shopify-section-{{ section.id }} .custom-step-slide-title {
-        font-family: var(--sonu-font-family, sans-serif) !important;
-        font-size: 24px !important;
-        font-weight: 500 !important;
         color: #3D1B03 !important;
         margin: 0 0 10px 0 !important;
-        line-height: 1.25 !important;
         text-align: left !important;
       }
       #shopify-section-{{ section.id }} .custom-step-slide-desc {
-        font-family: var(--sonu-font-family, sans-serif) !important;
-        font-size: 15px !important;
-        line-height: 1.5 !important;
         color: #3D1B03 !important;
         opacity: 0.8 !important;
         text-align: left !important;
@@ -224,7 +213,8 @@
       <div class="custom-step-desktop-inner">
         <div class="custom-step-desktop-left">
           {% if section.settings.heading != blank %}
-            <{{ section.settings.heading_tag | default: 'h2' }} class="custom-step-desktop-heading {{ section.settings.heading_tag | default: 'h2' }}">{{ formatted_heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
+            {%- assign head_style = section.settings.heading_style | default: 'h2' -%}
+            <{{ head_style }} class="custom-step-desktop-heading typography-{{ head_style }}">{{ formatted_heading }}</{{ head_style }}>
           {% endif %}
           
           <div class="custom-step-desktop-list">
@@ -232,8 +222,10 @@
               <div class="custom-step-desktop-item{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}">
                 <div class="custom-step-desktop-indicator"></div>
                 <div class="custom-step-desktop-text">
-                  <h3 class="custom-step-desktop-title h3">{{ block.settings.title }}</h3>
-                  <p class="custom-step-desktop-desc rte">{{ block.settings.description }}</p>
+                  {%- assign title_style = section.settings.card_title_style | default: 'h3' -%}
+                  <{{ title_style }} class="custom-step-desktop-title typography-{{ title_style }}">{{ block.settings.title }}</{{ title_style }}>
+                  {%- assign desc_style = section.settings.card_desc_style | default: 'p' -%}
+                  <div class="custom-step-desktop-desc rte typography-{{ desc_style }}">{{ block.settings.description }}</div>
                 </div>
               </div>
             {% endfor %}
@@ -260,7 +252,8 @@
     <div class="custom-step-mobile-layout">
       <div class="custom-step-header">
         {% if section.settings.heading != blank %}
-          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-step-heading {{ section.settings.heading_tag | default: 'h2' }}" style="color: {{ text_color }};">{{ formatted_heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
+          {%- assign head_style = section.settings.heading_style | default: 'h2' -%}
+          <{{ head_style }} class="custom-step-heading typography-{{ head_style }}" style="color: {{ text_color }};">{{ formatted_heading }}</{{ head_style }}>
         {% endif %}
         {% if section.settings.description != blank %}
           <div class="custom-step-desc rte" style="color: {{ text_color }};">{{ section.settings.description | newline_to_br }}</div>
@@ -282,11 +275,13 @@
                 </div>
 
                 {% if block.settings.title != blank %}
-                  <h3 class="custom-step-slide-title h3" style="color: {{ text_color }};">{{ block.settings.title }}</h3>
+                  {%- assign title_style = section.settings.card_title_style | default: 'h3' -%}
+                  <{{ title_style }} class="custom-step-slide-title typography-{{ title_style }}" style="color: {{ text_color }};">{{ block.settings.title }}</{{ title_style }}>
                 {% endif %}
 
                 {% if block.settings.description != blank %}
-                  <p class="custom-step-slide-desc rte" style="color: {{ text_color }};">{{ block.settings.description }}</p>
+                  {%- assign desc_style = section.settings.card_desc_style | default: 'p' -%}
+                  <div class="custom-step-slide-desc rte typography-{{ desc_style }}" style="color: {{ text_color }};">{{ block.settings.description }}</div>
                 {% endif %}
 
               </div>
@@ -340,8 +335,8 @@
     },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading Tag",
+      "id": "heading_style",
+      "label": "Heading Style",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -352,6 +347,36 @@
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "card_title_style",
+      "label": "Card Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "card_desc_style",
+      "label": "Card Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

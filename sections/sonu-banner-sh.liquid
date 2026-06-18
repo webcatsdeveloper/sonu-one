@@ -19,7 +19,7 @@
 }
 
 .banner-italic{
-  font-family:"Times New Roman", serif;
+  font-family: var(--font-highlight--family, "Times New Roman", serif);
   font-style:italic;
 }
 
@@ -79,13 +79,10 @@
 
 /* TEXT */
 .banner-heading {
-  font-size: 48px;
-  line-height: 1.2;
   margin-bottom:0px;
 }
 
 .banner-subtext {
-  font-size: 18px;
   opacity: 0.9;
 }
 
@@ -198,7 +195,6 @@ display: flex;
 
   .banner-heading{
     color:{{ section.settings.mobile_heading_color }};
-    font-size:36px;
   }
 
   .banner-subtext{
@@ -274,8 +270,6 @@ display: flex;
 
 .banner-heading{
   color:{{ section.settings.mobile_heading_color }};
-  font-size:52px;
-  line-height:1.02;
   max-width:340px;
   margin-bottom:30px;
 }
@@ -362,14 +356,16 @@ display:flex;
     | newline_to_br
   %}
 
-  <{{ section.settings.heading_tag | default: 'h2' }} class="banner-heading">
+  {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+  <{{ head_tag }} class="banner-heading typography-{{ head_tag }}">
     {{ styled_heading }}
-  </{{ section.settings.heading_tag | default: 'h2' }}>
+  </{{ head_tag }}>
 
 {% endif %}
 
    {% if section.settings.subtext != blank %}
-  <div class="banner-subtext">
+  {%- assign desc_style = section.settings.description_style | default: 'p' -%}
+  <div class="banner-subtext typography-{{ desc_style }}">
     {{ section.settings.subtext }}
   </div>
 {% endif %}
@@ -420,8 +416,8 @@ display:flex;
     { "type": "textarea", "id": "heading", "label": "Heading" },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading Tag",
+      "id": "heading_style",
+      "label": "Heading Style",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -432,6 +428,21 @@ display:flex;
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     { "type": "richtext", "id": "subtext", "label": "Subtext" },
     {

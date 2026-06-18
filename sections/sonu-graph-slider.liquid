@@ -18,15 +18,17 @@
           | newline_to_br
         %}
 
-        <h2 class="research-heading animate-blur">
+        {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+        <{{ head_tag }} class="research-heading typography-{{ head_tag }} animate-blur">
           {{ formatted_heading }}
-        </h2>
+        </{{ head_tag }}>
 
       {% endif %}
 
       {% if section.settings.description != blank %}
 
-        <div class="research-desc animate-blur delay-1">
+        {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+        <div class="research-desc typography-{{ desc_tag }} animate-blur delay-1">
           {{ section.settings.description }}
         </div>
 
@@ -46,9 +48,10 @@
             <div class="research-card-inner">
 
               <!-- TITLE -->
-              <h3 class="research-card-title">
+              {%- assign card_head_tag = section.settings.card_heading_style | default: 'h3' -%}
+              <{{ card_head_tag }} class="research-card-title typography-{{ card_head_tag }}">
                 {{ block.settings.heading }}
-              </h3>
+              </{{ card_head_tag }}>
 
               <!-- IMAGE -->
               {% if block.settings.graph_image != blank %}
@@ -154,33 +157,21 @@
 .research-heading {
   margin: 0 0 20px;
   color: {{ section.settings.heading_color }};
-  font-family: var(--sonu-font-primary);
-  font-size: 72px;
-  line-height: 1.05;
-  letter-spacing: -3px;
-  font-weight: 400;
 }
 
 .research-heading .research-serif {
-  font-family: var(--sonu-font-serif);
+  font-family: var(--font-highlight--family, var(--sonu-font-serif));
   font-style: italic;
 }
 
 @media (max-width: 768px) {
-  .research-heading {
-    font-size: 42px;
-    line-height: 1.1;
-    letter-spacing: 0px;
-  }
+  /* Mobile heading overrides removed */
 }
 
 /* DESC */
 .research-desc {
   max-width: 760px;
   color: {{ section.settings.text_color }};
-  font-family: var(--sonu-font-primary);
-  font-size: 14px;
-  line-height: 22px;
   color: #1E1E1E;
 }
 
@@ -254,19 +245,11 @@
 .research-card-title {
   margin: 0 0 35px;
   color: {{ section.settings.card_heading_color }};
-  font-family: var(--sonu-font-primary);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 1.1;
   color: #3D1B03;
-  letter-spacing: -0.5px;
 }
 
 @media (max-width: 768px) {
   .research-card-title {
-    font-size: 28px;
-    line-height: 1.15;
     margin-bottom: 28px;
   }
 }
@@ -572,6 +555,51 @@
       "id":"button_text_color",
       "label":"Button Text Color",
       "default":"#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_style",
+      "label": "Card Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
     }
 
   ],

@@ -1,13 +1,14 @@
 <section class="sonu-therapy-mobile">
   <div class="sonu-therapy-mobile-container">
     
-    <h2 class="sonu-therapy-mobile-heading">
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    <{{ head_tag }} class="sonu-therapy-mobile-heading typography-{{ head_tag }}">
       {% if section.settings.heading contains "Your Nose" %}
         {{ section.settings.heading | replace: "Your Nose", "<span class='sonu-serif-italic'>Your Nose</span>" }}
       {% else %}
         {{ section.settings.heading }}
       {% endif %}
-    </h2>
+    </{{ head_tag }}>
 
     <div class="sonu-therapy-mobile-grid">
       {% for block in section.blocks %}
@@ -25,11 +26,13 @@
           {% endif %}
 
           <div class="sonu-therapy-mobile-content">
-            <h3 class="sonu-therapy-mobile-title">
+            {%- assign title_tag = section.settings.title_style | default: 'h3' -%}
+            <{{ title_tag }} class="sonu-therapy-mobile-title typography-{{ title_tag }}">
               {{ block.settings.title }}
-            </h3>
+            </{{ title_tag }}>
 
-            <div class="sonu-therapy-mobile-description">
+            {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+            <div class="sonu-therapy-mobile-description typography-{{ desc_tag }}">
               {{ block.settings.description }}
             </div>
           </div>
@@ -40,7 +43,8 @@
 
     {% if section.settings.video_link_text != blank %}
       <div class="sonu-therapy-action-wrapper">
-        <a href="{{ section.settings.video_link_url | default: '#' }}" class="sonu-therapy-film-btn">
+        {%- assign button_tag_style = section.settings.button_style | default: 'p' -%}
+        <a href="{{ section.settings.video_link_url | default: '#' }}" class="sonu-therapy-film-btn typography-{{ button_tag_style }}">
           {{ section.settings.video_link_text }}
         </a>
       </div>
@@ -85,11 +89,6 @@
 
 /* Main Section Heading Box Style */
 .sonu-therapy-mobile-heading {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 39px;
   text-align: center;
   color: #3D1B03;
   margin: 0 auto 34px;
@@ -99,11 +98,10 @@
 /* Inline styling for "Your Nose" phrase inside the heading */
 .sonu-therapy-mobile-heading .sonu-serif-italic {
   display: block; /* Forces it to drop to its own line just like the Figma mockup */
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-highlight--family, 'Times New Roman', Times, serif);
   font-style: italic;
-  font-weight: 400;
-  font-size: 42px;
-  line-height: 48px;
+  font-size: 1.3em;
+  line-height: 1.1;
   color: #3D1B03;
   margin-top: 4px;
 }
@@ -135,21 +133,11 @@
 }
 
 .sonu-therapy-mobile-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
   color: #3D1B03;
   margin: 0 0 12px 0;
 }
 
 .sonu-therapy-mobile-description {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
   color: #1E1E1E;
   max-width: 297px;
 }
@@ -172,12 +160,6 @@
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border-radius: 31px;
-  
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
   text-align: center;
   color: #FFFFFF;
   padding: 0 20px;
@@ -220,6 +202,51 @@ document.addEventListener('DOMContentLoaded', function(){
       "default": "Personalized Sound Therapy precisely tailored to your anatomy so you can breathe through Your Nose"
     },
     {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Card Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Card Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
       "type": "text",
       "id": "video_link_text",
       "label": "Video Button Text",
@@ -229,6 +256,21 @@ document.addEventListener('DOMContentLoaded', function(){
       "type": "url",
       "id": "video_link_url",
       "label": "Video Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

@@ -24,7 +24,7 @@
 
   <div class="sonu-faq-container">
 
-    <{{ section.settings.heading_tag | default: 'h2' }} class="sonu-faq-heading">
+    <{{ section.settings.heading_tag | default: 'h2' }} class="sonu-faq-heading typography-{{ section.settings.heading_tag | default: 'h2' }}">
       {% render 'heading-br', heading: section.settings.heading %}
     </{{ section.settings.heading_tag | default: 'h2' }}>
 
@@ -34,7 +34,7 @@
 
         <div class="sonu-faq-item {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
 
-          <button class="sonu-faq-question">
+          <button class="sonu-faq-question typography-{{ section.settings.question_style | default: 'h5' }}">
 
             <span>{{ block.settings.question }}</span>
 
@@ -50,7 +50,7 @@
 
           <div class="sonu-faq-answer">
 
-            <div class="sonu-faq-answer-inner">
+            <div class="sonu-faq-answer-inner typography-{{ section.settings.answer_style | default: 'p' }}">
               {{ block.settings.answer }}
             </div>
 
@@ -101,10 +101,6 @@
 .sonu-faq-heading{
   margin:0 0 55px;
   text-align:center;
-  font-family:'Instrument Sans',sans-serif;
-  font-weight:400;
-  font-size:60px;
-  line-height:73px;
   color:#3D1B03;
 }
 
@@ -137,10 +133,6 @@
   align-items: center;
   padding: 22px 28px;
   cursor: pointer;
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
   color: #1E1E1E;
   text-align: left;
 }
@@ -161,10 +153,6 @@
 
 .sonu-faq-answer-inner {
   padding: 0 28px 24px 28px;
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
   color: rgba(30, 30, 30, 0.85);
 }
 
@@ -189,22 +177,16 @@
 background-color:#CEC4BC;
 }
   .sonu-faq-heading{
-    font-size:32px;
-    line-height:39px;
     margin-bottom:39px;
   }
 
   .sonu-faq-question{
     min-height:47px;
     padding:15px 15px;
-    font-size:14px;
-    line-height:17px;
   }
 
   .sonu-faq-answer-inner{
     padding: 15px 15px 15px 15px;
-    font-size: 14px;
-    line-height: 22px;
   }
 
   .sonu-faq-icon{
@@ -295,6 +277,36 @@ background-color:#CEC4BC;
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "question_style",
+      "label": "Question Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h5"
+    },
+    {
+      "type": "select",
+      "id": "answer_style",
+      "label": "Answer Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

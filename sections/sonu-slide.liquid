@@ -1,11 +1,11 @@
-
 <section class="therapy-mobile">
 
   <div class="therapy-mobile-container">
 
-    <h2 class="therapy-mobile-heading">
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    <{{ head_tag }} class="therapy-mobile-heading typography-{{ head_tag }}">
       {{ section.settings.heading }}
-    </h2>
+    </{{ head_tag }}>
 
     <div class="therapy-mobile-grid">
 
@@ -22,11 +22,13 @@
 
           <div class="therapy-mobile-content">
 
-            <h3 class="therapy-mobile-title">
+            {%- assign title_tag = section.settings.title_style | default: 'h3' -%}
+            <{{ title_tag }} class="therapy-mobile-title typography-{{ title_tag }}">
               {{ block.settings.title }}
-            </h3>
+            </{{ title_tag }}>
 
-            <div class="therapy-mobile-description">
+            {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+            <div class="therapy-mobile-description typography-{{ desc_tag }}">
               {{ block.settings.description }}
             </div>
 
@@ -47,7 +49,6 @@
   background:#fff;
   border-radius:16px;
   overflow:hidden;
-
   opacity:0;
   transform:translateY(60px);
   transition:all .8s ease;
@@ -81,9 +82,6 @@
 .therapy-mobile-heading{
   text-align:center;
   color:#4a567d;
-  font-size:36px;
-  line-height:1.1;
-  font-weight:100;
   margin:0 0 30px;
 }
 
@@ -114,16 +112,11 @@
 
 .therapy-mobile-title{
   color:#4a567d;
-  font-size:28px;
-  line-height:1.15;
-  font-weight:100;
   margin:0 0 10px;
 }
 
 .therapy-mobile-description{
   color:#6e6e6e;
-  font-size:13px;
-  line-height:1.6;
 }
 
 </style>
@@ -163,6 +156,51 @@ document.addEventListener('DOMContentLoaded', function(){
       "id": "heading",
       "label": "Heading",
       "default": "Personalized to you. No guesswork."
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

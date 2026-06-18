@@ -2,13 +2,15 @@
 <section class="unique-logo-section unique-section">
 
   {% if section.settings.heading != blank %}
-<h2 class="unique-logo-heading animate-blur delay-1">
-        {{ section.settings.heading }}
-    </h2>
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    <{{ head_tag }} class="unique-logo-heading animate-blur delay-1 typography-{{ head_tag }}">
+      {{ section.settings.heading }}
+    </{{ head_tag }}>
   {% endif %}
 
   {% if section.settings.description != blank %}
-    <div class="unique-logo-description animate-blur delay-2">
+    {%- assign desc_style = section.settings.description_style | default: 'p' -%}
+    <div class="unique-logo-description animate-blur delay-2 typography-{{ desc_style }}">
       {{ section.settings.description }}
     </div>
   {% endif %}
@@ -37,9 +39,9 @@
 
   {% if section.settings.button_text != blank %}
     <div class="unique-logo-button-wrap">
-
+      {%- assign btn_style = section.settings.button_style | default: 'p' -%}
       <a href="{{ section.settings.button_link }}"
-         class="unique-logo-btn"
+         class="unique-logo-btn typography-{{ btn_style }}"
          style="
            background: {{ section.settings.button_bg }};
            color: {{ section.settings.button_text_color }};
@@ -82,15 +84,7 @@
 .unique-logo-heading {
   text-align: center;
   margin-bottom: 46px!important;
-  font-family:'Instrument Sans';
   color: #001755;
-
-  font-size: 42px;
-  line-height: 1.1;
-
-  font-weight: 700;
-
-  letter-spacing: -1px;
 }
 
 /* DESCRIPTION */
@@ -100,9 +94,6 @@
   margin: 0 auto 45px;
 
   text-align: center;
-
-  font-size: 18px;
-  line-height: 1.7;
 
   color: rgba(0,0,0,0.75);
 }
@@ -187,9 +178,6 @@
 
   text-decoration: none;
 
-  font-size: 17px;
-  font-weight: 500;
-
   transition: all 0.35s ease;
 }
 
@@ -205,12 +193,7 @@
     padding: 0px;
   }
 
-  .unique-logo-heading {
-    font-size: 32px;
-  }
-
   .unique-logo-description {
-    font-size: 16px;
     margin-bottom: 35px;
   }
 
@@ -292,16 +275,60 @@ document.addEventListener("DOMContentLoaded", function () {
       "default": "Our Partners"
     },
     {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Description"
     },
-
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
     {
       "type": "text",
       "id": "button_text",
       "label": "Button Text",
       "default": "Learn More"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "url",

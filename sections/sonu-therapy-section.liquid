@@ -19,13 +19,15 @@
             | replace: ']]', '</span>'
             | newline_to_br
           %}
-          <h2 class="sonu-therapy-heading">
+          {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+          <{{ head_tag }} class="sonu-therapy-heading typography-{{ head_tag }}">
             {{ formatted_heading }}
-          </h2>
+          </{{ head_tag }}>
         {% endif %}
 
         {% if section.settings.description != blank %}
-          <div class="sonu-therapy-description">
+          {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+          <div class="sonu-therapy-description typography-{{ desc_tag }}">
             {{ section.settings.description }}
           </div>
         {% endif %}
@@ -58,7 +60,8 @@
           <div class="sonu-therapy-stat sonu-therapy-animate-blur sonu-therapy-delay-{{ forloop.index }}">
 
             <div class="sonu-therapy-stat-top">
-              <div class="sonu-therapy-number">
+              {%- assign counter_tag = section.settings.counter_style | default: 'h1' -%}
+              <div class="sonu-therapy-number typography-{{ counter_tag }}">
                 {% if block.settings.prefix != blank %}
                   <span class="sonu-therapy-prefix">
                     {{ block.settings.prefix }}
@@ -78,14 +81,16 @@
               </div>
 
               {% if block.settings.heading != blank %}
-                <h3 class="sonu-therapy-stat-heading">
+                {%- assign stat_head_tag = section.settings.stat_heading_style | default: 'h6' -%}
+                <{{ stat_head_tag }} class="sonu-therapy-stat-heading typography-{{ stat_head_tag }}">
                   {% render 'heading-br', heading: block.settings.heading %}
-                </h3>
+                </{{ stat_head_tag }}>
               {% endif %}
             </div>
 
             {% if block.settings.text != blank %}
-              <div class="sonu-therapy-stat-text">
+              {%- assign stat_text_tag = section.settings.stat_text_style | default: 'p' -%}
+              <div class="sonu-therapy-stat-text typography-{{ stat_text_tag }}">
                 {{ block.settings.text }}
               </div>
             {% endif %}
@@ -188,38 +193,27 @@
   align-items:baseline;
   color:#3D1B03;
   line-height:1;
-  font-family:var(--sonu-font-primary);
 }
 
 .sonu-therapy-counter{
-  font-size:54px;
-  letter-spacing:-2px;
-  font-weight:200;
+  font-weight: inherit;
 }
 
 .sonu-therapy-prefix,
 .sonu-therapy-postfix{
-  font-size:32px;
-  line-height:1;
+  font-size: 0.6em;
+  line-height: 1;
 }
 
 /* HEADING */
 .sonu-therapy-stat-heading{
   margin:0;
-  font-family: var(--sonu-font-primary);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
   color: #3D1B03;
-  line-height: 1.2;
 }
 
 /* TEXT */
 .sonu-therapy-stat-text{
-  font-size:14px;
-  line-height:1.5;
   color:rgba(30, 30, 30, 0.8);
-  font-family:'Instrument Sans', sans-serif;
   margin: 0;
   text-align: left;
 }
@@ -232,26 +226,18 @@
 /* MAIN HEADING */
 .sonu-therapy-heading{
   color:#3D1B03;
-  font-size:52px;
-  line-height:1.1;
-  letter-spacing:-1.5px;
-  font-weight:400;
   margin-bottom:32px;
-  font-family:'Instrument Sans', sans-serif;
 }
 
 /* HIGHLIGHT */
 .sonu-therapy-highlight{
-  font-family:'pp-editorial', serif;
+  font-family: var(--font-highlight--family, 'pp-editorial', serif);
   font-style:italic;
 }
 
 /* DESCRIPTION */
 .sonu-therapy-description{
-  font-size:16px;
-  line-height:1.6;
   color:rgba(30, 30, 30, 0.85);
-  font-family:'Instrument Sans', sans-serif;
 }
 
 .sonu-therapy-description p {
@@ -328,8 +314,6 @@
   }
 
   .sonu-therapy-heading {
-    font-size: 28px !important;
-    line-height: 1.2 !important;
     margin-bottom: 16px;
     max-width: 100%;
     margin-left: auto;
@@ -337,14 +321,11 @@
   }
 
   .sonu-therapy-description {
-    font-size: 14px !important;
-    line-height: 1.5 !important;
     text-align: left;
     max-width: 100%;
   }
 
   .sonu-therapy-description p strong {
-    font-size: 16px;
     text-align: center;
   }
 
@@ -369,24 +350,6 @@
   .sonu-therapy-stat {
     padding: 20px 24px;
     border-radius: 12px;
-  }
-
-  .sonu-therapy-counter {
-    font-size: 40px;
-  }
-
-  .sonu-therapy-prefix,
-  .sonu-therapy-postfix {
-    font-size: 24px;
-  }
-
-  .sonu-therapy-stat-heading {
-    font-size: 16px;
-  }
-
-  .sonu-therapy-stat-text {
-    font-size: 13px;
-    line-height: 1.4;
   }
 }
 
@@ -464,6 +427,81 @@ document.addEventListener("DOMContentLoaded", function () {
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "counter_style",
+      "label": "Counter Stats Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "stat_heading_style",
+      "label": "Stat Card Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "stat_text_style",
+      "label": "Stat Card Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
 
   ],

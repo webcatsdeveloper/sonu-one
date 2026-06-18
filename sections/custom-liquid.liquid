@@ -1,10 +1,5 @@
 <style>
 
-  /* =========================
-   FONT IMPORT
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap');
-
 /* =========================
    COMPARISON SECTION
 ========================= */
@@ -36,11 +31,11 @@
 ========================= */
 
 .comparison-label{
-  font-family:'Instrument Sans',sans-serif;
+  font-family: var(--font-heading--family);
   font-style:normal;
-  font-weight:600;
-  font-size:14px;
-  line-height:17px;
+  font-weight: var(--font-h6--weight);
+  font-size: var(--font-size--h6);
+  line-height: var(--font-h6--line-height);
   color:#3D1B03;
   margin:0;
 }
@@ -68,11 +63,11 @@
 ========================= */
 
 .comparison-column-title{
-  font-family:'Instrument Sans',sans-serif;
+  font-family: var(--font-heading--family);
   font-style:normal;
-  font-weight:600;
-  font-size:14px;
-  line-height:17px;
+  font-weight: var(--font-h6--weight);
+  font-size: var(--font-size--h6);
+  line-height: var(--font-h6--line-height);
   color:#3D1B03;
   text-align:center;
 }
@@ -105,11 +100,11 @@
 ========================= */
 
 .comparison-value{
-  font-family:'Instrument Sans',sans-serif;
+  font-family: var(--font-body--family);
   font-style:normal;
-  font-weight:400;
-  font-size:12px;
-  line-height:18px;
+  font-weight: var(--font-body--weight);
+  font-size: calc(var(--font-size--paragraph) * 0.85);
+  line-height: var(--font-paragraph--line-height);
   text-align:center;
   color:#1E1E1E;
 }
@@ -150,21 +145,21 @@
 }
 
 .science-heading{
-  font-family:'Instrument Sans',sans-serif;
+  font-family: var(--font-heading--family);
   font-style:normal;
-  font-weight:400;
-  font-size:32px;
-  line-height:39px;
+  font-weight: var(--font-h3--weight);
+  font-size: var(--font-size--h3);
+  line-height: var(--font-h3--line-height);
   color:#3D1B03;
   margin:0 0 24px;
 }
 
 .science-description{
-  font-family:'Instrument Sans',sans-serif;
+  font-family: var(--font-body--family);
   font-style:normal;
-  font-weight:400;
-  font-size:14px;
-  line-height:22px;
+  font-weight: var(--font-body--weight);
+  font-size: var(--font-size--paragraph);
+  line-height: var(--font-paragraph--line-height);
   color:#1E1E1E;
   margin:0;
 }
@@ -174,89 +169,61 @@
 ========================= */
 
 @media (max-width:768px){
-
-  .comparison-label{
-    font-size:14px;
-    line-height:17px;
-  }
-
-  .comparison-column-title{
-    font-size:14px;
-    line-height:17px;
-  }
-
-  .comparison-value{
-    font-size:12px;
-    line-height:18px;
-  }
-
-  .science-heading{
-    font-size:32px;
-    line-height:39px;
-    font-weight:400;
-  }
-
-  .science-description{
-    font-size:14px;
-    line-height:22px;
-  }
-
+  /* Responsive CSS variables handle these sizes */
 }
-
-
 
 /* FORCE FIGMA TYPOGRAPHY */
 
 .sleep-layout,
 .sleep-layout *{
-  font-family: 'Instrument Sans', sans-serif !important;
+  font-family: var(--font-body--family) !important;
 }
 
 /* Backed by Science. Trusted by Doctors. */
 .publication-title{
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 32px !important;
-  line-height: 39px !important;
+  font-family: var(--font-heading--family) !important;
+  font-weight: var(--font-h3--weight) !important;
+  font-size: var(--font-size--h3) !important;
+  line-height: var(--font-h3--line-height) !important;
   color: #3D1B03 !important;
-  letter-spacing: 0 !important;
+  letter-spacing: var(--font-h3--letter-spacing) !important;
 }
 
 /* Description */
 .publication-text{
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 14px !important;
-  line-height: 22px !important;
+  font-family: var(--font-body--family) !important;
+  font-weight: var(--font-body--weight) !important;
+  font-size: var(--font-size--paragraph) !important;
+  line-height: var(--font-paragraph--line-height) !important;
   color: #1E1E1E !important;
 }
 
 /* Clinically Proven, Side Effects, etc */
 .feature-label h3{
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  line-height: 17px !important;
+  font-family: var(--font-heading--family) !important;
+  font-weight: var(--font-h6--weight) !important;
+  font-size: var(--font-size--h6) !important;
+  line-height: var(--font-h6--line-height) !important;
   color: #3D1B03 !important;
 }
 
 /* SONU Band & Intranasal Steroids */
 .featured-header h2,
 .compare-header h2{
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  line-height: 17px !important;
+  font-family: var(--font-heading--family) !important;
+  font-weight: var(--font-h6--weight) !important;
+  font-size: var(--font-size--h6) !important;
+  line-height: var(--font-h6--line-height) !important;
   color: #3D1B03 !important;
 }
 
 /* Minutes / Days */
 .featured-text,
 .compare-text{
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 12px !important;
-  line-height: 18px !important;
+  font-family: var(--font-body--family) !important;
+  font-weight: var(--font-body--weight) !important;
+  font-size: calc(var(--font-size--paragraph) * 0.85) !important;
+  line-height: var(--font-paragraph--line-height) !important;
   color: #1E1E1E !important;
 }
 </style>

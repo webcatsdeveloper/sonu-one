@@ -137,6 +137,66 @@
       "type": "image_picker",
       "id": "badge_3_icon",
       "label": "Badge 3 Icon (SVG)"
+    },
+    {
+      "type": "select",
+      "id": "top_text_style",
+      "label": "Top Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "presets": [
@@ -194,9 +254,10 @@
         {% endif %}
 
         {% if section.settings.top_text != blank %}
-          <p class="sonu-top-text">
+          {%- assign top_tag = section.settings.top_text_style | default: 'h6' -%}
+          <{{ top_tag }} class="sonu-top-text typography-{{ top_tag }}">
             {{ section.settings.top_text }}
-          </p>
+          </{{ top_tag }}>
         {% endif %}
 
         {% if section.settings.heading != blank %}
@@ -207,23 +268,26 @@
           {% capture sonu_heading_with_br %}
             {% render 'heading-br', heading: sonu_heading %}
           {% endcapture %}
-          <h1 class="sonu-heading">
+          {%- assign head_tag = section.settings.heading_style | default: 'h1' -%}
+          <{{ head_tag }} class="sonu-heading typography-{{ head_tag }}">
             {{ sonu_heading_with_br | newline_to_br }}
-          </h1>
+          </{{ head_tag }}>
         {% endif %}
 
         {% if section.settings.subheading != blank %}
-          <div class="sonu-subheading">
+          {%- assign sub_tag = section.settings.subheading_style | default: 'h4' -%}
+          <{{ sub_tag }} class="sonu-subheading typography-{{ sub_tag }}">
             {{ section.settings.subheading | newline_to_br }}
-          </div>
+          </{{ sub_tag }}>
         {% endif %}
       </div>
 
       <div class="sonuh-bottom-content">
         {% if section.settings.description != blank %}
-          <div class="sonu-description">
+          {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+          <{{ desc_tag }} class="sonu-description typography-{{ desc_tag }}">
             {{ section.settings.description }}
-          </div>
+          </{{ desc_tag }}>
         {% endif %}
 
         <div class="sonuh-btn-wrap">
@@ -439,24 +503,16 @@
 }
 
 .sonu-top-text{
-  font-size:24px;
-  line-height:29px;
   color:#fff;
   margin-bottom:20px;
 }
 
 .sonu-heading{
-  font-family:'Instrument Sans',sans-serif;
-  font-weight:500;
-  font-size:85px;
-  line-height:104px;
   color:#fff;
   margin:0 0 24px;
 }
 
 .sonu-subheading{
-  font-size:22px;
-  line-height:32px;
   color:#fff;
   margin-bottom:40px;
 }
@@ -466,8 +522,6 @@
 }
 
 .sonu-description{
-  font-size:22px;
-  line-height:1.5;
   color:#fff;
   margin-bottom:40px;
   max-width:600px;
@@ -591,20 +645,12 @@
     display:none;
   }
 
-  .sonu-top-text{
-    display:none;
-  }
-
   .sonu-heading{
-    font-size:36px;
-    line-height:45px;
     text-align:center;
     margin-bottom:12px;
   }
 
   .sonu-subheading{
-    font-size:16px;
-    line-height:22px;
     text-align:center;
     margin-bottom:0;
   }
@@ -619,8 +665,6 @@
   }
 
   .sonu-description{
-    font-size:14px;
-    line-height:22px;
     text-align:center;
     max-width:300px;
     margin:0 auto 16px;

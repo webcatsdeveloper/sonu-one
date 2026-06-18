@@ -45,15 +45,17 @@
               | replace: ']]', '</span>'
               | newline_to_br
             %}
-            <h2 class="ste-main-title" style="color: {{ section.settings.heading_color | default: text_color }};">
+            {%- assign heading_tag = section.settings.heading_style | default: 'h2' -%}
+            <{{ heading_tag }} class="ste-main-title typography-{{ section.settings.heading_style | default: 'h2' }}" style="color: {{ section.settings.heading_color | default: text_color }};">
               {{ ste_formatted_heading }}
-            </h2>
+            </{{ heading_tag }}>
           {% endif %}
 
           {% if section.settings.description != blank %}
-            <div class="ste-body-description" style="color: {{ section.settings.description_color | default: text_color }};">
+            {%- assign desc_tag = section.settings.description_style | default: 'div' -%}
+            <{{ desc_tag }} class="ste-body-description typography-{{ section.settings.description_style | default: 'p' }}" style="color: {{ section.settings.description_color | default: text_color }};">
               {{ section.settings.description }}
-            </div>
+            </{{ desc_tag }}>
           {% endif %}
         </div>
 
@@ -73,7 +75,7 @@
             <div class="ste-metric-card ste-animate-blur ste-delay-{{ forloop.index }}" style="background: {{ block.settings.card_bg_color }}; border-color: {{ block.settings.card_border_color }};" {{ block.shopify_attributes }}>
               
               <div class="ste-metric-card-header">
-                <div class="ste-metric-num-display" style="color: {{ block.settings.number_color | default: text_color }};">
+                <div class="ste-metric-num-display typography-{{ section.settings.stat_number_style | default: 'h1' }}" style="color: {{ block.settings.number_color | default: text_color }};">
                   {% if block_prefix != blank %}
                     <span class="ste-metric-prefix" style="color: {{ block.settings.number_color | default: text_color }};">{{ block_prefix }}</span>
                   {% endif %}
@@ -97,16 +99,18 @@
                 </div>
 
                 {% if stat_lab != blank %}
-                  <h3 class="ste-metric-label" style="color: {{ block.settings.label_color | default: text_color }};">
+                  {%- assign stat_lab_tag = section.settings.stat_label_style | default: 'h3' -%}
+                  <{{ stat_lab_tag }} class="ste-metric-label typography-{{ section.settings.stat_label_style | default: 'h4' }}" style="color: {{ block.settings.label_color | default: text_color }};">
                     {{ stat_lab }}
-                  </h3>
+                  </{{ stat_lab_tag }}>
                 {% endif %}
               </div>
 
               {% if stat_desc != blank %}
-                <div class="ste-metric-caption" style="color: {{ block.settings.caption_color | default: text_color }};">
+                {%- assign stat_desc_tag = section.settings.stat_description_style | default: 'div' -%}
+                <{{ stat_desc_tag }} class="ste-metric-caption typography-{{ section.settings.stat_description_style | default: 'p' }}" style="color: {{ block.settings.caption_color | default: text_color }};">
                   {{ stat_desc }}
-                </div>
+                </{{ stat_desc_tag }}>
               {% endif %}
 
             </div>
@@ -129,7 +133,8 @@
             | replace: ']]', '</span>'
             | newline_to_br
           %}
-          <h2 class="custom-stats-section-heading" style="color: {{ text_color }};">{{ ste_formatted_heading }}</h2>
+          {%- assign heading_tag = section.settings.heading_style | default: 'h2' -%}
+          <{{ heading_tag }} class="custom-stats-section-heading typography-{{ section.settings.heading_style | default: 'h2' }}" style="color: {{ text_color }};">{{ ste_formatted_heading }}</{{ heading_tag }}>
         </div>
       {% endif %}
 
@@ -160,17 +165,17 @@
 
                 <div class="custom-stats-content">
                   {% if stat_num != blank %}
-                    <div class="custom-stats-number" style="color: {{ text_color }};">
+                    <div class="custom-stats-number typography-{{ section.settings.stat_number_style | default: 'h1' }}" style="color: {{ text_color }};">
                       {% if block_prefix != blank %}{{ block_prefix }}{% endif %}{{ stat_num }}{% if block_postfix != blank %}{{ block_postfix }}{% endif %}
                     </div>
                   {% endif %}
 
                   {% if stat_lab != blank %}
-                    <div class="custom-stats-label" style="color: {{ text_color }};">{{ stat_lab }}</div>
+                    <div class="custom-stats-label typography-{{ section.settings.stat_label_style | default: 'h4' }}" style="color: {{ text_color }};">{{ stat_lab }}</div>
                   {% endif %}
 
                   {% if stat_desc != blank %}
-                    <p class="custom-stats-desc" style="color: {{ text_color }};">{{ stat_desc }}</p>
+                    <p class="custom-stats-desc typography-{{ section.settings.stat_description_style | default: 'p' }}" style="color: {{ text_color }};">{{ stat_desc }}</p>
                   {% endif %}
                 </div>
 
@@ -203,23 +208,6 @@
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
-
-@font-face {
-  font-family: 'pp-editorial';
-  src: url('{{ "PPEditorialNew-Regular.otf" | asset_url }}') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PP Editorial New';
-  src: url('{{ "PPEditorialNew-Regular.otf" | asset_url }}') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ==========================================================================
    DESKTOP GLOBAL & LAYOUT SYSTEM
@@ -270,27 +258,17 @@
 }
 
 .ste-main-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 52px;
-  line-height: 1.1;
   margin: 0 0 32px 0;
   letter-spacing: -1.5px;
   text-align: left;
 }
 
 .ste-serif-highlight {
-  font-family: 'pp-editorial', 'PP Editorial New', serif !important;
+  font-family: var(--font-highlight--family) !important;
   font-style: italic;
 }
 
 .ste-body-description {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
   color: rgba(30, 30, 30, 0.85);
 }
 
@@ -304,10 +282,9 @@
 
 .ste-body-description p strong {
   display: block;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #1E1E1E;
-  {% comment %} margin-bottom: 8px; {% endcomment %}
 }
 
 /* ==========================================================================
@@ -374,36 +351,16 @@
 
 .ste-metric-num-display,
 .ste-metric-num-display * {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
   font-style: normal;
-  font-weight: 200;
-  font-size: 54px;
   line-height: 1;
 }
 
-.ste-metric-counter,
-.ste-metric-prefix,
-.ste-metric-postfix {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
-  font-weight: 200;
-}
-
 .ste-metric-label {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.2;
   margin: 0;
   color: #3D1B03 !important;
 }
 
 .ste-metric-caption {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
   color: rgba(30, 30, 30, 0.8) !important;
   text-align: left;
 }
@@ -438,7 +395,6 @@
   .ste-page-container { padding: 0 40px; }
   .ste-layout-grid { grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; }
   .ste-main-editorial-content { grid-column: span 2; }
-  .ste-main-title { font-size: 46px; }
 }
 
 /* ==========================================================================
@@ -646,9 +602,84 @@
       "default": "Acoustic Resonance Therapy"
     },
     {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "stat_number_style",
+      "label": "Stat Number Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "stat_label_style",
+      "label": "Stat Label Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "stat_description_style",
+      "label": "Stat Description Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

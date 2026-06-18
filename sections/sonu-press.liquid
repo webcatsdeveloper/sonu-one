@@ -116,10 +116,6 @@
     -webkit-backdrop-filter: blur(15px);
     border-radius: 100px;
     padding: 8px 18px;
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 14px;
     color: #FFFFFF;
     box-sizing: border-box;
   }
@@ -136,11 +132,6 @@
   }
 
   .press-title-text {
-    font-family: 'Instrument Sans', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 1.25;
     color: #FFFFFF;
     margin: 0;
     max-width: 100%;
@@ -208,7 +199,6 @@
       top: 22px !important;
       left: 18px !important;
       padding: 6px 14px !important;
-      font-size: 11px !important;
     }
 
     .press-content {
@@ -217,14 +207,11 @@
     }
 
     .press-title-text {
-      font-size: 24px !important;
-      line-height: 1.25 !important;
       max-width: 280px !important;
     }
 
     .press-btn {
       background: #1E1E1E !important;
-      font-size: 11px !important;
       padding: 10px 20px !important;
     }
 
@@ -288,10 +275,7 @@
   }
 
   .press-item-content p {
-    font-size: 16px;
-    line-height: 1.4;
     color: #001755;
-    font-weight: 500;
     max-width: 85%;
     margin: 0;
   }
@@ -377,8 +361,6 @@
     }
 
     .press-right.mobile-press-slider .press-item-content p {
-      font-size: 14px !important;
-      line-height: 1.4 !important;
       max-width: 90% !important;
     }
 
@@ -450,19 +432,13 @@
 
   .advisor-heading-text {
     color: #fff;
-    font-size: 64px;
-    line-height: 1.1;
-    font-weight: 500;
     margin: 0;
     max-width: 600px;
-    font-family: var(--sonu-font-primary);
   }
 
   .advisor-description {
     color: #fff;
     max-width: 520px;
-    font-size: 18px;
-    line-height: 1.6;
     opacity: 0.92;
   }
 
@@ -540,18 +516,17 @@
     box-sizing: border-box;
   }
 
-  .advisor-info h4 {
-    margin: 0 0 6px;
-    font-size: 20px;
-    font-weight: 500;
+  .advisor-info h1, .advisor-info h2, .advisor-info h3, .advisor-info h4, .advisor-info h5, .advisor-info h6, .advisor-info p {
+    margin: 0;
     color: #FFFFFF;
+  }
+  
+  .advisor-info h1, .advisor-info h2, .advisor-info h3, .advisor-info h4, .advisor-info h5, .advisor-info h6 {
+    margin-bottom: 6px;
   }
 
   .advisor-info p {
-    margin: 0;
-    font-size: 14px;
     opacity: 0.85;
-    line-height: 1.3;
   }
 
   @media screen and (max-width: 768px) {
@@ -567,13 +542,10 @@
     }
 
     .advisor-heading-text {
-      font-size: 36px !important;
-      line-height: 1.2 !important;
+      max-width: 100% !important;
     }
 
     .advisor-description {
-      font-size: 15px !important;
-      line-height: 1.5 !important;
       max-width: 100% !important;
     }
 
@@ -629,14 +601,15 @@
           </div>
 
           {% if section.settings.badge != blank %}
-            <div class="press-badge">
+            {%- assign badge_tag = section.settings.badge_style | default: 'p' -%}
+            <{{ badge_tag }} class="press-badge typography-{{ badge_tag }}">
               {{ section.settings.badge }}
-            </div>
+            </{{ badge_tag }}>
           {% endif %}
 
           <div class="press-content sonu-blur-in">
             {%- assign title_tag = section.settings.title_tag | default: 'h3' -%}
-            <{{ title_tag }} class="press-title-text">
+            <{{ title_tag }} class="press-title-text typography-{{ title_tag }}">
               {{ section.settings.title }}
             </{{ title_tag }}>
 
@@ -688,7 +661,8 @@
                   </strong>
                 {% endif %}
 
-                <p>{{ block.settings.text }}</p>
+                {%- assign item_text_tag = section.settings.right_text_style | default: 'p' -%}
+                <{{ item_text_tag }} class="typography-{{ item_text_tag }}">{{ block.settings.text }}</{{ item_text_tag }}>
               </div>
 
               {% if is_link %}
@@ -739,12 +713,13 @@
         <div class="advisor-top">
           <div class="advisor-heading sonu-blur-in">
             {%- assign advisor_tag = section.settings.advisor_heading_tag | default: 'h2' -%}
-            <{{ advisor_tag }} class="advisor-heading-text">
+            <{{ advisor_tag }} class="advisor-heading-text typography-{{ advisor_tag }}">
               {{ section.settings.advisor_heading }}
             </{{ advisor_tag }}>
           </div>
 
-          <div class="advisor-description sonu-blur-in">
+          {%- assign advisor_desc_tag = section.settings.advisor_desc_style | default: 'p' -%}
+          <div class="advisor-description typography-{{ advisor_desc_tag }} sonu-blur-in">
             {{ section.settings.advisor_description }}
           </div>
         </div>
@@ -768,8 +743,10 @@
                   <div class="advisor-plus">+</div>
 
                   <div class="advisor-info">
-                    <h4>{{ block.settings.name }}</h4>
-                    <p>{{ block.settings.designation }}</p>
+                    {%- assign adv_name_tag = section.settings.advisor_name_style | default: 'h6' -%}
+                    {%- assign adv_title_tag = section.settings.advisor_title_style | default: 'p' -%}
+                    <{{ adv_name_tag }} class="typography-{{ adv_name_tag }}">{{ block.settings.name }}</{{ adv_name_tag }}>
+                    <{{ adv_title_tag }} class="typography-{{ adv_title_tag }}">{{ block.settings.designation }}</{{ adv_title_tag }}>
                   </div>
                 </div>
               {% endif %}
@@ -985,6 +962,81 @@
       "type": "textarea",
       "id": "advisor_description",
       "label": "Advisor Description"
+    },
+    {
+      "type": "select",
+      "id": "badge_style",
+      "label": "Left Badge Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "right_text_style",
+      "label": "Right Press Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "advisor_desc_style",
+      "label": "Advisor Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "advisor_name_style",
+      "label": "Advisor Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "advisor_title_style",
+      "label": "Advisor Designation Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

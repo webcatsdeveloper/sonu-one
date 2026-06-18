@@ -191,16 +191,10 @@
       }
 
       #shopify-section-{{ section.id }} .custom-card-slide__title {
-        font-size: 32px !important;
-        line-height: 1.2 !important;
-        font-weight: 400 !important;
         margin-bottom: 16px !important;
-        letter-spacing: -0.5px !important;
       }
 
       #shopify-section-{{ section.id }} .custom-card-slide__desc {
-        font-size: 15px !important;
-        line-height: 1.5 !important;
         margin-bottom: 28px !important;
         color: rgba(255, 255, 255, 0.8) !important;
       }
@@ -299,10 +293,12 @@
     {% if section.settings.heading != blank or section.settings.subheading != blank %}
       <div class="custom-card-slider-header">
         {% if section.settings.subheading != blank %}
-          <span class="custom-card-slider-subheading">{{ section.settings.subheading }}</span>
+          {%- assign sub_style = section.settings.subheading_style | default: 'h6' -%}
+          <span class="custom-card-slider-subheading typography-{{ sub_style }}">{{ section.settings.subheading }}</span>
         {% endif %}
         {% if section.settings.heading != blank %}
-          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-card-slider-heading {{ section.settings.heading_tag | default: 'h2' }}">{{ section.settings.heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
+          {%- assign head_style = section.settings.heading_style | default: 'h2' -%}
+          <{{ head_style }} class="custom-card-slider-heading typography-{{ head_style }}">{{ section.settings.heading }}</{{ head_style }}>
         {% endif %}
       </div>
     {% endif %}
@@ -336,11 +332,13 @@
               <!-- Slide Contents -->
               <div class="custom-card-slide__content">
                 {% if block.settings.title != blank %}
-                  <h3 class="custom-card-slide__title h3">{{ block.settings.title }}</h3>
+                  {%- assign title_style = section.settings.card_title_style | default: 'h3' -%}
+                  <{{ title_style }} class="custom-card-slide__title typography-{{ title_style }}">{{ block.settings.title }}</{{ title_style }}>
                 {% endif %}
                 
                 {% if block.settings.description != blank %}
-                  <p class="custom-card-slide__desc rte">{{ block.settings.description }}</p>
+                  {%- assign desc_style = section.settings.card_desc_style | default: 'p' -%}
+                  <div class="custom-card-slide__desc rte typography-{{ desc_style }}">{{ block.settings.description }}</div>
                 {% endif %}
 
                 {% if block.settings.bottom_badge != blank %}
@@ -355,7 +353,7 @@
         {% endfor %}
       </div>
     </div>
-
+    
     <!-- Navigation & Progress Controls at Bottom -->
     <div class="custom-card-controls-row">
       <div class="custom-card-progressbar-wrapper">
@@ -392,8 +390,8 @@
     },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading type",
+      "id": "heading_style",
+      "label": "Heading Style",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -404,6 +402,51 @@
         { "value": "p", "label": "Paragraph" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "card_title_style",
+      "label": "Card Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "card_desc_style",
+      "label": "Card Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "p"
     },
     {
       "type": "text",

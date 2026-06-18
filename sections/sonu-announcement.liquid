@@ -3,7 +3,7 @@
 %}
 
 <div id="announcement-bar-{{ section.id }}" class="custom-announcement-bar">
-  <div class="custom-announcement-bar__inner">
+  <div class="custom-announcement-bar__inner typography-{{ section.settings.text_style | default: 'p' }}">
     {{ announcement_text }}
   </div>
 </div>
@@ -28,25 +28,14 @@
   justify-content: center;
 
   padding: 10px 20px!important;
-
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
   text-align: center;
-
   color: #001755;
-  letter-spacing: 0;
 }
 
 @media screen and (max-width: 768px) {
   #announcement-bar-{{ section.id }} .custom-announcement-bar__inner {
     min-height: 40px;
     padding: 8px 16px!important;
-
-    font-size: 12px;
-    line-height: 15px;
   }
 }
 </style>
@@ -62,6 +51,21 @@
       "id": "announcement_text",
       "label": "Announcement Text",
       "default": "SONU is one of TIME's 2025 Best Inventions"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "presets": [

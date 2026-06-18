@@ -33,9 +33,10 @@
             | replace: ']]', '</span>'
             | newline_to_br
           %}
-          <h2 class="specs-main-title animate-blur-spec delay-spec-1">
+          {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+          <{{ head_tag }} class="specs-main-title typography-{{ head_tag }} animate-blur-spec delay-spec-1">
             {{ formatted_heading }}
-          </h2>
+          </{{ head_tag }}>
         {% endif %}
 
         <div class="specs-features-grid">
@@ -57,12 +58,14 @@
                   </div>
                 {% endif %}
 
-                <h3 class="specs-item-title">
+                {%- assign item_head_tag = section.settings.item_heading_style | default: 'h4' -%}
+                <{{ item_head_tag }} class="specs-item-title typography-{{ item_head_tag }}">
                   {{ block.settings.heading }}
-                </h3>
+                </{{ item_head_tag }}>
               </div>
 
-              <div class="specs-item-body">
+              {%- assign item_text_tag = section.settings.item_text_style | default: 'p' -%}
+              <div class="specs-item-body typography-{{ item_text_tag }}">
                 {{ block.settings.text }}
               </div>
 
@@ -75,7 +78,8 @@
     </div>
 
     {% if section.settings.note_text != blank %}
-      <div class="specs-bottom-note">
+      {%- assign note_tag = section.settings.note_text_style | default: 'p' -%}
+      <div class="specs-bottom-note typography-{{ note_tag }}">
         {{ section.settings.note_text }}
       </div>
     {% endif %}
@@ -144,15 +148,11 @@
 }
 
 .specs-main-title {
-  font-size: 56px;
-  line-height: 1.08;
-  letter-spacing: -2px;
-  font-weight: 400;
   margin-bottom: 50px;
 }
 
 .specs-main-title .specs-highlight {
-  font-family: "Times New Roman", serif;
+  font-family: var(--font-highlight--family, "Times New Roman", serif);
   font-style: italic;
 }
 
@@ -198,15 +198,10 @@
 }
 
 .specs-item-title {
-  font-size: 26px;
-  line-height: 1.3;
-  font-weight: 400;
   margin: 0;
 }
 
 .specs-item-body {
-  font-size: 18px;
-  line-height: 1.8;
   opacity: .88;
 }
 
@@ -223,8 +218,6 @@
   grid-column: 1;
   margin-top: 24px;
   color: #fff;
-  font-size: 14px;
-  line-height: 1.7;
   opacity: .85;
   max-width: 520px;
 }
@@ -292,9 +285,6 @@
   }
 
   .specs-main-title {
-    font-size: 36px;
-    text-align: center;
-    letter-spacing: -1px;
     margin-bottom: 36px;
   }
 
@@ -303,20 +293,10 @@
     gap: 32px;
   }
 
-  .specs-item-title {
-    font-size: 18px;
-  }
-
-  .specs-item-body {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
   .specs-bottom-note {
     grid-column: 1 / -1;
     margin-top: 40px !important;
     text-align: left;
-    font-size: 12px;
     max-width: 100%;
   }
 }
@@ -408,6 +388,66 @@
       "default": 50,
       "unit": "px",
       "label": "Bottom Radius (Mobile)"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "item_heading_style",
+      "label": "Feature Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "item_text_style",
+      "label": "Feature Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "note_text_style",
+      "label": "Bottom Note Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

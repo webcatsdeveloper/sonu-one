@@ -38,11 +38,11 @@
     color: {{ section.settings.desktop_review_text_color }} !important;
   }
   
-  #shopify-section-{{ section.id }} .v2-review-author h5 {
+  #shopify-section-{{ section.id }} .v2-review-author-name {
     color: {{ section.settings.desktop_author_name_color }} !important;
   }
   
-  #shopify-section-{{ section.id }} .v2-review-author span {
+  #shopify-section-{{ section.id }} .v2-review-author-role {
     color: {{ section.settings.desktop_author_role_color }} !important;
   }
   
@@ -110,10 +110,11 @@
 <section class="v2-testimonial-video-section {% if section.settings.full_width %}v2-full-width{% else %}v2-contained{% endif %}">
   <div class="v2-page-width">
     {%- capture heading_style -%}color: {{ section.settings.heading_color }};{%- endcapture -%}
-    {%- assign heading_class_with_tag = 'v2-section-title ' | append: section.settings.heading_tag | default: 'h2' -%}
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    {%- assign heading_class_with_tag = 'v2-section-title typography-' | append: head_tag -%}
     {% render 'sonu-section-header',
       heading: section.settings.heading,
-      heading_tag: section.settings.heading_tag,
+      heading_tag: head_tag,
       heading_class: heading_class_with_tag,
       heading_style: heading_style,
       text_align: 'center',
@@ -134,12 +135,15 @@
                       {% assign role_key = 'role_' | append: i %}
                       {% if block.settings[review_key] != blank %}
                         <div class="v2-review-card v2-review-card-{{ i }}">
-                          <div class="v2-review-text rte">
+                          {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
+                          <div class="v2-review-text rte typography-{{ text_tag }}">
                             {{ block.settings[review_key] }}
                           </div>
                           <div class="v2-review-author">
-                            <h5>{{ block.settings[name_key] }}</h5>
-                            <span>{{ block.settings[role_key] }}</span>
+                            {%- assign author_name_tag = section.settings.author_name_style | default: 'h5' -%}
+                            <{{ author_name_tag }} class="v2-review-author-name typography-{{ author_name_tag }}">{{ block.settings[name_key] }}</{{ author_name_tag }}>
+                            {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
+                            <span class="v2-review-author-role typography-{{ author_role_tag }}">{{ block.settings[role_key] }}</span>
                           </div>
                           <div class="v2-desktop-rating-stars-row">
                             {%- for j in (1..5) -%}
@@ -224,15 +228,18 @@
 
                   <div class="v2-mobile-content-panel">
                     <div class="v2-mobile-review-card">
-                      <div class="v2-mobile-review-quote rte">
+                      {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
+                      <div class="v2-mobile-review-quote rte typography-{{ text_tag }}">
                         “{{ block.settings[review_key] | replace: '"', '' | replace: '“', '' | replace: '”', '' }}”
                       </div>
 
-                      <h4 class="v2-mobile-author-name h4">
+                      {%- assign author_name_tag = section.settings.author_name_style | default: 'h4' -%}
+                      <{{ author_name_tag }} class="v2-mobile-author-name typography-{{ author_name_tag }}">
                         {{ block.settings[name_key] | escape }}
-                      </h4>
+                      </{{ author_name_tag }}>
 
-                      <div class="v2-mobile-author-role">
+                      {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
+                      <div class="v2-mobile-author-role typography-{{ author_role_tag }}">
                         {{ block.settings[role_key] | escape }}
                       </div>
 
@@ -298,8 +305,8 @@
     },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading type",
+      "id": "heading_style",
+      "label": "Heading Style",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -310,6 +317,51 @@
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "review_text_style",
+      "label": "Review Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "author_name_style",
+      "label": "Author Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h5"
+    },
+    {
+      "type": "select",
+      "id": "author_role_style",
+      "label": "Author Role Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

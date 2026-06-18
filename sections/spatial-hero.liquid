@@ -68,6 +68,66 @@
       "id": "button_text_color",
       "label": "Button Text Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "top_text_style",
+      "label": "Top Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "presets": [
@@ -119,9 +179,10 @@
         {% endif %}
 
         {% if section.settings.top_text != blank %}
-          <p class="sbh-kicker-text">
+          {%- assign top_tag = section.settings.top_text_style | default: 'h6' -%}
+          <{{ top_tag }} class="sbh-kicker-text typography-{{ top_tag }}">
             {{ section.settings.top_text }}
-          </p>
+          </{{ top_tag }}>
         {% endif %}
 
         {% if section.settings.heading != blank %}
@@ -133,21 +194,24 @@
             | replace: ']]', '</span>'
             | newline_to_br
           %}
-          <h1 class="sbh-main-title">
+          {%- assign head_tag = section.settings.heading_style | default: 'h1' -%}
+          <{{ head_tag }} class="sbh-main-title typography-{{ head_tag }}">
             {{ sbh_heading }}
-          </h1>
+          </{{ head_tag }}>
         {% endif %}
 
         {% if section.settings.subheading != blank %}
-          <div class="sbh-sub-title">
+          {%- assign sub_tag = section.settings.subheading_style | default: 'h4' -%}
+          <{{ sub_tag }} class="sbh-sub-title typography-{{ sub_tag }}">
             {{ section.settings.subheading | newline_to_br }}
-          </div>
+          </{{ sub_tag }}>
         {% endif %}
 
         {% if section.settings.description != blank %}
-          <div class="sbh-body-desc">
+          {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+          <{{ desc_tag }} class="sbh-body-desc typography-{{ desc_tag }}">
             {{ section.settings.description }}
-          </div>
+          </{{ desc_tag }}>
         {% endif %}
       </div>
 
@@ -263,31 +327,21 @@
 }
 
 .sbh-kicker-text {
-  font-size: 24px;
-  line-height: 29px;
   color: #fff;
   margin-bottom: 20px;
 }
 
 .sbh-main-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 85px;
-  line-height: 104px;
   color: #fff;
   margin: 0 0 24px;
 }
 
 .sbh-sub-title {
-  font-size: 22px;
-  line-height: 32px;
   color: #fff;
   margin-bottom: 40px;
 }
 
 .sbh-body-desc {
-  font-size: 22px;
-  line-height: 1.5;
   color: #fff;
   margin-bottom: 40px;
   max-width: 600px;
@@ -385,10 +439,6 @@
 
   /* Fall Asleep Faster Stay Asleep Longer Header */
   .sbh-main-title {
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 44px;
     text-align: center;
     color: #FFFFFF;
     margin: 110px 0 0 0; /* Matches top: 150px baseline safely */
@@ -398,10 +448,6 @@
 
   /* without pills or guesswork. Subtitle */
   .sbh-sub-title {
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
     text-align: center;
     color: #FFFFFF;
     margin: 12px 0 0 0; /* Simulates top: 255px relational drop */
@@ -411,10 +457,6 @@
 
   /* Spatial Sleep Descriptive Body Text */
   .sbh-body-desc {
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
     text-align: center;
     color: #FFFFFF;
     margin: 28px 0 0 0; /* Simulates top: 303px drop without rigid breaks */

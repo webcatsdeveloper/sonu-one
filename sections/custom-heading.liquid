@@ -7,19 +7,10 @@
 
     .custom-heading-{{ section.id }} {
       font-family: {{ section.settings.font_family }};
-      font-size: {{ section.settings.font_size }}px;
-      font-weight: {{ section.settings.font_weight }};
       color: {{ section.settings.text_color }};
       text-align: {{ section.settings.text_align }};
-      text-transform: {{ section.settings.text_transform }};
       margin: 0;
       width: 100%;
-    }
-
-    @media screen and (max-width: 749px) {
-      .custom-heading-{{ section.id }} {
-        font-size: {{ section.settings.font_size_mobile }}px;
-      }
     }
 
     {% if section.settings.hide_desktop %}
@@ -40,9 +31,10 @@
   </style>
 
   <div class="page-width">
-    <h2 class="custom-heading-{{ section.id }}">
+    {%- assign tag = section.settings.heading_style | default: 'h2' -%}
+    <{{ tag }} class="custom-heading-{{ section.id }} typography-{{ section.settings.heading_style | default: 'h2' }}">
       {% render 'heading-br', heading: section.settings.heading %}
-    </h2>
+    </{{ tag }}>
   </div>
 </section>
 
@@ -55,6 +47,21 @@
       "id": "heading",
       "label": "Heading Text",
       "default": "Your Heading Here"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
     },
     {
       "type": "select",
@@ -81,40 +88,6 @@
       "default": "var(--font-heading--family)"
     },
     {
-      "type": "range",
-      "id": "font_size",
-      "label": "Desktop Font Size",
-      "min": 12,
-      "max": 100,
-      "step": 1,
-      "default": 42,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "font_size_mobile",
-      "label": "Mobile Font Size",
-      "min": 12,
-      "max": 60,
-      "step": 1,
-      "default": 28,
-      "unit": "px"
-    },
-    {
-      "type": "select",
-      "id": "font_weight",
-      "label": "Font Weight",
-      "options": [
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semi Bold" },
-        { "value": "700", "label": "Bold" },
-        { "value": "800", "label": "Extra Bold" }
-      ],
-      "default": "700"
-    },
-    {
       "type": "color",
       "id": "text_color",
       "label": "Text Color",
@@ -139,30 +112,6 @@
         }
       ],
       "default": "center"
-    },
-    {
-      "type": "select",
-      "id": "text_transform",
-      "label": "Text Transform",
-      "options": [
-        {
-          "value": "none",
-          "label": "Normal"
-        },
-        {
-          "value": "uppercase",
-          "label": "UPPERCASE"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        }
-      ],
-      "default": "none"
     },
     {
       "type": "checkbox",

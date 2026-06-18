@@ -135,23 +135,17 @@
   z-index: 2;
 }
 
-.hc-tm-img-content h4 {
-  margin: 0 0 6px 0;
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+.hc-tm-img-content h1, .hc-tm-img-content h2, .hc-tm-img-content h3, .hc-tm-img-content h4, .hc-tm-img-content h5, .hc-tm-img-content h6, .hc-tm-img-content p {
+  margin: 0;
   color: #FFFFFF;
 }
 
+.hc-tm-img-content h1, .hc-tm-img-content h2, .hc-tm-img-content h3, .hc-tm-img-content h4, .hc-tm-img-content h5, .hc-tm-img-content h6 {
+  margin-bottom: 6px;
+}
+
 .hc-tm-img-content p {
-  margin: 0;
   max-width: 211px;
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
-  color: #FFFFFF;
 }
 
 /* OUTSIDE CARD DESCRIPTION */
@@ -159,10 +153,6 @@
   margin-top: 18px;
   margin-bottom: 0;
   width: 100%;
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
   color: #000000;
 }
 
@@ -273,8 +263,6 @@
   }
 
   .hc-tm-desc {
-    font-size: 14px;
-    line-height: 22px;
     margin-top: 18px;
   }
 
@@ -378,8 +366,10 @@
           <div class="hc-tm-overlay"></div>
 
           <div class="hc-tm-img-content">
-            <h4>{{ block.settings.name | escape }}</h4>
-            <p>{{ block.settings.role | escape }}</p>
+            {%- assign name_tag = section.settings.name_style | default: 'h6' -%}
+            {%- assign role_tag = section.settings.role_style | default: 'p' -%}
+            <{{ name_tag }} class="typography-{{ name_tag }}">{{ block.settings.name | escape }}</{{ name_tag }}>
+            <{{ role_tag }} class="typography-{{ role_tag }}">{{ block.settings.role | escape }}</{{ role_tag }}>
           </div>
 
           <div class="hc-tm-card-arrow">
@@ -389,7 +379,8 @@
           </div>
         </div>
 
-        <p class="hc-tm-desc">{{ trimmed }}...</p>
+        {%- assign desc_tag = section.settings.desc_style | default: 'p' -%}
+        <{{ desc_tag }} class="hc-tm-desc typography-{{ desc_tag }}">{{ trimmed }}...</{{ desc_tag }}>
 
         <div class="hc-tm-modal-data" hidden style="display:none !important;">
           <img src="{{ block.settings.image | image_url: width: 600 }}">
@@ -691,6 +682,51 @@ document.addEventListener('DOMContentLoaded', () => {
       "step": 5,
       "default": 20,
       "label": "Trim words"
+    },
+    {
+      "type": "select",
+      "id": "name_style",
+      "label": "Name Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "role_style",
+      "label": "Profession Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "desc_style",
+      "label": "Description Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

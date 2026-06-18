@@ -64,11 +64,6 @@
 .sleep-heading div {
   margin: 0;
   color: {{ section.settings.heading_color }};
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -1px;
 }
 
 .sleep-btn {
@@ -116,11 +111,6 @@
   padding: 0 0 8px 0;
   cursor: pointer;
   white-space: nowrap;
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px; /* Reduced from 24px to stop wrapping titles */
-  line-height: 1.2;
   text-align: center;
   color: {{ section.settings.tab_text_color | default: '#1E1E1E' }};
   opacity: .4;
@@ -169,26 +159,16 @@
 
 /* Dynamic Text Block Tuning */
 .sleep-subheading {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25;
   color: {{ section.settings.subheading_color | default: '#3D1B03' }};
   margin: 0 0 24px 0;
 }
 
 .sleep-subheading em {
-  font-family: 'PP Editorial New', serif;
+  font-family: var(--font-highlight--family, 'PP Editorial New', serif);
   font-style: italic;
-  font-weight: 400;
 }
 
 .sleep-desc {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.6;
   color: {{ section.settings.desc_color | default: '#1E1E1E' }};
   margin-bottom: 36px;
 }
@@ -211,12 +191,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  font-family: 'PP Editorial New', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.35;
   text-align: center;
 }
 
@@ -322,19 +296,7 @@
     display: none;
   }
 
-  .sleep-heading h1,
-  .sleep-heading h2,
-  .sleep-heading h3,
-  .sleep-heading h4,
-  .sleep-heading h5,
-  .sleep-heading h6,
-  .sleep-heading p,
-  .sleep-heading span,
-  .sleep-heading div {
-    line-height: 1.5;
-    font-weight: 400;
-    letter-spacing: 0px;
-  }
+  /* Mobile heading overrides removed */
 
   .sleep-tabs, .sleep-btn {
     display: none;
@@ -390,25 +352,17 @@
   .sleep-subheading {
     margin: 0 0 18px;
     color: #FFFFFF;
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 400;
-    line-height: 31px;
   }
 
   .sleep-subheading .sleep-serif {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-highlight--family, 'PP Editorial New', serif);
     font-style: italic;
-    font-weight: 400;
   }
 
   .sleep-desc {
     max-width: 335px;
     margin: 0 0 24px;
     color: #FFFFFF;
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
   }
 
   .sleep-quote {
@@ -418,9 +372,6 @@
     border-radius: 10px;
     color: #FFFFFF;
     text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    line-height: 26px;
     min-height: auto;
     border: none;
   }
@@ -505,8 +456,9 @@
     <!-- RESPONSIVE TABS BAR -->
     <div class="sleep-tabs">
       {% for block in section.blocks %}
+        {%- assign tab_style_val = section.settings.tab_style | default: 'h5' -%}
         <button
-          class="sleep-tab {% if forloop.first %}active{% endif %}"
+          class="sleep-tab typography-{{ tab_style_val }} {% if forloop.first %}active{% endif %}"
           data-tab="{{ forloop.index }}"
         >
           {{ block.settings.tab_title }}
@@ -533,11 +485,13 @@
               | replace: ']]', '</span>'
               | newline_to_br
             %}
-            <{{ block.settings.heading_tag | default: 'h3' }} class="sleep-subheading">
+            {%- assign subheading_tag_val = block.settings.heading_tag | default: 'h3' -%}
+            <{{ subheading_tag_val }} class="sleep-subheading typography-{{ subheading_tag_val }}">
               {{ formatted_subheading }}
-            </{{ block.settings.heading_tag | default: 'h3' }}>
+            </{{ subheading_tag_val }}>
             
-            <div class="sleep-desc">
+            {%- assign desc_style_val = section.settings.description_style | default: 'p' -%}
+            <div class="sleep-desc typography-{{ desc_style_val }}">
               {{ block.settings.description }}
             </div>
 
@@ -548,7 +502,8 @@
             {% endif %}
 
             {% if block.settings.quote != blank %}
-              <div class="sleep-quote">
+              {%- assign quote_style_val = section.settings.quote_style | default: 'h4' -%}
+              <div class="sleep-quote typography-{{ quote_style_val }}">
                 {{ block.settings.quote }}
               </div>
             {% endif %}
@@ -870,6 +825,51 @@ document.addEventListener('DOMContentLoaded', () => {
       "default": 33,
       "unit": "px",
       "label": "Button Border Radius"
+    },
+    {
+      "type": "select",
+      "id": "tab_style",
+      "label": "Tab Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h5"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "quote_style",
+      "label": "Quote Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
     }
   ],
   "blocks":[

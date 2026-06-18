@@ -47,11 +47,6 @@
     }
 
     #shopify-section-{{ section.id }} .custom-expect-subheading {
-      font-family: var(--sonu-font-family, sans-serif);
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: {{ section.settings.top_badge_color | default: '#5E53E5' }} !important;
       margin-bottom: 12px;
     }
@@ -62,15 +57,12 @@
     }
 
     #shopify-section-{{ section.id }} .custom-expect-heading em {
-      font-family: 'pp-editorial', 'PP Editorial New', Georgia, serif;
+      font-family: var(--font-highlight--family, 'pp-editorial', 'PP Editorial New', Georgia, serif) !important;
       font-style: italic;
       font-weight: normal;
     }
 
     #shopify-section-{{ section.id }} .custom-expect-desc {
-      font-family: var(--sonu-font-family, sans-serif);
-      font-size: 16px;
-      line-height: 1.5;
       color: {{ section.settings.card_desc_color | default: '#1E1E1E' }} !important;
       margin-top: 16px;
       max-width: 600px;
@@ -103,12 +95,6 @@
       color: {{ section.settings.top_badge_color | default: '#5E53E5' }} !important;
       border-radius: 999px;
       padding: 6px 16px;
-      font-family: var(--sonu-font-family, sans-serif);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      line-height: 1.2;
     }
 
     #shopify-section-{{ section.id }} .custom-expect-moon-container {
@@ -166,13 +152,11 @@
     }
 
     #shopify-section-{{ section.id }} .custom-expect-slide__title {
-      font-family: var(--sonu-font-family, sans-serif);
       color: {{ section.settings.card_title_color | default: '#0E1B4C' }} !important;
       margin: 0 0 16px 0;
     }
 
     #shopify-section-{{ section.id }} .custom-expect-slide__desc {
-      font-family: var(--sonu-font-family, sans-serif);
       color: {{ section.settings.card_desc_color | default: '#1E1E1E' }} !important;
       margin: 0 0 28px 0;
       max-width: 340px;
@@ -190,11 +174,6 @@
       color: {{ section.settings.bottom_badge_color | default: '#ffffff' }} !important;
       border-radius: 999px;
       padding: 8px 18px;
-      font-family: var(--sonu-font-family, sans-serif);
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1.35;
-      text-align: center;
     }
 
     /* Slider Controls */
@@ -370,15 +349,18 @@
     {% if section.settings.heading != blank or section.settings.subheading != blank or section.settings.description != blank %}
       <div class="custom-expect-header">
         {% if section.settings.subheading != blank %}
-          <span class="custom-expect-subheading">{{ section.settings.subheading }}</span>
+          {%- assign sub_style = section.settings.subheading_style | default: 'h6' -%}
+          <span class="custom-expect-subheading typography-{{ sub_style }}">{{ section.settings.subheading }}</span>
         {% endif %}
         {% if section.settings.heading != blank %}
-          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-expect-heading {{ section.settings.heading_tag | default: 'h2' }}">
+          {%- assign head_style = section.settings.heading_style | default: 'h2' -%}
+          <{{ head_style }} class="custom-expect-heading typography-{{ head_style }}">
             {{ section.settings.heading }}
-          </{{ section.settings.heading_tag | default: 'h2' }}>
+          </{{ head_style }}>
         {% endif %}
         {% if section.settings.description != blank %}
-          <div class="custom-expect-desc">{{ section.settings.description }}</div>
+          {%- assign desc_style = section.settings.description_style | default: 'p' -%}
+          <div class="custom-expect-desc typography-{{ desc_style }}">{{ section.settings.description }}</div>
         {% endif %}
       </div>
     {% endif %}
@@ -432,11 +414,13 @@
 
               <!-- Content details -->
               {% if block.settings.title != blank %}
-                <h3 class="custom-expect-slide__title h3">{{ block.settings.title }}</h3>
+                {%- assign title_style = section.settings.card_title_style | default: 'h3' -%}
+                <{{ title_style }} class="custom-expect-slide__title typography-{{ title_style }}">{{ block.settings.title }}</{{ title_style }}>
               {% endif %}
               
               {% if block.settings.description != blank %}
-                <p class="custom-expect-slide__desc rte">{{ block.settings.description }}</p>
+                {%- assign desc_style = section.settings.card_desc_style | default: 'p' -%}
+                <div class="custom-expect-slide__desc rte typography-{{ desc_style }}">{{ block.settings.description }}</div>
               {% endif %}
 
               {% if block.settings.bottom_badge != blank %}
@@ -488,8 +472,8 @@
     },
     {
       "type": "select",
-      "id": "heading_tag",
-      "label": "Heading type",
+      "id": "heading_style",
+      "label": "Heading Style",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -500,6 +484,66 @@
         { "value": "p", "label": "Paragraph" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "card_title_style",
+      "label": "Card Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "card_desc_style",
+      "label": "Card Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" }
+      ],
+      "default": "p"
     },
     {
       "type": "text",

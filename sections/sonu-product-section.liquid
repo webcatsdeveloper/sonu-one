@@ -37,14 +37,16 @@
 
       <!-- RIGHT: Product Info -->
       <div class="product-info">
-        <h1 class="product-title">{{ product.title }}</h1>
+        {%- assign title_tag = section.settings.title_style | default: 'h1' -%}
+        <{{ title_tag }} class="product-title typography-{{ section.settings.title_style | default: 'h2' }}">{{ product.title }}</{{ title_tag }}>
         
-        <div class="product-description">
+        {%- assign desc_tag = section.settings.description_style | default: 'div' -%}
+        <{{ desc_tag }} class="product-description typography-{{ section.settings.description_style | default: 'p' }}">
           {{ product.description }}
-        </div>
+        </{{ desc_tag }}>
         
         <div class="product-price">
-          <span class="current-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          <span class="current-price typography-{{ section.settings.price_style | default: 'h2' }}">{{ product.selected_or_first_available_variant.price | money }}</span>
           {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
             <span class="compare-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
           {% endif %}
@@ -57,84 +59,85 @@
         {% endif %}
         
         <!-- COLOR & QUANTITY -->
-<div class="options-row">
+        <div class="options-row">
 
-  <!-- Color -->
-  <div class="color-option-box">
+          <!-- Color -->
+          <div class="color-option-box">
 
-    <div class="option-label">Color</div>
+            {%- assign option_tag = section.settings.option_label_style | default: 'div' -%}
+            <{{ option_tag }} class="option-label typography-{{ section.settings.option_label_style | default: 'h6' }}">Color</{{ option_tag }}>
 
-    <div class="color-swatches" data-option-index="{{ color_option_index }}">
-      {% if color_option_index != false %}
+            <div class="color-swatches" data-option-index="{{ color_option_index }}">
+              {% if color_option_index != false %}
 
-        {% assign shown_colors = '' %}
+                {% assign shown_colors = '' %}
 
-        {% for variant in product.variants %}
-          {% assign color_value = variant.options[color_option_index] %}
+                {% for variant in product.variants %}
+                  {% assign color_value = variant.options[color_option_index] %}
 
-          {% unless shown_colors contains color_value %}
-            {% assign shown_colors = shown_colors | append: color_value | append: ',' %}
+                  {% unless shown_colors contains color_value %}
+                    {% assign shown_colors = shown_colors | append: color_value | append: ',' %}
 
-            <div
-              class="color-swatch {% if variant.id == product.selected_or_first_available_variant.id %}active{% endif %}"
-              data-value="{{ color_value }}"
-              data-variant-id="{{ variant.id }}"
-              data-price="{{ variant.price | money }}"
-              data-compare-price="{{ variant.compare_at_price | money }}"
-              data-image="{{ variant.featured_image | default: product.featured_image | img_url: 'master' }}"
-              data-available="{{ variant.available }}"
-            >
-              <span class="swatch-color" style="background:#43345B;"></span>
+                    <div
+                      class="color-swatch {% if variant.id == product.selected_or_first_available_variant.id %}active{% endif %}"
+                      data-value="{{ color_value }}"
+                      data-variant-id="{{ variant.id }}"
+                      data-price="{{ variant.price | money }}"
+                      data-compare-price="{{ variant.compare_at_price | money }}"
+                      data-image="{{ variant.featured_image | default: product.featured_image | img_url: 'master' }}"
+                      data-available="{{ variant.available }}"
+                    >
+                      <span class="swatch-color" style="background:#43345B;"></span>
+                    </div>
+
+                  {% endunless %}
+                {% endfor %}
+
+              {% else %}
+
+                <!-- Default Single Color -->
+                <div class="color-swatch active">
+                  <span
+                    class="swatch-color"
+                    style="background:#4b3b8f;"
+                  ></span>
+                </div>
+
+              {% endif %}
             </div>
 
-          {% endunless %}
-        {% endfor %}
+          </div>
 
-      {% else %}
+          <!-- Quantity -->
+          <div class="quantity-option-box">
 
-        <!-- Default Single Color -->
-        <div class="color-swatch active">
-          <span
-            class="swatch-color"
-            style="background:#4b3b8f;"
-          ></span>
+            <{{ option_tag }} class="option-label typography-{{ section.settings.option_label_style | default: 'h6' }}">Quantity</{{ option_tag }}>
+
+            <div class="quantity-selector">
+
+              <button
+                type="button"
+                class="quantity-btn minus"
+                aria-label="Decrease quantity"
+              >
+                −
+              </button>
+
+              <span class="quantity-number">1</span>
+
+              <button
+                type="button"
+                class="quantity-btn plus"
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
         </div>
-
-      {% endif %}
-    </div>
-
-  </div>
-
-  <!-- Quantity -->
-  <div class="quantity-option-box">
-
-    <div class="option-label">Quantity</div>
-
-    <div class="quantity-selector">
-
-      <button
-        type="button"
-        class="quantity-btn minus"
-        aria-label="Decrease quantity"
-      >
-        −
-      </button>
-
-      <span class="quantity-number">1</span>
-
-      <button
-        type="button"
-        class="quantity-btn plus"
-        aria-label="Increase quantity"
-      >
-        +
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
         
         <!-- Stock Status -->
         <div class="stock-status">
@@ -148,12 +151,12 @@
         <!-- Action Buttons -->
         <div class="action-buttons">
           <button type="button" 
-                  class="btn btn-primary buy-now" 
+                  class="btn btn-primary buy-now typography-{{ section.settings.button_style | default: 'p' }}" 
                   data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                   {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
             {{ section.settings.buy_now_text | default: 'BUY NOW' }}
           </button>
-          <button type="button" class="btn btn-secondary try-risk-free">
+          <button type="button" class="btn btn-secondary try-risk-free typography-{{ section.settings.button_style | default: 'p' }}">
             {{ section.settings.try_free_text | default: 'TRY RISK FREE FOR 45 DAYS' }}
           </button>
         </div>
@@ -185,7 +188,7 @@
 
 <style>
 
-    .options-row{
+.options-row{
   display:flex;
   align-items:center;
   gap:55px;
@@ -200,12 +203,8 @@
 }
 
 .option-label{
-  font-size:18px;
-  font-weight:400;
   color:#333;
   margin:0;
-  text-transform:none;
-  letter-spacing:0;
 }
 
 /* COLOR */
@@ -250,7 +249,6 @@
 .quantity-btn{
   border:none;
   background:none;
-  font-size:20px;
   color:#9aa8b9;
   cursor:pointer;
   width:auto;
@@ -260,8 +258,6 @@
 }
 
 .quantity-number{
-  font-size:18px;
-  font-weight:500;
   color:#111;
   min-width:auto;
   padding:0;
@@ -339,17 +335,12 @@
 }
 
 .product-title{
-  font-size:40px;
-  line-height:1.05;
-  font-weight:100;
   color:#112a73;
   margin-bottom:24px;
 }
 
 .product-description{
   max-width:520px;
-  font-size:16px;
-  line-height:1.7;
   color:#444;
   margin-bottom:30px;
 }
@@ -363,13 +354,10 @@
 }
 
 .current-price{
-  font-size:40px;
-  font-weight:400;
   color:#112a73;
 }
 
 .compare-price{
-  font-size:24px;
   color:#999;
 }
 
@@ -385,8 +373,6 @@
   background:none;
   padding:0;
   color:#000;
-  font-size:14px;
-  font-weight:400;
 }
 
 /* =========================
@@ -401,11 +387,7 @@
 }
 
 .option-label{
-  font-size:13px;
   color:#000;
-  font-weight:400;
-  text-transform:none;
-  letter-spacing:0;
   margin-bottom:10px;
 }
 
@@ -440,13 +422,11 @@
 .quantity-btn{
   width:38px;
   height:40px;
-  font-size:18px;
   color:#6b7280;
 }
 
 .quantity-number{
   width:10px;
-  font-size:15px;
   color:#111827;
 }
 
@@ -460,7 +440,6 @@
 
 .in-stock{
   color:#000;
-  font-size:14px;
   display:flex;
   align-items:center;
   gap:8px;
@@ -490,8 +469,6 @@
 .btn{
   height:54px;
   border-radius:999px;
-  font-size:14px;
-  font-weight:700;
   min-width:240px;
 }
 
@@ -539,18 +516,6 @@
     padding-top:0;
   }
 
-  .product-title{
-    font-size:38px;
-  }
-
-  .current-price{
-    font-size:42px;
-  }
-
-  .product-description{
-    font-size:16px;
-  }
-
   .action-buttons{
     flex-direction:column;
   }
@@ -583,21 +548,12 @@
   }
 
   .product-title{
-    font-size:32px;
-    line-height:1.2;
     margin-bottom:15px;
   }
 
   .product-description{
     max-width:100%;
-    font-size:15px;
-    line-height:1.7;
     margin-bottom:20px;
-  }
-
-  .current-price{
-    font-size:34px;
-    line-height:1;
   }
 
   .fsa-hsa-info{
@@ -629,8 +585,6 @@
   }
 
   .option-label{
-    font-size:14px;
-    color:#444;
     margin:0;
     text-align:center;
   }
@@ -652,8 +606,8 @@
   /* Quantity */
 
   .quantity-selector{
-    width:115px !important;
-    height:50px !important;
+    width:150px !important;
+    height:24px !important;
     display:flex !important;
     flex-direction:row !important;
     align-items:center !important;
@@ -667,15 +621,13 @@
   }
 
   .quantity-btn{
-    width:auto !important;
-    height:auto !important;
+    width:28px !important;
+    height:30px !important;
     min-width:auto !important;
     padding:0 !important;
     margin:0 !important;
     border:none;
     background:none;
-    font-size:18px;
-    line-height:1;
     color:#9aa8b9;
     flex:none !important;
   }
@@ -685,20 +637,11 @@
     min-width:auto !important;
     padding:0 !important;
     margin:0 !important;
-    font-size:16px;
     font-weight:500;
     color:#111;
     line-height:1;
     flex:none !important;
   }
-  .quantity-btn{
-  width:28px !important;
-  height:30px !important;
-}
-.quantity-selector{
-  width:150px !important;
-  height:24px !important;
-}
 
   /* Stock */
 
@@ -710,7 +653,6 @@
 
   .in-stock{
     justify-content:center;
-    font-size:14px;
   }
 
   /* Buttons */
@@ -727,7 +669,6 @@
     min-width:100%;
     height:54px;
     border-radius:999px;
-    font-size:15px;
   }
 
   .thumbnail-list{
@@ -889,6 +830,81 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "product",
       "label": "Select Product",
       "info": "Choose the product to display"
+    },
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Product Title Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Product Description Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "price_style",
+      "label": "Product Price Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "option_label_style",
+      "label": "Option Label Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Text Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "text",

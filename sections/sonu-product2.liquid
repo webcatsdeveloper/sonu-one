@@ -34,7 +34,8 @@
       </div>
 
       <div class="sonu-product-info">
-        <{{ section.settings.heading_tag | default: 'h1' }} class="sonu-product-title">{{ product.title }}</{{ section.settings.heading_tag | default: 'h1' }}>
+        {%- assign title_tag = section.settings.heading_tag | default: 'h1' -%}
+        <{{ title_tag }} class="sonu-product-title typography-{{ section.settings.title_style | default: 'h2' }}">{{ product.title }}</{{ title_tag }}>
         
         <div class="sonu-reviews-rating">
           <div class="sonu-stars-group">
@@ -44,15 +45,16 @@
             <span class="sonu-star"></span>
             <span class="sonu-star"></span>
           </div>
-          <span class="sonu-reviews-count">66 reviews</span>
+          <span class="sonu-reviews-count typography-{{ section.settings.option_label_style | default: 'h6' }}">66 reviews</span>
         </div>
         
-        <div class="sonu-product-description">
+        {%- assign desc_tag = section.settings.description_style | default: 'div' -%}
+        <{{ desc_tag }} class="sonu-product-description typography-{{ section.settings.description_style | default: 'p' }}">
           {{ product.description }}
-        </div>
+        </{{ desc_tag }}>
         
         <div class="sonu-product-price">
-          <span class="sonu-current-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+          <span class="sonu-current-price typography-{{ section.settings.price_style | default: 'h2' }}">{{ product.selected_or_first_available_variant.price | money }}</span>
           {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
             <span class="sonu-compare-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
           {% endif %}
@@ -60,7 +62,7 @@
         
         {% if section.settings.fsa_hsa_text != blank %}
           <div class="sonu-fsa-hsa-info">
-            <span class="sonu-fsa-badge">{{ section.settings.fsa_hsa_text }}</span>
+            <span class="sonu-fsa-badge typography-{{ section.settings.option_label_style | default: 'h6' }}">{{ section.settings.fsa_hsa_text }}</span>
           </div>
         {% endif %}
         
@@ -99,10 +101,11 @@
           </div>
 
           <div class="sonu-quantity-option-box">
-            <div class="sonu-option-label">Quantity</div>
+            {%- assign option_tag = section.settings.option_label_style | default: 'div' -%}
+            <{{ option_tag }} class="sonu-option-label typography-{{ section.settings.option_label_style | default: 'h6' }}">Quantity</{{ option_tag }}>
             <div class="sonu-quantity-selector">
               <button type="button" class="sonu-quantity-btn sonu-minus" aria-label="Decrease quantity">−</button>
-              <span class="sonu-quantity-number">1</span>
+              <span class="sonu-quantity-number typography-{{ section.settings.option_label_style | default: 'h6' }}">1</span>
               <button type="button" class="sonu-quantity-btn sonu-plus" aria-label="Increase quantity">+</button>
             </div>
           </div>
@@ -110,20 +113,21 @@
         
         <div class="sonu-stock-status">
           {% if product.selected_or_first_available_variant.available %}
-            <span class="sonu-in-stock">In stock, ready to ship</span>
+            {%- assign option_tag = section.settings.option_label_style | default: 'div' -%}
+            <span class="sonu-in-stock typography-{{ section.settings.option_label_style | default: 'h6' }}">In stock, ready to ship</span>
           {% else %}
-            <span class="sonu-out-of-stock">✗ Out of stock</span>
+            <span class="sonu-out-of-stock typography-{{ section.settings.option_label_style | default: 'h6' }}">✗ Out of stock</span>
           {% endif %}
         </div>
         
         <div class="sonu-action-buttons">
           <button type="button" 
-                  class="sonu-btn sonu-btn-primary sonu-buy-now" 
+                  class="sonu-btn sonu-btn-primary sonu-buy-now typography-{{ section.settings.button_style | default: 'p' }}" 
                   data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                   {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
             {{ section.settings.buy_now_text | default: 'BUY NOW' }}
           </button>
-          <button type="button" class="sonu-btn sonu-btn-secondary sonu-try-risk-free">
+          <button type="button" class="sonu-btn sonu-btn-secondary sonu-try-risk-free typography-{{ section.settings.button_style | default: 'p' }}">
             {{ section.settings.try_free_text | default: 'TRY RISK FREE FOR 45 DAYS' }}
           </button>
         </div>
@@ -224,9 +228,6 @@
 }
 
 .sonu-product-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
   color: {{ section.settings.title_color | default: '#3D1B03' }};
   margin: 0 0 8px 0;
   text-align: left;
@@ -253,21 +254,11 @@
 }
 
 .sonu-reviews-count {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 36px;
   color: #1E1E1E;
 }
 
 .sonu-product-description {
   width: 100%;
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
   color: {{ section.settings.text_color | default: '#1E1E1E' }};
   margin-bottom: 24px;
   text-align: left;
@@ -279,16 +270,10 @@
 }
 
 .sonu-current-price {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 44px;
   color: {{ section.settings.title_color | default: '#3D1B03' }};
 }
 
 .sonu-compare-price {
-  font-size: 24px;
   color: #999;
   text-decoration: line-through;
   margin-left: 10px;
@@ -303,11 +288,6 @@
 }
 
 .sonu-fsa-badge {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 36px;
   color: {{ section.settings.badge_color | default: '#1E1E1E' }};
   background: none;
   padding: 0;
@@ -333,11 +313,6 @@
 }
 
 .sonu-option-label {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 36px;
   color: {{ section.settings.text_color | default: '#1E1E1E' }};
   margin: 0;
   text-align: left;
@@ -389,22 +364,12 @@
 .sonu-quantity-btn {
   border: none;
   background: none;
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 36px;
   color: {{ section.settings.quantity_btn_color | default: '#86A0AF' }};
   cursor: pointer;
   padding: 0;
 }
 
 .sonu-quantity-number {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
   color: {{ section.settings.text_color | default: '#1E1E1E' }};
   text-align: center;
 }
@@ -418,11 +383,6 @@
 }
 
 .sonu-in-stock {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 36px;
   color: {{ section.settings.text_color | default: '#1E1E1E' }};
   display: flex;
   align-items: center;
@@ -441,8 +401,6 @@
 
 .sonu-out-of-stock {
   color: #e53935;
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
   text-align: left;
 }
 
@@ -462,11 +420,6 @@
   max-width: 320px; /* Limits size expansion cleanly */
   height: {{ section.settings.button_height | default: 60 }}px;
   border-radius: 9999px !important;
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -521,7 +474,6 @@
   .sonu-product-price,
   .sonu-fsa-hsa-info,
   .sonu-out-of-stock {
-    
     text-align: center;
   }
   .sonu-reviews-rating,
@@ -561,13 +513,11 @@
     padding:20px 10px 20px 10px;
   }
   .sonu-option-label {
-  text-align: center;
+    text-align: center;
   }
-    .sonu-product-title{
-        margin: 0 0 0px 0;
-
-    }
-
+  .sonu-product-title{
+    margin: 0 0 0px 0;
+  }
 }
 </style>
 
@@ -833,12 +783,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       "type": "header",
-      "content": "Typography"
+      "content": "Typography Settings"
     },
     {
       "type": "select",
       "id": "heading_tag",
-      "label": "Product Title Tag",
+      "label": "Product Title HTML Tag",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },
@@ -846,11 +796,84 @@ document.addEventListener('DOMContentLoaded', function() {
         { "value": "h4", "label": "H4" },
         { "value": "h5", "label": "H5" },
         { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "span", "label": "Span" },
-        { "value": "div", "label": "Div" }
+        { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "title_style",
+      "label": "Product Title Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Product Description Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "price_style",
+      "label": "Product Price Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "option_label_style",
+      "label": "Option & Badge Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Text Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "select",
@@ -863,9 +886,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { "value": "h4", "label": "H4" },
         { "value": "h5", "label": "H5" },
         { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "span", "label": "Span" },
-        { "value": "div", "label": "Div" }
+        { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h3"
     },
