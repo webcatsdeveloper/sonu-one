@@ -246,7 +246,7 @@
       }
     },
     "doctors_testimonials": {
-      "type": "doctors-testimonials-sh",
+      "type": "sonu-doctors-testimonials-sh",
       "blocks": {
         "doctor_jBzba9": {
           "type": "doctor",

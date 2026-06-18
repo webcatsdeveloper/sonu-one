@@ -398,7 +398,7 @@
       }
     },
     "doctors_testimonials_sh_4NUMtt": {
-      "type": "doctors-testimonials-sh",
+      "type": "sonu-doctors-testimonials-sh",
       "blocks": {
         "doctor_VaqM84": {
           "type": "doctor",

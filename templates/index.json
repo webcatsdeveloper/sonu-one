@@ -664,7 +664,7 @@
       }
     },
     "doctors_testimonials_dg6NG8": {
-      "type": "doctors-testimonials",
+      "type": "sonu-doctors-testimonials",
       "blocks": {
         "doctor_jBzba9": {
           "type": "doctor",
