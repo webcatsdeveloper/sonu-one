@@ -17,16 +17,20 @@
                       {% assign name_key = 'name_' | append: i %}
                       {% assign role_key = 'role_' | append: i %}
                       <div class="review-card review-card-{{ i }}">
-                        <div class="review-text">{{ block.settings[review_key] }}</div>
+                        {%- assign review_tag = section.settings.review_style | default: 'div' -%}
+                        <{{ review_tag }} class="review-text typography-{{ section.settings.review_style | default: 'p' }}">{{ block.settings[review_key] }}</{{ review_tag }}>
+                        
+                        {%- assign author_tag = section.settings.author_style | default: 'h4' -%}
+                        {%- assign role_tag = section.settings.role_style | default: 'span' -%}
                         <div class="review-author">
-                          <h4>{{ block.settings[name_key] }}</h4>
-                          <span>{{ block.settings[role_key] }}</span>
+                          <{{ author_tag }} class="typography-{{ section.settings.author_style | default: 'h4' }}">{{ block.settings[name_key] }}</{{ author_tag }}>
+                          <{{ role_tag }} class="typography-{{ section.settings.role_style | default: 'p' }}">{{ block.settings[role_key] }}</{{ role_tag }}>
                         </div>
                       </div>
 
                       <div class="mobile-rating-stars">
-    ★★★★★
-  </div>
+                        ★★★★★
+                      </div>
                     {% endfor %}
                   </div>
                 </div>
@@ -66,16 +70,15 @@
             {% endfor %}
           </div>
           <div class="mobile-video-prev">
-  <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
-    <path d="M6.5 1.5L1.5 6L6.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
-
-<div class="mobile-video-next">
-  <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
-    <path d="M1.5 1.5L6.5 6L1.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</div>
+            <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+              <path d="M6.5 1.5L1.5 6L6.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="mobile-video-next">
+            <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+              <path d="M1.5 1.5L6.5 6L1.5 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -86,17 +89,20 @@
             {% for block in section.blocks %}
               <div class="swiper-slide">
                 <div class="mobile-review-card">
-  <div class="review-text">{{ block.settings.review_1 }}</div>
+                  {%- assign review_tag = section.settings.review_style | default: 'div' -%}
+                  <{{ review_tag }} class="review-text typography-{{ section.settings.review_style | default: 'p' }}">{{ block.settings.review_1 }}</{{ review_tag }}>
 
-  <div class="review-author-name">
-    <h4>{{ block.settings.name_1 }}</h4>
-    <span>{{ block.settings.role_1 }}</span>
+                  <div class="review-author-name">
+                    {%- assign author_tag = section.settings.author_style | default: 'h4' -%}
+                    {%- assign role_tag = section.settings.role_style | default: 'span' -%}
+                    <{{ author_tag }} class="typography-{{ section.settings.author_style | default: 'h4' }}">{{ block.settings.name_1 }}</{{ author_tag }}>
+                    <{{ role_tag }} class="typography-{{ section.settings.role_style | default: 'p' }}">{{ block.settings.role_1 }}</{{ role_tag }}>
 
-    <div class="mobile-rating-stars">
-      ★★★★★
-    </div>
-  </div>
-</div>
+                    <div class="mobile-rating-stars">
+                      ★★★★★
+                    </div>
+                  </div>
+                </div>
               </div>
             {% endfor %}
           </div>
@@ -131,14 +137,9 @@
 
 /* =======================
    HEADING
-======================= */
+========================= */
 
 .section-title{
-  font-family:'Instrument Sans',sans-serif;
-  font-style:normal;
-  font-weight:500;
-  font-size:56px;
-  line-height:68px;
   text-align:center;
   color:#001755;
   margin:0 0 70px;
@@ -147,7 +148,7 @@
 
 /* =======================
    DESKTOP
-======================= */
+========================= */
 
 .desktop-layout{
   display:block;
@@ -198,12 +199,7 @@
 }
 
 .review-text{
-  font-family:'Instrument Sans',sans-serif;
-  font-size:16px;
-  line-height:26px;
   color:#1E2A3E;
-  
-
 }
 
 .review-author{
@@ -212,17 +208,12 @@
 
 .review-author h4{
   margin:0;
-  font-size:24px;
-  line-height:28px;
   color:#001755;
-  font-style:italic;
-  font-weight:700;
 }
 
 .review-author span{
   display:block;
   margin-top:6px;
-  font-size:13px;
   color:#5A6874;
 }
 
@@ -246,7 +237,7 @@
 
 /* =======================
    VIDEO
-======================= */
+========================= */
 
 .desktop-video-container{
   width:420px;
@@ -296,7 +287,7 @@
 
 /* =======================
    MOBILE
-======================= */
+========================= */
 
 .mobile-layout{
   display:none;
@@ -322,17 +313,6 @@
   display:block;
 }
 
-/* mobile arrows */
-
-
-.mobile-video-swiper .swiper-button-prev{
-  left:18px;
-}
-
-.mobile-video-swiper .swiper-button-next{
-  right:18px;
-}
-
 /* review card */
 
 .mobile-reviews-section{
@@ -354,23 +334,17 @@
 }
 
 .mobile-review-card .review-text{
-  font-size:16px;
-  line-height:25px;
   margin-bottom:20px;
   text-align:center;
 }
 
 .mobile-review-card h4{
   margin:0 0 4px;
-  font-size:24px;
   color:#001755;
-  font-style:italic;
-  font-weight:700;
   text-align:center;
 }
 
 .mobile-review-card span{
-  font-size:13px;
   color:#5A6874;
   text-align:center;
 }
@@ -398,7 +372,7 @@
 
 /* =======================
    TABLET
-======================= */
+========================= */
 
 @media(max-width:1300px){
 
@@ -415,7 +389,7 @@
 
 /* =======================
    MOBILE
-======================= */
+========================= */
 
 @media(max-width:767px){
 
@@ -426,11 +400,6 @@
   .section-title{
     width:211px;
     margin:0 auto 18px;
-
-    font-family:'Instrument Sans',sans-serif;
-    font-weight:500;
-    font-size:32px;
-    line-height:39px;
     text-align:center;
     color:#001755;
   }
@@ -564,11 +533,8 @@
 .mobile-rating-stars{
   display:block;
   margin-top:14px;
-
-  font-family:'Instrument Sans',sans-serif;
   font-size:18px;
   line-height:1;
-
   color:#F5C400;
   text-align:center;
   letter-spacing:3px;
@@ -740,6 +706,66 @@ if (mobileVideoSwiperEl) {
       "id": "heading",
       "label": "Heading",
       "default": "Real Patients, Real Results"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "review_style",
+      "label": "Review Text Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "author_style",
+      "label": "Author Name Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "role_style",
+      "label": "Author Role Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [

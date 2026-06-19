@@ -50,13 +50,15 @@
               | replace: ']]', '</span>'
               | newline_to_br
             %}
-            <{{ section.settings.heading_tag | default: 'h2' }} class="ste-main-title" style="color: {{ section.settings.heading_color | default: text_color }};">
+            {%- assign head_tag = section.settings.heading_tag | default: 'h2' -%}
+            <{{ head_tag }} class="ste-main-title typography-{{ head_tag }}" style="color: {{ section.settings.heading_color | default: text_color }};">
               {{ ste_formatted_heading }}
-            </{{ section.settings.heading_tag | default: 'h2' }}>
+            </{{ head_tag }}>
           {% endif %}
 
           {% if section.settings.description != blank %}
-            <div class="ste-body-description" style="color: {{ section.settings.description_color | default: text_color }};">
+            {%- assign desc_tag = section.settings.description_style | default: 'p' -%}
+            <div class="ste-body-description typography-{{ desc_tag }}" style="color: {{ section.settings.description_color | default: text_color }};">
               {{ section.settings.description | replace: '[[', highlight_span | replace: ']]', '</span>' }}
             </div>
           {% endif %}
@@ -78,7 +80,8 @@
             <div class="ste-metric-card ste-animate-blur ste-delay-{{ forloop.index }}" style="background: {{ block.settings.card_bg_color }}; border-color: {{ block.settings.card_border_color }};" {{ block.shopify_attributes }}>
               
               <div class="ste-metric-card-header">
-                <div class="ste-metric-num-display" style="color: {{ block.settings.number_color | default: text_color }};">
+                {%- assign counter_tag = section.settings.counter_style | default: 'h1' -%}
+                <div class="ste-metric-num-display typography-{{ counter_tag }}" style="color: {{ block.settings.number_color | default: text_color }};">
                   {% if block_prefix != blank %}
                     <span class="ste-metric-prefix" style="color: {{ block.settings.number_color | default: text_color }};">
                       {{ block_prefix | replace: '[[', highlight_span | replace: ']]', '</span>' }}
@@ -106,14 +109,16 @@
                 </div>
 
                 {% if stat_lab != blank %}
-                  <{{ section.settings.block_heading_tag | default: 'h3' }} class="ste-metric-label" style="color: {{ block.settings.label_color | default: text_color }};">
+                  {%- assign stat_tag = section.settings.block_heading_tag | default: 'h3' -%}
+                  <{{ stat_tag }} class="ste-metric-label typography-{{ stat_tag }}" style="color: {{ block.settings.label_color | default: text_color }};">
                     {{ stat_lab | replace: '[[', highlight_span | replace: ']]', '</span>' }}
-                  </{{ section.settings.block_heading_tag | default: 'h3' }}>
+                  </{{ stat_tag }}>
                 {% endif %}
               </div>
 
               {% if stat_desc != blank %}
-                <div class="ste-metric-caption" style="color: {{ block.settings.caption_color | default: text_color }};">
+                {%- assign caption_tag = section.settings.caption_style | default: 'p' -%}
+                <div class="ste-metric-caption typography-{{ caption_tag }}" style="color: {{ block.settings.caption_color | default: text_color }};">
                   {{ stat_desc | replace: '[[', highlight_span | replace: ']]', '</span>' }}
                 </div>
               {% endif %}
@@ -160,18 +165,19 @@
           {% endif %}
           
           <div class="ste-mobile-stat-item" {{ block.shopify_attributes }}>
-            <div class="ste-mobile-stat-number" style="color: {{ block.settings.number_color | default: text_color }};">
+            <div class="ste-mobile-stat-number typography-{{ counter_tag }}" style="color: {{ block.settings.number_color | default: text_color }};">
               {% if block_prefix != blank %}{{ formatted_prefix }}{% endif %}{{ formatted_num }}{% if block_postfix != blank %}{{ formatted_postfix }}{% endif %}
             </div>
             
             {% if stat_lab != blank %}
-              <{{ section.settings.block_heading_tag | default: 'div' }} class="ste-mobile-stat-label" style="color: {{ block.settings.label_color | default: text_color }};">
+              {%- assign m_heading_tag = section.settings.block_heading_tag | default: 'div' -%}
+              <{{ m_heading_tag }} class="ste-mobile-stat-label typography-{{ m_heading_tag }}" style="color: {{ block.settings.label_color | default: text_color }};">
                 {{ stat_lab | replace: '[[', highlight_span | replace: ']]', '</span>' }}
-              </{{ section.settings.block_heading_tag | default: 'div' }}>
+              </{{ m_heading_tag }}>
             {% endif %}
             
             {% if stat_desc != blank %}
-              <div class="ste-mobile-stat-desc" style="color: {{ block.settings.caption_color | default: '#666' }};">
+              <div class="ste-mobile-stat-desc typography-{{ caption_tag }}" style="color: {{ block.settings.caption_color | default: '#666' }};">
                 {{ stat_desc | replace: '[[', highlight_span | replace: ']]', '</span>' }}
               </div>
             {% endif %}
@@ -185,12 +191,12 @@
           | replace: ']]', '</span>'
           | newline_to_br
         %}
-        <{{ section.settings.heading_tag | default: 'h2' }} class="ste-mobile-heading" style="color: {{ section.settings.heading_color | default: text_color }};">
+        <{{ section.settings.heading_tag | default: 'h2' }} class="ste-mobile-heading typography-{{ section.settings.heading_tag | default: 'h2' }}" style="color: {{ section.settings.heading_color | default: text_color }};">
           {{ ste_formatted_heading_mobile }}
         </{{ section.settings.heading_tag | default: 'h2' }}>
       {% endif %}
       {% if section.settings.show_description_mobile and section.settings.description != blank %}
-        <div class="ste-mobile-description ste-body-description" style="color: {{ section.settings.description_color | default: text_color }};">
+        <div class="ste-mobile-description ste-body-description typography-{{ desc_tag }}" style="color: {{ section.settings.description_color | default: text_color }};">
           {{ section.settings.description | replace: '[[', highlight_span | replace: ']]', '</span>' }}
         </div>
       {% endif %}
@@ -267,27 +273,16 @@
 }
 
 .ste-main-title {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 52px;
-  line-height: 1.1;
   margin: 0 0 32px 0;
-  letter-spacing: -1.5px;
   text-align: left;
 }
 
 .ste-serif-highlight {
-  font-family: 'pp-editorial', 'PP Editorial New', serif !important;
+  font-family: var(--font-highlight--family, 'pp-editorial', 'PP Editorial New', serif) !important;
   font-style: normal;
 }
 
 .ste-body-description {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
   color: rgba(30, 30, 30, 0.85);
 }
 
@@ -371,36 +366,24 @@
 
 .ste-metric-num-display,
 .ste-metric-num-display * {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 54px;
   line-height: 1;
 }
 
-.ste-metric-counter,
+.ste-metric-counter {
+  font-weight: inherit;
+}
+
 .ste-metric-prefix,
 .ste-metric-postfix {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
-  font-weight: 200;
+  font-size: 0.6em;
 }
 
 .ste-metric-label {
-    font-family: 'pp-editorial', 'PP Editorial New', serif !important;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.2;
   margin: 0;
   color: #3D1B03 !important;
 }
 
 .ste-metric-caption {
-  font-family: 'Instrument Sans', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
   color: rgba(30, 30, 30, 0.8) !important;
   text-align: left;
 }
@@ -495,25 +478,14 @@
   }
 
   .ste-mobile-stat-number {
-    font-family: 'Instrument Sans', sans-serif !important;
-    font-size: 54px;
-    font-weight: normal;
-    line-height: 1;
     margin-bottom: 8px;
   }
 
   .ste-mobile-stat-label {
-    font-family: 'Instrument Sans', sans-serif !important;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.2;
     margin-bottom: 16px;
   }
 
   .ste-mobile-stat-desc {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
     color: rgba(30, 30, 30, 0.85);
     max-width: 300px;
   }
@@ -526,13 +498,7 @@
   }
 
   .ste-mobile-heading {
-    font-family: 'Instrument Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 27px;
-    line-height: 1.15;
     margin: 0 0 24px 0;
-    letter-spacing: -1px;
     text-align: center;
   }
 
@@ -846,6 +812,51 @@
       "default": 60,
       "unit": "px",
       "label": "Mobile Padding Bottom"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "counter_style",
+      "label": "Stats Number Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "caption_style",
+      "label": "Stats Caption Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     }
   ],
   "blocks": [
