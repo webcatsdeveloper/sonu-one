@@ -8,10 +8,10 @@
     
     <div class="custom-vid-header">
       {% if section.settings.heading != blank %}
-        <h2 class="custom-vid-heading" style="color: {{ text_color }};">{{ section.settings.heading }}</h2>
+        <{{ section.settings.heading_tag | default: 'h2' }} class="custom-vid-heading typography-{{ section.settings.heading_style | default: 'h2' }}" style="color: {{ text_color }};">{{ section.settings.heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
       {% endif %}
       {% if section.settings.description != blank %}
-        <div class="custom-vid-desc" style="color: {{ text_color }};">{{ section.settings.description | newline_to_br }}</div>
+        <div class="custom-vid-desc typography-{{ section.settings.description_style | default: 'p' }}" style="color: {{ text_color }};">{{ section.settings.description | newline_to_br }}</div>
       {% endif %}
     </div>
 
@@ -33,7 +33,7 @@
               <!-- Overlay Pill -->
               {% if block.settings.overlay_text != blank %}
                 <div class="custom-vid-overlay-pill custom-vid-overlay-pill--{{ block.settings.overlay_pos }}">
-                  <p class="custom-vid-overlay-pill-text">{{ block.settings.overlay_text }}</p>
+                  <p class="custom-vid-overlay-pill-text typography-{{ section.settings.overlay_style | default: 'p' }}">{{ block.settings.overlay_text }}</p>
                 </div>
               {% endif %}
 
@@ -84,10 +84,70 @@
       "default": "See it to believe it"
     },
     {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
       "type": "textarea",
       "id": "description",
       "label": "Description",
       "default": "Spatial Sleep is a personalized sleep headband that uses gentle sound and vibration to help you drift off naturally."
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "Overlay Pill Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "color",

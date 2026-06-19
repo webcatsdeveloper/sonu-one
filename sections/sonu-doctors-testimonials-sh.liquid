@@ -55,6 +55,7 @@
   {% render 'sonu-section-header',
     heading: section.settings.heading,
     heading_tag: section.settings.heading_tag,
+    heading_style_preset: section.settings.heading_style,
     heading_class: '',
     text_align: 'center',
     animate: true
@@ -79,22 +80,22 @@
           <div class="overlay"></div>
 
           <div class="img-content">
-            <h4>{{ block.settings.name }}</h4>
-            <p>{{ block.settings.role }}</p>
+            <{{ section.settings.name_tag | default: 'h4' }} class="typography-{{ section.settings.name_style | default: 'h4' }}">{{ block.settings.name }}</{{ section.settings.name_tag | default: 'h4' }}>
+            <p class="typography-{{ section.settings.role_style | default: 'p' }}">{{ block.settings.role }}</p>
           </div>
         </div>
 
         <!-- INDENTED DESCRIPTION -->
-        <p class="desc">{{ trimmed }}...</p>
+        <p class="desc typography-{{ section.settings.desc_style | default: 'p' }}">{{ trimmed }}...</p>
 
         <!-- MODAL DATA (HIDDEN) -->
         <div class="modal-data" hidden>
           {% if block.settings.image != blank %}
             <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.name }}">
           {% endif %}
-          <h3>{{ block.settings.name }}</h3>
-          <p class="role">{{ block.settings.role }}</p>
-          <p>{{ block.settings.desc }}</p>
+          <{{ section.settings.name_tag | default: 'h4' }} class="typography-{{ section.settings.name_style | default: 'h4' }}">{{ block.settings.name }}</{{ section.settings.name_tag | default: 'h4' }}>
+          <p class="role typography-{{ section.settings.role_style | default: 'p' }}">{{ block.settings.role }}</p>
+          <p class="typography-{{ section.settings.desc_style | default: 'p' }}">{{ block.settings.desc }}</p>
         </div>
 
       </div>
@@ -159,6 +160,81 @@
         { "value": "h6", "label": "H6" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "name_tag",
+      "label": "Name Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "name_style",
+      "label": "Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "select",
+      "id": "role_style",
+      "label": "Profession/Role Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "desc_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "color",

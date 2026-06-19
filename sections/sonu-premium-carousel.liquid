@@ -34,6 +34,7 @@
         {% render 'sonu-section-header',
           heading: section.settings.heading,
           heading_tag: section.settings.heading_tag,
+          heading_style_preset: section.settings.heading_style,
           heading_class: 'carousel-heading',
           heading_style: heading_style,
           text_align: section.settings.text_align,
@@ -74,15 +75,15 @@
                   </span>
                 {% endif %}
                 {% if block.settings.badge_text != blank %}
-                  <span class="badge-text">{{ block.settings.badge_text }}</span>
+                  <span class="badge-text typography-{{ block.settings.badge_text_style | default: 'p' }}">{{ block.settings.badge_text }}</span>
                 {% endif %}
               </div>
             {% endif %}
 
             <div class="card-content sonu-blur-in sonu-blur-in--d1">
               {%- assign card_heading = block.settings.heading_tag | default: 'h3' -%}
-              <{{ card_heading }}>{% render 'heading-br', heading: block.settings.title %}</{{ card_heading }}>
-              <div class="card-desc">{{ block.settings.description }}</div>
+              <{{ card_heading }} class="typography-{{ block.settings.card_heading_style | default: 'h3' }}">{% render 'heading-br', heading: block.settings.title %}</{{ card_heading }}>
+              <div class="card-desc typography-{{ block.settings.card_desc_style | default: 'p' }}">{{ block.settings.description }}</div>
             </div>
 
           </div>
@@ -135,6 +136,21 @@
         { "value": "h4", "label": "H4" },
         { "value": "h5", "label": "H5" },
         { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
     },
@@ -219,6 +235,21 @@
         { "type": "image_picker", "id": "image",        "label": "Image" },
         { "type": "checkbox",     "id": "enable_parallax", "label": "Enable Parallax", "default": false },
         { "type": "text",         "id": "badge_text",   "label": "Badge Text" },
+        {
+          "type": "select",
+          "id": "badge_text_style",
+          "label": "Badge Text Style Preset",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" },
+            { "value": "p", "label": "Paragraph (P)" }
+          ],
+          "default": "p"
+        },
         { "type": "image_picker", "id": "badge_icon",   "label": "Badge Icon (Image)" },
         { "type": "textarea",     "id": "badge_svg",    "label": "Badge SVG Code" },
         { "type": "text",         "id": "title",        "label": "Title" },
@@ -236,7 +267,37 @@
           ],
           "default": "h3"
         },
-        { "type": "richtext",     "id": "description",  "label": "Description" }
+        {
+          "type": "select",
+          "id": "card_heading_style",
+          "label": "Card Heading Style Preset",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" },
+            { "value": "p", "label": "Paragraph (P)" }
+          ],
+          "default": "h3"
+        },
+        { "type": "richtext",     "id": "description",  "label": "Description" },
+        {
+          "type": "select",
+          "id": "card_desc_style",
+          "label": "Card Description Style Preset",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" },
+            { "value": "p", "label": "Paragraph (P)" }
+          ],
+          "default": "p"
+        }
       ]
     }
   ],

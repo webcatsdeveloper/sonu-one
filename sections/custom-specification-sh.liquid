@@ -74,7 +74,7 @@
             | replace: ']]', '</span>'
             | newline_to_br
           %}
-          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-tech-heading animate-blur delay-1">
+          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-tech-heading animate-blur delay-1 typography-{{ section.settings.heading_style | default: 'h2' }}">
             {{ formatted_heading }}
           </{{ section.settings.heading_tag | default: 'h2' }}>
         {% endif %}
@@ -102,13 +102,13 @@
                 {% endif %}
 
                 <!-- TITLE -->
-                <h3 class="custom-tech-item-heading">
+                <{{ section.settings.card_heading_tag | default: 'h3' }} class="custom-tech-item-heading typography-{{ section.settings.card_heading_style | default: 'h3' }}">
                   {{ block.settings.heading }}
-                </h3>
+                </{{ section.settings.card_heading_tag | default: 'h3' }}>
               </div>
 
               <!-- TEXT -->
-              <div class="custom-tech-item-text">
+              <div class="custom-tech-item-text typography-{{ section.settings.card_text_style | default: 'p' }}">
                 {{ block.settings.text }}
               </div>
 
@@ -121,7 +121,7 @@
     </div>
 
     {% if section.settings.note_text != blank %}
-      <div class="custom-tech-note">
+      <div class="custom-tech-note typography-{{ section.settings.note_style | default: 'p' }}">
         {{ section.settings.note_text }}
       </div>
     {% endif %}
@@ -156,6 +156,82 @@
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_tag",
+      "label": "Card Heading Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "div", "label": "Div" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_style",
+      "label": "Card Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "card_text_style",
+      "label": "Card Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "note_style",
+      "label": "Bottom Note Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

@@ -61,11 +61,11 @@ assign text_alignment_mobile = text_alignment_mobile | default: block_settings.c
   assign custom_font_weight = block_settings.custom_font_weight
 
   capture text_block_classes
-    if preset == 'custom'
+    if preset == 'custom' or font_family != blank or font_weight != blank or line_height != blank or custom_font_weight != blank
       echo ' custom-typography '
-      if font_size != ''
-        echo ' custom-font-size '
-      endif
+    endif
+    if preset == 'custom' or font_size != blank or font_size_mobile != blank
+      echo ' custom-font-size '
     endif
     unless preset == 'rte'
       # Always use "rte" to make richtext tags display properly.

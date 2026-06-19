@@ -21,10 +21,13 @@
         {% render 'sonu-section-header',
           heading: section.settings.heading,
           heading_tag: section.settings.heading_tag,
+          heading_style_preset: section.settings.heading_style,
           heading_class: 'main-heading',
           heading_style: heading_style,
           small_heading: section.settings.small_heading,
+          small_heading_style_preset: section.settings.small_heading_style,
           subheading: section.settings.subheading,
+          subheading_style_preset: section.settings.subheading_style,
           text_align: 'left',
           animate: false
         %}
@@ -34,7 +37,7 @@
       <div class="split-right animate-blur delay-1">
 
         {% if section.settings.description != blank %}
-          <div class="description">
+          <div class="description typography-{{ section.settings.description_style | default: 'p' }}">
             {{ section.settings.description }}
           </div>
         {% endif %}
@@ -49,7 +52,7 @@
                 </div>
               {% endif %}
 
-              <p>{{ block.settings.text }}</p>
+              <p class="typography-{{ section.settings.feature_text_style | default: 'p' }}">{{ block.settings.text }}</p>
 
             </div>
           {% endfor %}
@@ -69,6 +72,21 @@
       "type": "text",
       "id": "small_heading",
       "label": "Small Heading"
+    },
+    {
+      "type": "select",
+      "id": "small_heading_style",
+      "label": "Small Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "textarea",
@@ -96,14 +114,74 @@
       "default": "h2"
     },
     {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
       "type": "text",
       "id": "subheading",
       "label": "Subheading"
     },
     {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "feature_text_style",
+      "label": "Feature Item Text Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "header",

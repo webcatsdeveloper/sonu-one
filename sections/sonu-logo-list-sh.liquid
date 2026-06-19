@@ -43,6 +43,8 @@
   {% render 'sonu-section-header',
     heading: section.settings.heading,
     heading_tag: section.settings.heading_tag,
+    heading_style_preset: section.settings.heading_style,
+    subheading_style_preset: section.settings.subheading_style,
     heading_class: 'logo-heading',
     subheading: section.settings.description,
     text_align: 'center',
@@ -186,6 +188,36 @@
         { "value": "h6", "label": "H6" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "subheading_style",
+      "label": "Subheading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "richtext",

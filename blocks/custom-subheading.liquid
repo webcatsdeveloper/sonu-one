@@ -121,6 +121,102 @@
         }
       ],
       "default": "text"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "Font Family",
+      "options": [
+        {
+          "value": "var(--font-body--family)",
+          "label": "Body Font"
+        },
+        {
+          "value": "var(--font-heading--family)",
+          "label": "Heading Font"
+        }
+      ],
+      "default": "var(--font-body--family)"
+    },
+    {
+      "id": "font_weight",
+      "type": "select",
+      "label": "Font Weight",
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": "Inherit"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (Desktop)",
+      "default": 15,
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font Size (Mobile)",
+      "default": 15,
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line Height",
+      "options": [
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "loose",
+          "label": "Loose"
+        }
+      ],
+      "default": "normal"
     }
   ],
   "presets": [
@@ -138,17 +234,15 @@
   src: url('{{ "PPEditorialNew-RegularItalic.woff2" | asset_url }}') format('woff2');
 }
 
-/* Force Instrument Sans everywhere */
-.text-block,
-.text-block *,
-p,
-p * {
-  font-family: 'Instrument Sans', sans-serif !important;
-  font-weight: 500 !important;
+/* Force Instrument Sans on this block only by default */
+.text-block--{{ block.id }},
+.text-block--{{ block.id }} * {
+  font-family: var(--font-family, 'Instrument Sans', sans-serif) !important;
+  font-weight: var(--custom-font-weight, var(--font-weight, 500)) !important;
 }
 
 /* Override highlighted text */
-.sonu-highlight {
+.text-block--{{ block.id }} .sonu-highlight {
   font-family: 'pp-editorial' !important;
   font-style: italic;
   font-weight: 400 !important;

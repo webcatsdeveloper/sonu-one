@@ -356,6 +356,7 @@
       {%- render 'sonu-section-header',
         heading: section.settings.heading,
         heading_tag: section.settings.heading_tag,
+        heading_style_preset: section.settings.heading_style,
         heading_style: heading_style,
         text_align: 'center'
       -%}
@@ -679,6 +680,7 @@
             updateVideoSlider();
           }
 
+          // Video navigation functions (independent)
           function prevVideo() {
             if (totalVideos === 0) return;
             currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
@@ -692,6 +694,7 @@
             updateTestimonialSlider();
           }
 
+          // Testimonial navigation functions (independent)
           function prevTestimonial() {
             if (totalTestimonials === 0) return;
             currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials;
@@ -849,6 +852,21 @@
       "type": "select",
       "id": "heading_tag",
       "label": "Heading Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
       "options": [
         { "value": "h1", "label": "H1" },
         { "value": "h2", "label": "H2" },

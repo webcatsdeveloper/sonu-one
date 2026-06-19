@@ -99,7 +99,7 @@
                     "highlight_font_style": "italic",
                     "highlight_shape_color": "",
                     "highlight_text_color": "",
-                    "type_preset": "h2",
+                    "type_preset": "custom",
                     "font": "var(--font-heading--family)",
                     "font_weight": "",
                     "font_size": 68,
@@ -598,7 +598,7 @@
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
-        "heading_tag": "h2",
+        "heading_tag": "h1",
         "description": "",
         "button_text": "",
         "button_link": "",
@@ -731,7 +731,7 @@
       "name": "sonu Team Section",
       "settings": {
         "heading": "Trusted by doctors",
-        "heading_tag": "h2",
+        "heading_tag": "h1",
         "grad_color_1": "#daf2ff",
         "grad_color_2": "#daf2ff",
         "grad_color_3": "#daf2ff",
@@ -756,10 +756,6 @@
             "video_url": "",
             "subheading": "",
             "quote": "As an airway patient I am always looking for ways to improve my nasal breathing. SONU has been the best addition yet to my nasal hygiene routine. I highly recommend it to anyone struggling with nasal congestion.",
-            "subheading_style": "h6",
-            "quote_style": "h2",
-            "author_name_style": "h5",
-            "author_bio_style": "p",
             "author_name": "[[Zach]]",
             "author_bio": "College counselor",
             "show_stars": true
@@ -772,10 +768,6 @@
             "video_url": "",
             "subheading": "",
             "quote": "As an airway patient I am always looking for ways to improve my nasal breathing. SONU has been the best addition yet to my nasal hygiene routine. I highly recommend it to anyone struggling with nasal congestion.",
-            "subheading_style": "h6",
-            "quote_style": "h2",
-            "author_name_style": "h5",
-            "author_bio_style": "p",
             "author_name": "[[Zach]]",
             "author_bio": "College counselor",
             "show_stars": true
@@ -788,10 +780,6 @@
             "video_url": "",
             "subheading": "",
             "quote": "As an airway patient I am always looking for ways to improve my nasal breathing. SONU has been the best addition yet to my nasal hygiene routine. I highly recommend it to anyone struggling with nasal congestion.",
-            "subheading_style": "h6",
-            "quote_style": "h2",
-            "author_name_style": "h5",
-            "author_bio_style": "p",
             "author_name": "[[Zach]]",
             "author_bio": "College counselor",
             "show_stars": true
@@ -846,10 +834,6 @@
       "name": "Testimonials Video sonu",
       "settings": {
         "heading": "Real Patients, [br] Real Results",
-        "heading_style": "h2",
-        "review_text_style": "p",
-        "author_name_style": "h5",
-        "author_role_style": "p",
         "section_bg_color": "",
         "section_bg_gradient": "",
         "section_bg_image": "shopify://shop_images/bg_2_57fd96c2-cb15-4725-a6cb-1e5573407321.png",
@@ -1079,12 +1063,7 @@
         "enable_advisors": true,
         "advisor_heading": "",
         "advisor_heading_tag": "h2",
-        "advisor_description": "",
-        "badge_style": "p",
-        "right_text_style": "p",
-        "advisor_desc_style": "p",
-        "advisor_name_style": "h6",
-        "advisor_title_style": "p"
+        "advisor_description": ""
       }
     }
   },

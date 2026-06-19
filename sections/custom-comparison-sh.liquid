@@ -46,10 +46,10 @@
       <!-- Left Info Column -->
       <div class="custom-comp-info-col">
         {% if section.settings.heading != blank %}
-          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-comp-info-heading">{{ section.settings.heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
+          <{{ section.settings.heading_tag | default: 'h2' }} class="custom-comp-info-heading typography-{{ section.settings.heading_style | default: 'h2' }}">{{ section.settings.heading }}</{{ section.settings.heading_tag | default: 'h2' }}>
         {% endif %}
         {% if section.settings.description != blank %}
-          <div class="custom-comp-info-description">{{ section.settings.description }}</div>
+          <div class="custom-comp-info-description typography-{{ section.settings.description_style | default: 'p' }}">{{ section.settings.description }}</div>
         {% endif %}
       </div>
 
@@ -66,7 +66,7 @@
                 assign label_text = section.settings[label_key]
               -%}
               {% if label_text != blank %}
-                <div class="custom-comp-label-cell custom-comp-row-{{ i }}">
+                <div class="custom-comp-label-cell custom-comp-row-{{ i }} typography-{{ section.settings.row_label_style | default: 'h6' }}">
                   {{ label_text }}
                 </div>
               {% endif %}
@@ -91,7 +91,7 @@
                 <!-- Header -->
                 <div class="custom-comp-card-header">
                  <{{ section.settings.block_heading_tag | default: 'h3' }}
-  class="custom-comp-block-title"
+  class="custom-comp-block-title typography-{{ section.settings.block_heading_style | default: 'h3' }}"
   style="
     {% if first_block.settings.title_color != blank %}
       color: {{ first_block.settings.title_color }};
@@ -132,7 +132,7 @@
                           </svg>
                         </span>
                       {% else %}
-                        <span class="custom-comp-cell-text">{{ txt }}</span>
+                        <span class="custom-comp-cell-text typography-{{ section.settings.row_text_style | default: 'p' }}">{{ txt }}</span>
                       {% endif %}
                     </div>
                   {% endif %}
@@ -162,7 +162,7 @@
                       <!-- Header -->
                       <div class="custom-comp-card-header">
 <{{ section.settings.block_heading_tag | default: 'h3' }}
-  class="custom-comp-block-title"
+  class="custom-comp-block-title typography-{{ section.settings.block_heading_style | default: 'h3' }}"
   style="
     {% if block.settings.title_color != blank %}
       color: {{ block.settings.title_color }};
@@ -202,7 +202,7 @@
                                 </svg>
                               </span>
                             {% else %}
-                              <span class="custom-comp-cell-text">{{ txt }}</span>
+                              <span class="custom-comp-cell-text typography-{{ section.settings.row_text_style | default: 'p' }}">{{ txt }}</span>
                             {% endif %}
                           </div>
                         {% endif %}
@@ -264,6 +264,21 @@
     },
     {
       "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
       "id": "block_heading_tag",
       "label": "Block Title Tag",
       "options": [
@@ -277,10 +292,70 @@
       "default": "h3"
     },
     {
+      "type": "select",
+      "id": "block_heading_style",
+      "label": "Block Title Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h3"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Description",
       "default": "<p>SONU uses acoustic resonance therapy — a clinically studied method that reduces inflammation, improves mucus clearance, and opens nasal airways.</p>"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "row_label_style",
+      "label": "Row Label Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "select",
+      "id": "row_text_style",
+      "label": "Row Text Value Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
     },
     {
       "type": "color",

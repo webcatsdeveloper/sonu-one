@@ -88,7 +88,7 @@
       <div class="custom-prod-card__inner">
         
         <!-- Product Title -->
-        <{{ section.settings.heading_tag | default: 'h2' }} class="custom-prod-title">{{ product.title | default: 'SONU Band' }}</{{ section.settings.heading_tag | default: 'h2' }}>
+        <{{ section.settings.heading_tag | default: 'h2' }} class="custom-prod-title typography-{{ section.settings.heading_style | default: 'h2' }}">{{ product.title | default: 'SONU Band' }}</{{ section.settings.heading_tag | default: 'h2' }}>
         
         <!-- Stars & Reviews -->
         <div class="custom-prod-reviews">
@@ -99,20 +99,20 @@
               </svg>
             {% endfor %}
           </div>
-          <span class="custom-prod-reviews-text">{{ section.settings.reviews_text | default: '66 reviews' }}</span>
+          <span class="custom-prod-reviews-text typography-{{ section.settings.reviews_style | default: 'p' }}">{{ section.settings.reviews_text | default: '66 reviews' }}</span>
         </div>
 
         <!-- Description -->
         <div class="custom-prod-desc">
-          <p>{{ section.settings.description | default: product.description }}</p>
+          <p class="typography-{{ section.settings.description_style | default: 'p' }}">{{ section.settings.description | default: product.description }}</p>
         </div>
 
         <!-- Price & FDA Props -->
         <div class="custom-prod-price-area">
           <div class="custom-prod-price">
-            <span class="custom-prod-price__amount">{{ current_variant.price | default: product.price | default: 29900 | money }}</span>
+            <span class="custom-prod-price__amount typography-{{ section.settings.price_style | default: 'h2' }}">{{ current_variant.price | default: product.price | default: 29900 | money }}</span>
           </div>
-          <div class="custom-prod-props">
+          <div class="custom-prod-props typography-{{ section.settings.props_style | default: 'p' }}">
             <span>FDA Approved | FSA/HSA Eligible | VA Approved</span>
           </div>
         </div>
@@ -123,8 +123,8 @@
           <!-- Swatches -->
           <div class="custom-prod-swatches-box">
             <div class="custom-prod-swatches-header">
-              <span class="custom-prod-swatches-title">Color:</span>
-              <span class="custom-prod-swatch-label">{{ current_variant.options[color_option_index] | default: 'Black' }}</span>
+              <span class="custom-prod-swatches-title typography-{{ section.settings.option_label_style | default: 'h6' }}">Color:</span>
+              <span class="custom-prod-swatch-label typography-{{ section.settings.option_label_style | default: 'h6' }}">{{ current_variant.options[color_option_index] | default: 'Black' }}</span>
             </div>
             <div class="custom-prod-swatches">
               {% assign color_option_index = -1 %}
@@ -166,7 +166,7 @@
           <!-- Quantity & Stock Status nested together -->
           <div class="custom-prod-qty-container">
             <div class="custom-prod-qty-box">
-              <span class="custom-prod-qty-title">Quantity</span>
+              <span class="custom-prod-qty-title typography-{{ section.settings.option_label_style | default: 'h6' }}">Quantity</span>
               <div class="custom-prod-qty-right">
                 <div class="custom-prod-qty-selector">
                   <button type="button" class="custom-prod-qty-btn custom-prod-qty-btn--minus" aria-label="Decrease quantity">−</button>
@@ -270,6 +270,96 @@
         { "value": "p", "label": "Paragraph (P)" }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style Preset",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "reviews_style",
+      "label": "Reviews Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "price_style",
+      "label": "Price Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "props_style",
+      "label": "FDA Props Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "option_label_style",
+      "label": "Option Labels Typography Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" }
+      ],
+      "default": "h6"
     },
     {
       "type": "header",
