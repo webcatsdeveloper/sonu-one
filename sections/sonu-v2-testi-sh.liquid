@@ -694,8 +694,8 @@
 </section>
 
 {{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
-{{ 'swiper.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'swiper.js' | asset_url }}" defer="defer"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
 <script src="{{ 'sonu-v2-testi.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
