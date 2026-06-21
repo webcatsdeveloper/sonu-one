@@ -690,7 +690,7 @@
         "heading_tag": "h1",
         "heading_style": "h1",
         "subheading": "((Powered)) by AI  ·  ((Delivered)) through sound.",
-        "subheading_style": "p",
+        "subheading_style": "h5",
         "description": "<p>Your head and neck are command centers packed with bio-sensors directly wired to your body's regulatory systems. Through forehead bone conduction, we harness the skull's natural resonance to harmonize your nervous system — unlocking deeper recovery, balance, and focus.</p>",
         "description_style": "p",
         "feature_text_style": "p",
