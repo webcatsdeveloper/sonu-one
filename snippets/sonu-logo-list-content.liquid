@@ -1,0 +1,132 @@
+{%- liquid
+  assign is_combined = is_combined | default: false
+  assign section_id = section_id | default: section.id
+  assign heading_style_prefix = heading_style_prefix | default: 'heading_style'
+  assign subheading_style_prefix = subheading_style_prefix | default: 'subheading_style'
+-%}
+
+{%- unless is_combined -%}
+<style>
+  #shopify-section-{{ section_id }} .logo-section {
+    position: relative;
+    {% if bg_color_desktop_solid != blank and bg_color_desktop_solid != 'transparent' %}
+      background-color: {{ bg_color_desktop_solid }};
+      background-image: none;
+    {% else %}
+      background: {{ bg_color_desktop | default: 'linear-gradient(90deg, #F2EDF4 0%, #EEF1FA 45%, #E8F2FF 100%)' }};
+    {% endif %}
+    padding-top: {{ padding_top | default: 40 }}px !important;
+    padding-bottom: {{ padding_bottom | default: 40 }}px !important;
+    overflow: hidden;
+  }
+
+  /* Background image with opacity overlay */
+  #shopify-section-{{ section_id }} .logo-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    {% if bg_image != blank %}
+      background-image: url('{{ bg_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: {{ bg_image_opacity | divided_by: 100.0 }};
+    {% else %}
+      opacity: 0;
+    {% endif %}
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ensure content sits above the pseudo-element */
+  #shopify-section-{{ section_id }} .logo-section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section_id }} .logo-section {
+      {% if bg_color_mobile_solid != blank and bg_color_mobile_solid != 'transparent' %}
+        background-color: {{ bg_color_mobile_solid }};
+        background-image: none;
+      {% else %}
+        background: {{ bg_color_mobile | default: 'linear-gradient(90deg, #F2EDF4 0%, #EEF1FA 45%, #E8F2FF 100%)' }};
+      {% endif %}
+      padding-top: {{ mobile_padding_top | default: 20 }}px !important;
+      padding-bottom: {{ mobile_padding_bottom | default: 20 }}px !important;
+    }
+
+    #shopify-section-{{ section_id }} .logo-section::before {
+      {% if bg_image != blank %}
+        background-image: url('{{ bg_image | image_url: width: 2000 }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: {{ mobile_bg_image_opacity | default: bg_image_opacity | divided_by: 100.0 }};
+      {% endif %}
+    }
+  }
+</style>
+{%- endunless -%}
+
+<div class="logo-section {% unless is_combined %}section{% endunless %}">
+
+  {% render 'sonu-section-header',
+    heading: heading,
+    heading_tag: heading_tag,
+    heading_style_preset: heading_style,
+    subheading_style_preset: subheading_style,
+    heading_class: 'logo-heading',
+    subheading: description,
+    text_align: 'center',
+    animate: true,
+    settings: section_settings,
+    heading_style_prefix: heading_style_prefix,
+    subheading_style_prefix: subheading_style_prefix
+  %}
+
+  <!-- LOGOS -->
+  <div class="logo-container animate-blur delay-3">
+
+    <div class="logo-track" id="logoTrack-{{ section_id }}">
+
+      {% for block in blocks %}
+        <div class="logo-item" {{ block.shopify_attributes }}>
+
+          {% if block.settings.logo != blank %}
+            <img
+              src="{{ block.settings.logo | image_url: width: 300 }}"
+              alt=""
+              loading="lazy"
+              width="{{ block.settings.logo.width }}"
+              height="{{ block.settings.logo.height }}"
+            >
+          {% endif %}
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+  <!-- CTA BUTTON -->
+  {% if button_text != blank %}
+    <div class="logo-button-wrap">
+
+      <a href="{{ button_link }}"
+         class="logo-btn"
+         style="
+           background: {{ button_bg }};
+           color: {{ button_text_color }};
+         ">
+        {{ button_text }}
+      </a>
+
+    </div>
+  {% endif %}
+
+</div>

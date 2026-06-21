@@ -1,0 +1,121 @@
+{%- liquid
+  assign is_combined = is_combined | default: false
+  assign section_id = section_id | default: section.id
+  assign heading_style_prefix = heading_style_prefix | default: 'heading_style'
+-%}
+
+{%- unless is_combined -%}
+<style>
+  #premium-carousel-{{ section_id }} {
+    padding-top: {{ padding_top | default: 80 }}px !important;
+    padding-bottom: {{ padding_bottom | default: 80 }}px !important;
+  }
+  @media screen and (max-width: 768px) {
+    #premium-carousel-{{ section_id }} {
+      padding-top: {{ mobile_padding_top | default: 60 }}px !important;
+      padding-bottom: {{ mobile_padding_bottom | default: 60 }}px !important;
+    }
+  }
+</style>
+{%- endunless -%}
+
+<div
+  id="premium-carousel-{{ section_id }}"
+  class="premium-carousel {% unless is_combined %}section{% endunless %}"
+  style="
+    {% unless is_combined %}
+      background-color: {{ bg_color }};
+      {% if bg_image != blank %}
+        background-image: url({{ bg_image | image_url: width: 2000 }});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      {% endif %}
+    {% endunless %}
+  "
+>
+  <div class="carousel-inner">
+
+    {% if heading != blank %}
+      <div class="carousel-heading-wrap text-{{ text_align }}">
+        {%- assign heading_style_attr = 'color: ' | append: text_color | append: '; margin-bottom: 0;' -%}
+        {% render 'sonu-section-header',
+          heading: heading,
+          heading_tag: heading_tag,
+          heading_style_preset: heading_style,
+          heading_class: 'carousel-heading',
+          heading_style: heading_style_attr,
+          text_align: text_align,
+          animate: true,
+          settings: section_settings,
+          heading_style_prefix: heading_style_prefix
+        %}
+      </div>
+    {% endif %}
+
+    <div class="carousel-wrapper" id="carousel-{{ section_id }}">
+      <div class="carousel-track">
+
+        {% for block in blocks %}
+          <div class="carousel-card" {{ block.shopify_attributes }}>
+
+            <div class="carousel-card-bg {% if block.settings.enable_parallax %}parallax{% endif %}">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1500 }}"
+                  alt=""
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              {% endif %}
+            </div>
+
+            {% if block.settings.badge_text != blank or block.settings.badge_icon != blank or block.settings.badge_svg != blank %}
+              <div class="card-badge">
+                {% if block.settings.badge_svg != blank %}
+                  <span class="badge-icon">{{ block.settings.badge_svg }}</span>
+                {% elsif block.settings.badge_icon != blank %}
+                  <span class="badge-icon">
+                    <img
+                      src="{{ block.settings.badge_icon | image_url: width: 40 }}"
+                      alt=""
+                      width="{{ block.settings.badge_icon.width }}"
+                      height="{{ block.settings.badge_icon.height }}"
+                    >
+                  </span>
+                {% endif %}
+                {% if block.settings.badge_text != blank %}
+                  <span class="badge-text typography-{{ block.settings.badge_text_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.badge_text_style, prefix: 'badge_text_style', settings: block.settings %}">{{ block.settings.badge_text }}</span>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <div class="card-content sonu-blur-in sonu-blur-in--d1">
+              {%- assign card_heading = block.settings.heading_tag | default: 'h3' -%}
+              <{{ card_heading }} class="typography-{{ block.settings.card_heading_style | default: 'h3' }}" style="{% render 'sonu-typography-style', preset: block.settings.card_heading_style, prefix: 'card_heading_style', settings: block.settings %}">{% render 'heading-br', heading: block.settings.title %}</{{ card_heading }}>
+              <div class="card-desc typography-{{ block.settings.card_desc_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.card_desc_style, prefix: 'card_desc_style', settings: block.settings %}">{{ block.settings.description }}</div>
+            </div>
+
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    {% render 'sonu-progress-bar',
+      progress_id: 'progress-' | append: section_id,
+      container_class: 'carousel-progress',
+      bar_class: 'progress-bar-card'
+    %}
+
+    <!-- ARROWS -->
+    <div class="carousel-arrows">
+      {% render 'sonu-nav-arrows',
+        prev_class: 'custom-arrow-btn carousel-prev',
+        next_class: 'custom-arrow-btn carousel-next'
+      %}
+    </div>
+
+  </div>
+</div>

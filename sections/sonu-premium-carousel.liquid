@@ -1,115 +1,22 @@
 {{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
-<style>
-  #premium-carousel-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | default: 80 }}px !important;
-    padding-bottom: {{ section.settings.padding_bottom | default: 80 }}px !important;
-  }
-  @media screen and (max-width: 768px) {
-    #premium-carousel-{{ section.id }} {
-      padding-top: {{ section.settings.mobile_padding_top | default: 60 }}px !important;
-      padding-bottom: {{ section.settings.mobile_padding_bottom | default: 60 }}px !important;
-    }
-  }
-</style>
 <section class="science-bg-area">
-
-<section
-  id="premium-carousel-{{ section.id }}"
-  class="premium-carousel section"
-  style="
-    background-color: {{ section.settings.bg_color }};
-    {% if section.settings.bg_image != blank %}
-      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    {% endif %}
-  "
->
-  <div class="carousel-inner">
-
-    {% if section.settings.heading != blank %}
-      <div class="carousel-heading-wrap text-{{ section.settings.text_align }}">
-        {%- assign heading_style = 'color: ' | append: section.settings.text_color | append: '; margin-bottom: 0;' -%}
-        {% render 'sonu-section-header',
-          heading: section.settings.heading,
-          heading_tag: section.settings.heading_tag,
-          heading_style_preset: section.settings.heading_style,
-          heading_class: 'carousel-heading',
-          heading_style: heading_style,
-          text_align: section.settings.text_align,
-          animate: true
-        %}
-      </div>
-    {% endif %}
-
-    <div class="carousel-wrapper" id="carousel-{{ section.id }}">
-      <div class="carousel-track">
-
-        {% for block in section.blocks %}
-          <div class="carousel-card">
-
-            <div class="carousel-card-bg {% if block.settings.enable_parallax %}parallax{% endif %}">
-              {% if block.settings.image != blank %}
-                <img
-                  src="{{ block.settings.image | image_url: width: 1500 }}"
-                  alt=""
-                  width="{{ block.settings.image.width }}"
-                  height="{{ block.settings.image.height }}"
-                >
-              {% endif %}
-            </div>
-
-            {% if block.settings.badge_text != blank or block.settings.badge_icon != blank or block.settings.badge_svg != blank %}
-              <div class="card-badge">
-                {% if block.settings.badge_svg != blank %}
-                  <span class="badge-icon">{{ block.settings.badge_svg }}</span>
-                {% elsif block.settings.badge_icon != blank %}
-                  <span class="badge-icon">
-                    <img
-                      src="{{ block.settings.badge_icon | image_url: width: 40 }}"
-                      alt=""
-                      width="{{ block.settings.badge_icon.width }}"
-                      height="{{ block.settings.badge_icon.height }}"
-                    >
-                  </span>
-                {% endif %}
-                {% if block.settings.badge_text != blank %}
-                  <span class="badge-text typography-{{ block.settings.badge_text_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.badge_text_style, prefix: 'badge_text_style', settings: block.settings %}">{{ block.settings.badge_text }}</span>
-                {% endif %}
-              </div>
-            {% endif %}
-
-            <div class="card-content sonu-blur-in sonu-blur-in--d1">
-              {%- assign card_heading = block.settings.heading_tag | default: 'h3' -%}
-              <{{ card_heading }} class="typography-{{ block.settings.card_heading_style | default: 'h3' }}">{% render 'heading-br', heading: block.settings.title %}</{{ card_heading }}>
-              <div class="card-desc typography-{{ block.settings.card_desc_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.card_desc_style, prefix: 'card_desc_style', settings: block.settings %}">{{ block.settings.description }}</div>
-            </div>
-
-          </div>
-        {% endfor %}
-
-      </div>
-    </div>
-
-    <!-- PROGRESS BAR -->
-    {% render 'sonu-progress-bar',
-      progress_id: 'progress-' | append: section.id,
-      container_class: 'carousel-progress',
-      bar_class: 'progress-bar-card'
-    %}
-
-    <!-- ARROWS -->
-    <div class="carousel-arrows">
-      {% render 'sonu-nav-arrows',
-        prev_class: 'custom-arrow-btn carousel-prev',
-        next_class: 'custom-arrow-btn carousel-next'
-      %}
-    </div>
-
-  </div>
-
-</section>
+  {% render 'sonu-premium-carousel-content',
+    is_combined: false,
+    bg_color: section.settings.bg_color,
+    bg_image: section.settings.bg_image,
+    text_color: section.settings.text_color,
+    text_align: section.settings.text_align,
+    padding_top: section.settings.padding_top,
+    padding_bottom: section.settings.padding_bottom,
+    mobile_padding_top: section.settings.mobile_padding_top,
+    mobile_padding_bottom: section.settings.mobile_padding_bottom,
+    heading: section.settings.heading,
+    heading_tag: section.settings.heading_tag,
+    heading_style: section.settings.heading_style,
+    blocks: section.blocks,
+    section_id: section.id,
+    section_settings: section.settings
+  %}
 </section>
 
 

@@ -1,123 +1,30 @@
 <section class="science-bg-area">
-<style>
-  #shopify-section-{{ section.id }} .logo-section {
-    position: relative;
-    {% if section.settings.bg_color_desktop_solid != blank and section.settings.bg_color_desktop_solid != 'transparent' %}
-      background-color: {{ section.settings.bg_color_desktop_solid }};
-      background-image: none;
-    {% else %}
-      background: {{ section.settings.bg_color_desktop | default: 'linear-gradient(90deg, #F2EDF4 0%, #EEF1FA 45%, #E8F2FF 100%)' }};
-    {% endif %}
-    padding-top: {{ section.settings.padding_top | default: 40 }}px !important;
-    padding-bottom: {{ section.settings.padding_bottom | default: 40 }}px !important;
-    overflow: hidden;
-  }
-
-  /* Background image with opacity overlay */
-  #shopify-section-{{ section.id }} .logo-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    {% if section.settings.bg_image != blank %}
-      background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: {{ section.settings.bg_image_opacity | divided_by: 100.0 }};
-    {% else %}
-      opacity: 0;
-    {% endif %}
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Ensure content sits above the pseudo-element */
-  #shopify-section-{{ section.id }} .logo-section > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  @media (max-width: 768px) {
-    #shopify-section-{{ section.id }} .logo-section {
-      {% if section.settings.bg_color_mobile_solid != blank and section.settings.bg_color_mobile_solid != 'transparent' %}
-        background-color: {{ section.settings.bg_color_mobile_solid }};
-        background-image: none;
-      {% else %}
-        background: {{ section.settings.bg_color_mobile | default: 'linear-gradient(90deg, #F2EDF4 0%, #EEF1FA 45%, #E8F2FF 100%)' }};
-      {% endif %}
-      padding-top: {{ section.settings.mobile_padding_top | default: 20 }}px !important;
-      padding-bottom: {{ section.settings.mobile_padding_bottom | default: 20 }}px !important;
-    }
-
-    #shopify-section-{{ section.id }} .logo-section::before {
-      {% if section.settings.bg_image != blank %}
-        background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: {{ section.settings.mobile_bg_image_opacity | default: section.settings.bg_image_opacity | divided_by: 100.0 }};
-      {% endif %}
-    }
-  }
-</style>
-<section class="logo-section section">
-
-  {% render 'sonu-section-header',
+  {% render 'sonu-logo-list-content',
+    is_combined: false,
+    bg_image: section.settings.bg_image,
+    bg_image_opacity: section.settings.bg_image_opacity,
+    mobile_bg_image_opacity: section.settings.mobile_bg_image_opacity,
+    bg_color_desktop: section.settings.bg_color_desktop,
+    bg_color_desktop_solid: section.settings.bg_color_desktop_solid,
+    bg_color_mobile: section.settings.bg_color_mobile,
+    bg_color_mobile_solid: section.settings.bg_color_mobile_solid,
+    padding_top: section.settings.padding_top,
+    padding_bottom: section.settings.padding_bottom,
+    mobile_padding_top: section.settings.mobile_padding_top,
+    mobile_padding_bottom: section.settings.mobile_padding_bottom,
     heading: section.settings.heading,
     heading_tag: section.settings.heading_tag,
-    heading_style_preset: section.settings.heading_style,
-    subheading_style_preset: section.settings.subheading_style,
-    heading_class: 'logo-heading',
-    subheading: section.settings.description,
-    text_align: 'center',
-    animate: true
+    heading_style: section.settings.heading_style,
+    subheading_style: section.settings.subheading_style,
+    description: section.settings.description,
+    button_text: section.settings.button_text,
+    button_link: section.settings.button_link,
+    button_bg: section.settings.button_bg,
+    button_text_color: section.settings.button_text_color,
+    blocks: section.blocks,
+    section_id: section.id,
+    section_settings: section.settings
   %}
-
-  <!-- LOGOS -->
-  <div class="logo-container animate-blur delay-3">
-
-    <div class="logo-track" id="logoTrack-{{ section.id }}">
-
-      {% for block in section.blocks %}
-        <div class="logo-item">
-
-          {% if block.settings.logo != blank %}
-            <img
-              src="{{ block.settings.logo | image_url: width: 300 }}"
-              alt=""
-              loading="lazy"
-              width="{{ block.settings.logo.width }}"
-              height="{{ block.settings.logo.height }}"
-            >
-          {% endif %}
-
-        </div>
-      {% endfor %}
-
-    </div>
-
-  </div>
-
-  <!-- CTA BUTTON -->
-  {% if section.settings.button_text != blank %}
-    <div class="logo-button-wrap">
-
-      <a href="{{ section.settings.button_link }}"
-         class="logo-btn"
-         style="
-           background: {{ section.settings.button_bg }};
-           color: {{ section.settings.button_text_color }};
-         ">
-        {{ section.settings.button_text }}
-      </a>
-
-    </div>
-  {% endif %}
-
-</section>
 </section>
 {{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
 
