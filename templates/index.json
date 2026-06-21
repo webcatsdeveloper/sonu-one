@@ -771,7 +771,7 @@
         "heading_tag": "h2",
         "heading_style": "h2",
         "name_tag": "h4",
-        "name_style": "h4",
+        "name_style": "h5",
         "role_style": "p",
         "desc_style": "p",
         "grad_color_1": "#daf2ff",
