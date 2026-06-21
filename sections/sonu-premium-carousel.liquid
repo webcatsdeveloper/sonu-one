@@ -75,7 +75,7 @@
                   </span>
                 {% endif %}
                 {% if block.settings.badge_text != blank %}
-                  <span class="badge-text typography-{{ block.settings.badge_text_style | default: 'p' }}">{{ block.settings.badge_text }}</span>
+                  <span class="badge-text typography-{{ block.settings.badge_text_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.badge_text_style, prefix: 'badge_text_style', settings: block.settings %}">{{ block.settings.badge_text }}</span>
                 {% endif %}
               </div>
             {% endif %}
@@ -83,7 +83,7 @@
             <div class="card-content sonu-blur-in sonu-blur-in--d1">
               {%- assign card_heading = block.settings.heading_tag | default: 'h3' -%}
               <{{ card_heading }} class="typography-{{ block.settings.card_heading_style | default: 'h3' }}">{% render 'heading-br', heading: block.settings.title %}</{{ card_heading }}>
-              <div class="card-desc typography-{{ block.settings.card_desc_style | default: 'p' }}">{{ block.settings.description }}</div>
+              <div class="card-desc typography-{{ block.settings.card_desc_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: block.settings.card_desc_style, prefix: 'card_desc_style', settings: block.settings %}">{{ block.settings.description }}</div>
             </div>
 
           </div>
@@ -130,12 +130,30 @@
       "id": "heading_tag",
       "label": "Heading type",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
       ],
       "default": "h2"
     },
@@ -144,16 +162,144 @@
       "id": "heading_style",
       "label": "Heading Style Preset",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
     },
     {
       "type": "color",
@@ -177,9 +323,18 @@
       "id": "text_align",
       "label": "Text Alignment",
       "options": [
-        { "value": "left",   "label": "Left"   },
-        { "value": "center", "label": "Center" },
-        { "value": "right",  "label": "Right"  }
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
       ],
       "default": "center"
     },
@@ -233,39 +388,210 @@
       "type": "card",
       "name": "Card",
       "settings": [
-        { "type": "image_picker", "id": "image",        "label": "Image" },
-        { "type": "checkbox",     "id": "enable_parallax", "label": "Enable Parallax", "default": false },
-        { "type": "text",         "id": "badge_text",   "label": "Badge Text" },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_parallax",
+          "label": "Enable Parallax",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text"
+        },
         {
           "type": "select",
           "id": "badge_text_style",
           "label": "Badge Text Style Preset",
           "options": [
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" },
-            { "value": "p", "label": "Paragraph (P)" },
-            { "value": "custom", "label": "Custom" }
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph (P)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom"
+            }
           ],
           "default": "p"
         },
-        { "type": "image_picker", "id": "badge_icon",   "label": "Badge Icon (Image)" },
-        { "type": "textarea",     "id": "badge_svg",    "label": "Badge SVG Code" },
-        { "type": "text",         "id": "title",        "label": "Title" },
+        {
+          "type": "range",
+          "id": "badge_text_style_font_size_desktop",
+          "label": "Desktop Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 32,
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "badge_text_style_font_size_mobile",
+          "label": "Mobile Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 24,
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "badge_text_style_font_weight",
+          "label": "Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            },
+            {
+              "value": "800",
+              "label": "Extra Bold"
+            },
+            {
+              "value": "900",
+              "label": "Black"
+            }
+          ],
+          "default": "400",
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "badge_text_style_line_height",
+          "label": "Line Height",
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "default": 1.2,
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "badge_text_style_letter_spacing",
+          "label": "Letter Spacing (hundredths of em)",
+          "min": -10,
+          "max": 50,
+          "step": 1,
+          "default": 0,
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "badge_text_style_text_transform",
+          "label": "Text Transform",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            },
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            }
+          ],
+          "default": "none",
+          "visible_if": "{{ block.settings.badge_text_style == 'custom' }}"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_icon",
+          "label": "Badge Icon (Image)"
+        },
+        {
+          "type": "textarea",
+          "id": "badge_svg",
+          "label": "Badge SVG Code"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
         {
           "type": "select",
           "id": "heading_tag",
           "label": "Heading type",
           "options": [
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" }
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
           ],
           "default": "h3"
         },
@@ -274,33 +600,293 @@
           "id": "card_heading_style",
           "label": "Card Heading Style Preset",
           "options": [
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" },
-            { "value": "p", "label": "Paragraph (P)" },
-            { "value": "custom", "label": "Custom" }
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph (P)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom"
+            }
           ],
           "default": "h3"
         },
-        { "type": "richtext",     "id": "description",  "label": "Description" },
+        {
+          "type": "range",
+          "id": "card_heading_style_font_size_desktop",
+          "label": "Desktop Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 32,
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_heading_style_font_size_mobile",
+          "label": "Mobile Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 24,
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "card_heading_style_font_weight",
+          "label": "Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            },
+            {
+              "value": "800",
+              "label": "Extra Bold"
+            },
+            {
+              "value": "900",
+              "label": "Black"
+            }
+          ],
+          "default": "400",
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_heading_style_line_height",
+          "label": "Line Height",
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "default": 1.2,
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_heading_style_letter_spacing",
+          "label": "Letter Spacing (hundredths of em)",
+          "min": -10,
+          "max": 50,
+          "step": 1,
+          "default": 0,
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "card_heading_style_text_transform",
+          "label": "Text Transform",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            },
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            }
+          ],
+          "default": "none",
+          "visible_if": "{{ block.settings.card_heading_style == 'custom' }}"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
         {
           "type": "select",
           "id": "card_desc_style",
           "label": "Card Description Style Preset",
           "options": [
-            { "value": "h1", "label": "H1" },
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" },
-            { "value": "h6", "label": "H6" },
-            { "value": "p", "label": "Paragraph (P)" },
-            { "value": "custom", "label": "Custom" }
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph (P)"
+            },
+            {
+              "value": "custom",
+              "label": "Custom"
+            }
           ],
           "default": "p"
+        },
+        {
+          "type": "range",
+          "id": "card_desc_style_font_size_desktop",
+          "label": "Desktop Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 32,
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_desc_style_font_size_mobile",
+          "label": "Mobile Font Size",
+          "min": 8,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 24,
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "card_desc_style_font_weight",
+          "label": "Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            },
+            {
+              "value": "800",
+              "label": "Extra Bold"
+            },
+            {
+              "value": "900",
+              "label": "Black"
+            }
+          ],
+          "default": "400",
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_desc_style_line_height",
+          "label": "Line Height",
+          "min": 0.8,
+          "max": 2,
+          "step": 0.1,
+          "default": 1.2,
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "card_desc_style_letter_spacing",
+          "label": "Letter Spacing (hundredths of em)",
+          "min": -10,
+          "max": 50,
+          "step": 1,
+          "default": 0,
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
+        },
+        {
+          "type": "select",
+          "id": "card_desc_style_text_transform",
+          "label": "Text Transform",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            },
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            }
+          ],
+          "default": "none",
+          "visible_if": "{{ block.settings.card_desc_style == 'custom' }}"
         }
       ]
     }
@@ -309,9 +895,15 @@
     {
       "name": "Premium Carousel",
       "blocks": [
-        { "type": "card" },
-        { "type": "card" },
-        { "type": "card" }
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
       ]
     }
   ]
