@@ -1,48 +1,42 @@
 (function() {
   function initSwipers() {
-    // ========= DESKTOP: Sync Reviews Swiper and Video Swiper =========
-    const reviewsSwiperDesktop = document.getElementById('v2-reviewsSwiperDesktop');
-    const videoSwiperDesktop = document.getElementById('v2-videoSwiperDesktop');
-    
-    let desktopReviewsSwiper = null;
-    let desktopVideoSwiper = null;
-    
-    if (reviewsSwiperDesktop && videoSwiperDesktop) {
-      // Create the video swiper first so the layout targets the custom arrow elements cleanly
-      desktopVideoSwiper = new Swiper(videoSwiperDesktop, {
-        loop: true,
-        slidesPerView: 1,
-        navigation: {
-          nextEl: '.v2-desktop-video-next',
-          prevEl: '.v2-desktop-video-prev',
-        },
-        on: {
-          slideChange: function() {
-            // Use realIndex to match loop configurations safely without shifting bugs
-            if (desktopReviewsSwiper && desktopReviewsSwiper.realIndex !== this.realIndex) {
-              desktopReviewsSwiper.slideToLoop(this.realIndex);
-            }
-          }
-        }
-      });
+    // ========= DESKTOP: Reviews Swiper and Video Swiper (Independent) =========
+    const sections = document.querySelectorAll('.v2-testimonial-video-section');
+    sections.forEach(function(section) {
+      const reviewsSwiperEl = section.querySelector('.v2-reviews-swiper');
+      const videoSwiperEl = section.querySelector('.v2-video-swiper');
+      
+      if (reviewsSwiperEl && videoSwiperEl) {
+        const reviewsSlidesCount = reviewsSwiperEl.querySelectorAll('.swiper-slide').length;
+        const videoSlidesCount = videoSwiperEl.querySelectorAll('.swiper-slide').length;
 
-      // Create the reviews swiper second now that desktopVideoSwiper safely exists in memory
-      desktopReviewsSwiper = new Swiper(reviewsSwiperDesktop, {
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-          el: '.v2-reviews-pagination',
-          clickable: true,
-        },
-        on: {
-          slideChange: function() {
-            if (desktopVideoSwiper && desktopVideoSwiper.realIndex !== this.realIndex) {
-              desktopVideoSwiper.slideToLoop(this.realIndex);
-            }
+        const nextArrow = section.querySelector('.v2-desktop-video-next');
+        const prevArrow = section.querySelector('.v2-desktop-video-prev');
+        const paginationEl = section.querySelector('.v2-reviews-pagination');
+
+        // Create the video swiper
+        new Swiper(videoSwiperEl, {
+          loop: videoSlidesCount > 1,
+          slidesPerView: 1,
+          watchOverflow: false,
+          navigation: {
+            nextEl: nextArrow,
+            prevEl: prevArrow,
           }
-        }
-      });
-    }
+        });
+
+        // Create the reviews swiper
+        new Swiper(reviewsSwiperEl, {
+          loop: reviewsSlidesCount > 1,
+          slidesPerView: 1,
+          watchOverflow: false,
+          pagination: {
+            el: paginationEl,
+            clickable: true,
+          }
+        });
+      }
+    });
     
     // ========= MOBILE: Custom Track Slider =========
     const mobileContainers = document.querySelectorAll('.v2-mobile-testimonial-container');

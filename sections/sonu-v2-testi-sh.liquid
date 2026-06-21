@@ -126,10 +126,10 @@
   
   @media screen and (min-width: 768px) {
     #shopify-section-{{ section.id }} .v2-review-card-1,
-    #shopify-section-{{ section.id }} .v2-review-card-2 {
+    #shopify-section-{{ section.id }} .v2-review-card-3 {
       transform: none !important;
     }
-    #shopify-section-{{ section.id }} .v2-review-card-3,
+    #shopify-section-{{ section.id }} .v2-review-card-2,
     #shopify-section-{{ section.id }} .v2-review-card-4 {
       transform: translateY(40px) !important;
     }
@@ -231,7 +231,8 @@
   }
 
   /* Custom Pagination bars below reviews grid */
-  .v2-reviews-pagination.swiper-pagination-bullets {
+  .v2-reviews-pagination.swiper-pagination-bullets,
+  .v2-reviews-pagination.swiper-pagination-lock {
     bottom: -10px !important;
     position: relative !important;
     display: flex !important;
@@ -553,8 +554,8 @@
                 </div>
               {% endfor %}
             </div>
-            <div class="v2-reviews-pagination swiper-pagination"></div>
           </div>
+          <div class="v2-reviews-pagination swiper-pagination"></div>
         </div>
 
         <div class="v2-desktop-video-container">
