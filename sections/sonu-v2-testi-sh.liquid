@@ -1,9 +1,4 @@
 <style>
-
-
-
-
-
   #shopify-section-{{ section.id }} .v2-testimonial-video-section {
     {%- if section.settings.section_bg_gradient != blank -%}
       background: {{ section.settings.section_bg_gradient }} !important;
@@ -87,6 +82,11 @@
       border-color: {{ section.settings.mobile_card_border_color }} !important;
       border-radius: {{ section.settings.mobile_card_border_radius }}px !important;
       padding: {{ section.settings.mobile_card_padding }}px !important;
+      border-width: 1px;
+      border-style: solid;
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
     }
     
     #shopify-section-{{ section.id }} .v2-mobile-review-quote {
@@ -103,7 +103,187 @@
     
     #shopify-section-{{ section.id }} .v2-mobile-rating-stars-row {
       color: {{ section.settings.star_color }} !important;
+      display: flex;
+      gap: 4px;
+      margin-top: 12px;
+      justify-content: center;
     }
+    #shopify-section-{{ section.id }} .v2-mobile-rating-stars-row svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+
+  /* Desktop Review Columns Offset Layout */
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .v2-review-card-1,
+    #shopify-section-{{ section.id }} .v2-review-card-2 {
+      transform: none !important;
+    }
+    #shopify-section-{{ section.id }} .v2-review-card-3,
+    #shopify-section-{{ section.id }} .v2-review-card-4 {
+      transform: translateY(50px) !important;
+    }
+    #shopify-section-{{ section.id }} .v2-offset-grid {
+      padding-bottom: 60px !important;
+    }
+    #shopify-section-{{ section.id }} .v2-desktop-reviews-container {
+      padding-top: 25px !important;
+    }
+  }
+
+  /* Circular Profile Photo styles */
+  .v2-review-author-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0, 23, 85, 0.1);
+    flex-shrink: 0;
+  }
+  .v2-review-author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .v2-review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .v2-review-author-name {
+    font-family: 'Times New Roman', serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+  }
+  .v2-mobile-review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .v2-mobile-review-card .v2-review-author-image {
+    margin: 16px auto 8px auto;
+  }
+
+  /* Mobile Track Slider Layout */
+  .v2-mobile-testimonial-container {
+    overflow: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .v2-mobile-testimonial-track {
+    display: flex !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .v2-mobile-testimonial-slide {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+    box-sizing: border-box !important;
+    padding: 0 10px !important;
+  }
+  .v2-mobile-media-panel {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .v2-mobile-video-wrapper {
+    width: 254px !important;
+    height: 453px !important;
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .v2-mobile-video-wrapper video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Mobile bottom centered circular buttons */
+  .v2-mobile-counter-label,
+  .v2-mobile-indicator-line-track {
+    display: none !important;
+  }
+  .v2-mobile-nav-arrows {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 30px !important;
+    width: 100% !important;
+  }
+  .v2-mobile-nav-arrow {
+    width: 52px !important;
+    height: 52px !important;
+    border: 1.5px solid {{ section.settings.nav_border_color | default: '#001755' }} !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    color: {{ section.settings.nav_arrow_color | default: '#001755' }} !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+  }
+  .v2-mobile-nav-arrow svg {
+    width: 8px !important;
+    height: 14px !important;
+    display: block !important;
+  }
+  .v2-mobile-video-arrow {
+    color: #ffffff !important;
+  }
+
+  /* Video caption text overlay styling */
+  .v2-video-caption-overlay {
+    position: absolute !important;
+    bottom: 50px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #ffffff !important;
+    z-index: 99 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+  }
+  .v2-video-caption-text {
+    font-family: var(--sonu-font-primary) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  .v2-video-caption-dot {
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  .v2-video-wrapper-desktop {
+    position: relative !important;
   }
 </style>
 
@@ -133,25 +313,35 @@
                       {% assign review_key = 'review_' | append: i %}
                       {% assign name_key = 'name_' | append: i %}
                       {% assign role_key = 'role_' | append: i %}
+                      {% assign image_key = 'image_' | append: i %}
+                      {% assign rating_key = 'rating_' | append: i %}
                       {% if block.settings[review_key] != blank %}
                         <div class="v2-review-card v2-review-card-{{ i }}">
                           {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
                           <div class="v2-review-text rte typography-{{ text_tag }}">
                             {{ block.settings[review_key] }}
                           </div>
+                          {% if block.settings[image_key] != blank %}
+                            <div class="v2-review-author-image">
+                              <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
+                            </div>
+                          {% endif %}
                           <div class="v2-review-author">
                             {%- assign author_name_tag = section.settings.author_name_style | default: 'h5' -%}
                             <{{ author_name_tag }} class="v2-review-author-name typography-{{ author_name_tag }}">{{ block.settings[name_key] }}</{{ author_name_tag }}>
                             {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
                             <span class="v2-review-author-role typography-{{ author_role_tag }}">{{ block.settings[role_key] }}</span>
                           </div>
-                          <div class="v2-desktop-rating-stars-row">
-                            {%- for j in (1..5) -%}
-                              <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
-                              </svg>
-                            {%- endfor -%}
-                          </div>
+                          {% assign rating_val = block.settings[rating_key] | default: 5 %}
+                          {% if rating_val > 0 %}
+                            <div class="v2-desktop-rating-stars-row">
+                              {%- for j in (1..rating_val) -%}
+                                <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
+                                </svg>
+                              {%- endfor -%}
+                            </div>
+                          {% endif %}
                         </div>
                       {% endif %}
                     {% endfor %}
@@ -174,6 +364,12 @@
                       {% if block.settings.video_overlay_image != blank %}
                         <div class="v2-video-overlay-badge">
                           <img src="{{ block.settings.video_overlay_image | img_url: '300x' }}" alt="Product Box Overlay" loading="lazy">
+                        </div>
+                      {% endif %}
+                      {% if block.settings.video_text != blank %}
+                        <div class="v2-video-caption-overlay">
+                          <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
+                          <span class="v2-video-caption-dot"></span>
                         </div>
                       {% endif %}
                     </div>
@@ -207,6 +403,8 @@
               {%- assign review_key = 'review_' | append: i -%}
               {%- assign name_key = 'name_' | append: i -%}
               {%- assign role_key = 'role_' | append: i -%}
+              {%- assign image_key = 'image_' | append: i -%}
+              {%- assign rating_key = 'rating_' | append: i -%}
               {%- if block.settings[review_key] != blank -%}
                 <div class="v2-mobile-testimonial-slide" data-index="{{ slide_counter }}" {{ block.shopify_attributes }}>
                   <div class="v2-mobile-media-panel">
@@ -218,6 +416,22 @@
                             <img src="{{ block.settings.video_overlay_image | img_url: '200x' }}" alt="Product Box Overlay" loading="lazy">
                           </div>
                         {%- endif -%}
+                        <button class="v2-mobile-video-arrow v2-mobile-video-prev" aria-label="Previous Slide">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="v2-mobile-video-arrow v2-mobile-video-next" aria-label="Next Slide">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        {% if block.settings.video_text != blank %}
+                          <div class="v2-video-caption-overlay">
+                            <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
+                            <span class="v2-video-caption-dot"></span>
+                          </div>
+                        {% endif %}
                       {%- else -%}
                         <div style="width: 100%; height: 100%; background: #eaeaea; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #999; line-height: normal; padding: 20px; text-align: center;">
                           Upload Video Asset
@@ -233,6 +447,12 @@
                         “{{ block.settings[review_key] | replace: '"', '' | replace: '“', '' | replace: '”', '' }}”
                       </div>
 
+                      {% if block.settings[image_key] != blank %}
+                        <div class="v2-review-author-image">
+                          <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
+                        </div>
+                      {% endif %}
+
                       {%- assign author_name_tag = section.settings.author_name_style | default: 'h4' -%}
                       <{{ author_name_tag }} class="v2-mobile-author-name typography-{{ author_name_tag }}">
                         {{ block.settings[name_key] | escape }}
@@ -243,13 +463,16 @@
                         {{ block.settings[role_key] | escape }}
                       </div>
 
-                      <div class="v2-mobile-rating-stars-row">
-                        {%- for j in (1..5) -%}
-                          <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
-                          </svg>
-                        {%- endfor -%}
-                      </div>
+                      {% assign rating_val = block.settings[rating_key] | default: 5 %}
+                      {% if rating_val > 0 %}
+                        <div class="v2-mobile-rating-stars-row">
+                          {%- for j in (1..rating_val) -%}
+                            <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
+                            </svg>
+                          {%- endfor -%}
+                        </div>
+                      {% endif %}
                     </div>
                   </div>
                 </div>
@@ -639,6 +862,12 @@
           "label": "Video Overlay Image (Box/Product)"
         },
         {
+          "type": "text",
+          "id": "video_text",
+          "label": "Video Caption Overlay",
+          "default": "I love the color."
+        },
+        {
           "type": "textarea",
           "id": "review_1",
           "label": "Review 1",
@@ -655,6 +884,20 @@
           "id": "role_1",
           "label": "Role 1",
           "default": "Corporate Vice President @ Fortune 500 Company"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Author 1 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_1",
+          "label": "Review 1 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
         },
         {
           "type": "textarea",
@@ -675,6 +918,20 @@
           "default": "Radiologist"
         },
         {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Author 2 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_2",
+          "label": "Review 2 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
           "type": "textarea",
           "id": "review_3",
           "label": "Review 3",
@@ -693,6 +950,20 @@
           "default": "Retired RN"
         },
         {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Author 3 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_3",
+          "label": "Review 3 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
           "type": "textarea",
           "id": "review_4",
           "label": "Review 4",
@@ -709,6 +980,20 @@
           "id": "role_4",
           "label": "Role 4",
           "default": "Clinical Psychologist"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Author 4 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_4",
+          "label": "Review 4 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
         }
       ]
     }

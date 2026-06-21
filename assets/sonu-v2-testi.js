@@ -76,11 +76,11 @@
       }
 
       mobileContainer.addEventListener('click', function(e) {
-        if (e.target.closest('.v2-mobile-next-slide')) {
+        if (e.target.closest('.v2-mobile-next-slide') || e.target.closest('.v2-mobile-video-next')) {
           e.preventDefault();
           showSlide(currentIndex + 1);
         }
-        if (e.target.closest('.v2-mobile-prev-slide')) {
+        if (e.target.closest('.v2-mobile-prev-slide') || e.target.closest('.v2-mobile-video-prev')) {
           e.preventDefault();
           showSlide(currentIndex - 1);
         }
