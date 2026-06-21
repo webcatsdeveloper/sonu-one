@@ -527,7 +527,6 @@
         "trim_words": 20
       }
     },
-
     "spatial_therapy": {
       "type": "spatial-therapy-sh",
       "blocks": {
@@ -628,7 +627,6 @@
       "name": "Testimonials Video sonu",
       "settings": {
         "heading": "Real Patients, Real Results",
-        "heading_tag": "h2",
         "section_bg_color": "",
         "heading_color": "#001755",
         "card_bg_color": "rgba(0,0,0,0)",
