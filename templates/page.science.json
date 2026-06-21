@@ -1,0 +1,1173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "container_custom_width": 880,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 36,
+        "padding-block-end": 40,
+        "padding-inline-start": 15,
+        "padding-inline-end": 15,
+        "padding-block-start-mobile": 20,
+        "padding-block-end-mobile": 24,
+        "padding-inline-start-mobile": 16,
+        "padding-inline-end-mobile": 16
+      }
+    },
+    "sonu_hero_banner_FbCfje": {
+      "type": "sonu-hero-banner",
+      "name": "SONU Hero Banner",
+      "settings": {
+        "desktop_bg": "shopify://shop_images/Rectangle_1_66cf204b-05f2-49c8-8d6b-804d14d01869.png",
+        "mobile_bg": "shopify://shop_images/Screenshot_2026-04-24_at_6.45.04_PM_1_042e6ba3-29b9-494c-b307-1ed6348cea8d.png",
+        "slide_height": "adapt",
+        "top_text": "Featured in TIME's 2025 Best Inventions",
+        "heading": "Clear & Free \n[[Nasal Breathing]]",
+        "subheading": "No Drugs. No Side Effects.No Compromises.",
+        "description": "<p>The world’s first FDA 510-K cleared wearable that uses personalized vibro-acoustic therapy to relieve nasal congestion in minutes.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "badge_image": "shopify://shop_images/Layer_1_3.png",
+        "button_bg": "#656ae3",
+        "button_text_color": "#ffffff",
+        "badge_1_text": "CLINICALLY PROVEN",
+        "badge_2_text": "NO SIDE EFFECTS",
+        "badge_3_text": "DRUG FREE"
+      }
+    },
+    "spatial_therapy_sh_W69N7P": {
+      "type": "spatial-therapy-sh",
+      "blocks": {
+        "stat_Xrdgcn": {
+          "type": "stat",
+          "settings": {
+            "prefix": "",
+            "number": "[[2]]",
+            "postfix": "[[x]]",
+            "heading": "[[Improvement]]",
+            "text": "SONU patients showed a 2X improvement in nasal congestion symptoms compared to placebo.",
+            "card_bg_color": "#ffffff66",
+            "card_border_color": "#ffffff66",
+            "number_color": "#3d1b03",
+            "label_color": "#3d1b03",
+            "caption_color": "#1e1e1e"
+          }
+        },
+        "stat_QpQhkw": {
+          "type": "stat",
+          "settings": {
+            "prefix": "",
+            "number": "[[81]]",
+            "postfix": "[[%]]",
+            "heading": "[[Response Rate]]",
+            "text": "Over 80% of patients experienced clinically significant reduction in nasal congestion symptoms.",
+            "card_bg_color": "#ffffff66",
+            "card_border_color": "#ffffff66",
+            "number_color": "#3d1b03",
+            "label_color": "#3d1b03",
+            "caption_color": "#1e1e1e"
+          }
+        },
+        "stat_cWbKeQ": {
+          "type": "stat",
+          "settings": {
+            "prefix": "",
+            "number": "[[1]]",
+            "postfix": "[[K+]]",
+            "heading": "[[Doctors]]",
+            "text": "Recommended by over 1000 Doctors and Dentists",
+            "card_bg_color": "#ffffff66",
+            "card_border_color": "#ffffff66",
+            "number_color": "#3d1b03",
+            "label_color": "#3d1b03",
+            "caption_color": "#1e1e1e"
+          }
+        }
+      },
+      "block_order": [
+        "stat_Xrdgcn",
+        "stat_QpQhkw",
+        "stat_cWbKeQ"
+      ],
+      "name": "STE Therapy Editorial",
+      "settings": {
+        "hide_mobile": false,
+        "show_description_mobile": true,
+        "block_heading_tag": "h3",
+        "enable_top_gradient": true,
+        "gradient_color": "#ffffff",
+        "gradient_stop": 0,
+        "gradient_fade_end": 20,
+        "bg_color": "#ffffff",
+        "bg_gradient": "",
+        "text_color": "#3d1b03",
+        "desktop_image": "shopify://shop_images/section-12_1_1.png",
+        "desktop_image_position": "center center",
+        "mobile_image_position": "center center",
+        "heading": "Revolutionary personalized,\n[[non-invasive Therapeutics]]",
+        "heading_tag": "h2",
+        "description": "<p><strong>Acoustic Resonance Therapy</strong><br/>SONU generates resonant frequencies — calibrated to your unique facial and sinus anatomy via a smartphone facial scan and machine learning — that (a) reduce mucosal inflammation, (b) increase mucociliary clearance (the nose's natural self-cleaning system), and (c) mechanically open the nasal airway. This is drug-free, relying entirely on the physics of sound and the body's natural response to resonance.</p>",
+        "heading_color": "#3d1b03",
+        "highlight_color": "#3d1b03",
+        "description_color": "#1e1e1e",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 12
+      }
+    },
+    "sonu_graph_slider_XrMcdY": {
+      "type": "sonu-graph-slider",
+      "blocks": {
+        "graph_N84exG": {
+          "type": "graph",
+          "settings": {
+            "heading": "Reduction in Nasal Congestion",
+            "graph_image": "shopify://shop_images/Frame_2.png"
+          }
+        },
+        "graph_B7TrQ9": {
+          "type": "graph",
+          "settings": {
+            "heading": "Reduction in Total Nasal Symptoms Score",
+            "graph_image": "shopify://shop_images/Frame_3.png"
+          }
+        },
+        "graph_cExWPR": {
+          "type": "graph",
+          "settings": {
+            "heading": "Reduction in Nasal Congestion",
+            "graph_image": "shopify://shop_images/Frame_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "graph_N84exG",
+        "graph_B7TrQ9",
+        "graph_cExWPR"
+      ],
+      "name": "Graph Slider",
+      "settings": {
+        "heading": "",
+        "description": "",
+        "bg_color": "#ffffff",
+        "heading_color": "#3d1d12",
+        "text_color": "#3d1d12",
+        "card_heading_color": "#3d1d12",
+        "button_text": "Learn More",
+        "button_link": "",
+        "button_bg": "#000000",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "custom_comparison_sh_qNAXXk": {
+      "type": "custom-comparison-sh",
+      "blocks": {
+        "column_NPEebG": {
+          "type": "column",
+          "settings": {
+            "title": "Spatial",
+            "highlight": true,
+            "bg_color": "",
+            "border_color": "",
+            "text_color": "",
+            "title_color": "#3d1b03",
+            "row_1_val": "check",
+            "row_1_text": "",
+            "row_2_val": "check",
+            "row_2_text": "",
+            "row_3_val": "text",
+            "row_3_text": "Non-invasive low-frequency sounds",
+            "row_4_val": "text",
+            "row_4_text": "None",
+            "row_5_val": "text",
+            "row_5_text": "Days",
+            "row_6_val": "text",
+            "row_6_text": "",
+            "row_7_val": "text",
+            "row_7_text": "",
+            "row_8_val": "text",
+            "row_8_text": ""
+          }
+        },
+        "column_kUhgdD": {
+          "type": "column",
+          "settings": {
+            "title": "Prescription Medicine",
+            "highlight": false,
+            "bg_color": "",
+            "border_color": "",
+            "text_color": "",
+            "title_color": "#3d1b03",
+            "row_1_val": "cross",
+            "row_1_text": "",
+            "row_2_val": "cross",
+            "row_2_text": "",
+            "row_3_val": "text",
+            "row_3_text": "Sedative",
+            "row_4_val": "text",
+            "row_4_text": "Groggy, drowsy, headaches, amnesia.",
+            "row_5_val": "text",
+            "row_5_text": "Immediate",
+            "row_6_val": "text",
+            "row_6_text": "",
+            "row_7_val": "text",
+            "row_7_text": "",
+            "row_8_val": "text",
+            "row_8_text": ""
+          }
+        },
+        "column_TFDjxJ": {
+          "type": "column",
+          "settings": {
+            "title": "Melatonin & Other Supplements",
+            "highlight": false,
+            "bg_color": "",
+            "border_color": "",
+            "text_color": "",
+            "title_color": "#3d1b03",
+            "row_1_val": "cross",
+            "row_1_text": "",
+            "row_2_val": "cross",
+            "row_2_text": "",
+            "row_3_val": "text",
+            "row_3_text": "Forces increase in level of melatonin and magnesium",
+            "row_4_val": "text",
+            "row_4_text": "Headache, dizziness, nausea",
+            "row_5_val": "text",
+            "row_5_text": "Days",
+            "row_6_val": "text",
+            "row_6_text": "",
+            "row_7_val": "text",
+            "row_7_text": "",
+            "row_8_val": "text",
+            "row_8_text": ""
+          }
+        },
+        "column_T7Vyax": {
+          "type": "column",
+          "settings": {
+            "title": "CBT-I",
+            "highlight": false,
+            "bg_color": "",
+            "border_color": "",
+            "text_color": "",
+            "title_color": "#3d1b03",
+            "row_1_val": "check",
+            "row_1_text": "",
+            "row_2_val": "cross",
+            "row_2_text": "",
+            "row_3_val": "text",
+            "row_3_text": "Sessions with sleep therapist",
+            "row_4_val": "text",
+            "row_4_text": "Increased fatigue, emotional discomfort",
+            "row_5_val": "text",
+            "row_5_text": "Months",
+            "row_6_val": "text",
+            "row_6_text": "",
+            "row_7_val": "text",
+            "row_7_text": "",
+            "row_8_val": "text",
+            "row_8_text": ""
+          }
+        },
+        "column_B4tU9e": {
+          "type": "column",
+          "settings": {
+            "title": "Other Sleep Wearables and Trackers",
+            "highlight": false,
+            "bg_color": "",
+            "border_color": "",
+            "text_color": "",
+            "title_color": "#3d1b03",
+            "row_1_val": "cross",
+            "row_1_text": "",
+            "row_2_val": "cross",
+            "row_2_text": "",
+            "row_3_val": "text",
+            "row_3_text": "Electric currents",
+            "row_4_val": "text",
+            "row_4_text": "Undeterminable due to lack of data",
+            "row_5_val": "cross",
+            "row_5_text": "",
+            "row_6_val": "text",
+            "row_6_text": "",
+            "row_7_val": "text",
+            "row_7_text": "",
+            "row_8_val": "text",
+            "row_8_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_NPEebG",
+        "column_kUhgdD",
+        "column_TFDjxJ",
+        "column_T7Vyax",
+        "column_B4tU9e"
+      ],
+      "settings": {
+        "heading": "Backed by Science. Trusted by Doctors.",
+        "heading_tag": "h2",
+        "block_heading_tag": "h3",
+        "description": "<p>SONU uses acoustic resonance therapy — a clinically studied method that reduces inflammation, improves mucus clearance, and opens nasal airways.</p>",
+        "bg_color": "#ffffff",
+        "bg_gradient": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 24,
+        "label_1": "Clinically Proven",
+        "label_2": "Anatomical personalization",
+        "label_3": "Stimulus",
+        "label_4": "Side effect",
+        "label_5": "Time to work",
+        "label_6": "",
+        "label_7": "",
+        "label_8": ""
+      }
+    },
+    "sonu_logo_unique_EjTGUp": {
+      "type": "sonu-logo-unique",
+      "blocks": {
+        "logo_8pdPQg": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_16.png"
+          }
+        },
+        "logo_pkrF3A": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_13.png"
+          }
+        },
+        "logo_9jjVnF": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_ucsf-health-color.avif"
+          }
+        },
+        "logo_7dcUHt": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_cedars-sinai.avif"
+          }
+        },
+        "logo_UQ3Hie": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_cedars-sinai.avif"
+          }
+        }
+      },
+      "block_order": [
+        "logo_8pdPQg",
+        "logo_pkrF3A",
+        "logo_9jjVnF",
+        "logo_7dcUHt",
+        "logo_UQ3Hie"
+      ],
+      "name": "Logo Carousel",
+      "settings": {
+        "bg_color": "#f5f6fb",
+        "heading": "",
+        "description": "",
+        "button_text": "",
+        "button_link": "",
+        "button_bg": "#001755",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "doctors_testimonials_sh_4NUMtt": {
+      "type": "sonu-doctors-testimonials-sh",
+      "blocks": {
+        "doctor_VaqM84": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/misty.webp",
+            "name": "Misty Bridges,",
+            "role": "BS, CFNC, FNLP, COM Orofacial Myologist, Tyler, Texas",
+            "desc": "SONU has been a game changer for my clients"
+          }
+        },
+        "doctor_8PifUU": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/michael.webp",
+            "name": "Michael S. Blaiss,",
+            "role": "MD Allergist, Medical College of Georgia",
+            "desc": "As an airway-centric dentist, I work closely with patients"
+          }
+        },
+        "doctor_jwXHKF": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/mayra.webp",
+            "name": "Michael S. Blaiss,",
+            "role": "MD Allergist,Medical College of Georgia",
+            "desc": "As an airway-centric dentist, I work closely with patients"
+          }
+        },
+        "doctor_qUiiBe": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/michael_s.webp",
+            "name": "Jacob Johnson,",
+            "role": "MD, Otolaryngologist UCSF",
+            "desc": "As an airway-centric dentist, I work closely with patients"
+          }
+        },
+        "doctor_hDrN3J": {
+          "type": "doctor",
+          "settings": {
+            "image": "shopify://shop_images/jacob.webp",
+            "name": "Mayra Cramer,",
+            "role": "M.S., CCC-SLPSleep Language Pathologist, Menlo Park, California",
+            "desc": "As an airway-centric dentist, I work closely with patients"
+          }
+        }
+      },
+      "block_order": [
+        "doctor_VaqM84",
+        "doctor_8PifUU",
+        "doctor_jwXHKF",
+        "doctor_qUiiBe",
+        "doctor_hDrN3J"
+      ],
+      "name": "sonu Team Section",
+      "settings": {
+        "heading": "",
+        "heading_tag": "h2",
+        "bg_color": "#ffffff",
+        "bg_gradient": "",
+        "grad_color_1": "#daf2ff",
+        "grad_color_2": "#eaf8ff",
+        "grad_color_3": "#f7fcff",
+        "grad_color_4": "#ffffff",
+        "desktop_layout": "grid",
+        "mobile_layout": "slider",
+        "trim_words": 20,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "custom_heading_zHRwPd": {
+      "type": "custom-heading",
+      "name": "Custom Heading",
+      "settings": {
+        "heading": "What Better<br> Breathing Feels Like",
+        "font_family": "var(--font-body--family)",
+        "text_color": "#3d1b03",
+        "text_align": "center",
+        "hide_desktop": true,
+        "hide_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "sonu_benefits_hX6Enc": {
+      "type": "sonu-benefits",
+      "blocks": {
+        "tab_CAE9p8": {
+          "type": "tab",
+          "settings": {
+            "tag_svg": "<svg width=\"12\" height=\"13\" viewbox=\"0 0 12 13\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_1155_197)\">\n<path d=\"M11.172 7.81987C11.1875 8.01645 11.2529 8.21483 11.203 8.38385C11.1493 8.56461 11.1125 8.71284 11.173 8.90218C11.2015 8.99257 11.0679 9.12226 11.0248 9.23931C10.9803 9.35951 10.9507 9.4856 10.926 9.61123C10.9163 9.66094 10.9367 9.71562 10.9435 9.76804C11.0447 10.5408 10.6892 10.9471 9.84815 11.0162C9.49515 11.0451 9.13731 11.0456 8.78867 11.0994C8.26861 11.1793 8.12189 11.3515 8.08994 11.8409C8.0696 12.1491 8.05313 12.4573 8.04297 12.766C8.03861 12.8952 8.00229 12.9947 7.84637 12.9983C7.67592 13.0023 7.61927 12.8857 7.62557 12.7569C7.64639 12.3516 7.66624 11.9449 7.71418 11.5418C7.76599 11.103 8.08703 10.8693 8.51169 10.76C8.73492 10.7026 8.97219 10.689 9.20413 10.6669C9.38039 10.6497 9.55955 10.6574 9.73581 10.6416C10.4466 10.5779 10.6321 10.3695 10.5149 9.712C10.4617 9.41329 10.4956 9.16068 10.7561 8.94738C10.6975 8.87778 10.6471 8.8222 10.6011 8.763C10.4636 8.5854 10.5028 8.46293 10.6931 8.33595C10.7532 8.29618 10.7948 8.17597 10.7798 8.10412C10.6742 7.59889 10.6684 7.59979 11.1594 7.38242C11.4784 7.24113 11.5445 7.0343 11.358 6.76195C11.1052 6.39455 10.8466 6.03077 10.5992 5.66066C10.4326 5.41211 10.4326 5.15588 10.4946 4.86124C10.5595 4.55304 10.5464 4.21456 10.4893 3.90184C10.097 1.76522 8.30299 0.216991 5.53518 0.413118C4.64954 0.475933 3.8065 0.704598 3.01529 1.08646C0.794157 2.15793 -0.130708 4.37905 0.744282 6.56537C0.873569 6.88804 1.05079 7.19533 1.22318 7.50127C1.36941 7.76112 1.53453 8.01148 1.70014 8.26138C2.10349 8.86919 2.27781 9.51452 2.2139 10.2394C2.14272 11.0487 2.15046 11.864 2.12383 12.6765C2.12238 12.714 2.13884 12.7651 2.11899 12.7872C2.04829 12.8636 1.96452 12.93 1.88608 13.0005C1.82603 12.9255 1.71466 12.85 1.71466 12.775C1.71466 12.2255 1.73597 11.676 1.75243 11.1265C1.76744 10.6221 1.81974 10.116 1.78584 9.61484C1.76648 9.32652 1.64639 9.02917 1.50693 8.76571C1.26046 8.3007 0.959277 7.86144 0.690533 7.40683C0.237785 6.63994 0.0029374 5.81566 3.20672e-05 4.94122C-0.00432593 3.68447 0.435348 2.57052 1.41929 1.71009C3.08598 0.252691 5.08001 -0.296827 7.31663 0.15282C9.3034 0.552305 10.7139 2.12584 10.9362 4.03244C10.9774 4.38493 11.0219 4.73335 10.8815 5.08086C10.8476 5.16446 10.8757 5.29371 10.9236 5.37776C11.0602 5.61637 11.2185 5.84368 11.3744 6.07234C11.5342 6.30734 11.7109 6.53329 11.8625 6.77235C12.0949 7.13884 12.0373 7.35124 11.6475 7.58488C11.493 7.67752 11.3231 7.74621 11.172 7.82032V7.81987Z\" fill=\"white\"></path>\n<path d=\"M3.89362 7.60255C3.19682 7.58989 2.67386 7.3314 2.37994 6.78053C2.22886 6.49763 2.04486 6.28705 1.77466 6.09363C1.2517 5.71945 1.03235 5.19976 1.135 4.57613C1.14905 4.49072 1.13258 4.39808 1.11418 4.31221C0.987316 3.72338 1.17229 3.24662 1.67975 2.87289C1.76207 2.81234 1.83277 2.72015 1.87054 2.62841C2.08263 2.11324 2.46516 1.80052 3.05591 1.7133C3.13484 1.70155 3.22055 1.65952 3.27817 1.6071C3.67862 1.24377 4.12992 1.11 4.67176 1.29709C4.74004 1.32059 4.84851 1.30794 4.91049 1.27133C5.32208 1.02911 5.74093 1.01736 6.18109 1.19496C6.26001 1.2266 6.36751 1.23157 6.45177 1.21123C6.93066 1.09599 7.34225 1.19767 7.7059 1.50678C7.77902 1.56914 7.8749 1.62427 7.9698 1.64551C8.46177 1.75623 8.76925 2.04048 8.93389 2.48064C8.96779 2.57102 9.038 2.66637 9.1208 2.72105C9.78903 3.16166 10.082 3.87522 9.85294 4.5341C9.60938 5.23591 8.91888 5.66793 8.08069 5.64308C8.02549 5.64127 7.97077 5.64308 7.90734 5.64308C7.80856 6.07239 7.5892 6.40951 7.15292 6.58666C7.04349 6.63095 6.92437 6.66213 6.8067 6.68066C5.77628 6.8438 5.16955 7.49138 5.13371 8.46524C5.13081 8.54884 5.10805 8.64329 5.05866 8.70972C5.03348 8.74316 4.90274 8.75355 4.86545 8.72418C4.80008 8.67221 4.73617 8.58409 4.72987 8.50726C4.69549 8.07389 4.80928 7.66853 5.05817 7.30248C5.42328 6.76562 5.94575 6.44431 6.61592 6.32004C6.80137 6.28569 6.99361 6.22423 7.15098 6.12933C7.4391 5.95535 7.53885 5.63585 7.44442 5.33172C7.34951 5.02668 7.04058 4.79892 6.69436 4.77949C6.53215 4.77045 6.32587 4.82287 6.30892 4.58336C6.29827 4.43061 6.46484 4.35469 6.74908 4.38407C7.21732 4.43242 7.56887 4.6534 7.77176 5.05063C7.84148 5.18756 7.9301 5.23727 8.08214 5.24947C8.71454 5.29918 9.26704 4.97426 9.43651 4.44327C9.621 3.86528 9.36824 3.28006 8.80121 3.00304C8.6511 2.92938 8.58041 2.839 8.54942 2.67902C8.47582 2.29535 8.20465 2.08793 7.79452 2.02376C7.68072 2.00568 7.55531 1.93609 7.47832 1.85475C7.20957 1.57276 6.87643 1.47831 6.50067 1.62292C6.34233 1.68392 6.21692 1.67398 6.07165 1.58586C5.76611 1.40103 5.4257 1.42363 5.14194 1.63421C5.37873 1.9614 5.45088 2.31976 5.31675 2.70117C5.27365 2.82454 5.24024 2.99129 5.03348 2.93571C4.82526 2.87967 4.86497 2.73777 4.9163 2.58819C5.04655 2.21175 4.89354 1.84571 4.54732 1.67986C4.21321 1.51943 3.80355 1.63376 3.53384 1.93383C3.45782 2.01834 3.31691 2.08883 3.19924 2.09787C2.69807 2.13719 2.37074 2.39297 2.24048 2.85165C2.21143 2.95423 2.12282 3.06631 2.02694 3.12415C1.56984 3.39891 1.40278 3.8002 1.55289 4.28872C1.58291 4.38542 1.58485 4.49795 1.56645 4.59827C1.45846 5.18801 1.75578 5.74295 2.3412 5.98382C2.51068 6.05341 2.57944 6.14967 2.61866 6.31326C2.80073 7.07291 3.79145 7.51488 4.50422 6.9152C4.61898 6.81849 4.7352 6.75974 4.85819 6.88944C4.98312 7.02094 4.89402 7.12398 4.78604 7.21707C4.76812 7.23244 4.75118 7.25142 4.72987 7.25955C4.22144 7.45432 4.26841 7.87098 4.26889 8.26775C4.26889 8.34232 4.28536 8.41733 4.29794 8.4919C4.32022 8.6234 4.27325 8.72192 4.12895 8.74632C3.97594 8.77208 3.89846 8.6817 3.89507 8.55155C3.88732 8.24425 3.89265 7.93651 3.89265 7.603L3.89362 7.60255Z\" fill=\"white\"></path>\n<path d=\"M4.30569 6.19107C4.04469 6.19107 3.72801 6.02567 3.49655 5.71205C3.41762 5.60495 3.40503 5.4992 3.52803 5.41515C3.65102 5.33109 3.73915 5.38713 3.8418 5.47525C3.97932 5.5941 4.12895 5.73013 4.29988 5.78119C4.76618 5.92038 5.23927 5.50056 5.15259 5.04865C5.14145 4.9899 5.12402 4.93025 5.09836 4.87557C5.03396 4.73864 5.03735 4.61663 5.2044 4.55969C5.38357 4.49868 5.44651 4.62612 5.49784 4.7513C5.79273 5.46847 5.27897 6.17706 4.30569 6.19107Z\" fill=\"white\"></path>\n<path d=\"M4.27087 4.33255C4.27329 3.94391 4.50669 3.64022 4.83935 3.539C5.19622 3.43054 5.61023 3.53629 5.8136 3.8124C5.86299 3.87928 5.87849 4.02706 5.83297 4.08264C5.74145 4.19517 5.60781 4.16896 5.50225 4.0614C5.34052 3.896 5.15361 3.81556 4.92166 3.93216C4.71248 4.037 4.63888 4.24442 4.74008 4.47535C4.80109 4.61454 4.80933 4.72842 4.64033 4.79033C4.45972 4.85631 4.39096 4.7361 4.34496 4.60821C4.3067 4.50201 4.28588 4.39084 4.27039 4.33255H4.27087Z\" fill=\"white\"></path>\n<path d=\"M7.29382 3.41409C7.29673 3.10679 7.4909 2.82661 7.79548 2.74029C7.87683 2.71725 7.98675 2.78097 8.08359 2.80447C8.04727 2.89756 8.04001 3.03223 7.96931 3.07516C7.79451 3.18045 7.68072 3.29388 7.73447 3.49498C7.78918 3.70014 7.95091 3.76025 8.15913 3.73946C8.30149 3.72545 8.40027 3.77471 8.41867 3.91119C8.43852 4.05941 8.32715 4.09827 8.19641 4.12087C7.71994 4.20312 7.28995 3.8678 7.29431 3.41409H7.29382Z\" fill=\"white\"></path>\n<path d=\"M2.84289 2.88314C2.91504 2.73672 2.96782 2.57675 3.06854 2.44976C3.1155 2.39056 3.25593 2.39553 3.35423 2.37158C3.37021 2.471 3.392 2.57042 3.39781 2.67029C3.39974 2.70057 3.33534 2.73491 3.33825 2.76384C3.35181 2.88947 3.34309 3.03543 3.4104 3.13304C3.49756 3.25958 3.6588 3.29347 3.81811 3.20399C3.83893 3.19224 3.86024 3.1814 3.87961 3.16829C4.00502 3.08288 4.12608 3.08559 4.21663 3.2058C4.32267 3.3468 4.20694 3.43176 4.09799 3.49909C3.83651 3.66178 3.55518 3.69476 3.27288 3.55558C2.9959 3.4191 2.88792 3.18321 2.84192 2.88269L2.84289 2.88314Z\" fill=\"white\"></path>\n<path d=\"M3.52275 4.85072C3.51693 4.87874 3.5058 4.96098 3.48062 5.03916C3.44188 5.15756 3.35811 5.26557 3.22204 5.19281C3.1465 5.15259 3.11358 5.02515 3.08695 4.93071C3.07048 4.87151 3.12036 4.79694 3.10728 4.73548C3.06177 4.51812 2.77269 4.44717 2.60127 4.61753C2.48699 4.73096 2.36788 4.80869 2.2352 4.68622C2.08557 4.54794 2.20324 4.4196 2.31848 4.32199C2.54365 4.13128 2.80368 4.05807 3.0976 4.1715C3.36634 4.27544 3.52565 4.5145 3.52275 4.85117V4.85072Z\" fill=\"white\"></path>\n<path d=\"M6.41888 2.843C6.13754 2.84436 5.8533 2.66585 5.80779 2.42273C5.79181 2.33732 5.87558 2.23609 5.91383 2.14209C6.00341 2.18051 6.09784 2.21214 6.18209 2.25959C6.27603 2.31246 6.35786 2.42544 6.44938 2.43041C6.60918 2.43855 6.61886 2.30207 6.64646 2.17554C6.66292 2.10097 6.78059 2.01195 6.86581 1.99703C6.91617 1.98845 7.03432 2.10459 7.0503 2.17825C7.12487 2.52034 6.81013 2.84119 6.41888 2.84345V2.843Z\" fill=\"white\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_1155_197\">\n<rect width=\"12\" height=\"13\" fill=\"currentColor\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "tab_title": "Mental Sharpness",
+            "heading": "Clearer Airways, Clearer [[ Thinking ]]",
+            "heading_tag": "h3",
+            "description": "How you breathe shapes how you think. A recent fMRI study found that nasal breathing strengthens the connections across the brain networks you rely on for focus, attention, and higher-level thinking — the same systems behind clear, flexible thought and a calm, focused mind.",
+            "quote": "",
+            "custom_html": "<section class=\"member-spotlight\">\n  <div class=\"spotlight-card\">\n\n    <p class=\"spotlight-quote\">\n     “+40% higher-order brain connectivity during nasal breathing”\n    </p>\n  </div>\n</section>\n\n<style>\n  .member-spotlight {\n    display: flex;\n    justify-content: center;\n  }\n\n  .spotlight-card {\n    background: #000000;\n    border-radius: 18px;\n    padding: 32px;\n    max-width: 520px;\n    width: 100%;\n    color: #FFFFFF;\n  }\n\n  .member-name {\n    font-size: 20px;\n    font-weight: 400;\n    margin: 0 0 28px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-title {\n    font-size: 22px;\n    font-weight: 400;\n    margin: 0 0 36px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-quote {\n    font-size: 26px;\n    line-height: 1.08;\n    margin: 0;\ncolor:#FFFFFF;\ntext-align:center;\n    letter-spacing: -0.02em;\n    font-family: 'pp-editorial', sans-serif;\n  }\n\n  @media (max-width: 768px) {\n    .spotlight-card {\n      padding: 24px;\n    }\n\n    .spotlight-quote {\n      font-size: 20px;\n    }\n\n    .spotlight-title {\n      font-size: 18px;\n    }\n\n    .member-name {\n      font-size: 18px;\n    }\n  }\n</style>",
+            "image": "shopify://shop_images/Rectangle_46.webp",
+            "mobile_bg_image": "shopify://shop_images/Rectangle_5_2_e9567a3c-047d-4663-9045-f963685165e2.png"
+          }
+        },
+        "tab_KAEV8c": {
+          "type": "tab",
+          "settings": {
+            "tag_svg": "<svg width=\"11\" height=\"12\" viewbox=\"0 0 11 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M0.988954 7.39266C1.13759 6.20437 0.890933 5.33462 0.405651 4.49135C-0.717568 2.53842 0.615351 0.128149 2.87384 0.0190293C3.3302 -0.00263424 3.81709 0.0631588 4.24934 0.209187C5.08654 0.49322 5.88275 0.490813 6.71673 0.199559C8.68839 -0.48886 10.64 0.667331 10.9678 2.69167C11.0682 3.31189 10.9308 3.89841 10.6062 4.42154C10.0936 5.24636 9.89035 6.12093 9.93373 7.09258C9.98516 8.23433 9.84455 9.36885 9.3898 10.4288C9.2042 10.862 8.92621 11.2712 8.6209 11.6323C8.32764 11.9789 7.90262 12.0993 7.45349 11.9107C7.04855 11.7406 6.97544 11.3948 6.96419 10.9888C6.9417 10.2041 6.94973 9.40576 6.8019 8.64112C6.69986 8.11317 6.41785 7.58763 6.1029 7.14072C5.74858 6.63845 5.26008 6.66974 4.84791 7.13029C4.2847 7.75853 4.11195 8.54644 4.02679 9.34719C3.97296 9.84866 3.99224 10.3606 4.01393 10.8668C4.03241 11.2977 3.96412 11.67 3.55195 11.8931C3.20004 12.0832 2.73324 12.0022 2.36928 11.6652C1.75464 11.0963 1.45576 10.3461 1.29587 9.555C1.13759 8.77271 1.0685 7.97356 0.988954 7.39266ZM1.60681 6.90242C1.59395 8.07626 1.67912 9.15784 2.10494 10.1712C2.27126 10.5668 2.55246 10.9214 2.82403 11.2608C2.90116 11.3571 3.15585 11.3932 3.28119 11.341C3.37118 11.3041 3.41537 11.0763 3.42179 10.931C3.4467 10.3188 3.40251 9.69942 3.47241 9.09365C3.564 8.2937 3.77933 7.51783 4.29675 6.86712C5.00057 5.98212 5.9631 5.97329 6.66049 6.86471C6.86296 7.12387 7.01963 7.42876 7.14818 7.73286C7.58526 8.7703 7.5941 9.86551 7.55794 10.9671C7.55312 11.1043 7.61981 11.3202 7.71622 11.3643C7.82468 11.4141 8.06331 11.3587 8.13964 11.264C8.40317 10.9359 8.67955 10.5957 8.84587 10.2145C9.28053 9.21721 9.39382 8.14848 9.3432 7.07332C9.29419 6.03588 9.52237 5.09231 10.0534 4.2025C10.2133 3.93451 10.3363 3.61598 10.3724 3.30788C10.5789 1.55072 8.82899 0.136173 7.09033 0.706646C5.99604 1.0653 4.96843 1.0998 3.88297 0.703437C2.90036 0.344785 1.76107 0.734729 1.10465 1.54511C0.44502 2.35869 0.382351 3.32071 0.971278 4.3052C1.46942 5.13804 1.69599 6.02144 1.60922 6.90242H1.60681Z\" fill=\"white\"></path>\n</svg>",
+            "tab_title": "Sleep",
+            "heading": "Open Nose. Deep [[ Sleep ]]",
+            "heading_tag": "h3",
+            "description": "Block the nose, and the body fights for air all night. In a Mayo Clinic study, healthy adults forced to breathe through the mouth saw sleep apnea events surge from 1.5 to 43 per hour — a 29-fold spike. Clear the nose, and sleep does what it was built to do. Quietly. Deeply.",
+            "quote": "",
+            "custom_html": "<section class=\"member-spotlight\">\n  <div class=\"spotlight-card\">\n\n    <p class=\"spotlight-quote\">\n     “+40% higher-order brain connectivity during nasal breathing”\n    </p>\n  </div>\n</section>\n\n<style>\n  .member-spotlight {\n    display: flex;\n    justify-content: center;\n  }\n\n  .spotlight-card {\n    background: #000000;\n    border-radius: 18px;\n    padding: 32px;\n    max-width: 520px;\n    width: 100%;\n    color: #FFFFFF;\n  }\n\n  .member-name {\n    font-size: 20px;\n    font-weight: 400;\n    margin: 0 0 28px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-title {\n    font-size: 22px;\n    font-weight: 400;\n    margin: 0 0 36px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-quote {\n    font-size: 26px;\n    line-height: 1.08;\n    margin: 0;\ncolor:#FFFFFF;\ntext-align:center;\n    letter-spacing: -0.02em;\n    font-family: 'pp-editorial', sans-serif;\n  }\n\n  @media (max-width: 768px) {\n    .spotlight-card {\n      padding: 24px;\n    }\n\n    .spotlight-quote {\n      font-size: 20px;\n    }\n\n    .spotlight-title {\n      font-size: 18px;\n    }\n\n    .member-name {\n      font-size: 18px;\n    }\n  }\n</style>",
+            "image": "shopify://shop_images/Rectangle_139_800x800_95b72ab8-bf6f-4ad1-b599-7a7140b087ab.webp",
+            "mobile_bg_image": "shopify://shop_images/Rectangle_5_2_800x800_4e5ead89-6559-419d-a29c-ca811f5d98be.webp"
+          }
+        },
+        "tab_8xYkjF": {
+          "type": "tab",
+          "settings": {
+            "tag_svg": "<svg width=\"11\" height=\"12\" viewbox=\"0 0 11 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M10.9999 3.78423C10.9827 5.86995 10.6946 7.60589 9.71362 9.17876C8.79242 10.6558 7.41956 11.5542 5.69958 11.9869C5.58835 12.0148 5.45323 11.9919 5.33826 11.9619C2.71274 11.2802 1.17939 9.57502 0.452275 7.13453C-0.0172869 5.55666 -0.0859669 3.94517 0.0857331 2.31937C0.109622 2.09406 0.161878 1.91811 0.470192 1.99249C1.71166 2.29076 2.8083 1.91668 3.81536 1.26507C4.31627 0.94034 4.7709 0.543368 5.21359 0.145681C5.43382 -0.0524477 5.55849 -0.0467255 5.7593 0.152118C6.6178 1.004 7.58455 1.71998 8.81407 1.97461C9.33215 2.0819 9.89652 2.04042 10.4325 1.99464C10.7513 1.96746 10.87 2.04614 10.8909 2.32581C10.9342 2.90732 10.9775 3.48883 10.9999 3.78566V3.78423ZM0.830015 2.84724C0.703853 4.75628 0.877046 6.57663 1.74749 8.28182C2.47684 9.7102 3.64814 10.6715 5.23524 11.15C5.40022 11.2001 5.60925 11.2115 5.7705 11.1608C6.61929 10.8933 7.37328 10.4598 8.01454 9.86112C9.27392 8.68523 9.84203 7.19533 10.0764 5.56953C10.2056 4.67688 10.2847 3.77851 10.1399 2.8501C8.25268 2.98743 6.81115 2.13054 5.48533 0.983971C4.16622 2.11767 2.71498 2.93307 0.830762 2.84795L0.830015 2.84724Z\" fill=\"white\"></path>\n</svg>",
+            "tab_title": "Immunity",
+            "heading": "Nasal Breathing: A First [[ Defense ]]",
+            "heading_tag": "h3",
+            "description": "Your sinuses are quietly making medicine. Each nasal breath carries nitric oxide — a gas that sweeps the airway, accelerates cilia, and kills inhaled bacteria and viruses on contact. In one study, NO levels in the nose ran 100 times higher than in the mouth. Breathe through it. Let it work.",
+            "quote": "",
+            "custom_html": "<section class=\"member-spotlight\">\n  <div class=\"spotlight-card\">\n\n    <p class=\"spotlight-quote\">\n     “NASAL NITRIC OXIDE 100× higher than oral\"\n    </p>\n  </div>\n</section>\n\n<style>\n  .member-spotlight {\n    display: flex;\n    justify-content: center;\n  }\n\n  .spotlight-card {\n    background: #000000;\n    border-radius: 18px;\n    padding: 32px;\n    max-width: 520px;\n    width: 100%;\n    color: #FFFFFF;\n  }\n\n  .member-name {\n    font-size: 20px;\n    font-weight: 400;\n    margin: 0 0 28px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-title {\n    font-size: 22px;\n    font-weight: 400;\n    margin: 0 0 36px;\n    font-family: Arial, sans-serif;\n  }\n\n  .spotlight-quote {\n    font-size: 26px;\n    line-height: 1.08;\n    margin: 0;\ncolor:#FFFFFF;\ntext-align:center;\n    letter-spacing: -0.02em;\n    font-family: 'pp-editorial', sans-serif;\n  }\n\n  @media (max-width: 768px) {\n    .spotlight-card {\n      padding: 24px;\n    }\n\n    .spotlight-quote {\n      font-size: 20px;\n    }\n\n    .spotlight-title {\n      font-size: 18px;\n    }\n\n    .member-name {\n      font-size: 18px;\n    }\n  }\n</style>",
+            "image": "shopify://shop_images/Rectangle_139_800x800_95b72ab8-bf6f-4ad1-b599-7a7140b087ab.webp",
+            "mobile_bg_image": "shopify://shop_images/Rectangle_131_1_800x800_bf21590a-c63a-4550-ab93-d0f71bf83883.webp"
+          }
+        },
+        "tab_qWGMPr": {
+          "type": "tab",
+          "settings": {
+            "tag_svg": "<svg width=\"12\" height=\"11\" viewbox=\"0 0 12 11\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M5.94254 1.1205C6.40283 0.821076 6.80198 0.475375 7.26624 0.274645C9.17254 -0.550021 11.3483 0.578527 11.8692 2.63489C12.1931 3.91399 11.8845 5.10666 11.281 6.23465C10.4991 7.69663 9.31918 8.81849 7.98868 9.79036C7.41402 10.2102 6.79745 10.5754 6.19108 10.9512C6.10786 11.0025 5.94593 11.0176 5.8644 10.9724C4.12229 10.0022 2.56079 8.81515 1.34919 7.22771C0.670348 6.33892 0.217977 5.35088 0.0458614 4.24073C-0.25704 2.29031 0.970419 0.429653 2.84331 0.0666663C3.98188 -0.154137 4.96815 0.180413 5.80043 0.968278C5.85478 1.01958 5.9046 1.07589 5.95839 1.12775C5.97084 1.14001 5.99066 1.14447 5.94254 1.12106V1.1205ZM6.00878 2.26243C5.77495 2.00873 5.55641 1.7528 5.31805 1.51694C4.77226 0.977199 4.1138 0.684468 3.33192 0.732421C1.95726 0.817173 0.834538 1.98475 0.758671 3.39265C0.702054 4.45206 1.03213 5.40943 1.59774 6.29152C2.66837 7.95981 4.19873 9.14077 5.88535 10.1478C5.95103 10.1868 6.08691 10.1717 6.15881 10.1299C6.48323 9.94035 6.80312 9.74185 7.11168 9.5283C8.46653 8.58988 9.69795 7.52713 10.5342 6.09302C11.1072 5.11112 11.4429 4.0584 11.1796 2.9187C10.9339 1.85484 10.2885 1.09485 9.18726 0.810482C8.1574 0.544515 7.29285 0.88018 6.58118 1.63347C6.38868 1.83755 6.20297 2.04776 6.00821 2.26187L6.00878 2.26243Z\" fill=\"white\"></path>\n</svg>",
+            "tab_title": "Heart Health",
+            "heading": "Nose Open. Pressure [[ Down ]]",
+            "heading_tag": "h3",
+            "description": "Switch from mouth to nose, and within five minutes your diastolic blood pressure drops by 4 mmHg. In a 2023 controlled study, the same young adults swung between the two routes. Same heart. Same body. Nasal breathing shifted the nervous system toward calm — and the heart followed. Breathe through it.",
+            "quote": "",
+            "custom_html": "",
+            "image": "shopify://shop_images/Rectangle_139_800x800_95b72ab8-bf6f-4ad1-b599-7a7140b087ab.webp",
+            "mobile_bg_image": "shopify://shop_images/Rectangle_135_800x800_00c781eb-30f8-4948-bdf3-06b52d5ac818.webp"
+          }
+        },
+        "tab_7d9r3E": {
+          "type": "tab",
+          "settings": {
+            "tag_svg": "<svg width=\"11\" height=\"12\" viewbox=\"0 0 11 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M0.988954 7.39266C1.13759 6.20437 0.890933 5.33462 0.405651 4.49135C-0.717568 2.53842 0.615351 0.128149 2.87384 0.0190293C3.3302 -0.00263424 3.81709 0.0631588 4.24934 0.209187C5.08654 0.49322 5.88275 0.490813 6.71673 0.199559C8.68839 -0.48886 10.64 0.667331 10.9678 2.69167C11.0682 3.31189 10.9308 3.89841 10.6062 4.42154C10.0936 5.24636 9.89035 6.12093 9.93373 7.09258C9.98516 8.23433 9.84455 9.36885 9.3898 10.4288C9.2042 10.862 8.92621 11.2712 8.6209 11.6323C8.32764 11.9789 7.90262 12.0993 7.45349 11.9107C7.04855 11.7406 6.97544 11.3948 6.96419 10.9888C6.9417 10.2041 6.94973 9.40576 6.8019 8.64112C6.69986 8.11317 6.41785 7.58763 6.1029 7.14072C5.74858 6.63845 5.26008 6.66974 4.84791 7.13029C4.2847 7.75853 4.11195 8.54644 4.02679 9.34719C3.97296 9.84866 3.99224 10.3606 4.01393 10.8668C4.03241 11.2977 3.96412 11.67 3.55195 11.8931C3.20004 12.0832 2.73324 12.0022 2.36928 11.6652C1.75464 11.0963 1.45576 10.3461 1.29587 9.555C1.13759 8.77271 1.0685 7.97356 0.988954 7.39266ZM1.60681 6.90242C1.59395 8.07626 1.67912 9.15784 2.10494 10.1712C2.27126 10.5668 2.55246 10.9214 2.82403 11.2608C2.90116 11.3571 3.15585 11.3932 3.28119 11.341C3.37118 11.3041 3.41537 11.0763 3.42179 10.931C3.4467 10.3188 3.40251 9.69942 3.47241 9.09365C3.564 8.2937 3.77933 7.51783 4.29675 6.86712C5.00057 5.98212 5.9631 5.97329 6.66049 6.86471C6.86296 7.12387 7.01963 7.42876 7.14818 7.73286C7.58526 8.7703 7.5941 9.86551 7.55794 10.9671C7.55312 11.1043 7.61981 11.3202 7.71622 11.3643C7.82468 11.4141 8.06331 11.3587 8.13964 11.264C8.40317 10.9359 8.67955 10.5957 8.84587 10.2145C9.28053 9.21721 9.39382 8.14848 9.3432 7.07332C9.29419 6.03588 9.52237 5.09231 10.0534 4.2025C10.2133 3.93451 10.3363 3.61598 10.3724 3.30788C10.5789 1.55072 8.82899 0.136173 7.09033 0.706646C5.99604 1.0653 4.96843 1.0998 3.88297 0.703437C2.90036 0.344785 1.76107 0.734729 1.10465 1.54511C0.44502 2.35869 0.382351 3.32071 0.971278 4.3052C1.46942 5.13804 1.69599 6.02144 1.60922 6.90242H1.60681Z\" fill=\"white\"></path>\n</svg>",
+            "tab_title": "Dental Health",
+            "heading": "[[Breath ]]Right. Grow Right",
+            "heading_tag": "h3",
+            "description": "How a child breathes shapes how a child grows. Mouth breathing narrows the upper palate in 54% of kids, crowds adult teeth, and dries the gums — driving cavity rates up to twice as high as nasal breathers. Catch it early. Restore nasal breathing. The face, the bite, and the smile follow.",
+            "quote": "",
+            "custom_html": "",
+            "image": "shopify://shop_images/Rectangle_46.webp",
+            "mobile_bg_image": "shopify://shop_images/Rectangle_139.png"
+          }
+        }
+      },
+      "block_order": [
+        "tab_CAE9p8",
+        "tab_KAEV8c",
+        "tab_8xYkjF",
+        "tab_qWGMPr",
+        "tab_7d9r3E"
+      ],
+      "name": "Benefits Tabs",
+      "settings": {
+        "heading": "What Better Breathing Feels Like",
+        "button_text": "Learn More",
+        "button_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "bg_color": "#ffffff",
+        "heading_color": "#3d1b03",
+        "subheading_color": "#3d1b03",
+        "desc_color": "#1e1e1e",
+        "tab_text_color": "#1e1e1e",
+        "tab_active_color": "#000000",
+        "quote_bg_color": "#ffffff",
+        "quote_text_color": "#3d1b03",
+        "quote_border_color": "#e5e5e5",
+        "button_bg": "#001c6b",
+        "button_text_color": "#ffffff",
+        "heading_tag": "h2",
+        "button_width": 200,
+        "button_height": 54,
+        "button_border_radius": 33
+      }
+    },
+    "sonu_banner_sh_w7pmeq": {
+      "type": "sonu-banner-sh",
+      "settings": {
+        "bg_image": "shopify://shop_images/Rectangle_50_9ef31dfe-5457-4b4c-8626-430e0b687970.webp",
+        "mobile_bg_image": "shopify://shop_images/Rectangle_5_fc9e341c-fe9d-4792-a51f-106b7166d57a.png",
+        "bg_color": "rgba(0,0,0,0)",
+        "bg_gradient": "",
+        "heading": "Your Breathing,\n((Personalized))",
+        "subtext": "<p>SONU Check uses your voice as a biomarker to help you keep track of your nasal breathing in real time.  Personalized to your nasal anatomy and your very own voice.</p>",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_color": "#ffffff",
+        "description_color": "#ffffff",
+        "custom_html": "<div class=\"img-flex\">\n  <a href=\"#\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0992/3166/2451/files/Group.png?v=1778794788\" \n      alt=\"Google Play\"\n    >\n  </a>\n\n  <a href=\"#\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0992/3166/2451/files/App_Store.png?v=1778794774\" \n      alt=\"App Store\"\n    >\n  </a>\n</div>\n\n<style>\n  .img-flex{\n    display:flex;\n    align-items:center;\n    gap:16px;\n    flex-wrap:wrap;\njustify-content: right;\n  }\n\n  .img-flex a{\n    display:block;\n  }\n\n  .img-flex img{\n    display:block;\n    width:160px;\n    max-width:100%;\n    height:auto;\n  }\n\n  /* Desktop */\n  @media (min-width: 1024px){\n    .img-flex img{\n      width:180px;\n    }\n  }\n\n  /* Mobile */\n  @media (max-width: 767px){\n    .img-flex{\n      gap:12px;\njustify-content: center;\n    }\n\n    .img-flex img{\n      width:140px;\n    }\n  }\n</style>",
+        "content_position": "right",
+        "text_align": "left",
+        "mobile_layout_style": "image-top",
+        "mobile_text_align": "center",
+        "mobile_heading_color": "#3d1b03",
+        "mobile_description_color": "#3d1b03",
+        "mobile_content_bg": "#ffffff",
+        "btn1_text": "",
+        "btn1_link": "",
+        "btn2_text": "",
+        "btn2_link": ""
+      }
+    },
+    "sonu_flex_banner_N66fYQ": {
+      "type": "sonu-flex-banner",
+      "disabled": true,
+      "name": "Flex Banner",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Rectangle_5_fc9e341c-fe9d-4792-a51f-106b7166d57a.png",
+        "heading": "Your Breathing,\n[[Personalized]]",
+        "heading_tag": "h2",
+        "heading_color": "#001755",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#001755",
+        "button_1_text": "Explore SONU",
+        "button_1_link": "",
+        "button_2_text": "Explore Spatial Sleep",
+        "button_2_link": "",
+        "padding_top": 125,
+        "padding_bottom": 125,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    },
+    "sonu_product2_pLxTFq": {
+      "type": "sonu-product2",
+      "name": "Sonu Product Section",
+      "settings": {
+        "product": "sonu-band",
+        "fsa_hsa_text": "FDA 510-K Approved | FSA/HSA Eligible | VA Approved",
+        "buy_now_text": "BUY NOW",
+        "try_free_text": "TRY RISK FREE FOR 30 DAYS",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 4,
+        "padding_bottom_mobile": 56,
+        "bg_color": "#ffffff",
+        "title_color": "#3d1b03",
+        "text_color": "#1e1e1e",
+        "badge_color": "#1e1e1e",
+        "quantity_border_color": "#86a0af",
+        "quantity_bg_color": "#ffffff",
+        "quantity_btn_color": "#86a0af",
+        "button_primary_bg": "#001755",
+        "button_primary_text_color": "#ffffff",
+        "button_secondary_bg": "#ffffff",
+        "button_secondary_border_color": "#001755",
+        "button_secondary_text_color": "#001755",
+        "heading_tag": "h1",
+        "features_heading_tag": "h3",
+        "button_height": 60,
+        "button_border_radius": 30,
+        "feature_heading": ""
+      }
+    },
+    "sonu_faq_e7WdnB": {
+      "type": "sonu-faq-sh",
+      "blocks": {
+        "faq_zGNDJC": {
+          "type": "faq",
+          "settings": {
+            "question": "What is SONU™",
+            "answer": "<p>The SONU band is the world’s first and only FDA 510-K cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.<br/><br/></p>"
+          }
+        },
+        "faq_Hd7cwH": {
+          "type": "faq",
+          "settings": {
+            "question": "How does SONU™ work?",
+            "answer": "<p>The SONU band is the world’s first and only FDA 510-K cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.<br/><br/></p>"
+          }
+        },
+        "faq_UE3RFF": {
+          "type": "faq",
+          "settings": {
+            "question": "What symptoms does SONU Band help with?",
+            "answer": "<p>The SONU band is the world’s first and only FDA 510-K cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.<br/><br/></p>"
+          }
+        },
+        "faq_t6NAi4": {
+          "type": "faq",
+          "settings": {
+            "question": "Is SONU safe when it comes to EMF exposure?",
+            "answer": "<p>The SONU band is the world’s first and only FDA 510-K cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_zGNDJC",
+        "faq_Hd7cwH",
+        "faq_UE3RFF",
+        "faq_t6NAi4"
+      ],
+      "name": "SONU FAQ",
+      "settings": {
+        "heading": "FAQ",
+        "heading_tag": "h2",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 70,
+        "padding_bottom_mobile": 52,
+        "bg_image_desktop": "shopify://shop_images/Rectangle_60_3.png",
+        "bg_image_mobile": "shopify://shop_images/Rectangle_60_1.png",
+        "bg_color": "#d7cec7",
+        "bg_gradient": ""
+      }
+    },
+    "custom_specification_sh_xAqyyt": {
+      "type": "custom-specification-sh",
+      "blocks": {
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_800x800_bb9f8e7a-ff33-4256-b385-49c951189f38.svg",
+            "heading": "What's Included",
+            "text": "<ul><li>SONU Band</li><li>USB-C charging cable</li></ul>"
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Isolation_Mode_800x800_6ce1f240-8c5e-45a4-b825-255f667db2bb.svg",
+            "heading": "Weight",
+            "text": "<ul><li>2.5 oz (72 g)</li></ul>"
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_1_800x800_7814756d-0dd0-4c96-bd6b-df586c69a046.svg",
+            "heading": "Dimensions",
+            "text": "<ul><li>4 in x 7.8 in x 3.7 in</li><li>104 mm x 200 mm x 94 mm</li></ul>"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_2_800x800_c309aca6-aeca-43bf-a0b9-83b7cdf81fc5.svg",
+            "heading": "Material",
+            "text": "<ul><li>Hypoallergenic, soft fabric band</li></ul>"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_3_800x800_cb4d3201-9cb1-4570-9e8b-fd4667dce115.svg",
+            "heading": "Size",
+            "text": "<ul><li>One size fits all, adjustable</li></ul>"
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_6_800x800_66f140de-1112-4247-9980-8910772f9bf1.svg",
+            "heading": "Warranty",
+            "text": "<ul><li>1-year limited warranty</li></ul>"
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Icon_5_800x800_e9e1fafa-9f2b-4a79-b837-92f33fcafc35.svg",
+            "heading": "Compatibility",
+            "text": "<ul><li>Requires Android (except OnePlus) or iPhone 10 or newer, or iPad with Face ID</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_7",
+        "spec_6"
+      ],
+      "name": "Custom Tech Specs",
+      "settings": {
+        "heading": "Tech Specifications",
+        "heading_tag": "h2",
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 28,
+        "note_text": "",
+        "bg_image": "shopify://shop_images/Rectangle_65.png",
+        "mobile_bg_image": "shopify://shop_images/section-5-mobile_1.png",
+        "bg_color": "#3a190a",
+        "bg_gradient": "",
+        "overlay_opacity": 0,
+        "text_color": "#ffffff",
+        "enable_bottom_radius_desktop": false,
+        "bottom_radius_desktop": 100,
+        "enable_bottom_radius_mobile": false,
+        "bottom_radius_mobile": 50
+      }
+    },
+    "sonu_slide2_BhV36f": {
+      "type": "sonu-slide2",
+      "blocks": {
+        "card_XMPzBY": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4_2.png",
+            "title": "Scan Your Face",
+            "description": "The SONU app creates a 3D map of your sinus anatomy using AI."
+          }
+        },
+        "card_MfmfVQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Group_17_1.png",
+            "title": "Find your ResonantFrequency",
+            "description": "The SONU app creates a 3D map of your sinus anatomy using AI."
+          }
+        },
+        "card_4VXbkx": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_117_2.png",
+            "title": "Experience the power of customized Sound",
+            "description": "Sonu's bone conduction transducers deliver resonant sound into your sinus cavities to sonicate mucus and reduce inflammation"
+          }
+        },
+        "card_HiiEjk": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_106.png",
+            "title": "Breathe Better — Fast",
+            "description": "Breathe free -- no side effects.  Sonu has been shown to be better than intranasal steroids for first line treatment."
+          }
+        }
+      },
+      "block_order": [
+        "card_XMPzBY",
+        "card_MfmfVQ",
+        "card_4VXbkx",
+        "card_HiiEjk"
+      ],
+      "disabled": true,
+      "name": "Sonu Therapy Mobile",
+      "settings": {
+        "heading": "Personalized Sound Therapy precisely tailored to your anatomy so you can breathe through Your Nose",
+        "video_link_text": "Watch the Acoustic Resonance Therapy Film",
+        "video_link_url": ""
+      }
+    },
+    "custom_step_slider_sh_CF43xV": {
+      "type": "custom-step-slider-sh",
+      "blocks": {
+        "step_slide_Ezr99g": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4_4.png",
+            "title": "Scan Your Face",
+            "description": "The SONU app creates a 3D map of your sinus anatomy using AI."
+          }
+        },
+        "step_slide_VJ6bCV": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Group_17_10017713-d537-4de9-944a-00d8746e597e.png",
+            "title": "Find your Resonant Frequency",
+            "description": "The SONU app creates a 3D map of your sinus anatomy using AI."
+          }
+        },
+        "step_slide_UG3J6D": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_117_1.png",
+            "title": "Experience the power of customized Sound",
+            "description": "Sonu's bone conduction transducers deliver resonant sound into your sinus cavities to sonicate mucus and reduce inflammation"
+          }
+        },
+        "step_slide_PxWwDy": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_106.png",
+            "title": "Breathe Better — Fast",
+            "description": "Breathe free -- no side effects.  Sonu has been shown to be better than intranasal steroids for first line treatment."
+          }
+        }
+      },
+      "block_order": [
+        "step_slide_Ezr99g",
+        "step_slide_VJ6bCV",
+        "step_slide_UG3J6D",
+        "step_slide_PxWwDy"
+      ],
+      "name": "Custom Step Slider",
+      "settings": {
+        "heading": "Personalized Sound Therapy Built for make you Breathe Correctly through(( Your Nose))",
+        "heading_color": "#ffffff",
+        "desktop_heading_margin_bottom": 54,
+        "mobile_heading_margin_bottom": 24,
+        "description": "",
+        "button_text": "Watch the Acoustic Resonance<br> Therapy Film",
+        "button_link": "",
+        "bg_color": "#f4efea",
+        "bg_gradient": "",
+        "text_color": "#3d1b03",
+        "enable_bottom_radius": false,
+        "bottom_radius": 100,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "mobile_side_padding": 24,
+        "mobile_slide_width": 85,
+        "mobile_image_aspect_ratio": "5/4",
+        "progressbar_height": 2,
+        "nav_btn_size": 44
+      }
+    },
+    "sonu_press_R4Graa": {
+      "type": "sonu-press",
+      "blocks": {
+        "press_kCwNAt": {
+          "type": "press",
+          "settings": {
+            "enable_link": true,
+            "link": "shopify://blogs/news-and-media",
+            "source_logo": "shopify://shop_images/image_14.png",
+            "source": "",
+            "text": "Revealed: The AI headband that relieves nasal allergy symptoms and that shoppers say 'literally helps me breathe'"
+          }
+        },
+        "press_YcEU89": {
+          "type": "press",
+          "settings": {
+            "enable_link": true,
+            "link": "shopify://blogs/news-and-media/sonu-is-one-of-times-2025-best-inventions",
+            "source_logo": "shopify://shop_images/logo_espn_1.png",
+            "source": "",
+            "text": "Clear a Stuffy Nose in Minutes With This Sound Therapy Headband"
+          }
+        },
+        "press_nkKDmj": {
+          "type": "press",
+          "settings": {
+            "enable_link": true,
+            "link": "shopify://blogs/news-and-media/sonu-is-turning-sound-therapy-into-the-next-wave-of-wearable-wellness",
+            "source_logo": "shopify://shop_images/forbes_800x800_2f176094-b745-42e7-ab83-40398cfaf294.avif",
+            "source": "",
+            "text": "Sonu Is Turning Sound Therapy Into The Next Wave Of Wearable Wellness"
+          }
+        }
+      },
+      "block_order": [
+        "press_kCwNAt",
+        "press_YcEU89",
+        "press_nkKDmj"
+      ],
+      "name": "Press Feature",
+      "settings": {
+        "margin_bottom_negative": 95,
+        "margin_bottom_negative_mobile": 0,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 0,
+        "bottom_border_radius": 0,
+        "mobile_bottom_border_radius": 48,
+        "button_icon": "shopify://shop_images/Icon.png",
+        "bg_image": "shopify://shop_images/Rectangle_34_1_c5976d67-0b8f-46f4-849c-6fe2cf6b1c30.png",
+        "feature_image": "shopify://shop_images/Rectangle_35_1.png",
+        "badge": "Featured Article",
+        "title": "SONU is one of TIME's 2025 Best Inventions",
+        "title_tag": "h3",
+        "button_text": "READ MORE",
+        "button_link": "",
+        "mobile_press_layout": "slider",
+        "enable_advisors": true,
+        "advisor_heading": "",
+        "advisor_heading_tag": "h2",
+        "advisor_description": ""
+      }
+    },
+    "sonu_v2_testi_4a99Rw": {
+      "type": "sonu-v2-testi-sh",
+      "blocks": {
+        "video_slide_3bYmxz": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/d03b832fcb094af99f19714025e27984.mp4",
+            "video_overlay_image": "",
+            "video_text": "I love the color."
+          }
+        },
+        "review_1_slide_3bYmxz": {
+          "type": "review",
+          "settings": {
+            "review_text": "As an airway patient I am always looking for ways to improve my nasal breathing. SONU has been the best addition yet to my nasal hygiene routine. I highly recommend it to anyone struggling with nasal congestion.",
+            "name": "Zach",
+            "role": "Corporate Vice President @ Fortune 500 Company",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_2_slide_3bYmxz": {
+          "type": "review",
+          "settings": {
+            "review_text": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
+            "name": "Ram G MD",
+            "role": "Radiologist",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_3_slide_3bYmxz": {
+          "type": "review",
+          "settings": {
+            "review_text": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
+            "name": "Julie K",
+            "role": "Retired RN",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_4_slide_3bYmxz": {
+          "type": "review",
+          "settings": {
+            "review_text": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
+            "name": "Lindsay M",
+            "role": "Clinical Psychologist",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "video_slide_JkNgYT": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/video-sonu_app_in_iPhone_frame.mp4",
+            "video_overlay_image": "",
+            "video_text": "I love the color."
+          }
+        },
+        "review_1_slide_JkNgYT": {
+          "type": "review",
+          "settings": {
+            "review_text": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
+            "name": "Jay G",
+            "role": "Corporate Vice President @ Fortune 500 Company",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_2_slide_JkNgYT": {
+          "type": "review",
+          "settings": {
+            "review_text": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
+            "name": "Ram G MD",
+            "role": "Radiologist",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_3_slide_JkNgYT": {
+          "type": "review",
+          "settings": {
+            "review_text": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
+            "name": "Julie K",
+            "role": "Retired RN",
+            "image": "",
+            "rating": 5
+          }
+        },
+        "review_4_slide_JkNgYT": {
+          "type": "review",
+          "settings": {
+            "review_text": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
+            "name": "Lindsay M",
+            "role": "Clinical Psychologist",
+            "image": "",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_3bYmxz",
+        "video_slide_JkNgYT",
+        "review_1_slide_3bYmxz",
+        "review_2_slide_3bYmxz",
+        "review_3_slide_3bYmxz",
+        "review_4_slide_3bYmxz",
+        "review_1_slide_JkNgYT",
+        "review_2_slide_JkNgYT",
+        "review_3_slide_JkNgYT",
+        "review_4_slide_JkNgYT"
+      ],
+      "name": "Testimonials Video sonu",
+      "settings": {
+        "heading": "Real Patients, Real Results",
+        "section_bg_color": "#ffffff",
+        "section_bg_gradient": "",
+        "heading_color": "#3d1b03",
+        "card_bg_color": "rgba(0,0,0,0)",
+        "card_border_color": "#3d1b03",
+        "card_border_width": 1,
+        "card_border_radius": 16,
+        "card_padding": 32,
+        "desktop_review_text_color": "#3d1b03",
+        "desktop_author_name_color": "#3d1b03",
+        "desktop_author_role_color": "#3d1b03",
+        "mobile_card_bg_color": "rgba(0,0,0,0)",
+        "mobile_card_border_color": "#b8b7ff",
+        "mobile_card_border_radius": 25,
+        "mobile_card_padding": 24,
+        "mobile_review_text_color": "#000000",
+        "mobile_author_name_color": "#3d1b03",
+        "mobile_author_role_color": "#5a6874",
+        "star_color": "#ffcd0f",
+        "nav_arrow_color": "#1f428a",
+        "nav_border_color": "#001755",
+        "container_width": "contained",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 20,
+        "desktop_heading_margin_bottom": 70,
+        "mobile_heading_margin_bottom": 16
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sonu_hero_banner_FbCfje",
+    "spatial_therapy_sh_W69N7P",
+    "sonu_graph_slider_XrMcdY",
+    "custom_comparison_sh_qNAXXk",
+    "sonu_logo_unique_EjTGUp",
+    "doctors_testimonials_sh_4NUMtt",
+    "custom_heading_zHRwPd",
+    "sonu_benefits_hX6Enc",
+    "sonu_banner_sh_w7pmeq",
+    "sonu_v2_testi_4a99Rw",
+    "sonu_flex_banner_N66fYQ",
+    "sonu_product2_pLxTFq",
+    "sonu_faq_e7WdnB",
+    "custom_specification_sh_xAqyyt",
+    "sonu_slide2_BhV36f",
+    "custom_step_slider_sh_CF43xV",
+    "sonu_press_R4Graa"
+  ]
+}
