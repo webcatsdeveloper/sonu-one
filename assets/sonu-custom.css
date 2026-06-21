@@ -1993,10 +1993,10 @@
 .v2-review-text {
   font-family: var(--sonu-font-primary);
 }
-
+/* 
 .v2-review-author {
   margin-top: 24px;
-}
+} */
 
 .v2-review-author h5 {
   margin: 0;
