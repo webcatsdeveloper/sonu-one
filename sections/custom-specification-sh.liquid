@@ -108,7 +108,7 @@
               </div>
 
               <!-- TEXT -->
-              <div class="custom-tech-item-text typography-{{ section.settings.card_text_style | default: 'p' }}">
+              <div class="custom-tech-item-text typography-{{ section.settings.card_text_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: section.settings.card_text_style, prefix: 'card_text_style', settings: section.settings %}">
                 {{ block.settings.text }}
               </div>
 
@@ -121,7 +121,7 @@
     </div>
 
     {% if section.settings.note_text != blank %}
-      <div class="custom-tech-note typography-{{ section.settings.note_style | default: 'p' }}">
+      <div class="custom-tech-note typography-{{ section.settings.note_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: section.settings.note_style, prefix: 'note_style', settings: section.settings %}">
         {{ section.settings.note_text }}
       </div>
     {% endif %}
@@ -147,97 +147,868 @@
       "id": "heading_tag",
       "label": "Heading Tag",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_tag_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_tag_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_tag_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_tag_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.heading_tag == 'custom' }}"
     },
     {
       "type": "select",
       "id": "heading_style",
       "label": "Heading Style",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
     },
     {
       "type": "select",
       "id": "card_heading_tag",
       "label": "Card Heading Tag",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" },
-        { "value": "div", "label": "Div" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        },
+        {
+          "value": "div",
+          "label": "Div"
+        }
       ],
       "default": "h3"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_tag_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_tag_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_tag_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_tag_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_tag_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_tag_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.card_heading_tag == 'custom' }}"
     },
     {
       "type": "select",
       "id": "card_heading_style",
       "label": "Card Heading Style",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "h3"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_style_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_style_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_style_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_style_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_style_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_heading_style_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.card_heading_style == 'custom' }}"
     },
     {
       "type": "select",
       "id": "card_text_style",
       "label": "Card Text Style",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "card_text_style_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_text_style_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_text_style_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_text_style_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "card_text_style_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_text_style_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.card_text_style == 'custom' }}"
     },
     {
       "type": "select",
       "id": "note_style",
       "label": "Bottom Note Style",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "h3", "label": "H3" },
-        { "value": "h4", "label": "H4" },
-        { "value": "h5", "label": "H5" },
-        { "value": "h6", "label": "H6" },
-        { "value": "p", "label": "Paragraph (P)" },
-        { "value": "custom", "label": "Custom" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "Paragraph (P)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
       ],
       "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "note_style_font_size_desktop",
+      "label": "Desktop Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "note_style_font_size_mobile",
+      "label": "Mobile Font Size",
+      "min": 8,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "note_style_font_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "note_style_line_height",
+      "label": "Line Height",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.2,
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "note_style_letter_spacing",
+      "label": "Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "note_style_text_transform",
+      "label": "Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.note_style == 'custom' }}"
     },
     {
       "type": "header",
