@@ -1,7 +1,10 @@
 (function() {
   function initSwipers() {
+    console.log('sonu-v2-testi: initSwipers running...');
     const sections = document.querySelectorAll('.v2-testimonial-video-section');
-    sections.forEach(function(section) {
+    console.log('sonu-v2-testi: Found testimonial sections:', sections.length);
+    sections.forEach(function(section, index) {
+      console.log(`sonu-v2-testi: Processing section ${index}`, section);
       // ========= DESKTOP SWIPERS =========
       const reviewsSwiperDesktop = section.querySelector('.v2-reviews-swiper');
       const videoSwiperDesktop = section.querySelector('.v2-video-swiper');
@@ -9,6 +12,8 @@
       if (reviewsSwiperDesktop) {
         const reviewsSlidesCount = reviewsSwiperDesktop.querySelectorAll('.swiper-slide').length;
         const paginationEl = section.querySelector('.v2-reviews-pagination');
+        console.log('sonu-v2-testi: Reviews Swiper Desktop slides count:', reviewsSlidesCount);
+        console.log('sonu-v2-testi: Reviews Swiper Desktop pagination element:', paginationEl);
 
         const reviewsConfig = {
           loop: reviewsSlidesCount > 1,
@@ -27,7 +32,15 @@
           };
         }
 
-        new Swiper(reviewsSwiperDesktop, reviewsConfig);
+        console.log('sonu-v2-testi: Initializing Reviews Swiper Desktop with config:', reviewsConfig);
+        try {
+          const sw = new Swiper(reviewsSwiperDesktop, reviewsConfig);
+          console.log('sonu-v2-testi: Reviews Swiper Desktop initialized successfully', sw);
+        } catch (e) {
+          console.error('sonu-v2-testi: Failed to initialize Reviews Swiper Desktop:', e);
+        }
+      } else {
+        console.log('sonu-v2-testi: Reviews Swiper Desktop NOT found in section');
       }
 
       if (videoSwiperDesktop) {
