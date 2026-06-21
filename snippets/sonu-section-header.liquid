@@ -25,6 +25,11 @@
   elsif text_align == 'right'
     assign align_class = 'text-right'
   endif
+
+  assign resolved_settings = settings | default: section.settings
+  assign h_prefix = heading_style_prefix | default: 'heading_style'
+  assign sub_prefix = subheading_style_prefix | default: 'subheading_style'
+  assign small_prefix = small_heading_style_prefix | default: 'small_heading_style'
 -%}
 {%- capture newline -%}
 {%- endcapture -%}
@@ -36,7 +41,8 @@
 
 <div class="sonu-section-header {{ align_class }} {% if animate %}sonu-blur-in{% endif %}">
   {%- if small_heading != blank -%}
-    <p class="sonu-section-header__small-heading typography-{{ small_style }}">
+    <p class="sonu-section-header__small-heading typography-{{ small_style }}"
+       style="{% render 'sonu-typography-style', preset: small_style, prefix: small_prefix, settings: resolved_settings %}">
       {{ small_heading | escape }}
     </p>
   {%- endif -%}
@@ -55,7 +61,8 @@
       | replace: double_br, single_br
       | replace: double_br_short, single_br
     -%}
-    <{{ tag }} class="{{ class }} typography-{{ h_style }}" style="{{ heading_style }}">
+    <{{ tag }} class="{{ class }} typography-{{ h_style }}" 
+      style="{{ heading_style }}{% render 'sonu-typography-style', preset: h_style, prefix: h_prefix, settings: resolved_settings %}">
       {{ formatted_heading }}
     </{{ tag }}>
   {%- endif -%}
@@ -74,7 +81,8 @@
       | replace: double_br, single_br
       | replace: double_br_short, single_br
     -%}
-    <div class="sonu-section-header__subheading typography-{{ sub_style }}">
+    <div class="sonu-section-header__subheading typography-{{ sub_style }}"
+         style="{% render 'sonu-typography-style', preset: sub_style, prefix: sub_prefix, settings: resolved_settings %}">
       {{ formatted_subheading }}
     </div>
   {%- endif -%}

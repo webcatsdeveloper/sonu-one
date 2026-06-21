@@ -434,4 +434,16 @@
     letter-spacing: var(--font-paragraph--letter-spacing) !important;
     text-transform: var(--font-paragraph--transform) !important;
   }
+  .typography-custom, .typography-custom > * {
+    font-size: var(--custom-fs-desktop) !important;
+    font-weight: var(--custom-fw) !important;
+    line-height: var(--custom-lh) !important;
+    letter-spacing: var(--custom-ls) !important;
+    text-transform: var(--custom-tt) !important;
+  }
+  @media (max-width: 767px) {
+    .typography-custom, .typography-custom > * {
+      font-size: var(--custom-fs-mobile) !important;
+    }
+  }
 {% endstyle %}

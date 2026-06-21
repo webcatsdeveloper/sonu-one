@@ -1,0 +1,38 @@
+{%- liquid
+  assign preset = preset | default: 'p'
+  if preset == 'custom'
+    assign fs_desktop_key = prefix | append: '_font_size_desktop'
+    assign fs_mobile_key = prefix | append: '_font_size_mobile'
+    assign fw_key = prefix | append: '_font_weight'
+    assign lh_key = prefix | append: '_line_height'
+    assign ls_key = prefix | append: '_letter_spacing'
+    assign tt_key = prefix | append: '_text_transform'
+
+    assign fs_desktop = settings[fs_desktop_key]
+    assign fs_mobile = settings[fs_mobile_key]
+    assign fw = settings[fw_key]
+    assign lh = settings[lh_key]
+    assign ls = settings[ls_key]
+    assign tt = settings[tt_key]
+
+    if fs_desktop != blank
+      echo '--custom-fs-desktop: ' | append: fs_desktop | append: 'px;'
+    endif
+    if fs_mobile != blank
+      echo '--custom-fs-mobile: ' | append: fs_mobile | append: 'px;'
+    endif
+    if fw != blank
+      echo '--custom-fw: ' | append: fw | append: ';'
+    endif
+    if lh != blank
+      echo '--custom-lh: ' | append: lh | append: ';'
+    endif
+    if ls != blank
+      assign ls_em = ls | divided_by: 100.0
+      echo '--custom-ls: ' | append: ls_em | append: 'em;'
+    endif
+    if tt != blank
+      echo '--custom-tt: ' | append: tt | append: ';'
+    endif
+  endif
+-%}
