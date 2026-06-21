@@ -599,6 +599,53 @@
         "highlight_color": "#3d1b03",
         "description_color": "#1e1e1e"
       }
+    },
+    "patient_testimonials": {
+      "type": "sonu-v2-testi-sh",
+      "blocks": {
+        "slide_NCYPrX": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/d03b832fcb094af99f19714025e27984.mp4",
+            "review_1": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
+            "name_1": "Jay G",
+            "role_1": "Corporate Vice President @ Fortune 500 Company",
+            "review_2": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
+            "name_2": "Ram G MD",
+            "role_2": "Radiologist",
+            "review_3": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
+            "name_3": "Julie K",
+            "role_3": "Retired RN",
+            "review_4": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
+            "name_4": "Lindsay M",
+            "role_4": "Clinical Psychologist"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NCYPrX"
+      ],
+      "name": "Testimonials Video sonu",
+      "settings": {
+        "heading": "Real Patients, Real Results",
+        "heading_tag": "h2",
+        "section_bg_color": "",
+        "heading_color": "#001755",
+        "card_bg_color": "rgba(0,0,0,0)",
+        "card_border_color": "#b8b7ff",
+        "desktop_review_text_color": "#1e2a3e",
+        "desktop_author_name_color": "#001755",
+        "desktop_author_role_color": "#5a6874",
+        "mobile_card_bg_color": "rgba(0,0,0,0)",
+        "mobile_card_border_color": "#b8b7ff",
+        "mobile_review_text_color": "#000000",
+        "mobile_author_name_color": "#3d1b03",
+        "mobile_author_role_color": "#5a6874",
+        "star_color": "#ffcd0f",
+        "nav_arrow_color": "#1f428a",
+        "nav_border_color": "#001755",
+        "container_width": "contained"
+      }
     }
   },
   "order": [
@@ -610,6 +657,7 @@
     "card_slider",
     "logo_list",
     "doctors_testimonials",
+    "patient_testimonials",
     "app_banner",
     "faq",
     "tech_specs"

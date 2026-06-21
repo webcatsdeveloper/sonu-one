@@ -1,0 +1,1211 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .v2-testimonial-video-section {
+    {%- if section.settings.section_bg_gradient != blank -%}
+      background: {{ section.settings.section_bg_gradient }} !important;
+    {%- else -%}
+      background-color: {{ section.settings.section_bg_color | default: 'transparent' }} !important;
+      background-image: none !important;
+    {%- endif -%}
+    padding-top: {{ section.settings.padding_top }}px !important;
+    padding-bottom: {{ section.settings.padding_bottom }}px !important;
+    position: relative;
+    overflow: hidden;
+    {%- if section.settings.section_bg_image != blank -%}
+      background-image: url('{{ section.settings.section_bg_image | image_url: width: 2000 }}') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    {%- endif -%}
+  }
+  
+  #shopify-section-{{ section.id }} .v2-section-title {
+    margin-bottom: {{ section.settings.desktop_heading_margin_bottom }}px !important;
+    text-align: center;
+    color: {{ section.settings.heading_color | default: '#001755' }} !important;
+    font-weight: 700;
+  }
+  
+  #shopify-section-{{ section.id }} .v2-review-card {
+    background: {{ section.settings.card_bg_color | default: 'rgba(255,255,255,0.8)' }} !important;
+    border-color: {{ section.settings.card_border_color | default: '#B8B7FF' }} !important;
+    border-width: {{ section.settings.card_border_width | default: 1 }}px !important;
+    border-style: solid !important;
+    border-radius: {{ section.settings.card_border_radius | default: 16 }}px !important;
+    padding: {{ section.settings.card_padding | default: 32 }}px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 220px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  }
+  
+  #shopify-section-{{ section.id }} .v2-review-text {
+    color: {{ section.settings.desktop_review_text_color | default: '#1E2A3E' }} !important;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+  
+  #shopify-section-{{ section.id }} .v2-review-author-name {
+    color: {{ section.settings.desktop_author_name_color | default: '#001755' }} !important;
+    font-family: 'Times New Roman', Times, Baskerville, Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    font-size: 20px;
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+  }
+  
+  #shopify-section-{{ section.id }} .v2-review-author-role {
+    color: {{ section.settings.desktop_author_role_color | default: '#5A6874' }} !important;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  #shopify-section-{{ section.id }} .v2-desktop-rating-stars-row {
+    color: {{ section.settings.star_color | default: '#FFCD0F' }} !important;
+    display: flex;
+    gap: 4px;
+    margin-top: 10px;
+  }
+  
+  #shopify-section-{{ section.id }} .v2-desktop-rating-stars-row svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+  
+  /* Circular Profile Photo styles */
+  .v2-review-author-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid rgba(0, 23, 85, 0.1);
+    flex-shrink: 0;
+  }
+  .v2-review-author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Desktop Dual Slider Grid Layout */
+  .v2-desktop-layout {
+    display: block;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .v2-desktop-dual-slider {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .v2-desktop-reviews-container {
+    flex: 1;
+    min-width: 0;
+  }
+  .v2-reviews-swiper {
+    width: 100%;
+    position: relative;
+  }
+  .v2-review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    row-gap: 24px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .v2-review-card-1,
+    #shopify-section-{{ section.id }} .v2-review-card-2 {
+      transform: none !important;
+    }
+    #shopify-section-{{ section.id }} .v2-review-card-3,
+    #shopify-section-{{ section.id }} .v2-review-card-4 {
+      transform: translateY(40px) !important;
+    }
+    #shopify-section-{{ section.id }} .v2-offset-grid {
+      padding-bottom: 50px !important;
+    }
+    #shopify-section-{{ section.id }} .v2-desktop-reviews-container {
+      padding-top: 15px !important;
+    }
+  }
+
+  .v2-desktop-video-container {
+    width: 420px;
+    flex-shrink: 0;
+  }
+  .v2-desktop-video-swiper-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    background: #000;
+  }
+  .v2-video-swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .v2-video-slide {
+    width: 100%;
+    height: 100%;
+  }
+  .v2-video-wrapper-desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .v2-video-wrapper-desktop video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Navigation arrow overlays on video card */
+  .v2-desktop-video-prev,
+  .v2-desktop-video-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    transition: all 0.2s ease !important;
+    margin: 0 !important;
+  }
+  .v2-desktop-video-prev:hover,
+  .v2-desktop-video-next:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+  }
+  .v2-desktop-video-prev {
+    left: 20px !important;
+  }
+  .v2-desktop-video-next {
+    right: 20px !important;
+  }
+  .v2-desktop-video-prev::after,
+  .v2-desktop-video-next::after {
+    display: none !important;
+  }
+  .v2-desktop-video-prev svg,
+  .v2-desktop-video-next svg {
+    width: 8px;
+    height: 14px;
+    display: block;
+    fill: none;
+  }
+  
+  /* Video Badge Overlay */
+  .v2-video-overlay-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    z-index: 5;
+  }
+  .v2-video-overlay-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Custom Pagination bars below reviews grid */
+  .v2-reviews-pagination.swiper-pagination-bullets {
+    bottom: -10px !important;
+    position: relative !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    margin-top: 15px !important;
+  }
+  .v2-reviews-pagination .swiper-pagination-bullet {
+    width: 48px !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+    background: #E5E5E5 !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    transition: all 0.3s ease !important;
+  }
+  .v2-reviews-pagination .swiper-pagination-bullet-active {
+    background: #5E5DFF !important;
+  }
+
+  /* Video caption overlay styling */
+  .v2-video-caption-overlay {
+    position: absolute !important;
+    bottom: 40px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    z-index: 8 !important;
+    pointer-events: none !important;
+    white-space: nowrap !important;
+  }
+  .v2-video-caption-text {
+    font-family: inherit;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  .v2-video-caption-dot {
+    position: absolute !important;
+    bottom: 46px !important;
+    right: 20px !important;
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #ffffff !important;
+    border-radius: 50% !important;
+    z-index: 8 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    pointer-events: none !important;
+  }
+
+  /* Mobile Track Slider Layout */
+  .v2-mobile-testimonial-container {
+    overflow: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .v2-mobile-testimonial-track {
+    display: flex !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .v2-mobile-testimonial-slide {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+  .v2-mobile-media-panel {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .v2-mobile-video-wrapper {
+    width: 280px !important;
+    height: 490px !important;
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #000;
+  }
+  .v2-mobile-video-wrapper video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  
+  .v2-mobile-video-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    padding: 0 !important;
+  }
+  .v2-mobile-video-prev {
+    left: 16px !important;
+  }
+  .v2-mobile-video-next {
+    right: 16px !important;
+  }
+  .v2-mobile-video-arrow svg {
+    width: 8px;
+    height: 14px;
+    fill: none;
+    display: block;
+  }
+
+  .v2-mobile-content-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .v2-mobile-nav-arrows {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 24px !important;
+    width: 100% !important;
+  }
+  .v2-mobile-nav-arrow {
+    width: 52px !important;
+    height: 52px !important;
+    border: 1px solid {{ section.settings.nav_border_color | default: '#001755' }} !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    color: {{ section.settings.nav_arrow_color | default: '#001755' }} !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+  }
+  .v2-mobile-nav-arrow svg {
+    width: 8px !important;
+    height: 14px !important;
+    display: block !important;
+    fill: none;
+  }
+
+  /* Mobile layout styling */
+  .v2-mobile-layout {
+    display: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .v2-testimonial-video-section {
+      padding-top: {{ section.settings.mobile_padding_top | default: 30 }}px !important;
+      padding-bottom: {{ section.settings.mobile_padding_bottom | default: 20 }}px !important;
+      {%- if section.settings.section_bg_image_mobile != blank -%}
+        background-image: url('{{ section.settings.section_bg_image_mobile | image_url: width: 1000 }}') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+      {%- elsif section.settings.section_bg_image != blank -%}
+        background-image: url('{{ section.settings.section_bg_image | image_url: width: 1000 }}') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+      {%- else -%}
+        background-image: none !important;
+      {%- endif -%}
+    }
+    
+    #shopify-section-{{ section.id }} .v2-section-title {
+      margin-bottom: {{ section.settings.mobile_heading_margin_bottom | default: 16 }}px !important;
+    }
+
+    .v2-desktop-layout {
+      display: none !important;
+    }
+    .v2-mobile-layout {
+      display: block !important;
+    }
+    
+    #shopify-section-{{ section.id }} .v2-mobile-review-card {
+      background: {{ section.settings.mobile_card_bg_color | default: 'rgba(255,255,255,0.8)' }} !important;
+      border-color: {{ section.settings.mobile_card_border_color | default: '#B8B7FF' }} !important;
+      border-radius: {{ section.settings.mobile_card_border_radius | default: 25 }}px !important;
+      padding: {{ section.settings.mobile_card_padding | default: 24 }}px !important;
+      border-width: 1px;
+      border-style: solid;
+      max-width: 320px;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+    
+    #shopify-section-{{ section.id }} .v2-mobile-review-quote {
+      color: {{ section.settings.mobile_review_text_color | default: '#000000' }} !important;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      font-family: inherit;
+    }
+    
+    #shopify-section-{{ section.id }} .v2-mobile-author-name {
+      color: {{ section.settings.mobile_author_name_color | default: '#001755' }} !important;
+      font-family: 'Times New Roman', Times, Baskerville, Georgia, serif !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      font-size: 20px;
+      margin: 0 0 2px 0;
+      line-height: 1.2;
+    }
+    
+    #shopify-section-{{ section.id }} .v2-mobile-author-role {
+      color: {{ section.settings.mobile_author_role_color | default: '#5A6874' }} !important;
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    #shopify-section-{{ section.id }} .v2-mobile-rating-stars-row {
+      color: {{ section.settings.star_color | default: '#FFCD0F' }} !important;
+      display: flex;
+      gap: 4px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    #shopify-section-{{ section.id }} .v2-mobile-rating-stars-row svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+    
+    .v2-mobile-review-card .v2-review-author-image {
+      margin: 16px auto 12px auto;
+    }
+  }
+{%- endstyle -%}
+
+<section class="v2-testimonial-video-section {% if section.settings.container_width == 'full_width' %}v2-full-width{% else %}v2-contained{% endif %}">
+  <div class="v2-page-width">
+    {%- capture heading_style -%}color: {{ section.settings.heading_color }};{%- endcapture -%}
+    {%- assign head_tag = section.settings.heading_style | default: 'h2' -%}
+    {%- assign heading_class_with_tag = 'v2-section-title typography-' | append: head_tag -%}
+    {% render 'sonu-section-header',
+      heading: section.settings.heading,
+      heading_tag: head_tag,
+      heading_class: heading_class_with_tag,
+      heading_style: heading_style,
+      text_align: 'center',
+      animate: true
+    %}
+
+    <div class="v2-desktop-layout">
+      <div class="v2-desktop-dual-slider">
+        <div class="v2-desktop-reviews-container">
+          <div class="swiper v2-reviews-swiper" id="v2-reviewsSwiperDesktop">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="v2-review-grid v2-offset-grid">
+                    {% for i in (1..4) %}
+                      {% assign review_key = 'review_' | append: i %}
+                      {% assign name_key = 'name_' | append: i %}
+                      {% assign role_key = 'role_' | append: i %}
+                      {% assign image_key = 'image_' | append: i %}
+                      {% assign rating_key = 'rating_' | append: i %}
+                      {% if block.settings[review_key] != blank %}
+                        <div class="v2-review-card v2-review-card-{{ i }}">
+                          {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
+                          <div class="v2-review-text rte typography-{{ text_tag }}">
+                            {{ block.settings[review_key] }}
+                          </div>
+                          {% if block.settings[image_key] != blank %}
+                            <div class="v2-review-author-image">
+                              <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
+                            </div>
+                          {% endif %}
+                          <div class="v2-review-author">
+                            {%- assign author_name_tag = section.settings.author_name_style | default: 'h5' -%}
+                            <{{ author_name_tag }} class="v2-review-author-name typography-{{ author_name_tag }}">{{ block.settings[name_key] }}</{{ author_name_tag }}>
+                            {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
+                            <span class="v2-review-author-role typography-{{ author_role_tag }}">{{ block.settings[role_key] }}</span>
+                          </div>
+                          {% assign rating_val = block.settings[rating_key] | default: 5 %}
+                          {% if rating_val > 0 %}
+                            <div class="v2-desktop-rating-stars-row">
+                              {%- for j in (1..rating_val) -%}
+                                <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
+                                </svg>
+                              {%- endfor -%}
+                            </div>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="v2-reviews-pagination swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="v2-desktop-video-container">
+          <div class="v2-desktop-video-swiper-wrapper">
+            <div class="swiper v2-video-swiper" id="v2-videoSwiperDesktop">
+              <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                  <div class="swiper-slide v2-video-slide">
+                    <div class="v2-video-wrapper-desktop">
+                      {% if block.settings.video != blank %}
+                        {{ block.settings.video | video_tag: autoplay: true, muted: true, loop: true, controls: false, playsinline: true }}
+                      {% endif %}
+                      {% if block.settings.video_overlay_image != blank %}
+                        <div class="v2-video-overlay-badge">
+                          <img src="{{ block.settings.video_overlay_image | img_url: '150x' }}" alt="Product Overlay" loading="lazy">
+                        </div>
+                      {% endif %}
+                      {% if block.settings.video_text != blank %}
+                        <div class="v2-video-caption-overlay">
+                          <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
+                        </div>
+                        <span class="v2-video-caption-dot"></span>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <button class="swiper-button-prev v2-desktop-video-prev" aria-label="Previous Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="swiper-button-next v2-desktop-video-next" aria-label="Next Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {%- assign total_slides_count = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- for i in (1..4) -%}
+        {%- assign review_key = 'review_' | append: i -%}
+        {%- if block.settings[review_key] != blank -%}
+          {%- assign total_slides_count = total_slides_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+
+    <div class="v2-mobile-layout">
+      <div class="v2-mobile-testimonial-container" id="v2-mobile-testimonial-container-{{ section.id }}">
+        <div class="v2-mobile-testimonial-track">
+          {%- assign slide_counter = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- for i in (1..4) -%}
+              {%- assign review_key = 'review_' | append: i -%}
+              {%- assign name_key = 'name_' | append: i -%}
+              {%- assign role_key = 'role_' | append: i -%}
+              {%- assign image_key = 'image_' | append: i -%}
+              {%- assign rating_key = 'rating_' | append: i -%}
+              {%- if block.settings[review_key] != blank -%}
+                <div class="v2-mobile-testimonial-slide" data-index="{{ slide_counter }}" {{ block.shopify_attributes }}>
+                  <div class="v2-mobile-media-panel">
+                    <div class="v2-mobile-video-wrapper">
+                      {%- if block.settings.video != blank -%}
+                        {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+                        {%- if block.settings.video_overlay_image != blank -%}
+                          <div class="v2-video-overlay-badge mobile-overlay">
+                            <img src="{{ block.settings.video_overlay_image | img_url: '120x' }}" alt="Product Overlay" loading="lazy">
+                          </div>
+                        {%- endif -%}
+                        <button class="v2-mobile-video-arrow v2-mobile-video-prev" aria-label="Previous Slide">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="v2-mobile-video-arrow v2-mobile-video-next" aria-label="Next Slide">
+                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        {% if block.settings.video_text != blank %}
+                          <div class="v2-video-caption-overlay">
+                            <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
+                          </div>
+                          <span class="v2-video-caption-dot"></span>
+                        {% endif %}
+                      {%- else -%}
+                        <div style="width: 100%; height: 100%; background: #eaeaea; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #999; line-height: normal; padding: 20px; text-align: center;">
+                          Upload Video Asset
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+
+                  <div class="v2-mobile-content-panel">
+                    <div class="v2-mobile-review-card">
+                      {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
+                      <div class="v2-mobile-review-quote rte typography-{{ text_tag }}">
+                        “{{ block.settings[review_key] | replace: '"', '' | replace: '“', '' | replace: '”', '' }}”
+                      </div>
+
+                      {% if block.settings[image_key] != blank %}
+                        <div class="v2-review-author-image">
+                          <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
+                        </div>
+                      {% endif %}
+
+                      {%- assign author_name_tag = section.settings.author_name_style | default: 'h4' -%}
+                      <{{ author_name_tag }} class="v2-mobile-author-name typography-{{ author_name_tag }}">
+                        {{ block.settings[name_key] | escape }}
+                      </{{ author_name_tag }}>
+
+                      {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
+                      <div class="v2-mobile-author-role typography-{{ author_role_tag }}">
+                        {{ block.settings[role_key] | escape }}
+                      </div>
+
+                      {% assign rating_val = block.settings[rating_key] | default: 5 %}
+                      {% if rating_val > 0 %}
+                        <div class="v2-mobile-rating-stars-row">
+                          {%- for j in (1..rating_val) -%}
+                            <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
+                            </svg>
+                          {%- endfor -%}
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                {%- assign slide_counter = slide_counter | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if total_slides_count > 1 -%}
+          <div class="v2-mobile-nav-arrows">
+            <button class="v2-mobile-nav-arrow v2-mobile-prev-slide" aria-label="Previous Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="v2-mobile-nav-arrow v2-mobile-next-slide" aria-label="Next Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'sonu-v2-testi.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Testimonials Video sonu",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real Patients, Real Results"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "review_text_style",
+      "label": "Review Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "select",
+      "id": "author_name_style",
+      "label": "Author Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "h5"
+    },
+    {
+      "type": "select",
+      "id": "author_role_style",
+      "label": "Author Role Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg_gradient",
+      "label": "Section Background Gradient"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_image",
+      "label": "Section Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_image_mobile",
+      "label": "Section Mobile Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Heading Styling"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#001755"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Testimonial Card"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#B8B7FF"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Card Border Width (px)",
+      "default": 1,
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card Border Radius (px)",
+      "default": 16,
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Card Padding (px)",
+      "default": 32,
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "desktop_review_text_color",
+      "label": "Review Text Color",
+      "default": "#1E2A3E"
+    },
+    {
+      "type": "color",
+      "id": "desktop_author_name_color",
+      "label": "Author Name Color",
+      "default": "#001755"
+    },
+    {
+      "type": "color",
+      "id": "desktop_author_role_color",
+      "label": "Author Role Color",
+      "default": "#5A6874"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Testimonial Card"
+    },
+    {
+      "type": "color",
+      "id": "mobile_card_bg_color",
+      "label": "Mobile Card Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "mobile_card_border_color",
+      "label": "Mobile Card Border Color",
+      "default": "#B8B7FF"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_border_radius",
+      "label": "Mobile Card Border Radius (px)",
+      "default": 25,
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "label": "Mobile Card Padding (px)",
+      "default": 24,
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "mobile_review_text_color",
+      "label": "Mobile Review Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "mobile_author_name_color",
+      "label": "Mobile Author Name Color",
+      "default": "#3D1B03"
+    },
+    {
+      "type": "color",
+      "id": "mobile_author_role_color",
+      "label": "Mobile Author Role Color",
+      "default": "#5A6874"
+    },
+    {
+      "type": "header",
+      "content": "Star Ratings & Navigation"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Rating Color",
+      "default": "#FFCD0F"
+    },
+    {
+      "type": "color",
+      "id": "nav_arrow_color",
+      "label": "Mobile Nav Arrow Color",
+      "default": "#1f428a"
+    },
+    {
+      "type": "color",
+      "id": "nav_border_color",
+      "label": "Mobile Nav Border Color",
+      "default": "#001755"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Padding"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container Width",
+      "options": [
+        {
+          "value": "contained",
+          "label": "Contained"
+        },
+        {
+          "value": "full_width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "contained"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop Padding Top (px)",
+      "default": 100,
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop Padding Bottom (px)",
+      "default": 100,
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top (px)",
+      "default": 30,
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom (px)",
+      "default": 20,
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_heading_margin_bottom",
+      "label": "Desktop Heading Margin Bottom (px)",
+      "default": 70,
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_margin_bottom",
+      "label": "Mobile Heading Margin Bottom (px)",
+      "default": 16,
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Video + Reviews",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "video_overlay_image",
+          "label": "Video Overlay Image (Box/Product)"
+        },
+        {
+          "type": "text",
+          "id": "video_text",
+          "label": "Video Caption Overlay",
+          "default": "I love the color."
+        },
+        {
+          "type": "textarea",
+          "id": "review_1",
+          "label": "Review 1",
+          "default": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized."
+        },
+        {
+          "type": "text",
+          "id": "name_1",
+          "label": "Name 1",
+          "default": "Jay G"
+        },
+        {
+          "type": "text",
+          "id": "role_1",
+          "label": "Role 1",
+          "default": "Corporate Vice President @ Fortune 500 Company"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Author 1 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_1",
+          "label": "Review 1 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_2",
+          "label": "Review 2",
+          "default": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest."
+        },
+        {
+          "type": "text",
+          "id": "name_2",
+          "label": "Name 2",
+          "default": "Ram G MD"
+        },
+        {
+          "type": "text",
+          "id": "role_2",
+          "label": "Role 2",
+          "default": "Radiologist"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Author 2 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_2",
+          "label": "Review 2 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_3",
+          "label": "Review 3",
+          "default": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested."
+        },
+        {
+          "type": "text",
+          "id": "name_3",
+          "label": "Name 3",
+          "default": "Julie K"
+        },
+        {
+          "type": "text",
+          "id": "role_3",
+          "label": "Role 3",
+          "default": "Retired RN"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Author 3 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_3",
+          "label": "Review 3 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_4",
+          "label": "Review 4",
+          "default": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically."
+        },
+        {
+          "type": "text",
+          "id": "name_4",
+          "label": "Name 4",
+          "default": "Lindsay M"
+        },
+        {
+          "type": "text",
+          "id": "role_4",
+          "label": "Role 4",
+          "default": "Clinical Psychologist"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Author 4 Image"
+        },
+        {
+          "type": "range",
+          "id": "rating_4",
+          "label": "Review 4 Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Video sonu"
+    }
+  ]
+}
+{% endschema %}
