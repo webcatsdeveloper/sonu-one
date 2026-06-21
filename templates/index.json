@@ -684,7 +684,7 @@
       "name": "Split Content",
       "settings": {
         "small_heading": "Why Sound?",
-        "small_heading_style": "p",
+        "small_heading_style": "h6",
         "heading": "A new approach\nto therapeutics.",
         "heading_color": "#001755",
         "heading_tag": "h1",
