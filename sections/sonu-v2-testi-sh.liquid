@@ -26,7 +26,7 @@
   }
   
   #shopify-section-{{ section.id }} .v2-review-card {
-    background: {{ section.settings.card_bg_color | default: 'rgba(255,255,255,0.8)' }} !important;
+    background: {% if section.settings.card_bg_color == 'rgba(0,0,0,0)' or section.settings.card_bg_color == blank %}#F5F6FF{% else %}{{ section.settings.card_bg_color }}{% endif %} !important;
     border-color: {{ section.settings.card_border_color | default: '#B8B7FF' }} !important;
     border-width: {{ section.settings.card_border_width | default: 1 }}px !important;
     border-style: solid !important;
@@ -431,13 +431,13 @@
     }
     
     #shopify-section-{{ section.id }} .v2-mobile-review-card {
-      background: {{ section.settings.mobile_card_bg_color | default: 'rgba(255,255,255,0.8)' }} !important;
+      background: {% if section.settings.mobile_card_bg_color == 'rgba(0,0,0,0)' or section.settings.mobile_card_bg_color == blank %}#F5F6FF{% else %}{{ section.settings.mobile_card_bg_color }}{% endif %} !important;
       border-color: {{ section.settings.mobile_card_border_color | default: '#B8B7FF' }} !important;
       border-radius: {{ section.settings.mobile_card_border_radius | default: 25 }}px !important;
       padding: {{ section.settings.mobile_card_padding | default: 24 }}px !important;
       border-width: 1px;
       border-style: solid;
-      max-width: 320px;
+      max-width: 340px;
       width: 100%;
       box-sizing: border-box;
       display: flex;
