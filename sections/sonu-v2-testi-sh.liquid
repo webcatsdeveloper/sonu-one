@@ -293,36 +293,19 @@
     padding: 0 !important;
     margin: 0 !important;
   }
-  .v2-mobile-testimonial-track {
-    display: flex !important;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .v2-mobile-testimonial-slide {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-    box-sizing: border-box !important;
-    padding: 0 !important;
-  }
-  .v2-mobile-media-panel {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-  .v2-mobile-video-wrapper {
+  .v2-video-swiper-mobile {
     width: 280px !important;
     height: 490px !important;
     position: relative !important;
+    margin: 0 auto !important;
     border-radius: 20px !important;
     overflow: hidden !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .v2-mobile-video-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
     background: #000;
   }
   .v2-mobile-video-wrapper video {
@@ -506,38 +489,39 @@
       animate: true
     %}
 
+    {%- assign video_blocks = section.blocks | where: "type", "video" -%}
+    {%- assign review_blocks = section.blocks | where: "type", "review" -%}
+
     <div class="v2-desktop-layout">
       <div class="v2-desktop-dual-slider">
         <div class="v2-desktop-reviews-container">
-          <div class="swiper v2-reviews-swiper" id="v2-reviewsSwiperDesktop">
+          <div class="swiper v2-reviews-swiper">
             <div class="swiper-wrapper">
-              {% for block in section.blocks %}
-                <div class="swiper-slide">
-                  <div class="v2-review-grid v2-offset-grid">
-                    {% for i in (1..4) %}
-                      {% assign review_key = 'review_' | append: i %}
-                      {% assign name_key = 'name_' | append: i %}
-                      {% assign role_key = 'role_' | append: i %}
-                      {% assign image_key = 'image_' | append: i %}
-                      {% assign rating_key = 'rating_' | append: i %}
-                      {% if block.settings[review_key] != blank %}
-                        <div class="v2-review-card v2-review-card-{{ i }}">
+              {%- assign review_count = review_blocks.size -%}
+              {%- if review_count > 0 -%}
+                {%- assign total_reviews_slides = review_count | plus: 3 | divided_by: 4 -%}
+                {%- for slide_index in (1..total_reviews_slides) -%}
+                  {%- assign offset_val = slide_index | minus: 1 | multiplied_by: 4 -%}
+                  <div class="swiper-slide">
+                    <div class="v2-review-grid v2-offset-grid">
+                      {%- for block in review_blocks limit: 4 offset: offset_val -%}
+                        <div class="v2-review-card v2-review-card-{{ forloop.index }}" {{ block.shopify_attributes }}>
                           {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
                           <div class="v2-review-text rte typography-{{ text_tag }}">
-                            {{ block.settings[review_key] }}
+                            {{ block.settings.review_text }}
                           </div>
-                          {% if block.settings[image_key] != blank %}
+                          {% if block.settings.image != blank %}
                             <div class="v2-review-author-image">
-                              <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
+                              <img src="{{ block.settings.image | image_url: width: 120 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
                             </div>
                           {% endif %}
                           <div class="v2-review-author">
                             {%- assign author_name_tag = section.settings.author_name_style | default: 'h5' -%}
-                            <{{ author_name_tag }} class="v2-review-author-name typography-{{ author_name_tag }}">{{ block.settings[name_key] }}</{{ author_name_tag }}>
+                            <{{ author_name_tag }} class="v2-review-author-name typography-{{ author_name_tag }}">{{ block.settings.name }}</{{ author_name_tag }}>
                             {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
-                            <span class="v2-review-author-role typography-{{ author_role_tag }}">{{ block.settings[role_key] }}</span>
+                            <span class="v2-review-author-role typography-{{ author_role_tag }}">{{ block.settings.role }}</span>
                           </div>
-                          {% assign rating_val = block.settings[rating_key] | default: 5 %}
+                          {% assign rating_val = block.settings.rating | default: 5 %}
                           {% if rating_val > 0 %}
                             <div class="v2-desktop-rating-stars-row">
                               {%- for j in (1..rating_val) -%}
@@ -548,11 +532,11 @@
                             </div>
                           {% endif %}
                         </div>
-                      {% endif %}
-                    {% endfor %}
+                      {%- endfor -%}
+                    </div>
                   </div>
-                </div>
-              {% endfor %}
+                {%- endfor -%}
+              {%- endif -%}
             </div>
           </div>
           <div class="v2-reviews-pagination swiper-pagination"></div>
@@ -560,10 +544,10 @@
 
         <div class="v2-desktop-video-container">
           <div class="v2-desktop-video-swiper-wrapper">
-            <div class="swiper v2-video-swiper" id="v2-videoSwiperDesktop">
+            <div class="swiper v2-video-swiper">
               <div class="swiper-wrapper">
-                {% for block in section.blocks %}
-                  <div class="swiper-slide v2-video-slide">
+                {% for block in video_blocks %}
+                  <div class="swiper-slide v2-video-slide" {{ block.shopify_attributes }}>
                     <div class="v2-video-wrapper-desktop">
                       {% if block.settings.video != blank %}
                         {{ block.settings.video | video_tag: autoplay: true, muted: true, loop: true, controls: false, playsinline: true }}
@@ -584,120 +568,112 @@
                 {% endfor %}
               </div>
             </div>
-            <button class="swiper-button-prev v2-desktop-video-prev" aria-label="Previous Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button class="swiper-button-next v2-desktop-video-next" aria-label="Next Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+            {% if video_blocks.size > 1 %}
+              <button class="swiper-button-prev v2-desktop-video-prev" aria-label="Previous Slide">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button class="swiper-button-next v2-desktop-video-next" aria-label="Next Slide">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
 
-    {%- assign total_slides_count = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- for i in (1..4) -%}
-        {%- assign review_key = 'review_' | append: i -%}
-        {%- if block.settings[review_key] != blank -%}
-          {%- assign total_slides_count = total_slides_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endfor -%}
-
     <div class="v2-mobile-layout">
-      <div class="v2-mobile-testimonial-container" id="v2-mobile-testimonial-container-{{ section.id }}">
-        <div class="v2-mobile-testimonial-track">
-          {%- assign slide_counter = 0 -%}
-          {%- for block in section.blocks -%}
-            {%- for i in (1..4) -%}
-              {%- assign review_key = 'review_' | append: i -%}
-              {%- assign name_key = 'name_' | append: i -%}
-              {%- assign role_key = 'role_' | append: i -%}
-              {%- assign image_key = 'image_' | append: i -%}
-              {%- assign rating_key = 'rating_' | append: i -%}
-              {%- if block.settings[review_key] != blank -%}
-                <div class="v2-mobile-testimonial-slide" data-index="{{ slide_counter }}" {{ block.shopify_attributes }}>
-                  <div class="v2-mobile-media-panel">
-                    <div class="v2-mobile-video-wrapper">
-                      {%- if block.settings.video != blank -%}
-                        {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
-                        {%- if block.settings.video_overlay_image != blank -%}
-                          <div class="v2-video-overlay-badge mobile-overlay">
-                            <img src="{{ block.settings.video_overlay_image | img_url: '120x' }}" alt="Product Overlay" loading="lazy">
-                          </div>
-                        {%- endif -%}
-                        <button class="v2-mobile-video-arrow v2-mobile-video-prev" aria-label="Previous Slide">
-                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                        <button class="v2-mobile-video-arrow v2-mobile-video-next" aria-label="Next Slide">
-                          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                        {% if block.settings.video_text != blank %}
-                          <div class="v2-video-caption-overlay">
-                            <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
-                          </div>
-                          <span class="v2-video-caption-dot"></span>
-                        {% endif %}
-                      {%- else -%}
-                        <div style="width: 100%; height: 100%; background: #eaeaea; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #999; line-height: normal; padding: 20px; text-align: center;">
-                          Upload Video Asset
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </div>
-
-                  <div class="v2-mobile-content-panel">
-                    <div class="v2-mobile-review-card">
-                      {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
-                      <div class="v2-mobile-review-quote rte typography-{{ text_tag }}">
-                        “{{ block.settings[review_key] | replace: '"', '' | replace: '“', '' | replace: '”', '' }}”
+      <!-- Mobile Video Slider -->
+      <div class="v2-mobile-video-slider-container" style="margin-bottom: 30px;">
+        <div class="swiper v2-video-swiper-mobile">
+          <div class="swiper-wrapper">
+            {% for block in video_blocks %}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <div class="v2-mobile-video-wrapper">
+                  {%- if block.settings.video != blank -%}
+                    {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true }}
+                    {%- if block.settings.video_overlay_image != blank -%}
+                      <div class="v2-video-overlay-badge mobile-overlay">
+                        <img src="{{ block.settings.video_overlay_image | img_url: '120x' }}" alt="Product Overlay" loading="lazy">
                       </div>
-
-                      {% if block.settings[image_key] != blank %}
-                        <div class="v2-review-author-image">
-                          <img src="{{ block.settings[image_key] | image_url: width: 120 }}" alt="{{ block.settings[name_key] | escape }}" loading="lazy">
-                        </div>
-                      {% endif %}
-
-                      {%- assign author_name_tag = section.settings.author_name_style | default: 'h4' -%}
-                      <{{ author_name_tag }} class="v2-mobile-author-name typography-{{ author_name_tag }}">
-                        {{ block.settings[name_key] | escape }}
-                      </{{ author_name_tag }}>
-
-                      {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
-                      <div class="v2-mobile-author-role typography-{{ author_role_tag }}">
-                        {{ block.settings[role_key] | escape }}
+                    {%- endif -%}
+                    {% if block.settings.video_text != blank %}
+                      <div class="v2-video-caption-overlay">
+                        <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
                       </div>
-
-                      {% assign rating_val = block.settings[rating_key] | default: 5 %}
-                      {% if rating_val > 0 %}
-                        <div class="v2-mobile-rating-stars-row">
-                          {%- for j in (1..rating_val) -%}
-                            <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
-                            </svg>
-                          {%- endfor -%}
-                        </div>
-                      {% endif %}
+                      <span class="v2-video-caption-dot"></span>
+                    {% endif %}
+                  {%- else -%}
+                    <div style="width: 100%; height: 100%; background: #eaeaea; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #999; line-height: normal; padding: 20px; text-align: center;">
+                      Upload Video Asset
                     </div>
-                  </div>
+                  {%- endif -%}
                 </div>
-                {%- assign slide_counter = slide_counter | plus: 1 -%}
-              {%- endif -%}
-            {%- endfor -%}
-          {%- endfor -%}
+              </div>
+            {% endfor %}
+          </div>
+          {% if video_blocks.size > 1 %}
+            <button class="v2-mobile-video-arrow v2-mobile-video-prev" aria-label="Previous Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="v2-mobile-video-arrow v2-mobile-video-next" aria-label="Next Slide">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          {% endif %}
         </div>
+      </div>
 
-        {%- if total_slides_count > 1 -%}
+      <!-- Mobile Testimonials Card Slider -->
+      <div class="v2-mobile-reviews-slider-container">
+        <div class="swiper v2-reviews-swiper-mobile">
+          <div class="swiper-wrapper">
+            {% for block in review_blocks %}
+              <div class="swiper-slide">
+                <div class="v2-mobile-review-card" {{ block.shopify_attributes }}>
+                  {%- assign text_tag = section.settings.review_text_style | default: 'p' -%}
+                  <div class="v2-mobile-review-quote rte typography-{{ text_tag }}">
+                    “{{ block.settings.review_text | replace: '"', '' | replace: '“', '' | replace: '”', '' }}”
+                  </div>
+
+                  {% if block.settings.image != blank %}
+                    <div class="v2-review-author-image">
+                      <img src="{{ block.settings.image | image_url: width: 120 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+                    </div>
+                  {% endif %}
+
+                  {%- assign author_name_tag = section.settings.author_name_style | default: 'h4' -%}
+                  <{{ author_name_tag }} class="v2-mobile-author-name typography-{{ author_name_tag }}">
+                    {{ block.settings.name | escape }}
+                  </{{ author_name_tag }}>
+
+                  {%- assign author_role_tag = section.settings.author_role_style | default: 'p' -%}
+                  <div class="v2-mobile-author-role typography-{{ author_role_tag }}">
+                    {{ block.settings.role | escape }}
+                  </div>
+
+                  {% assign rating_val = block.settings.rating | default: 5 %}
+                  {% if rating_val > 0 %}
+                    <div class="v2-mobile-rating-stars-row">
+                      {%- for j in (1..rating_val) -%}
+                        <svg viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.415 0L9.58 4.793L14.83 5.174L10.806 8.572L12.062 13.682L7.415 10.913L2.768 13.682L4.024 8.572L0 5.174L5.25 4.793L7.415 0Z" fill="currentColor"/>
+                        </svg>
+                      {%- endfor -%}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {%- if review_blocks.size > 1 -%}
           <div class="v2-mobile-nav-arrows">
             <button class="v2-mobile-nav-arrow v2-mobile-prev-slide" aria-label="Previous Slide">
               <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1053,8 +1029,46 @@
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "Video + Reviews",
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Author Name",
+          "default": "Jay G"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Author Role",
+          "default": "Corporate Vice President @ Fortune 500 Company"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Author Image"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating (0 to hide)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video Card",
       "settings": [
         {
           "type": "video",
@@ -1071,134 +1085,6 @@
           "id": "video_text",
           "label": "Video Caption Overlay",
           "default": "I love the color."
-        },
-        {
-          "type": "textarea",
-          "id": "review_1",
-          "label": "Review 1",
-          "default": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized."
-        },
-        {
-          "type": "text",
-          "id": "name_1",
-          "label": "Name 1",
-          "default": "Jay G"
-        },
-        {
-          "type": "text",
-          "id": "role_1",
-          "label": "Role 1",
-          "default": "Corporate Vice President @ Fortune 500 Company"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "Author 1 Image"
-        },
-        {
-          "type": "range",
-          "id": "rating_1",
-          "label": "Review 1 Rating (0 to hide)",
-          "min": 0,
-          "max": 5,
-          "step": 1,
-          "default": 5
-        },
-        {
-          "type": "textarea",
-          "id": "review_2",
-          "label": "Review 2",
-          "default": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest."
-        },
-        {
-          "type": "text",
-          "id": "name_2",
-          "label": "Name 2",
-          "default": "Ram G MD"
-        },
-        {
-          "type": "text",
-          "id": "role_2",
-          "label": "Role 2",
-          "default": "Radiologist"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "Author 2 Image"
-        },
-        {
-          "type": "range",
-          "id": "rating_2",
-          "label": "Review 2 Rating (0 to hide)",
-          "min": 0,
-          "max": 5,
-          "step": 1,
-          "default": 5
-        },
-        {
-          "type": "textarea",
-          "id": "review_3",
-          "label": "Review 3",
-          "default": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested."
-        },
-        {
-          "type": "text",
-          "id": "name_3",
-          "label": "Name 3",
-          "default": "Julie K"
-        },
-        {
-          "type": "text",
-          "id": "role_3",
-          "label": "Role 3",
-          "default": "Retired RN"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_3",
-          "label": "Author 3 Image"
-        },
-        {
-          "type": "range",
-          "id": "rating_3",
-          "label": "Review 3 Rating (0 to hide)",
-          "min": 0,
-          "max": 5,
-          "step": 1,
-          "default": 5
-        },
-        {
-          "type": "textarea",
-          "id": "review_4",
-          "label": "Review 4",
-          "default": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically."
-        },
-        {
-          "type": "text",
-          "id": "name_4",
-          "label": "Name 4",
-          "default": "Lindsay M"
-        },
-        {
-          "type": "text",
-          "id": "role_4",
-          "label": "Role 4",
-          "default": "Clinical Psychologist"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_4",
-          "label": "Author 4 Image"
-        },
-        {
-          "type": "range",
-          "id": "rating_4",
-          "label": "Review 4 Rating (0 to hide)",
-          "min": 0,
-          "max": 5,
-          "step": 1,
-          "default": 5
         }
       ]
     }

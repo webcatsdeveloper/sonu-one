@@ -1,21 +1,20 @@
 (function() {
   function initSwipers() {
-    // ========= DESKTOP: Reviews Swiper and Video Swiper (Independent) =========
     const sections = document.querySelectorAll('.v2-testimonial-video-section');
     sections.forEach(function(section) {
-      const reviewsSwiperEl = section.querySelector('.v2-reviews-swiper');
-      const videoSwiperEl = section.querySelector('.v2-video-swiper');
+      // ========= DESKTOP SWIPERS =========
+      const reviewsSwiperDesktop = section.querySelector('.v2-reviews-swiper');
+      const videoSwiperDesktop = section.querySelector('.v2-video-swiper');
       
-      if (reviewsSwiperEl && videoSwiperEl) {
-        const reviewsSlidesCount = reviewsSwiperEl.querySelectorAll('.swiper-slide').length;
-        const videoSlidesCount = videoSwiperEl.querySelectorAll('.swiper-slide').length;
+      if (reviewsSwiperDesktop && videoSwiperDesktop) {
+        const reviewsSlidesCount = reviewsSwiperDesktop.querySelectorAll('.swiper-slide').length;
+        const videoSlidesCount = videoSwiperDesktop.querySelectorAll('.swiper-slide').length;
 
         const nextArrow = section.querySelector('.v2-desktop-video-next');
         const prevArrow = section.querySelector('.v2-desktop-video-prev');
         const paginationEl = section.querySelector('.v2-reviews-pagination');
 
-        // Create the video swiper
-        new Swiper(videoSwiperEl, {
+        new Swiper(videoSwiperDesktop, {
           loop: videoSlidesCount > 1,
           slidesPerView: 1,
           watchOverflow: false,
@@ -25,8 +24,7 @@
           }
         });
 
-        // Create the reviews swiper
-        new Swiper(reviewsSwiperEl, {
+        new Swiper(reviewsSwiperDesktop, {
           loop: reviewsSlidesCount > 1,
           slidesPerView: 1,
           watchOverflow: false,
@@ -36,84 +34,51 @@
           }
         });
       }
-    });
-    
-    // ========= MOBILE: Custom Track Slider =========
-    const mobileContainers = document.querySelectorAll('.v2-mobile-testimonial-container');
-    mobileContainers.forEach(function(mobileContainer) {
-      const track = mobileContainer.querySelector('.v2-mobile-testimonial-track');
-      const slides = mobileContainer.querySelectorAll('.v2-mobile-testimonial-slide');
-      const totalSlides = slides.length;
-      let currentIndex = 0;
 
-      const counterDisplay = mobileContainer.querySelector('.v2-mobile-current-index');
-      const progressFill = mobileContainer.querySelector('.v2-mobile-indicator-line-fill');
+      // ========= MOBILE SWIPERS =========
+      const reviewsSwiperMobile = section.querySelector('.v2-reviews-swiper-mobile');
+      const videoSwiperMobile = section.querySelector('.v2-video-swiper-mobile');
 
-      function updateSlider() {
-        if (totalSlides === 0) return;
-        
-        const translateXValue = -(currentIndex * 100);
-        track.style.transform = `translateX(${translateXValue}%)`;
-        
-        const fillPercentage = ((currentIndex + 1) / totalSlides) * 100;
-        
-        if (counterDisplay) counterDisplay.textContent = currentIndex + 1;
-        if (progressFill) progressFill.style.width = fillPercentage + '%';
+      if (reviewsSwiperMobile) {
+        const reviewsSlidesCountMobile = reviewsSwiperMobile.querySelectorAll('.swiper-slide').length;
+        const prevArrowMobile = section.querySelector('.v2-mobile-prev-slide');
+        const nextArrowMobile = section.querySelector('.v2-mobile-next-slide');
+
+        new Swiper(reviewsSwiperMobile, {
+          loop: reviewsSlidesCountMobile > 1,
+          slidesPerView: 1,
+          watchOverflow: false,
+          navigation: {
+            nextEl: nextArrowMobile,
+            prevEl: prevArrowMobile,
+          }
+        });
       }
 
-      function showSlide(index) {
-        if (index >= totalSlides) currentIndex = 0;
-        else if (index < 0) currentIndex = totalSlides - 1;
-        else currentIndex = index;
+      if (videoSwiperMobile) {
+        const videoSlidesCountMobile = videoSwiperMobile.querySelectorAll('.swiper-slide').length;
+        const prevArrowVideoMobile = section.querySelector('.v2-mobile-video-prev');
+        const nextArrowVideoMobile = section.querySelector('.v2-mobile-video-next');
 
-        updateSlider();
-      }
-
-      mobileContainer.addEventListener('click', function(e) {
-        if (e.target.closest('.v2-mobile-next-slide') || e.target.closest('.v2-mobile-video-next')) {
-          e.preventDefault();
-          showSlide(currentIndex + 1);
-        }
-        if (e.target.closest('.v2-mobile-prev-slide') || e.target.closest('.v2-mobile-video-prev')) {
-          e.preventDefault();
-          showSlide(currentIndex - 1);
-        }
-      });
-
-      updateSlider();
-
-      // Swipe support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      mobileContainer.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      mobileContainer.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, { passive: true });
-
-      function handleSwipe() {
-        const swipeThreshold = 50;
-        if (touchStartX - touchEndX > swipeThreshold) {
-          // Swipe left -> Next slide
-          showSlide(currentIndex + 1);
-        } else if (touchEndX - touchStartX > swipeThreshold) {
-          // Swipe right -> Prev slide
-          showSlide(currentIndex - 1);
-        }
+        new Swiper(videoSwiperMobile, {
+          loop: videoSlidesCountMobile > 1,
+          slidesPerView: 1,
+          watchOverflow: false,
+          navigation: {
+            nextEl: nextArrowVideoMobile,
+            prevEl: prevArrowVideoMobile,
+          }
+        });
       }
     });
   }
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSwipers);
   } else {
     initSwipers();
   }
-  
+
   setTimeout(function() {
     const allVideos = document.querySelectorAll('.v2-testimonial-video-section video');
     allVideos.forEach(function(video) {
