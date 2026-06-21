@@ -1253,77 +1253,7 @@
         "button_text_color": "#ffffff"
       }
     },
-    "sonu_v2_testi_4a99Rw": {
-      "type": "sonu-v2-testi-sh",
-      "blocks": {
-        "slide_JkNgYT": {
-          "type": "slide",
-          "settings": {
-            "video": "shopify://files/videos/video-sonu_app_in_iPhone_frame.mp4",
-            "review_1": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
-            "name_1": "Jay G",
-            "role_1": "Corporate Vice President @ Fortune 500 Company",
-            "review_2": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
-            "name_2": "Ram G MD",
-            "role_2": "Radiologist",
-            "review_3": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
-            "name_3": "Julie K",
-            "role_3": "Retired RN",
-            "review_4": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
-            "name_4": "Lindsay M",
-            "role_4": "Clinical Psychologist"
-          }
-        },
-        "slide_dnkJ3E": {
-          "type": "slide",
-          "settings": {
-            "video": "shopify://files/videos/d03b832fcb094af99f19714025e27984.mp4",
-            "review_1": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
-            "name_1": "Jay G",
-            "role_1": "Corporate Vice President @ Fortune 500 Company",
-            "review_2": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
-            "name_2": "Ram G MD",
-            "role_2": "Radiologist",
-            "review_3": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
-            "name_3": "Julie K",
-            "role_3": "Retired RN",
-            "review_4": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
-            "name_4": "Lindsay M",
-            "role_4": "Clinical Psychologist"
-          }
-        },
-        "slide_6Xhgbb": {
-          "type": "slide",
-          "settings": {
-            "video": "shopify://files/videos/vertical-animation.mp4",
-            "review_1": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
-            "name_1": "Jay G",
-            "role_1": "Corporate Vice President @ Fortune 500 Company",
-            "review_2": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
-            "name_2": "Ram G MD",
-            "role_2": "Radiologist",
-            "review_3": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
-            "name_3": "Julie K",
-            "role_3": "Retired RN",
-            "review_4": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
-            "name_4": "Lindsay M",
-            "role_4": "Clinical Psychologist"
-          }
-        }
-      },
-      "block_order": [
-        "slide_JkNgYT",
-        "slide_dnkJ3E",
-        "slide_6Xhgbb"
-      ],
-      "custom_css": [
-        ".v2-review-card {margin-top: 10px;}"
-      ],
-      "name": "Testimonials Video sonu",
-      "settings": {
-        "heading": "Real Patients, Real Results"
-      }
-    },
+
     "sonu_flex_banner_N66fYQ": {
       "type": "sonu-flex-banner",
       "disabled": true,
@@ -1361,55 +1291,7 @@
         "btn2_link": ""
       }
     },
-    "sonu_testimonial_fUb3n6": {
-      "type": "sonu-testimonial",
-      "blocks": {
-        "testimonial_YHag38": {
-          "type": "testimonial",
-          "settings": {
-            "video": "shopify://files/videos/vertical-animation.mp4",
-            "video_url": "",
-            "subheading": "Real Patients, Real Results",
-            "quote": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
-            "author_name": "Zach",
-            "author_bio": "College counselor",
-            "show_stars": true
-          }
-        },
-        "testimonial_6rpw6K": {
-          "type": "testimonial",
-          "settings": {
-            "video_url": "",
-            "subheading": "OUR FAVORITE PRODUCTS",
-            "quote": "As an airway patient I am always looking for ways to improve my nasal breathing.",
-            "author_name": "Zach",
-            "author_bio": "College counselor",
-            "show_stars": true
-          }
-        },
-        "testimonial_ggtFEU": {
-          "type": "testimonial",
-          "settings": {
-            "video": "shopify://files/videos/vertical-animation.mp4",
-            "video_url": "",
-            "subheading": "OUR FAVORITE PRODUCTS",
-            "quote": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
-            "author_name": "Zach",
-            "author_bio": "College counselor",
-            "show_stars": true
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_YHag38",
-        "testimonial_6rpw6K",
-        "testimonial_ggtFEU"
-      ],
-      "name": "Contained Video Slider",
-      "settings": {
-        "bg_color": "#e2f0ec"
-      }
-    },
+
     "sonu_product2_pLxTFq": {
       "type": "sonu-product2",
       "name": "Sonu Product Section",
@@ -2766,10 +2648,8 @@
     "sonu_logo_unique_EjTGUp",
     "sonu_doctor_section_bqa98w",
     "sonu_benefits_hX6Enc",
-    "sonu_v2_testi_4a99Rw",
     "sonu_flex_banner_N66fYQ",
     "sonu_banner_L8CRE4",
-    "sonu_testimonial_fUb3n6",
     "sonu_product2_pLxTFq",
     "sonu_faq_e7WdnB",
     "sonu_specification_rRabMH",
