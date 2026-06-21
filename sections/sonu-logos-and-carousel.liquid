@@ -123,6 +123,23 @@
       gap: 40px;
     }
   }
+
+  /* Reset nested components background and padding inside the combined wrapper */
+  #shopify-section-{{ section.id }} .logo-section {
+    background: transparent !important;
+    background-image: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  #shopify-section-{{ section.id }} .logo-section::before {
+    display: none !important;
+  }
+  #shopify-section-{{ section.id }} .premium-carousel {
+    background: transparent !important;
+    background-image: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 </style>
 
 {% schema %}
