@@ -723,6 +723,7 @@
         "logo_K338NR",
         "logo_x3FJ9k"
       ],
+      "disabled": true,
       "name": "Logo Carousel",
       "settings": {
         "bg_image_opacity": 100,
@@ -933,6 +934,7 @@
         "card_LbK7ka",
         "card_LpbJMw"
       ],
+      "disabled": true,
       "name": "Premium Carousel",
       "settings": {
         "heading": "<span style=\"white-space: nowrap;\">Precision therapeutics</span><br>\npowered by <span style=\"color:#656AE3;\"> AI & sound science.</span>",
