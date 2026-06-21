@@ -918,7 +918,7 @@
         "desktop_image": "shopify://shop_images/Rectangle_34.png",
         "mobile_image": "shopify://shop_images/Rectangle_5_1.png",
         "heading": "Experience the\nfuture of personalized\nsound therapeutics.",
-        "heading_tag": "h1",
+        "heading_tag": "h3",
         "heading_color": "#001755",
         "btn_bg_color": "#ffffff",
         "btn_text_color": "#001755",
