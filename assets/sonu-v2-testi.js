@@ -6,33 +6,49 @@
       const reviewsSwiperDesktop = section.querySelector('.v2-reviews-swiper');
       const videoSwiperDesktop = section.querySelector('.v2-video-swiper');
       
-      if (reviewsSwiperDesktop && videoSwiperDesktop) {
+      if (reviewsSwiperDesktop) {
         const reviewsSlidesCount = reviewsSwiperDesktop.querySelectorAll('.swiper-slide').length;
-        const videoSlidesCount = videoSwiperDesktop.querySelectorAll('.swiper-slide').length;
-
-        const nextArrow = section.querySelector('.v2-desktop-video-next');
-        const prevArrow = section.querySelector('.v2-desktop-video-prev');
         const paginationEl = section.querySelector('.v2-reviews-pagination');
 
-        new Swiper(videoSwiperDesktop, {
-          loop: videoSlidesCount > 1,
-          slidesPerView: 1,
-          watchOverflow: false,
-          navigation: {
-            nextEl: nextArrow,
-            prevEl: prevArrow,
-          }
-        });
-
-        new Swiper(reviewsSwiperDesktop, {
+        const reviewsConfig = {
           loop: reviewsSlidesCount > 1,
           slidesPerView: 1,
           watchOverflow: false,
-          pagination: {
+          autoplay: reviewsSlidesCount > 1 ? {
+            delay: 5000,
+            disableOnInteraction: false,
+          } : false
+        };
+
+        if (paginationEl) {
+          reviewsConfig.pagination = {
             el: paginationEl,
             clickable: true,
-          }
-        });
+          };
+        }
+
+        new Swiper(reviewsSwiperDesktop, reviewsConfig);
+      }
+
+      if (videoSwiperDesktop) {
+        const videoSlidesCount = videoSwiperDesktop.querySelectorAll('.swiper-slide').length;
+        const nextArrow = section.querySelector('.v2-desktop-video-next');
+        const prevArrow = section.querySelector('.v2-desktop-video-prev');
+
+        const videoConfig = {
+          loop: videoSlidesCount > 1,
+          slidesPerView: 1,
+          watchOverflow: false
+        };
+
+        if (nextArrow && prevArrow) {
+          videoConfig.navigation = {
+            nextEl: nextArrow,
+            prevEl: prevArrow,
+          };
+        }
+
+        new Swiper(videoSwiperDesktop, videoConfig);
       }
 
       // ========= MOBILE SWIPERS =========
@@ -44,15 +60,20 @@
         const prevArrowMobile = section.querySelector('.v2-mobile-prev-slide');
         const nextArrowMobile = section.querySelector('.v2-mobile-next-slide');
 
-        new Swiper(reviewsSwiperMobile, {
+        const reviewsMobileConfig = {
           loop: reviewsSlidesCountMobile > 1,
           slidesPerView: 1,
-          watchOverflow: false,
-          navigation: {
+          watchOverflow: false
+        };
+
+        if (prevArrowMobile && nextArrowMobile) {
+          reviewsMobileConfig.navigation = {
             nextEl: nextArrowMobile,
             prevEl: prevArrowMobile,
-          }
-        });
+          };
+        }
+
+        new Swiper(reviewsSwiperMobile, reviewsMobileConfig);
       }
 
       if (videoSwiperMobile) {
@@ -60,15 +81,20 @@
         const prevArrowVideoMobile = section.querySelector('.v2-mobile-video-prev');
         const nextArrowVideoMobile = section.querySelector('.v2-mobile-video-next');
 
-        new Swiper(videoSwiperMobile, {
+        const videoMobileConfig = {
           loop: videoSlidesCountMobile > 1,
           slidesPerView: 1,
-          watchOverflow: false,
-          navigation: {
+          watchOverflow: false
+        };
+
+        if (prevArrowVideoMobile && nextArrowVideoMobile) {
+          videoMobileConfig.navigation = {
             nextEl: nextArrowVideoMobile,
             prevEl: prevArrowVideoMobile,
-          }
-        });
+          };
+        }
+
+        new Swiper(videoSwiperMobile, videoMobileConfig);
       }
     });
   }
