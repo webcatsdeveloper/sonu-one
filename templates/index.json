@@ -1262,7 +1262,13 @@
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/d03b832fcb094af99f19714025e27984.mp4",
-            "video_overlay_image": "",
+            "video_text": "I love the color."
+          }
+        },
+        "video_slide_mXEA6L": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Mobile Version_SONU Band - Try Risk Free for 30 Days.mp4",
             "video_text": "I love the color."
           }
         },
@@ -1272,7 +1278,7 @@
             "review_text": "Before using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
             "name": "Jay G",
             "role": "Corporate Vice President @ Fortune 500 Company",
-            "image": "",
+            "image": "shopify://shop_images/Ellipse_3.png",
             "rating": 5
           }
         },
@@ -1282,7 +1288,6 @@
             "review_text": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
             "name": "Ram G MD",
             "role": "Radiologist",
-            "image": "",
             "rating": 5
           }
         },
@@ -1292,7 +1297,6 @@
             "review_text": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
             "name": "Julie K",
             "role": "Retired RN",
-            "image": "",
             "rating": 5
           }
         },
@@ -1302,16 +1306,7 @@
             "review_text": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
             "name": "Lindsay M",
             "role": "Clinical Psychologist",
-            "image": "",
             "rating": 5
-          }
-        },
-        "video_slide_mXEA6L": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Mobile Version_SONU Band - Try Risk Free for 30 Days.mp4",
-            "video_overlay_image": "",
-            "video_text": "I love the color."
           }
         },
         "review_1_slide_mXEA6L": {
@@ -1320,7 +1315,6 @@
             "review_text": "After using Spatial Sleep, I would wake up several times a night and never felt truly rested. After a few weeks of wearing it regularly, I started sleeping in long, uninterrupted stretches. For the first time in years, I wake up feeling refreshed and energized.",
             "name": "Jay G",
             "role": "Corporate Vice President @ Fortune 500 Company",
-            "image": "",
             "rating": 5
           }
         },
@@ -1330,7 +1324,6 @@
             "review_text": "As a physician on call, quality sleep is rare. With Spatial Sleep, I finally get deep, restorative rest.",
             "name": "Ram G MD",
             "role": "Radiologist",
-            "image": "",
             "rating": 5
           }
         },
@@ -1340,7 +1333,6 @@
             "review_text": "Spatial Sleep has been a real game changer for me. I fall asleep so much faster and actually wake up feeling refreshed. I noticed a difference the very first night. Fell asleep faster, slept deeper. I used to toss and turn for hours, but with Spatial I'm out in minutes and I wake up rested.",
             "name": "Julie K",
             "role": "Retired RN",
-            "image": "",
             "rating": 5
           }
         },
@@ -1350,7 +1342,6 @@
             "review_text": "I love the color and the comfort. It's subtle yet powerful. My REM sleep increased dramatically.",
             "name": "Lindsay M",
             "role": "Clinical Psychologist",
-            "image": "",
             "rating": 5
           }
         }
