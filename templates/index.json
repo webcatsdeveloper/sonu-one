@@ -1220,7 +1220,7 @@
         "name_tag_line_height": 1.2,
         "name_tag_letter_spacing": 0,
         "name_tag_text_transform": "none",
-        "name_style": "h4",
+        "name_style": "h5",
         "name_style_font_size_desktop": 32,
         "name_style_font_size_mobile": 24,
         "name_style_font_weight": "400",
@@ -1255,7 +1255,6 @@
         "show_card_arrow": false
       }
     },
-
     "sonu_flex_banner_GLf6Y9": {
       "type": "sonu-flex-banner",
       "custom_css": [],
