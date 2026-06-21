@@ -769,7 +769,7 @@
       "settings": {
         "heading": "Trusted by doctors",
         "heading_tag": "h1",
-        "heading_style": "h2",
+        "heading_style": "h1",
         "name_tag": "h4",
         "name_style": "h4",
         "role_style": "p",
