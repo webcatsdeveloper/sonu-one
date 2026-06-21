@@ -1880,18 +1880,9 @@
 
 
 /* --- SONU V2 TESTIMONIAL --- */
-/* Hide by default (Mobile-first fallback / global hide) */
 .v2-testimonial-video-section {
   background: var(--section-bg, #ffffff);
   padding: 100px 20px;
-  display: none !important;
-}
-
-/* ONLY display the entire section on desktop layouts */
-@media screen and (min-width: 768px) {
-  .v2-testimonial-video-section {
-    display: block !important;
-  }
 }
 
 /* Container width styles */
