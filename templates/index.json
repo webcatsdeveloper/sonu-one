@@ -476,7 +476,7 @@
             "heading_tag": "h5",
             "card_heading_style": "h5",
             "description": "<p>Therapy tailored to you to revitalize your nasal breathing for  health and longetvity.</p>",
-            "card_desc_style": "p"
+            "card_desc_style": "h5"
           }
         },
         "card_cAweCQ": {
@@ -628,7 +628,7 @@
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
-        "heading_tag": "h2",
+        "heading_tag": "h1",
         "heading_style": "h2",
         "subheading_style": "p",
         "description": "",
@@ -684,13 +684,13 @@
       "name": "Split Content",
       "settings": {
         "small_heading": "Why Sound?",
-        "small_heading_style": "h6",
+        "small_heading_style": "p",
         "heading": "A new approach\nto therapeutics.",
         "heading_color": "#001755",
         "heading_tag": "h1",
         "heading_style": "h1",
         "subheading": "((Powered)) by AI  ·  ((Delivered)) through sound.",
-        "subheading_style": "h5",
+        "subheading_style": "p",
         "description": "<p>Your head and neck are command centers packed with bio-sensors directly wired to your body's regulatory systems. Through forehead bone conduction, we harness the skull's natural resonance to harmonize your nervous system — unlocking deeper recovery, balance, and focus.</p>",
         "description_style": "p",
         "feature_text_style": "p",
@@ -771,8 +771,8 @@
         "heading_tag": "h1",
         "heading_style": "h2",
         "name_tag": "h4",
-        "name_style": "h5",
-        "role_style": "h5",
+        "name_style": "h4",
+        "role_style": "p",
         "desc_style": "p",
         "grad_color_1": "#daf2ff",
         "grad_color_2": "#daf2ff",
