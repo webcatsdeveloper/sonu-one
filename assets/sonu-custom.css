@@ -1943,7 +1943,7 @@
 .v2-desktop-dual-slider {
   display: flex;
   gap: 50px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Full width adjustment for desktop slider */
