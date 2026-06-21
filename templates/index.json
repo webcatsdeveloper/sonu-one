@@ -768,7 +768,7 @@
       "name": "sonu Team Section",
       "settings": {
         "heading": "Trusted by doctors",
-        "heading_tag": "h1",
+        "heading_tag": "h2",
         "heading_style": "h2",
         "name_tag": "h4",
         "name_style": "h4",
