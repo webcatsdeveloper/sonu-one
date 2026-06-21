@@ -955,9 +955,9 @@
 }
 
 .card-content p {
-  font-size: 13.5px !important;
-  line-height: 20px !important;
-  font-family: 'Instrument Sans', sans-serif !important;
+  font-size: 13.5px;
+  line-height: 20px;
+  font-family: 'Instrument Sans', sans-serif;
   opacity: 0.9;
   margin-top: 0 !important;
   color: #fff !important;
