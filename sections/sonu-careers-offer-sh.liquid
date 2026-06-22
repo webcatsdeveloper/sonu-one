@@ -1,0 +1,590 @@
+<section class="sonu-careers-offer section-{{ section.id }}" style="
+  {% if section.settings.bg_gradient != blank %}
+    background: {{ section.settings.bg_gradient }};
+  {% elsif section.settings.bg_color != blank %}
+    background-color: {{ section.settings.bg_color }};
+  {% endif %}
+  --padding-top: {{ section.settings.padding_top | default: 100 }}px;
+  --padding-bottom: {{ section.settings.padding_bottom | default: 100 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 40 }}px;
+">
+  <style>
+    #shopify-section-{{ section.id }} .sonu-careers-offer {
+      padding-top: var(--padding-top) !important;
+      padding-bottom: var(--padding-bottom) !important;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-container {
+      /* Spacing and width constraints are handled by global .page-width */
+    }
+    #shopify-section-{{ section.id }} .careers-offer-content {
+      display: grid;
+      grid-template-columns: 480px 480px;
+      column-gap: 100px;
+      justify-content: center;
+      align-items: start;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-image-col img {
+      display: block;
+      width: 480px;
+      height: 480px;
+      border-radius: 0 !important;
+      object-fit: cover;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      align-items: flex-start;
+      max-width: 480px;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-heading {
+      color: #001755;
+      margin: 0;
+      text-align: left;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      width: 100%;
+      max-width: 410px;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-item {
+      position: relative;
+      padding-left: 24px;
+      margin: 0;
+      color: #1e1e1e;
+      font-family: 'Instrument Sans', sans-serif !important;
+      font-size: 20px;
+      line-height: 32px;
+      text-align: left;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      color: #1e1e1e;
+      font-size: 1.3em;
+      line-height: 32px;
+    }
+    #shopify-section-{{ section.id }} .careers-offer-bottom-text {
+      max-width: 960px;
+      margin: 80px auto 0 auto;
+      text-align: center;
+      color: #1e1e1e;
+      font-family: 'Instrument Sans', sans-serif !important;
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    /* Highlights styling overrides */
+    #shopify-section-{{ section.id }} .highlight-times {
+      font-family: 'Times New Roman', Times, Georgia, serif !important;
+      font-style: italic !important;
+    }
+    #shopify-section-{{ section.id }} .highlight-pp {
+      font-family: var(--font-highlight--family, serif) !important;
+      font-style: var(--font-highlight--style, italic) !important;
+    }
+
+    @media screen and (max-width: 1200px) {
+      #shopify-section-{{ section.id }} .careers-offer-content {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 48px;
+      }
+      #shopify-section-{{ section.id }} .careers-offer-image-col {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      #shopify-section-{{ section.id }} .careers-offer-image-col img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+      #shopify-section-{{ section.id }} .careers-offer-list {
+        max-width: 100%;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      #shopify-section-{{ section.id }} .sonu-careers-offer {
+        padding-top: var(--padding-top-mobile) !important;
+        padding-bottom: var(--padding-bottom-mobile) !important;
+      }
+      #shopify-section-{{ section.id }} .careers-offer-item {
+        font-size: 18px;
+        line-height: 28px;
+      }
+      #shopify-section-{{ section.id }} .careers-offer-bottom-text {
+        margin-top: 48px;
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  </style>
+
+  <div class="careers-offer-container page-width">
+    <div class="careers-offer-content">
+      <!-- Left: Text Column -->
+      <div class="careers-offer-text-col">
+        {%- if section.settings.heading != blank -%}
+          {%- assign formatted_heading = section.settings.heading 
+            | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+            | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+          <h2 class="careers-offer-heading typography-{{ section.settings.heading_style | default: 'h2' }}" 
+              style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}">
+            {{ formatted_heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="careers-offer-list">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.text != blank -%}
+                {%- assign formatted_text = block.settings.text 
+                  | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+                  | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+                <li class="careers-offer-item typography-{{ section.settings.description_style | default: 'p' }}" 
+                    style="{% render 'sonu-typography-style', preset: section.settings.description_style, prefix: 'description_style', settings: section.settings %}"
+                    {{ block.shopify_attributes }}>
+                  {{ formatted_text }}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <!-- Right: Image Column -->
+      <div class="careers-offer-image-col">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}" 
+               alt="{{ section.settings.image.alt | default: 'What we offer image' | escape }}"
+               width="{{ section.settings.image.width | default: 520 }}"
+               height="{{ section.settings.image.height | default: 520 }}"
+               loading="lazy">
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.bottom_text != blank -%}
+      {%- assign formatted_bottom_text = section.settings.bottom_text 
+        | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+        | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+      <div class="careers-offer-bottom-text typography-{{ section.settings.bottom_text_style | default: 'p' }}"
+           style="{% render 'sonu-typography-style', preset: section.settings.bottom_text_style, prefix: 'bottom_text_style', settings: section.settings %}">
+        {{ formatted_bottom_text }}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sonu Careers Offer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Branding & Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#eff2fc"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Here's what we have to offer:"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Heading Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Heading Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 28,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Heading Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_line_height",
+      "label": "Heading Custom Line Height",
+      "default": "1.2",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_letter_spacing",
+      "label": "Heading Custom Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_text_transform",
+      "label": "Heading Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "List Typography Settings"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "List Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "description_style_font_size_desktop",
+      "label": "List Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "description_style_font_size_mobile",
+      "label": "List Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "description_style_font_weight",
+      "label": "List Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "text",
+      "id": "description_style_line_height",
+      "label": "List Custom Line Height",
+      "default": "1.5",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "description_style_letter_spacing",
+      "label": "List Custom Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "description_style_text_transform",
+      "label": "List Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Paragraph Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_text",
+      "label": "Bottom Paragraph Text",
+      "default": "<p>SoundHealth is an exciting, medical technology startup harnessing the power of artificial intelligence and medical science to improve patient outcomes. Our mission is to let the world breathe free with personalized, drug free treatment providing nasal congestion relief. Our team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare. We are dedicated to providing an experience that will benefit your career and give you the opportunity to work on cutting edge technology and high impact projects.</p>"
+    },
+    {
+      "type": "select",
+      "id": "bottom_text_style",
+      "label": "Bottom Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "bottom_text_style_font_size_desktop",
+      "label": "Bottom Text Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20,
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "bottom_text_style_font_size_mobile",
+      "label": "Bottom Text Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18,
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "bottom_text_style_font_weight",
+      "label": "Bottom Text Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text_style_line_height",
+      "label": "Bottom Text Custom Line Height",
+      "default": "1.6",
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "bottom_text_style_letter_spacing",
+      "label": "Bottom Text Custom Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "bottom_text_style_text_transform",
+      "label": "Bottom Text Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.bottom_text_style == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Layout Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Column Image"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "default": 60,
+      "unit": "px",
+      "label": "Padding Top (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_item",
+      "name": "Offer Bullet Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Bullet Text",
+          "default": "Offer item detail text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sonu Careers Offer",
+      "blocks": [
+        {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Join our mission to help the world breathe free!"
+          }
+        },
+        {
+          "type": "bullet_item",
+          "settings": {
+            "text": "A fantastic opportunity to build a company from the ground up"
+          }
+        },
+        {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Work with an experienced leadership team on a breakthrough product"
+          }
+        },
+        {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Full healthcare coverage, including vision and dental"
+          }
+        },
+        {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Be fully remote if that's what you prefer or meet in-person a few times a week"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

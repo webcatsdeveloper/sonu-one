@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "main": {
+      "type": "sonu-careers-hero-sh",
+      "settings": {
+        "heading": "Join our team",
+        "bg_color": "#eff2fc"
+      }
+    },
+    "offer": {
+      "type": "sonu-careers-offer-sh",
+      "settings": {
+        "heading": "Here's what we have to offer:",
+        "bg_color": "#eff2fc",
+        "bottom_text": "<p>SoundHealth is an exciting, medical technology startup harnessing the power of artificial intelligence and medical science to improve patient outcomes. Our mission is to let the world breathe free with personalized, drug free treatment providing nasal congestion relief. Our team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare. We are dedicated to providing an experience that will benefit your career and give you the opportunity to work on cutting edge technology and high impact projects.</p>"
+      },
+      "blocks": {
+        "bullet_1": {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Join our mission to help the world breathe free!"
+          }
+        },
+        "bullet_2": {
+          "type": "bullet_item",
+          "settings": {
+            "text": "A fantastic opportunity to build a company from the ground up"
+          }
+        },
+        "bullet_3": {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Work with an experienced leadership team on a breakthrough product"
+          }
+        },
+        "bullet_4": {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Full healthcare coverage, including vision and dental"
+          }
+        },
+        "bullet_5": {
+          "type": "bullet_item",
+          "settings": {
+            "text": "Be fully remote if that's what you prefer or meet in-person a few times a week"
+          }
+        }
+      },
+      "block_order": [
+        "bullet_1",
+        "bullet_2",
+        "bullet_3",
+        "bullet_4",
+        "bullet_5"
+      ]
+    },
+    "positions": {
+      "type": "sonu-careers-positions-sh",
+      "settings": {
+        "heading": "Ready when you are",
+        "bg_color": "#eff2fc"
+      },
+      "blocks": {
+        "job_1": {
+          "type": "position_item",
+          "settings": {
+            "title": "Senior Firmware Engineer",
+            "count_text": "1 open position"
+          }
+        },
+        "job_2": {
+          "type": "position_item",
+          "settings": {
+            "title": "Backend Software Developer – Firebase / Google Cloud",
+            "count_text": "1 open position"
+          }
+        },
+        "job_3": {
+          "type": "position_item",
+          "settings": {
+            "title": "ML Architect",
+            "count_text": "1 open position"
+          }
+        },
+        "job_4": {
+          "type": "position_item",
+          "settings": {
+            "title": "Firmware / Hardware Intern",
+            "count_text": "1 open position"
+          }
+        },
+        "job_5": {
+          "type": "position_item",
+          "settings": {
+            "title": "Backend Software Intern – Firebase / iOS",
+            "count_text": "1 open position"
+          }
+        },
+        "job_6": {
+          "type": "position_item",
+          "settings": {
+            "title": "iOS App Developer",
+            "count_text": "1 open position"
+          }
+        },
+        "job_7": {
+          "type": "position_item",
+          "settings": {
+            "title": "Software Development Manager / Site Lead — India",
+            "count_text": "1 open position"
+          }
+        }
+      },
+      "block_order": [
+        "job_1",
+        "job_2",
+        "job_3",
+        "job_4",
+        "job_5",
+        "job_6",
+        "job_7"
+      ]
+    },
+    "design_role": {
+      "type": "sonu-careers-design-role-sh",
+      "settings": {
+        "heading": "Design your own role",
+        "bg_color": "#eff2fc"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "offer",
+    "positions",
+    "design_role"
+  ]
+}
