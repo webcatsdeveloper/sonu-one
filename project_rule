@@ -120,12 +120,21 @@ Always pass text content (especially headings, quotes, and testimonials) through
 
 ---
 
-## 3. Carousel Decoupling Initiative (Independent Swiping)
+## 3. Carousel Decoupling & Interactive Components (Swiper & Video)
 When constructing dual testimonials (left text, right video), **never** group a review card and a video inside a single slide wrapper. The text reviews grid and the portrait video slides must remain structurally decoupled so they can scroll independently.
-*   Implement synchronized Swiper instances or separate navigations.
-*   Always load Swiper via CDN UMD build (`swiper-bundle.min.js`) rather than local ES modules to avoid initialization script syntax errors in older environments.
+
+### Carousel Best Practices (Swiper):
+*   **Decoupled Navigation**: Implement separate Swiper instances for text reviews and video sliders.
+*   **CDN Dependency**: Always load Swiper via CDN UMD build (`swiper-bundle.min.js`) rather than local ES modules to avoid initialization script syntax errors in older environments.
+*   **Defensive Initialization**: Always check if selectors exist in the DOM (using `if (selector)`) before querying child nodes or initializing Swiper to prevent `TypeError` errors that halt execution of other scripts.
+*   **Dynamic Loop & Autoplay**: Set `loop: slidesCount > 1` and `autoplay: slidesCount > 1` dynamically. If there is only 1 slide, Swiper loop/autoplay should be disabled to prevent visual glitches.
+
+### Video Autoplay Rules:
+*   Mute and autoplay portrait video cards with `playsinline` attributes.
+*   Always catch promise rejections defensively during `.play()` calls (e.g. `.catch(e => console.log(e))`) to prevent uncaught browser exceptions from clogging developer console logs.
 
 ---
+
 
 ## 4. Mobile Layout & Spacing Defaults
 *   **Zero Side Gaps on Mobile Galleries**: For product image galleries on mobile, ensure images span full screen width with zero gaps by utilizing `aspect-ratio: 1` and `object-fit: cover` on images.
