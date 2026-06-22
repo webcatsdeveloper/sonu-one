@@ -131,3 +131,14 @@ When constructing dual testimonials (left text, right video), **never** group a 
 *   **Zero Side Gaps on Mobile Galleries**: For product image galleries on mobile, ensure images span full screen width with zero gaps by utilizing `aspect-ratio: 1` and `object-fit: cover` on images.
 *   **Layout Shifts Prevention**: Always force `width: 100%` on hero slideshow containers to avoid right-side white space gaps on mobile browsers.
 *   **Device-Specific Spacing Constraints**: Do not apply general margins/paddings that alter desktop balance. Spacing updates (such as spacing between subheadings and descriptions) should be wrapped in `@media` checks or mobile-specific schema ranges (e.g. `padding_bottom_mobile`).
+
+---
+
+## 5. Separation & Isolation of Custom Sections (Theme Upgradability)
+To ensure the Shopify base theme can be upgraded seamlessly in the future without overwriting or breaking custom modifications, all custom work must be strictly isolated.
+
+### File Naming Conventions:
+*   **Custom Sections**: Append `-sh` (SoundHealth) or prepend `sonu-` or `custom-` to the filenames (e.g., `sections/sonu-v2-testi-sh.liquid`, `sections/custom-comparison-sh.liquid`). Never overwrite a default theme section file directly (e.g., do not modify `sections/slideshow.liquid` to build custom features; copy it to a new file instead).
+*   **Custom Assets**: Save all custom JavaScript and CSS rules in separate asset files (e.g., `assets/sonu-v2-testi.js`, `assets/sonu-custom.css`) rather than editing default theme assets (e.g., `assets/theme.js`, `assets/global.js`, or the base stylesheet).
+*   **Templates & Snippets**: Suffix custom templates and snippets using the same `-sh` or `sonu-` convention so they stand out clearly during file diffs or updates.
+
