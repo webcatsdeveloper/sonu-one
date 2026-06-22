@@ -9,12 +9,87 @@
  */
 {
   "sections": {
+    "background_image_text_KqkhbU": {
+      "type": "background-image-text",
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/Image-sagittal-transparent-landing.jpg",
+        "layout": "left",
+        "height": 550,
+        "parallax": true,
+        "parallax_direction": "top"
+      }
+    },
+    "advanced_content_rhykpL": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_F7nw4g": {
+          "type": "liquid",
+          "settings": {
+            "code": "<figcaption style=\"text-align:right;font-size:.65rem;padding-right:.5rem;\"><em>BSC-CNS CC-BY-4</em></figcaption>",
+            "width": "100%",
+            "alignment": "top-middle"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_F7nw4g"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false
+      }
+    },
     "main": {
-      "type": "main-blog",
+      "type": "blog-template",
+      "settings": {
+        "blog_show_rss": false,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "blog_show_excerpt": false,
+        "blog_image_size": "natural"
+      }
+    },
+    "sidebar": {
+      "type": "blog-sidebar",
+      "blocks": {
+        "tags": {
+          "type": "tags",
+          "settings": {}
+        },
+        "article_Qgik7D": {
+          "type": "article",
+          "settings": {
+            "title": "Popular posts",
+            "article": "",
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "blog_show_excerpt": false,
+            "blog_image_size": "wide"
+          }
+        }
+      },
+      "block_order": [
+        "tags",
+        "article_Qgik7D"
+      ],
+      "disabled": true,
       "settings": {}
     }
   },
   "order": [
-    "main"
-  ]
+    "background_image_text_KqkhbU",
+    "advanced_content_rhykpL",
+    "main",
+    "sidebar"
+  ],
+  "wrapper": "div.page-content.blog-layout"
 }
