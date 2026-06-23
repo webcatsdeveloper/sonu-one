@@ -22,7 +22,7 @@
         "heading_style_line_height": "1.1",
         "heading_style_letter_spacing": 0,
         "heading_style_text_transform": "none",
-        "description": "<p><a href=\"mailto:support@getsonu.com\">Email</a> responses can take up to 72 hours.<br>Call us @ <a href=\"tel:+14083848319\">+1 (408) 384-8319</a></p>",
+        "description": "<p><a href=\"mailto:support@getsonu.com\">Email</a> responses can take up to 72 hours.<br/>Call us @ <a href=\"tel:+14083848319\">+1 (408) 384-8319</a></p>",
         "description_style": "custom",
         "description_style_font_size_desktop": 20,
         "description_style_font_size_mobile": 16,
@@ -31,9 +31,9 @@
         "description_style_letter_spacing": 0,
         "description_style_text_transform": "none",
         "padding_top": 120,
-        "padding_bottom": 40,
+        "padding_bottom": 88,
         "padding_top_mobile": 80,
-        "padding_bottom_mobile": 20
+        "padding_bottom_mobile": 60
       }
     },
     "faq_accordion": {
