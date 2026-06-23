@@ -228,7 +228,7 @@
         "bg_color": "#eff2fc",
         "bg_gradient": "",
         "wrapper_bg_color": "#0c1b24",
-        "border_radius_bottom": 160,
+        "border_radius_bottom": 104,
         "border_radius_bottom_mobile": 60,
         "margin_bottom_desktop": -160,
         "margin_bottom_mobile": -60,
