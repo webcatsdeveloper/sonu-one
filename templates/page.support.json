@@ -13,23 +13,31 @@
       "type": "sonu-faq-hero-sh",
       "settings": {
         "bg_color": "#eff2fc",
+        "bg_gradient": "",
+        "heading": "FAQ",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 64,
+        "heading_style_font_size_mobile": 44,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.1",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "description": "<p><a href=\"mailto:support@getsonu.com\">Email</a> responses can take up to 72 hours.<br>Call us @ <a href=\"tel:+14083848319\">+1 (408) 384-8319</a></p>",
+        "description_style": "custom",
+        "description_style_font_size_desktop": 20,
+        "description_style_font_size_mobile": 16,
+        "description_style_font_weight": "400",
+        "description_style_line_height": "1.5",
+        "description_style_letter_spacing": 0,
+        "description_style_text_transform": "none",
         "padding_top": 120,
         "padding_bottom": 40,
         "padding_top_mobile": 80,
-        "padding_bottom_mobile": 20,
-        "heading_style_font_size_desktop": 64
+        "padding_bottom_mobile": 20
       }
     },
     "faq_accordion": {
       "type": "sonu-faq-accordion-sh",
-      "settings": {
-        "bg_color": "#eff2fc",
-        "padding_top": 20,
-        "padding_bottom": 120,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 80,
-        "heading_style_font_size_desktop": 40
-      },
       "blocks": {
         "faq_1": {
           "type": "faq_item",
@@ -129,22 +137,40 @@
         "faq_10",
         "faq_11",
         "faq_12"
-      ]
-    },
-    "faq_check": {
-      "type": "sonu-faq-accordion-sh",
+      ],
       "settings": {
         "bg_color": "#eff2fc",
-        "heading": "SONU Check",
-        "padding_top": 40,
+        "bg_gradient": "",
+        "open_first": true,
+        "heading": "SONU Product",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 40,
+        "heading_style_font_size_mobile": 32,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "question_style": "custom",
+        "question_style_font_size_desktop": 24,
+        "question_style_font_size_mobile": 18,
+        "question_style_font_weight": "400",
+        "question_style_line_height": "1.3",
+        "answer_style": "custom",
+        "answer_style_font_size_desktop": 16,
+        "answer_style_font_size_mobile": 15,
+        "answer_style_font_weight": "400",
+        "answer_style_line_height": "1.6",
+        "padding_top": 20,
         "padding_bottom": 120,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 80,
-        "heading_style_font_size_desktop": 40,
-        "enable_bottom_curve": true,
+        "enable_bottom_curve": false,
         "curve_radius_desktop": 160,
-        "curve_radius_mobile": 60
-      },
+        "curve_radius_mobile": 40
+      }
+    },
+    "faq_check": {
+      "type": "sonu-faq-accordion-sh",
       "blocks": {
         "check_1": {
           "type": "faq_item",
@@ -212,7 +238,37 @@
         "check_6",
         "check_7",
         "check_8"
-      ]
+      ],
+      "settings": {
+        "bg_color": "#eff2fc",
+        "bg_gradient": "",
+        "open_first": true,
+        "heading": "SONU Check",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 40,
+        "heading_style_font_size_mobile": 32,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "question_style": "custom",
+        "question_style_font_size_desktop": 24,
+        "question_style_font_size_mobile": 18,
+        "question_style_font_weight": "400",
+        "question_style_line_height": "1.3",
+        "answer_style": "custom",
+        "answer_style_font_size_desktop": 16,
+        "answer_style_font_size_mobile": 15,
+        "answer_style_font_weight": "400",
+        "answer_style_line_height": "1.6",
+        "padding_top": 40,
+        "padding_bottom": 120,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 80,
+        "enable_bottom_curve": true,
+        "curve_radius_desktop": 96,
+        "curve_radius_mobile": 60
+      }
     }
   },
   "order": [
