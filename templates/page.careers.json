@@ -230,7 +230,7 @@
         "wrapper_bg_color": "#0c1b24",
         "border_radius_bottom": 64,
         "border_radius_bottom_mobile": 60,
-        "margin_bottom_desktop": -160,
+        "margin_bottom_desktop": -110,
         "margin_bottom_mobile": -60,
         "heading": "Design your own role",
         "heading_style": "custom",
