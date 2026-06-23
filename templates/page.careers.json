@@ -1,19 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "sonu-careers-hero-sh",
       "settings": {
+        "bg_color": "#eff2fc",
+        "bg_gradient": "",
         "heading": "Join our team",
-        "bg_color": "#eff2fc"
+        "heading_style": "h1",
+        "heading_style_font_size_desktop": 48,
+        "heading_style_font_size_mobile": 32,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "image": "shopify://shop_images/Rectangle_168.png",
+        "description": "<p>We’re always looking for the best and the brightest to join our team. If you are a creative thinker, obsessed with details and have impactful projects under your belt, we want to hear from you (multiple roles in software and hardware, startup experience preferred).</p>",
+        "description_style": "p",
+        "description_style_font_size_desktop": 18,
+        "description_style_font_size_mobile": 16,
+        "description_style_font_weight": "400",
+        "description_style_line_height": "1.5",
+        "description_style_letter_spacing": 0,
+        "description_style_text_transform": "none",
+        "button_label": "SEE OPEN POSITIONS",
+        "button_link": "",
+        "btn_bg_color": "#001755",
+        "btn_text_color": "#ffffff",
+        "button_style": "p",
+        "button_style_font_size_desktop": 14,
+        "button_style_font_size_mobile": 13,
+        "button_style_font_weight": "500",
+        "button_style_line_height": "1.2",
+        "button_style_letter_spacing": 5,
+        "button_style_text_transform": "uppercase",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 40
       }
     },
     "offer": {
       "type": "sonu-careers-offer-sh",
-      "settings": {
-        "heading": "Here's what we have to offer:",
-        "bg_color": "#eff2fc",
-        "bottom_text": "<p>SoundHealth is an exciting, medical technology startup harnessing the power of artificial intelligence and medical science to improve patient outcomes. Our mission is to let the world breathe free with personalized, drug free treatment providing nasal congestion relief. Our team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare. We are dedicated to providing an experience that will benefit your career and give you the opportunity to work on cutting edge technology and high impact projects.</p>"
-      },
       "blocks": {
         "bullet_1": {
           "type": "bullet_item",
@@ -52,62 +88,97 @@
         "bullet_3",
         "bullet_4",
         "bullet_5"
-      ]
+      ],
+      "settings": {
+        "bg_color": "#eff2fc",
+        "bg_gradient": "",
+        "heading": "Here's what we have to offer:",
+        "heading_style": "h2",
+        "heading_style_font_size_desktop": 36,
+        "heading_style_font_size_mobile": 28,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "description_style": "p",
+        "description_style_font_size_desktop": 24,
+        "description_style_font_size_mobile": 18,
+        "description_style_font_weight": "400",
+        "description_style_line_height": "1.5",
+        "description_style_letter_spacing": 0,
+        "description_style_text_transform": "none",
+        "bottom_text": "<p>SoundHealth is an exciting, medical technology startup harnessing the power of artificial intelligence and medical science to improve patient outcomes. Our mission is to let the world breathe free with personalized, drug free treatment providing nasal congestion relief. Our team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare. We are dedicated to providing an experience that will benefit your career and give you the opportunity to work on cutting edge technology and high impact projects.</p>",
+        "bottom_text_style": "p",
+        "bottom_text_style_font_size_desktop": 20,
+        "bottom_text_style_font_size_mobile": 18,
+        "bottom_text_style_font_weight": "400",
+        "bottom_text_style_line_height": "1.6",
+        "bottom_text_style_letter_spacing": 0,
+        "bottom_text_style_text_transform": "none",
+        "image": "shopify://shop_images/Rectangle_169.png",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 40
+      }
     },
     "positions": {
       "type": "sonu-careers-positions-sh",
-      "settings": {
-        "heading": "Ready when you are",
-        "bg_color": "#eff2fc"
-      },
       "blocks": {
         "job_1": {
           "type": "position_item",
           "settings": {
             "title": "Senior Firmware Engineer",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_2": {
           "type": "position_item",
           "settings": {
             "title": "Backend Software Developer – Firebase / Google Cloud",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_3": {
           "type": "position_item",
           "settings": {
             "title": "ML Architect",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_4": {
           "type": "position_item",
           "settings": {
             "title": "Firmware / Hardware Intern",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_5": {
           "type": "position_item",
           "settings": {
             "title": "Backend Software Intern – Firebase / iOS",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_6": {
           "type": "position_item",
           "settings": {
             "title": "iOS App Developer",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         },
         "job_7": {
           "type": "position_item",
           "settings": {
             "title": "Software Development Manager / Site Lead — India",
-            "count_text": "1 open position"
+            "count_text": "1 open position",
+            "link": ""
           }
         }
       },
@@ -119,17 +190,81 @@
         "job_5",
         "job_6",
         "job_7"
-      ]
+      ],
+      "settings": {
+        "bg_color": "#eff2fc",
+        "bg_gradient": "",
+        "heading": "Ready when you are",
+        "heading_style": "h2",
+        "heading_style_font_size_desktop": 36,
+        "heading_style_font_size_mobile": 28,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "position_title_style": "h3",
+        "position_title_style_font_size_desktop": 24,
+        "position_title_style_font_size_mobile": 20,
+        "position_title_style_font_weight": "400",
+        "position_title_style_line_height": "1.3",
+        "position_title_style_letter_spacing": 0,
+        "position_title_style_text_transform": "none",
+        "position_count_style": "p",
+        "position_count_style_font_size_desktop": 14,
+        "position_count_style_font_size_mobile": 13,
+        "position_count_style_font_weight": "400",
+        "position_count_style_line_height": "1.2",
+        "position_count_style_letter_spacing": 0,
+        "position_count_style_text_transform": "none",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 40
+      }
     },
     "design_role": {
       "type": "sonu-careers-design-role-sh",
       "settings": {
-        "heading": "Design your own role",
         "bg_color": "#eff2fc",
+        "bg_gradient": "",
+        "wrapper_bg_color": "#0c1b24",
         "border_radius_bottom": 160,
         "border_radius_bottom_mobile": 60,
         "margin_bottom_desktop": -160,
-        "margin_bottom_mobile": -60
+        "margin_bottom_mobile": -60,
+        "heading": "Design your own role",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 44,
+        "heading_style_font_size_mobile": 32,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "heading_style_letter_spacing": 0,
+        "heading_style_text_transform": "none",
+        "description": "<p>Want to be part of our team? Reach out and tell us how you'd be a good fit for SoundHealth.</p>",
+        "description_style": "custom",
+        "description_style_font_size_desktop": 20,
+        "description_style_font_size_mobile": 14,
+        "description_style_font_weight": "400",
+        "description_style_line_height": "1.5",
+        "description_style_letter_spacing": 0,
+        "description_style_text_transform": "none",
+        "button_label": "Apply Now",
+        "button_link": "",
+        "button_bg_color": "#001755",
+        "button_text_color": "#ffffff",
+        "button_style": "custom",
+        "button_style_font_size_desktop": 14,
+        "button_style_font_size_mobile": 13,
+        "button_style_font_weight": "500",
+        "button_style_line_height": "1.2",
+        "button_style_letter_spacing": 5,
+        "button_style_text_transform": "none",
+        "padding_top": 80,
+        "padding_bottom": 120,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 80,
+        "heading_indent_mobile": 0,
+        "content_indent_mobile": 48
       }
     }
   },
