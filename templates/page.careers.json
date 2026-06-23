@@ -92,7 +92,7 @@
       "settings": {
         "bg_color": "#eff2fc",
         "bg_gradient": "",
-        "heading": "Here's what we <br>have to offer:",
+        "heading": "Here's what we have to offer:",
         "heading_style": "h4",
         "heading_style_font_size_desktop": 36,
         "heading_style_font_size_mobile": 28,
@@ -229,7 +229,7 @@
         "bg_gradient": "",
         "wrapper_bg_color": "#0c1b24",
         "border_radius_bottom": 64,
-        "border_radius_bottom_mobile": 60,
+        "border_radius_bottom_mobile": 20,
         "margin_bottom_desktop": -95,
         "margin_bottom_mobile": -60,
         "heading": "Design your own role",
