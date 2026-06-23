@@ -266,7 +266,7 @@
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 80,
         "enable_bottom_curve": true,
-        "curve_radius_desktop": 96,
+        "curve_radius_desktop": 64,
         "curve_radius_mobile": 60
       }
     }
