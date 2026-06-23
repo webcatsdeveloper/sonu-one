@@ -140,6 +140,29 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
+
+  #shopify-section-{{ section.id }} .carousel-heading {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    max-width: 879px !important;
+  }
+  
+  #shopify-section-{{ section.id }} .sonu-section-header {
+    width: 100% !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .carousel-heading {
+      text-align: center !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      padding: 0 20px !important;
+    }
+  }
 </style>
 
 {% schema %}
