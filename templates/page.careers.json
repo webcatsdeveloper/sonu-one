@@ -260,9 +260,9 @@
         "button_style_letter_spacing": 5,
         "button_style_text_transform": "none",
         "padding_top": 80,
-        "padding_bottom": 120,
+        "padding_bottom": 0,
         "padding_top_mobile": 60,
-        "padding_bottom_mobile": 80,
+        "padding_bottom_mobile": 12,
         "heading_indent_mobile": 0,
         "content_indent_mobile": 48
       }
