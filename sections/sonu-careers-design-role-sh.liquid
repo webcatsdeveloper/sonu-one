@@ -1,13 +1,5 @@
 <div class="design-role-section-wrapper" style="
-  {% if section.settings.wrapper_bg_image != blank %}
-    background-image: url('{{ section.settings.wrapper_bg_image | image_url: width: 2000 }}');
-  {% else %}
-    background-image: url('https://cdn.shopify.com/s/files/1/0992/3166/2451/files/Rectangle_42.webp?v=1780063233');
-  {% endif %}
-  background-color: {{ section.settings.wrapper_bg_color | default: '#0c1b24' }};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent;
   --margin-bottom-desktop: {{ section.settings.margin_bottom_desktop | default: -80 }}px;
   --margin-bottom-mobile: {{ section.settings.margin_bottom_mobile | default: -40 }}px;
 ">
@@ -27,6 +19,16 @@
     --content-indent-mobile: {{ section.settings.content_indent_mobile | default: 48 }}px;
   ">
     <style>
+      {% if section.settings.enable_bottom_curve %}
+        #MainContent {
+          overflow-y: visible !important;
+          z-index: 2 !important;
+        }
+        #shopify-section-{{ section.id }} {
+          position: relative;
+          z-index: 100;
+        }
+      {% endif %}
       #shopify-section-{{ section.id }} {
         position: relative;
         z-index: 9999 !important;
@@ -53,7 +55,7 @@
       }
       .sonu-careers-design-role {
         padding-top: {{ section.settings.padding_top | default: 80 }}px !important;
-        padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px !important;
+        padding-bottom: calc({{ section.settings.padding_bottom | default: 120 }}px + {{ section.settings.border_radius_bottom | default: 100 }}px) !important;
         border-bottom-left-radius: {{ section.settings.border_radius_bottom | default: 100 }}px !important;
         border-bottom-right-radius: {{ section.settings.border_radius_bottom | default: 100 }}px !important;
         overflow: hidden !important;
@@ -128,7 +130,7 @@
         }
         .sonu-careers-design-role {
           padding-top: {{ section.settings.padding_top_mobile | default: 60 }}px !important;
-          padding-bottom: {{ section.settings.padding_bottom_mobile | default: 80 }}px !important;
+          padding-bottom: calc({{ section.settings.padding_bottom_mobile | default: 80 }}px + {{ section.settings.border_radius_bottom_mobile | default: 80 }}px) !important;
           border-bottom-left-radius: {{ section.settings.border_radius_bottom_mobile | default: 80 }}px !important;
           border-bottom-right-radius: {{ section.settings.border_radius_bottom_mobile | default: 80 }}px !important;
         }

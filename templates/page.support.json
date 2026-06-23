@@ -142,8 +142,8 @@
         "padding_bottom_mobile": 80,
         "heading_style_font_size_desktop": 40,
         "enable_bottom_curve": true,
-        "curve_radius_desktop": 80,
-        "curve_radius_mobile": 40
+        "curve_radius_desktop": 160,
+        "curve_radius_mobile": 60
       },
       "blocks": {
         "check_1": {

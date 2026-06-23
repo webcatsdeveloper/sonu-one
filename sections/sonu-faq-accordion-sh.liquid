@@ -18,6 +18,10 @@
 ">
 <style>
   {% if section.settings.enable_bottom_curve %}
+    #MainContent {
+      overflow-y: visible !important;
+      z-index: 2 !important;
+    }
     #shopify-section-{{ section.id }} {
       position: relative;
       z-index: 100;
@@ -593,9 +597,9 @@ if (!customElements.get('sonu-faq-accordion')) {
       "type": "range",
       "id": "curve_radius_desktop",
       "min": 0,
-      "max": 120,
+      "max": 300,
       "step": 4,
-      "default": 80,
+      "default": 160,
       "unit": "px",
       "label": "Curve Radius (Desktop)"
     },
