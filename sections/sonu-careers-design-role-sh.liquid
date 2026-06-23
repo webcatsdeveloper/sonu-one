@@ -1,144 +1,197 @@
-<section class="sonu-careers-design-role section-{{ section.id }}" style="
-  {% if section.settings.bg_gradient != blank %}
-    background: {{ section.settings.bg_gradient }};
-  {% elsif section.settings.bg_color != blank %}
-    background-color: {{ section.settings.bg_color }};
+<div class="design-role-section-wrapper" style="
+  {% if section.settings.wrapper_bg_image != blank %}
+    background-image: url('{{ section.settings.wrapper_bg_image | image_url: width: 2000 }}');
+  {% else %}
+    background-image: url('https://cdn.shopify.com/s/files/1/0992/3166/2451/files/Rectangle_42.webp?v=1780063233');
   {% endif %}
-  --padding-top: {{ section.settings.padding_top | default: 80 }}px;
-  --padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px;
-  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
-  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 80 }}px;
-  --border-radius-bottom: {{ section.settings.border_radius_bottom | default: 80 }}px;
-  --border-radius-bottom-mobile: {{ section.settings.border_radius_bottom_mobile | default: 40 }}px;
+  background-color: {{ section.settings.wrapper_bg_color | default: '#0c1b24' }};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  --margin-bottom-desktop: {{ section.settings.margin_bottom_desktop | default: -80 }}px;
+  --margin-bottom-mobile: {{ section.settings.margin_bottom_mobile | default: -40 }}px;
 ">
-  <style>
-    #shopify-section-{{ section.id }} .sonu-careers-design-role {
-      padding-top: var(--padding-top) !important;
-      padding-bottom: var(--padding-bottom) !important;
-      border-bottom-left-radius: var(--border-radius-bottom);
-      border-bottom-right-radius: var(--border-radius-bottom);
-      overflow: hidden;
-    }
-    #shopify-section-{{ section.id }} .design-role-container {
-      max-width: 1060px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #shopify-section-{{ section.id }} .design-role-header {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    #shopify-section-{{ section.id }} .design-role-heading {
-      color: #001755;
-      margin: 0;
-      text-align: inherit;
-    }
-    #shopify-section-{{ section.id }} .design-role-body {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    #shopify-section-{{ section.id }} .design-role-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      max-width: 480px;
-      width: 100%;
-      gap: 32px;
-    }
-    #shopify-section-{{ section.id }} .design-role-desc {
-      color: #1e1e1e;
-      margin: 0;
-    }
-    #shopify-section-{{ section.id }} .design-role-desc p {
-      margin: 0;
-    }
-    #shopify-section-{{ section.id }} .btn.design-role-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 36px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    #shopify-section-{{ section.id }} .btn.design-role-btn:hover {
-      transform: scale(1.02);
-      opacity: 0.95;
-    }
-
-    /* Highlights styling overrides */
-    #shopify-section-{{ section.id }} .highlight-times {
-      font-family: 'Times New Roman', Times, Georgia, serif !important;
-      font-style: italic !important;
-    }
-    #shopify-section-{{ section.id }} .highlight-pp {
-      font-family: var(--font-highlight--family, serif) !important;
-      font-style: var(--font-highlight--style, italic) !important;
-    }
-
-    @media screen and (max-width: 768px) {
-      #shopify-section-{{ section.id }} .sonu-careers-design-role {
-        padding-top: var(--padding-top-mobile) !important;
-        padding-bottom: var(--padding-bottom-mobile) !important;
-        border-bottom-left-radius: var(--border-radius-bottom-mobile);
-        border-bottom-right-radius: var(--border-radius-bottom-mobile);
+  <section class="sonu-careers-design-role section-{{ section.id }}" style="
+    {% if section.settings.bg_gradient != blank %}
+      background: {{ section.settings.bg_gradient }};
+    {% elsif section.settings.bg_color != blank %}
+      background-color: {{ section.settings.bg_color }};
+    {% endif %}
+    --padding-top: {{ section.settings.padding_top | default: 80 }}px;
+    --padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px;
+    --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
+    --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 80 }}px;
+    --border-radius-bottom: {{ section.settings.border_radius_bottom | default: 100 }}px;
+    --border-radius-bottom-mobile: {{ section.settings.border_radius_bottom_mobile | default: 80 }}px;
+    --heading-indent-mobile: {{ section.settings.heading_indent_mobile | default: 0 }}px;
+    --content-indent-mobile: {{ section.settings.content_indent_mobile | default: 48 }}px;
+  ">
+    <style>
+      #shopify-section-{{ section.id }} {
+        position: relative;
+        z-index: 9999 !important;
       }
-      #shopify-section-{{ section.id }} .design-role-container {
+      /* Ensure MainContent stacks above the footer wrapper sibling and doesn't vertically clip */
+      #MainContent, main {
+        position: relative;
+        z-index: 2 !important;
+        overflow-y: visible !important;
+      }
+      .shopify-section-group-footer-group, #shopify-section-footer, .custom-new-footer {
+        position: relative;
+        z-index: 1 !important;
+      }
+      /* Create a gap above the footer content so the curved overlap doesn't crowd it */
+      .custom-new-footer {
+        padding-top: 160px !important;
+      }
+
+      .design-role-section-wrapper {
+        margin-bottom: {{ section.settings.margin_bottom_desktop | default: -80 }}px;
+        position: relative;
+        z-index: 9999;
+      }
+      .sonu-careers-design-role {
+        padding-top: {{ section.settings.padding_top | default: 80 }}px !important;
+        padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px !important;
+        border-bottom-left-radius: {{ section.settings.border_radius_bottom | default: 100 }}px !important;
+        border-bottom-right-radius: {{ section.settings.border_radius_bottom | default: 100 }}px !important;
+        overflow: hidden !important;
+      }
+      .design-role-container {
+        max-width: 1060px;
+        margin: 0 auto;
+      }
+      .design-role-header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      .design-role-heading {
+        color: #001755;
+        margin: 0;
+      }
+      .design-role-body {
+        display: grid;
+        grid-template-columns: 480px 480px;
+        column-gap: 100px;
+        justify-content: center;
+      }
+      .design-role-empty {
+        /* Left column is empty on desktop */
+      }
+      .design-role-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         text-align: left;
+        width: 100%;
+        gap: 32px;
       }
-      #shopify-section-{{ section.id }} .design-role-header {
-        margin-bottom: 24px;
-        text-align: left;
+      .design-role-desc {
+        color: #1e1e1e;
+        margin: 0;
       }
-      #shopify-section-{{ section.id }} .design-role-body {
-        justify-content: flex-start;
+      .design-role-desc p {
+        margin: 0;
       }
-      #shopify-section-{{ section.id }} .design-role-content {
-        gap: 24px;
-        max-width: 100%;
+      .btn.design-role-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 36px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: transform 0.2s ease, opacity 0.2s ease;
       }
-    }
-  </style>
+      .btn.design-role-btn:hover {
+        transform: scale(1.02);
+        opacity: 0.95;
+      }
 
-  <div class="design-role-container page-width">
-    {%- if section.settings.heading != blank -%}
-      <div class="design-role-header">
-        {%- assign formatted_heading = section.settings.heading 
-          | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
-          | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
-        <h2 class="design-role-heading typography-{{ section.settings.heading_style | default: 'h2' }}" 
-            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}">
-          {{ formatted_heading }}
-        </h2>
-      </div>
-    {%- endif -%}
+      /* Highlights styling overrides */
+      .highlight-times {
+        font-family: 'Times New Roman', Times, Georgia, serif !important;
+        font-style: italic !important;
+      }
+      .highlight-pp {
+        font-family: var(--font-highlight--family, serif) !important;
+        font-style: var(--font-highlight--style, italic) !important;
+      }
 
-    <div class="design-role-body">
-      <div class="design-role-content">
-        {%- if section.settings.description != blank -%}
-          <div class="design-role-desc typography-{{ section.settings.description_style | default: 'p' }}"
-               style="{% render 'sonu-typography-style', preset: section.settings.description_style, prefix: 'description_style', settings: section.settings %}">
-            {{ section.settings.description }}
-          </div>
-        {%- endif -%}
-        
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link | default: '#' }}" class="btn design-role-btn"
-             style="
-               background-color: {{ section.settings.button_bg_color | default: '#001755' }};
-               color: {{ section.settings.button_text_color | default: '#ffffff' }};
-               {% render 'sonu-typography-style', preset: section.settings.button_style, prefix: 'button_style', settings: section.settings %}
-             ">
-            {{ section.settings.button_label | escape }}
-          </a>
-        {%- endif -%}
+      @media screen and (max-width: 768px) {
+        .custom-new-footer {
+          padding-top: 120px !important;
+        }
+        .design-role-section-wrapper {
+          margin-bottom: {{ section.settings.margin_bottom_mobile | default: -40 }}px;
+        }
+        .sonu-careers-design-role {
+          padding-top: {{ section.settings.padding_top_mobile | default: 60 }}px !important;
+          padding-bottom: {{ section.settings.padding_bottom_mobile | default: 80 }}px !important;
+          border-bottom-left-radius: {{ section.settings.border_radius_bottom_mobile | default: 80 }}px !important;
+          border-bottom-right-radius: {{ section.settings.border_radius_bottom_mobile | default: 80 }}px !important;
+        }
+        .design-role-body {
+          grid-template-columns: 1fr;
+          column-gap: 0;
+          justify-content: start;
+          padding-left: {{ section.settings.content_indent_mobile | default: 48 }}px;
+          padding-right: 20px;
+        }
+        .design-role-empty {
+          display: none;
+        }
+        .design-role-header {
+          text-align: left;
+          margin-bottom: 24px;
+          padding-left: {{ section.settings.heading_indent_mobile | default: 0 }}px;
+          padding-right: 20px;
+        }
+        .design-role-content {
+          gap: 24px;
+        }
+      }
+    </style>
+
+    <div class="design-role-container page-width">
+      {%- if section.settings.heading != blank -%}
+        <div class="design-role-header">
+          {%- assign formatted_heading = section.settings.heading 
+            | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+            | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+          <h2 class="design-role-heading typography-{{ section.settings.heading_style | default: 'h2' }}" 
+              style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}">
+            {{ formatted_heading }}
+          </h2>
+        </div>
+      {%- endif -%}
+
+      <div class="design-role-body">
+        <div class="design-role-empty"></div>
+        <div class="design-role-content">
+          {%- if section.settings.description != blank -%}
+            <div class="design-role-desc typography-{{ section.settings.description_style | default: 'p' }}"
+                 style="{% render 'sonu-typography-style', preset: section.settings.description_style, prefix: 'description_style', settings: section.settings %}">
+              {{ section.settings.description }}
+            </div>
+          {%- endif -%}
+          
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link | default: '#' }}" class="btn design-role-btn"
+               style="
+                 background-color: {{ section.settings.button_bg_color | default: '#001755' }};
+                 color: {{ section.settings.button_text_color | default: '#ffffff' }};
+                 {% render 'sonu-typography-style', preset: section.settings.button_style, prefix: 'button_style', settings: section.settings %}
+               ">
+              {{ section.settings.button_label | escape }}
+            </a>
+          {%- endif -%}
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 {% schema %}
 {
@@ -160,6 +213,17 @@
       "label": "Background Gradient"
     },
     {
+      "type": "color",
+      "id": "wrapper_bg_color",
+      "label": "Wrapper Background Color (Footer Color)",
+      "default": "#0c1b24"
+    },
+    {
+      "type": "image_picker",
+      "id": "wrapper_bg_image",
+      "label": "Wrapper Background Image Override (Footer Image)"
+    },
+    {
       "type": "range",
       "id": "border_radius_bottom",
       "label": "Bottom Border Radius",
@@ -174,9 +238,29 @@
       "id": "border_radius_bottom_mobile",
       "label": "Bottom Border Radius (Mobile)",
       "min": 0,
-      "max": 100,
-      "step": 2,
-      "default": 40,
+      "max": 160,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop Negative Margin Bottom",
+      "min": -200,
+      "max": 0,
+      "step": 5,
+      "default": -80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile Negative Margin Bottom",
+      "min": -150,
+      "max": 0,
+      "step": 5,
+      "default": -40,
       "unit": "px"
     },
     {
@@ -279,7 +363,7 @@
       "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "<p>Want to be part of our team? Reach out and<br>tell us how you'd be a good fit for SoundHealth.</p>"
+      "default": "<p>Want to be part of our team? Reach out and tell us how you'd be a good fit for SoundHealth.</p>"
     },
     {
       "type": "select",
@@ -316,7 +400,7 @@
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 16,
+      "default": 14,
       "visible_if": "{{ section.settings.description_style == 'custom' }}"
     },
     {
@@ -498,7 +582,7 @@
     },
     {
       "type": "header",
-      "content": "Mobile Spacing"
+      "content": "Mobile Spacing & Alignment"
     },
     {
       "type": "range",
@@ -519,6 +603,26 @@
       "default": 80,
       "unit": "px",
       "label": "Padding Bottom (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "heading_indent_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 0,
+      "unit": "px",
+      "label": "Heading Left Indent (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "content_indent_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 48,
+      "unit": "px",
+      "label": "Content Left Indent (Mobile)"
     }
   ],
   "presets": [

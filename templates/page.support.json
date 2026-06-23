@@ -1,0 +1,214 @@
+{
+  "sections": {
+    "faq_hero": {
+      "type": "sonu-faq-hero-sh",
+      "settings": {
+        "bg_color": "#eff2fc",
+        "padding_top": 120,
+        "padding_bottom": 40,
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 20,
+        "heading_style_font_size_desktop": 64
+      }
+    },
+    "faq_accordion": {
+      "type": "sonu-faq-accordion-sh",
+      "settings": {
+        "bg_color": "#eff2fc",
+        "padding_top": 20,
+        "padding_bottom": 120,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 80,
+        "heading_style_font_size_desktop": 40
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is SONU™",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does SONU™ work?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What symptoms does SONU Band help with?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is SONU safe when it comes to EMF exposure?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does the battery last between charges?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I disconnect or turn off the band after treatment?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How often should I charge my band?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why do I need an iphone 10 (or newer) or Android 10 or newer to use a SONU band?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why do you need to scan my face?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_10": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are the purple circles inside the band?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_11": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the right volume level for best therapy outcomes?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        },
+        "faq_12": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What materials are used in the SONU band?",
+            "answer": "<p>The SONU band is the world's first and only FDA-cleared, drug- free, wearable therapy for symptoms related to allergic and nonallergic rhinitis. This includes nasal congestion, sneezing, runny nose, and nasal itching.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8",
+        "faq_9",
+        "faq_10",
+        "faq_11",
+        "faq_12"
+      ]
+    },
+    "faq_check": {
+      "type": "sonu-faq-accordion-sh",
+      "settings": {
+        "bg_color": "#eff2fc",
+        "heading": "SONU Check",
+        "padding_top": 40,
+        "padding_bottom": 120,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 80,
+        "heading_style_font_size_desktop": 40,
+        "enable_bottom_curve": true,
+        "curve_radius_desktop": 80,
+        "curve_radius_mobile": 40
+      },
+      "blocks": {
+        "check_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I access SONUCheck from the SONU app?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use SONUCheck anytime?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is the SONU band required to use SONUCheck?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why is SONUCheck showing me a speech recognition accuracy error?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why is my score low even though I feel congested?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is SONUCheck free?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I start and stop voice recording?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        },
+        "check_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does SONUCheck work in all environments?",
+            "answer": "<p>Content coming soon.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "check_1",
+        "check_2",
+        "check_3",
+        "check_4",
+        "check_5",
+        "check_6",
+        "check_7",
+        "check_8"
+      ]
+    }
+  },
+  "order": [
+    "faq_hero",
+    "faq_accordion",
+    "faq_check"
+  ]
+}

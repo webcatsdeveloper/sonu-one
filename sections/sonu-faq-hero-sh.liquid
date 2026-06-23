@@ -1,0 +1,393 @@
+<div class="faq-hero-section-wrapper" style="
+  {% if section.settings.bg_gradient != blank %}
+    background: {{ section.settings.bg_gradient }};
+  {% elsif section.settings.bg_color != blank %}
+    background-color: {{ section.settings.bg_color }};
+  {% endif %}
+  --padding-top: {{ section.settings.padding_top | default: 120 }}px;
+  --padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 80 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 80 }}px;
+">
+  <section class="sonu-faq-hero section-{{ section.id }} page-width">
+    <div class="faq-hero-container">
+      
+      <!-- Left Column: FAQ Heading -->
+      <div class="faq-hero-heading-col">
+        {%- if section.settings.heading != blank -%}
+          {%- assign formatted_heading = section.settings.heading 
+            | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+            | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+          <h1 class="faq-hero-heading typography-{{ section.settings.heading_style | default: 'h1' }}" 
+              style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}">
+            {{ formatted_heading }}
+          </h1>
+        {%- endif -%}
+      </div>
+
+      <!-- Right Column: FAQ Contact Content -->
+      <div class="faq-hero-content-col">
+        {%- if section.settings.description != blank -%}
+          {%- assign formatted_desc = section.settings.description 
+            | replace: '[[', '<em class="highlight-pp">' | replace: ']]', '</em>' 
+            | replace: '((', '<span class="highlight-times">' | replace: '))', '</span>' -%}
+          <div class="faq-hero-desc typography-{{ section.settings.description_style | default: 'p' }}"
+               style="{% render 'sonu-typography-style', preset: section.settings.description_style, prefix: 'description_style', settings: section.settings %}">
+            {{ formatted_desc }}
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<style>
+  .faq-hero-section-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  .sonu-faq-hero {
+    padding-top: var(--padding-top) !important;
+    padding-bottom: var(--padding-bottom) !important;
+  }
+  .faq-hero-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 120px;
+    align-items: start;
+  }
+
+  .faq-hero-heading-col {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .faq-hero-heading {
+    color: #001755;
+    margin: 0;
+    text-align: left;
+  }
+  .faq-hero-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+  }
+  .faq-hero-desc {
+    color: #1e1e1e;
+    margin: 0;
+  }
+  .faq-hero-desc p {
+    margin: 0 0 8px 0;
+  }
+  .faq-hero-desc p:last-child {
+    margin: 0;
+  }
+
+  /* Contact Links Formatting */
+  .faq-hero-desc a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .faq-hero-desc a:hover {
+    opacity: 0.8;
+  }
+
+  /* Highlight Fonts Override */
+  .section-{{ section.id }} .highlight-times {
+    font-family: 'Times New Roman', Times, Georgia, serif !important;
+    font-style: italic !important;
+  }
+  .section-{{ section.id }} .highlight-pp {
+    font-family: var(--font-highlight--family, serif) !important;
+    font-style: var(--font-highlight--style, italic) !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .sonu-faq-hero {
+      padding-top: var(--padding-top-mobile) !important;
+      padding-bottom: var(--padding-bottom-mobile) !important;
+    }
+    .faq-hero-container {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      row-gap: 40px;
+      justify-content: start;
+      align-items: start;
+    }
+    .faq-hero-heading {
+      text-align: left;
+    }
+    .faq-hero-content-col {
+      text-align: left;
+    }
+    .faq-hero-desc a {
+      text-decoration: underline !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Sonu FAQ Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Branding & Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#eff2fc"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FAQ"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Heading Custom Size (Desktop)",
+      "min": 20,
+      "max": 120,
+      "step": 1,
+      "unit": "px",
+      "default": 72,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Heading Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 44,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Heading Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_line_height",
+      "label": "Heading Custom Line Height",
+      "default": "1.1",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_letter_spacing",
+      "label": "Heading Custom Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_text_transform",
+      "label": "Heading Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.heading_style == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Description Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p><a href=\"mailto:support@getsonu.com\">Email</a> responses can take up to 72 hours.<br>Call us @ <a href=\"tel:+14083848319\">+1 (408) 384-8319</a></p>"
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "description_style_font_size_desktop",
+      "label": "Description Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "description_style_font_size_mobile",
+      "label": "Description Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "description_style_font_weight",
+      "label": "Description Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "text",
+      "id": "description_style_line_height",
+      "label": "Description Custom Line Height",
+      "default": "1.5",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "description_style_letter_spacing",
+      "label": "Description Custom Letter Spacing (hundredths of em)",
+      "min": -10,
+      "max": 50,
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "description_style_text_transform",
+      "label": "Description Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.description_style == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 120,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 120,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Top (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sonu FAQ Hero"
+    }
+  ]
+}
+{% endschema %}

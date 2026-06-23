@@ -26,7 +26,7 @@
       text-align: left;
     }
     #shopify-section-{{ section.id }} .careers-positions-heading {
-      color: #000000;
+      color: #001755;
       margin: 0;
     }
     #shopify-section-{{ section.id }} .careers-positions-list {
@@ -110,8 +110,26 @@
         padding-top: var(--padding-top-mobile) !important;
         padding-bottom: var(--padding-bottom-mobile) !important;
       }
+      #shopify-section-{{ section.id }} .careers-positions-heading {
+        font-size: 32px !important;
+        font-weight: 400 !important;
+        line-height: 1.2 !important;
+      }
+      #shopify-section-{{ section.id }} .careers-positions-header {
+        border-bottom: 1px solid #dbdbdb !important;
+        padding-bottom: 20px;
+      }
+      #shopify-section-{{ section.id }} .careers-positions-list {
+        border-bottom: none !important;
+      }
       #shopify-section-{{ section.id }} .position-item {
-        padding: 20px 0;
+        border-bottom: 1px solid #dbdbdb !important;
+        padding: 24px 0 !important;
+      }
+      #shopify-section-{{ section.id }} .position-title {
+        font-size: 20px !important;
+        font-weight: 400 !important;
+        line-height: 1.4 !important;
       }
       #shopify-section-{{ section.id }} .position-left-col {
         padding-right: 16px;
@@ -119,6 +137,9 @@
       }
       #shopify-section-{{ section.id }} .position-right-col {
         gap: 16px;
+      }
+      #shopify-section-{{ section.id }} .position-count {
+        display: none !important;
       }
     }
   </style>
