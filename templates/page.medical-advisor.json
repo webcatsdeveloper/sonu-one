@@ -1,14 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {}
-    },
     "custom_mission_sh": {
       "type": "custom-medical-mission-sh",
       "settings": {
+        "bg_color": "#f4f5fb",
         "heading": "Meet Our<br>Medical Advisors",
-        "text": "<p>Our Medical Advisory Board draws from thought leaders in the fields of medicine and science. Their expertise guides our innovation, ensuring our products have a significant clinical impact while safely and effectively improving patient outcomes.</p>"
+        "heading_color": "#0a1c40",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 72,
+        "heading_style_font_size_mobile": 44,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.1",
+        "heading_style_letter_spacing": "0",
+        "heading_style_text_transform": "none",
+        "text": "<p>Our Medical Advisory Board draws from thought leaders in the fields of medicine and science. Their expertise guides our innovation, ensuring our products have a significant clinical impact while safely and effectively improving patient outcomes.</p>",
+        "text_color": "#333333",
+        "text_style": "custom",
+        "text_style_font_size_desktop": 18,
+        "text_style_font_size_mobile": 16,
+        "text_style_font_weight": "400",
+        "text_style_line_height": "1.6",
+        "text_style_letter_spacing": "0",
+        "text_style_text_transform": "none",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
       }
     },
     "advisor_profiles": {
@@ -17,6 +43,27 @@
         "advisor_1": {
           "type": "advisor",
           "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
             "name": "Benjamin Bleier, MD, FACS",
             "subtitle": "Professor at The Massachusetts Eye and Ear Infirmary, Harvard Medical School",
             "bio": "<p>Dr. Benjamin Bleier specializes in sinus, nasal, skull base, and orbital surgery and is committed to providing only the highest quality patient care. As Director of Endoscopic Skull Base Surgery, he focuses on revision and complex sinus surgery as well as state-of-the-art endoscopic management of sinus, orbit, and skull base lesions including sinonasal tumors, cerebrospinal fluid (CSF) leaks, and encephaloceles.</p><p>As Co-Director of the Center for Thyroid Eye Disease and Orbital Surgery, he has helped pioneer several new minimally invasive approaches for orbital tumors and has authored more than 175 peer-reviewed articles and book chapters, as well as two textbooks in the field of orbit and sinus-related disease. He lectures both nationally and internationally on topics including the management of orbit and skull base tumors, endoscopic dacryocystorhinostomy, causes and treatments of sinusitis, and intranasal drug delivery techniques to the brain.</p><p>As Director of Otolaryngology Translational Research, Dr. Bleier is an R01 funded surgeon-scientist, holds multiple patents, and has been recognized by the Michael J. Fox Foundation, Boston Magazine, Harvard Medicine Magazine, and The Scientist Magazine for his work.</p>"
@@ -25,6 +72,27 @@
         "advisor_2": {
           "type": "advisor",
           "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
             "name": "Bryant Lin, MD, MEng",
             "subtitle": "Professor at The Massachusetts Eye and Ear Infirmary, Harvard Medical School",
             "bio": "<p>Dr. Benjamin Bleier specializes in sinus, nasal, skull base, and orbital surgery and is committed to providing only the highest quality patient care. As Director of Endoscopic Skull Base Surgery, he focuses on revision and complex sinus surgery as well as state-of-the-art endoscopic management of sinus, orbit, and skull base lesions including sinonasal tumors, cerebrospinal fluid (CSF) leaks, and encephaloceles.</p><p>As Co-Director of the Center for Thyroid Eye Disease and Orbital Surgery, he has helped pioneer several new minimally invasive approaches for orbital tumors and has authored more than 175 peer-reviewed articles and book chapters, as well as two textbooks in the field of orbit and sinus-related disease. He lectures both nationally and internationally on topics including the management of orbit and skull base tumors, endoscopic dacryocystorhinostomy, causes and treatments of sinusitis, and intranasal drug delivery techniques to the brain.</p><p>As Director of Otolaryngology Translational Research, Dr. Bleier is an R01 funded surgeon-scientist, holds multiple patents, and has been recognized by the Michael J. Fox Foundation, Boston Magazine, Harvard Medicine Magazine, and The Scientist Magazine for his work.</p>"
@@ -36,9 +104,65 @@
         "advisor_2"
       ],
       "settings": {
+        "name_style": "custom",
+        "name_style_font_size_desktop": 18,
+        "name_style_font_size_mobile": 16,
+        "name_style_font_weight": "400",
+        "name_style_line_height": "1.6",
+        "name_style_letter_spacing": "0",
+        "name_style_text_transform": "none",
+        "subtitle_style": "custom",
+        "subtitle_style_font_size_desktop": 18,
+        "subtitle_style_font_size_mobile": 16,
+        "subtitle_style_font_weight": "400",
+        "subtitle_style_line_height": "1.6",
+        "subtitle_style_letter_spacing": "0",
+        "subtitle_style_text_transform": "none",
+        "bio_style": "p",
+        "bio_style_font_size_desktop": 14,
+        "bio_style_font_size_mobile": 10,
+        "bio_style_font_weight": "400",
+        "bio_style_line_height": "1.6",
+        "bio_style_letter_spacing": "0",
+        "bio_style_text_transform": "none",
+        "bg_color": "#f4f5fb",
         "enable_bottom_curve": true,
         "curve_radius_desktop": 65,
-        "curve_radius_mobile": 28
+        "curve_radius_mobile": 28,
+        "heading_color": "#0a1c40",
+        "text_color": "#333333",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "container": "fixed",
+        "container_font_size_desktop": 32,
+        "container_font_size_mobile": 24,
+        "container_font_weight": "400",
+        "container_line_height": 1.2,
+        "container_letter_spacing": 0,
+        "container_text_transform": "none",
+        "container_custom_width": 880,
+        "use_color_scheme_in_container": false,
+        "color_scheme": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "device": "desktop",
+        "padding-block-start": 50,
+        "padding-block-end": 50,
+        "padding-inline-start": 15,
+        "padding-inline-end": 15,
+        "padding-block-start-mobile": 48,
+        "padding-block-end-mobile": 48,
+        "padding-inline-start-mobile": 16,
+        "padding-inline-end-mobile": 16
       }
     }
   },
