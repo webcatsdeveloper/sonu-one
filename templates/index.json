@@ -675,7 +675,7 @@
         "bg_image": "shopify://shop_images/bg_2_1.png",
         "bg_image_mobile": "shopify://shop_images/bg_2_57fd96c2-cb15-4725-a6cb-1e5573407321.png",
         "bg_image_opacity": 100,
-        "mobile_bg_image_opacity": 100,
+        "mobile_bg_image_opacity": 65,
         "bg_color_desktop": "",
         "bg_color_desktop_solid": "rgba(0,0,0,0)",
         "bg_color_mobile": "",
