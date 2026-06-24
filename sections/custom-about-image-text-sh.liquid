@@ -1,0 +1,332 @@
+{% comment %}
+  SoundHealth Custom Image & Text Section
+  Based on Figma design: Large right-flushed image with text below.
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .custom-img-text-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden;
+  }
+  @media screen and (min-width: 768px) {
+    .custom-img-text-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-img-text-container {
+    max-width: var(--page-width-full, 1920px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .custom-image-row {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+  }
+
+  .custom-image-wrapper {
+    width: 77.3%;
+    max-width: 1484px;
+  }
+  
+  .custom-image-wrapper img, .custom-image-wrapper svg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1484 / 735; /* Force exact Figma rectangle */
+    object-fit: cover; /* Ensure image fits rectangle without stretching */
+    display: block;
+    border-radius: 0;
+  }
+
+  /* Scroll To Discover Button */
+  .scroll-discover-wrapper {
+    position: absolute;
+    left: 11.35%; /* Center in the 22.7% empty left space */
+    top: 80px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .scroll-discover-text {
+    font-size: 11px;
+    color: #0A1C40; /* Navy tint for consistency */
+  }
+  
+  .scroll-discover-circle {
+    width: 110px; /* Larger circle as shown in Figma */
+    height: 110px;
+    border-radius: 50%;
+    border: 1px solid #0A1C40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-text-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .custom-text-block {
+    width: 77.3%; /* Exactly aligns with the left edge of the image wrapper */
+    max-width: 1484px;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers the text block relative to the image above it */
+  }
+
+  .custom-text-block > div {
+    max-width: 810px; /* Fine-tuned width to force the exact 5-line wrap on desktop */
+  }
+
+  .custom-text-block p {
+    margin: 0;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-img-text-container {
+      gap: 30px;
+    }
+    .custom-image-wrapper {
+      width: 100%; /* Image takes full width on mobile */
+    }
+    .scroll-discover-wrapper {
+      display: none; /* Hide on mobile to save space, or adjust as needed */
+    }
+    .custom-text-row {
+      justify-content: center;
+    }
+    .custom-text-block {
+      width: 100%;
+      margin: 0;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center; /* Center the text block on mobile */
+    }
+    .custom-text-block > div {
+      max-width: 320px; /* Forces exactly the 8-line wrap shown in the mobile Figma screenshot */
+    }
+  }
+{% endstyle %}
+
+<div class="custom-img-text-sh-{{ section.id }}">
+  <div class="custom-img-text-container">
+    
+    <div class="custom-image-row">
+      {%- if section.settings.show_scroll_btn -%}
+        <div class="scroll-discover-wrapper">
+          <span class="scroll-discover-text">Scroll to discover</span>
+          <div class="scroll-discover-circle">
+            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 0V15M6 15L1 10M6 15L11 10" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="custom-image-wrapper">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1500 | image_tag: loading: 'lazy', widths: '500, 800, 1200, 1500' }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.text != blank -%}
+      <div class="custom-text-row">
+        <div class="custom-text-block">
+          <div class="typography-{{ section.settings.text_style | default: 'p' }}"
+               style="{% render 'sonu-typography-style', preset: section.settings.text_style, prefix: 'text_style', settings: section.settings %}; color: {{ section.settings.text_color }};">
+            {{ section.settings.text }}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image & Text (SH)",
+  "tag": "section",
+  "class": "section-image-text-sh",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F5FB"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Large Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_btn",
+      "label": "Show 'Scroll to discover' button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Text Block"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>What began as Paramesh's personal journey to combat lifelong allergies has transformed itself into an enterprise to help humanity breathe better with no medication. Our stellar team with Paramesh and Stanford Physicians Peter Hwang and Bryant Lin, is excited to bring the world's first FDA De Novo approved AI wearable with the efficacy of a nasal spray to market.</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "text_style_font_size_desktop",
+      "label": "Text Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_style_font_size_mobile",
+      "label": "Text Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "text_style_font_weight",
+      "label": "Text Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "text_style_line_height",
+      "label": "Text Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "text_style_letter_spacing",
+      "label": "Text Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "text_style_text_transform",
+      "label": "Text Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image & Text (SH)"
+    }
+  ]
+}
+{% endschema %}

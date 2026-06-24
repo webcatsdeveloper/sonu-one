@@ -1,0 +1,414 @@
+{% comment %}
+  SoundHealth Custom Stats/Milestones Section
+  Based on Figma design: Rows with numbers on the left and descriptions on the right.
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+</style>
+
+{% style %}
+  .custom-stats-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 768px) {
+    .custom-stats-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-about-stats-container-sh {
+    max-width: 1000px; /* Constrain width to match Figma layout */
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .custom-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0; /* Reduced padding to match Figma vertical spacing */
+    border-bottom: 1px solid rgba(10, 28, 64, 0.15); /* Faint divider line */
+    position: relative;
+  }
+  
+  .custom-stat-row:last-child {
+    border-bottom: none; /* No line under the last item */
+  }
+
+  .custom-stat-left {
+    flex: 0 0 45%;
+    padding-right: 40px;
+  }
+
+  .custom-stat-number {
+    font-family: 'Instrument Serif', serif !important;
+    font-style: normal !important;
+    margin: 0 0 4px 0; /* Tighter gap between number and subtitle */
+  }
+
+  .custom-stat-subtitle {
+    font-family: 'Instrument Serif', serif !important;
+    font-style: normal !important;
+    margin: 0;
+  }
+
+  .custom-stat-right {
+    flex: 1;
+    max-width: 480px; /* Prevents text from stretching too wide */
+  }
+
+  .custom-stat-desc {
+    margin: 0;
+  }
+
+  .custom-stat-desc p {
+    margin: 0 0 10px 0;
+  }
+  .custom-stat-desc p:last-child {
+    margin: 0;
+  }
+
+  /* Mobile Layout */
+  @media screen and (max-width: 767px) {
+    .custom-stat-row {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 0;
+      max-width: 310px; /* Constrains text to match Figma text wrap */
+      margin: 0 auto; /* Centers the constrained block */
+      border-bottom: 1px solid rgba(10, 28, 64, 0.15); /* Divider matches the text width */
+    }
+
+    .custom-stat-left {
+      padding-right: 0;
+      margin-bottom: 12px; /* Tighter gap between subtitle and description */
+    }
+    .custom-stat-right {
+      max-width: 100%;
+    }
+  }
+{% endstyle %}
+
+<div class="custom-stats-sh-{{ section.id }}">
+  <div class="custom-about-stats-container-sh">
+    {%- for block in section.blocks -%}
+      <div class="custom-stat-row" {{ block.shopify_attributes }}>
+        <div class="custom-stat-left">
+          {%- if block.settings.number != blank -%}
+            <div class="custom-stat-number typography-{{ section.settings.number_style | default: 'custom' }}"
+                 style="{% render 'sonu-typography-style', preset: section.settings.number_style, prefix: 'number_style', settings: section.settings %}; color: {{ section.settings.text_color }};">
+              {{ block.settings.number | newline_to_br }}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.subtitle != blank -%}
+            <div class="custom-stat-subtitle typography-{{ section.settings.subtitle_style | default: 'custom' }}"
+                 style="{% render 'sonu-typography-style', preset: section.settings.subtitle_style, prefix: 'subtitle_style', settings: section.settings %}; color: {{ section.settings.text_color }};">
+              {{ block.settings.subtitle }}
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="custom-stat-right">
+          {%- if block.settings.description != blank -%}
+            <div class="custom-stat-desc typography-{{ section.settings.desc_style | default: 'p' }}"
+                 style="{% render 'sonu-typography-style', preset: section.settings.desc_style, prefix: 'desc_style', settings: section.settings %}; color: {{ section.settings.desc_color }};">
+              {{ block.settings.description }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats List (SH)",
+  "tag": "section",
+  "class": "section-stats-sh",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F5FB"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading Text Color",
+      "default": "#0A1C40"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Typography: Number"
+    },
+    {
+      "type": "select",
+      "id": "number_style",
+      "label": "Number Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "number_style_font_size_desktop",
+      "label": "Custom Size (Desktop)",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "number_style_font_size_mobile",
+      "label": "Custom Size (Mobile)",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "select",
+      "id": "number_style_font_weight",
+      "label": "Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "number_style_line_height",
+      "label": "Custom Line Height",
+      "default": "1.1"
+    },
+    {
+      "type": "header",
+      "content": "Typography: Subtitle"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style",
+      "label": "Subtitle Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_desktop",
+      "label": "Custom Size (Desktop)",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_mobile",
+      "label": "Custom Size (Mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style_font_weight",
+      "label": "Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_style_line_height",
+      "label": "Custom Line Height",
+      "default": "1.2"
+    },
+    {
+      "type": "header",
+      "content": "Typography: Description"
+    },
+    {
+      "type": "select",
+      "id": "desc_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "desc_style_font_size_desktop",
+      "label": "Custom Size (Desktop)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desc_style_font_size_mobile",
+      "label": "Custom Size (Mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "desc_style_font_weight",
+      "label": "Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "desc_style_line_height",
+      "label": "Custom Line Height",
+      "default": "1.5"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "number",
+          "label": "Large Number/Heading",
+          "default": "500,000+"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Treatments Delivered"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Reached a massive milestone of half a million sessions, bringing relief to 15,000 total users.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats List (SH)",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "500,000+", "subtitle": "Treatments Delivered" } },
+        { "type": "stat", "settings": { "number": "15.4x", "subtitle": "Growth Velocity" } },
+        { "type": "stat", "settings": { "number": "90%", "subtitle": "App-to-Relief Conversion" } },
+        { "type": "stat", "settings": { "number": "Unwavering\\nEngagement", "subtitle": "" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

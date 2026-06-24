@@ -1,0 +1,339 @@
+{% comment %}
+  SoundHealth Custom Mission Section
+  Based on Figma design for "Our mission is to make health a daily practice."
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .custom-medical-mission-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 768px) {
+    .custom-medical-mission-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-medical-mission-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .custom-medical-mission-heading {
+    width: 100%;
+    margin: 0;
+  }
+
+  .custom-medical-mission-heading .typography-custom {
+    margin: 0;
+  }
+  
+  .custom-medical-mission-heading em, .custom-medical-mission-heading .highlight {
+    font-style: italic;
+    font-family: var(--font-heading-italic-family, inherit);
+  }
+
+  .custom-medical-mission-content {
+    width: 100%;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 40px;
+  }
+
+  .custom-medical-mission-content p {
+    margin: 0;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-medical-mission-heading {
+      max-width: 100%; /* Reduced further to ensure 3 lines exactly */
+    }
+    .custom-medical-mission-content {
+      width: auto; /* Fixes the crop/overflow issue */
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 24px;
+    }
+  }
+{% endstyle %}
+
+<div class="custom-medical-mission-sh-{{ section.id }}">
+  <div class="custom-medical-mission-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="custom-medical-mission-heading">
+        {%- assign formatted_heading = section.settings.heading 
+            | replace: '[[', '<em class="highlight">' 
+            | replace: ']]', '</em>' 
+            | replace: '((', '<span class="highlight-times">' 
+            | replace: '))', '</span>' 
+        -%}
+        <h2 class="typography-{{ section.settings.heading_style | default: 'h2' }}" 
+            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color }};">
+          {{ formatted_heading }}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="custom-medical-mission-content">
+        <div class="typography-{{ section.settings.text_style | default: 'p' }}"
+             style="{% render 'sonu-typography-style', preset: section.settings.text_style, prefix: 'text_style', settings: section.settings %}; color: {{ section.settings.text_color }};">
+          {{ section.settings.text }}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Med Mission (SH)",
+  "tag": "section",
+  "class": "section-medical-mission-sh",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F5FB"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our mission is to make [[health]] a daily practice.",
+      "info": "Use [[text]] to italicize."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#0A1C40"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Heading Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Heading Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Heading Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_line_height",
+      "label": "Heading Custom Line Height",
+      "default": "1.1"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_letter_spacing",
+      "label": "Heading Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "heading_style_text_transform",
+      "label": "Heading Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Block",
+      "default": "<p>SoundHealth is a medical technology company harnessing the power of artificial intelligence and medical science to improve respiratory health. The SoundHealth team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare.</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "text_style_font_size_desktop",
+      "label": "Text Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_style_font_size_mobile",
+      "label": "Text Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "text_style_font_weight",
+      "label": "Text Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "text_style_line_height",
+      "label": "Text Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "text_style_letter_spacing",
+      "label": "Text Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "text_style_text_transform",
+      "label": "Text Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Med Mission (SH)"
+    }
+  ]
+}
+{% endschema %}

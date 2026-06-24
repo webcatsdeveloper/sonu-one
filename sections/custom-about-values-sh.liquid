@@ -1,0 +1,548 @@
+{% comment %}
+  SoundHealth Custom Values & Logos Section
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .custom-values-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  {% if section.settings.enable_bottom_curve %}
+    #MainContent {
+      overflow-y: visible !important;
+      z-index: 2 !important;
+    }
+    #shopify-section-{{ section.id }} {
+      z-index: 100;
+      position: relative;
+    }
+    .custom-values-sh-{{ section.id }} {
+      border-bottom-left-radius: {{ section.settings.curve_radius_desktop }}px;
+      border-bottom-right-radius: {{ section.settings.curve_radius_desktop }}px;
+      margin-bottom: -{{ section.settings.curve_radius_desktop }}px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Optional slight shadow if needed, removing to match strictly */
+    }
+    @media screen and (max-width: 768px) {
+      .custom-values-sh-{{ section.id }} {
+        border-bottom-left-radius: {{ section.settings.curve_radius_mobile }}px !important;
+        border-bottom-right-radius: {{ section.settings.curve_radius_mobile }}px !important;
+        margin-bottom: -{{ section.settings.curve_radius_mobile }}px !important;
+      }
+    }
+  {% endif %}
+
+  .custom-about-values-container-sh {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .custom-values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  
+  .custom-values-heading {
+    font-family: 'Instrument Sans', sans-serif;
+    color: #0A1C40;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 0 24px 0;
+  }
+  
+  .custom-values-desc {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 480px;
+  }
+  
+  /* Logos Area */
+  .custom-values-logos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .custom-logo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom-logo-item img {
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: contain;
+  }
+  .logo-placeholder {
+    width: 100px;
+    height: 40px;
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  /* Right Column */
+  .custom-values-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .custom-values-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+  }
+  .custom-values-icon-wrapper img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  .custom-values-subheading {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #111;
+    margin: 0 0 16px 0;
+  }
+  
+  .custom-values-richtext {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 520px;
+  }
+
+  .mobile-logos {
+    display: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .custom-values-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+    .custom-values-grid {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+    .custom-values-heading {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .custom-values-left .custom-values-heading,
+    .custom-values-left .custom-values-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .desktop-logos {
+      display: none;
+    }
+    .custom-values-logos.mobile-logos {
+      display: block;
+      margin-top: 40px;
+      margin-left: -20px;
+      margin-right: -20px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      width: max-content;
+      animation: logo-marquee 12s linear infinite;
+    }
+    .marquee-track .custom-logo-item {
+      flex: 0 0 140px;
+      justify-content: center;
+    }
+    @keyframes logo-marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 20px)); } /* 50% of the track minus half gap */
+    }
+  }
+{% endstyle %}
+
+<div class="custom-values-sh-{{ section.id }}">
+  <div class="custom-about-values-container-sh">
+    <div class="custom-values-grid">
+      
+      <div class="custom-values-left">
+        <h2 class="custom-values-heading typography-{{ section.settings.heading_style | default: 'h6' }}"
+            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color | default: '#0A1C40' }}; display: block !important;">
+          {% if section.settings.left_heading != blank %}{{ section.settings.left_heading }}{% else %}Backed by{% endif %}
+        </h2>
+        <p class="custom-values-desc typography-{{ section.settings.desc_style | default: 'p' }}"
+           style="{% render 'sonu-typography-style', preset: section.settings.desc_style, prefix: 'desc_style', settings: section.settings %}; color: {{ section.settings.desc_color | default: '#333' }}; display: block !important;">
+          {% if section.settings.left_text != blank %}{{ section.settings.left_text }}{% else %}We are proud to be backed by top investors who bring deep expertise in the medical and consumer health industry.{% endif %}
+        </p>
+        
+        <div class="custom-values-logos desktop-logos">
+          {%- for block in section.blocks -%}
+            <div class="custom-logo-item" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | img_url: '400x' }}" alt="{{ block.settings.image.alt | escape }}">
+              {%- else -%}
+                <div class="logo-placeholder"></div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="custom-values-logos mobile-logos">
+          <div class="marquee-track">
+            {%- for block in section.blocks -%}
+              <div class="custom-logo-item">
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | img_url: '400x' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+                {%- else -%}
+                  <div class="logo-placeholder"></div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <div class="custom-logo-item">
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | img_url: '400x' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
+                {%- else -%}
+                  <div class="logo-placeholder"></div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-values-right">
+        <h2 class="custom-values-heading typography-{{ section.settings.heading_style | default: 'h6' }}"
+            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color | default: '#0A1C40' }};">
+          {{ section.settings.right_heading }}
+        </h2>
+        
+        {%- if section.settings.right_icon != blank -%}
+          <div class="custom-values-icon-wrapper">
+            <img src="{{ section.settings.right_icon | img_url: '100x' }}" alt="Icon">
+          </div>
+        {%- else -%}
+          <div class="custom-values-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+        {%- endif -%}
+        
+        <h3 class="custom-values-subheading">{{ section.settings.right_subheading }}</h3>
+        
+        <div class="custom-values-richtext typography-{{ section.settings.desc_style | default: 'p' }}"
+             style="{% render 'sonu-typography-style', preset: section.settings.desc_style, prefix: 'desc_style', settings: section.settings %}; color: {{ section.settings.desc_color | default: '#333' }};">
+          {{ section.settings.right_text }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Values & Logos (SH)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#0A1C40"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Typography: Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "h6"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Custom Size (Desktop)",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Custom Size (Mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_line_height",
+      "label": "Custom Line Height",
+      "default": "1.2"
+    },
+    {
+      "type": "header",
+      "content": "Typography: Description"
+    },
+    {
+      "type": "select",
+      "id": "desc_style",
+      "label": "Description Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "p"
+    },
+    {
+      "type": "range",
+      "id": "desc_style_font_size_desktop",
+      "label": "Custom Size (Desktop)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desc_style_font_size_mobile",
+      "label": "Custom Size (Mobile)",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "desc_style_font_weight",
+      "label": "Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "desc_style_line_height",
+      "label": "Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "header",
+      "content": "Left Column (Logos)"
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Heading",
+      "default": "Backed by"
+    },
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Description",
+      "default": "We are proud to be backed by top investors who bring deep expertise in the medical and consumer health industry."
+    },
+    {
+      "type": "header",
+      "content": "Right Column (Value)"
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Heading",
+      "default": "Our Value"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_icon",
+      "label": "Icon Image"
+    },
+    {
+      "type": "text",
+      "id": "right_subheading",
+      "label": "Subheading",
+      "default": "Care"
+    },
+    {
+      "type": "richtext",
+      "id": "right_text",
+      "label": "Description",
+      "default": "<p>We care deeply about your well being. Everything we develop --- from our wearables to our software is built to maximize your potential to thrive. Our company was founded by surgeons and physicians -- who always put patients first! Healing is in our DNA and we will never let technology or AI compromise our approach! We are grateful that you trust us with your health journey, and we don't take it lightly.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Curved Overlap"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bottom_curve",
+      "label": "Enable Curved Bottom & Overlap Next Section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "curve_radius_desktop",
+      "min": 0,
+      "max": 300,
+      "step": 5,
+      "default": 100,
+      "unit": "px",
+      "label": "Curve Radius (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "curve_radius_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 40,
+      "unit": "px",
+      "label": "Curve Radius (Mobile)"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100,
+      "unit": "px",
+      "label": "Padding Top Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 100,
+      "unit": "px",
+      "label": "Padding Bottom Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 60,
+      "unit": "px",
+      "label": "Padding Top Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "default": 60,
+      "unit": "px",
+      "label": "Padding Bottom Mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values & Logos (SH)",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

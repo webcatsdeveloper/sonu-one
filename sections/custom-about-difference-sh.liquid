@@ -1,0 +1,299 @@
+{% comment %}
+  SoundHealth Custom Difference Section
+  Based on Figma design: Centered heading with 3-column image grid (desktop) and horizontal scroll (mobile).
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .custom-diff-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden;
+  }
+  @media screen and (min-width: 768px) {
+    .custom-diff-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .custom-diff-container {
+    max-width: var(--page-width-full, 1920px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .custom-diff-container-inner {
+    max-width: 1000px;
+    margin: 0 auto; /* Center the entire block on the page */
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .custom-diff-heading-wrapper {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .custom-diff-heading {
+    display: inline-block;
+  }
+
+  .custom-diff-heading-wrapper .typography-custom {
+    margin: 0;
+  }
+
+  .custom-diff-heading-wrapper em, 
+  .custom-diff-heading-wrapper .highlight {
+    font-style: italic;
+    font-family: var(--font-heading-italic-family, inherit);
+    display: block;
+    text-align: right; /* Right-align 'Difference' relative to 'The SoundHealth' */
+  }
+
+  .custom-diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  .custom-diff-item {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 4 / 5; /* 4:5 ratio matches the Figma portraits better than 3:4 */
+  }
+
+  .custom-diff-item img, .custom-diff-item svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-diff-container {
+      gap: 40px;
+    }
+    .custom-diff-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 0 20px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+    }
+    .custom-diff-grid::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    .custom-diff-item {
+      flex: 0 0 75%; /* Takes up 75% of screen so next image peeks */
+      scroll-snap-align: center;
+      aspect-ratio: 4 / 5; /* Slightly different ratio for mobile if needed, or keep 3/4 */
+    }
+    /* First item should snap to start so it aligns with left padding */
+    .custom-diff-item:first-child {
+      scroll-snap-align: start;
+    }
+  }
+{% endstyle %}
+
+<div class="custom-diff-sh-{{ section.id }}">
+  <div class="custom-diff-container">
+    <div class="custom-diff-container-inner">
+      {%- if section.settings.heading != blank -%}
+        <div class="custom-diff-heading-wrapper">
+          <div class="custom-diff-heading typography-{{ section.settings.heading_style | default: 'h2' }}"
+               style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color }};">
+            {%- liquid
+              assign heading_text = section.settings.heading
+              if heading_text contains '[[' and heading_text contains ']]'
+                assign heading_parts = heading_text | split: '[['
+                assign text_before = heading_parts[0]
+                assign highlight_parts = heading_parts[1] | split: ']]'
+                assign highlight_text = highlight_parts[0]
+                assign text_after = highlight_parts[1]
+                echo text_before | append: '<span class="highlight">' | append: highlight_text | append: '</span>' | append: text_after
+              else
+                echo heading_text
+              endif
+            -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="custom-diff-grid">
+        {%- for block in section.blocks -%}
+          <div class="custom-diff-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Difference Grid (SH)",
+  "tag": "section",
+  "class": "section-difference-sh",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F5FB"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The SoundHealth [[Difference]]",
+      "info": "Wrap text in [[ ]] to italicize and bump to new line."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#0A1C40"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_desktop",
+      "label": "Heading Custom Size (Desktop)",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "heading_style_font_size_mobile",
+      "label": "Heading Custom Size (Mobile)",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "select",
+      "id": "heading_style_font_weight",
+      "label": "Heading Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "heading_style_line_height",
+      "label": "Heading Custom Line Height",
+      "default": "1.1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Difference Grid (SH)",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

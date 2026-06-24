@@ -1,0 +1,759 @@
+{% comment %}
+  SoundHealth Custom Medical Advisor Profiles Section
+  Displays a list of advisors with image on the left and text on the right (desktop), stacked on mobile.
+{% endcomment %}
+
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  {% if section.settings.enable_bottom_curve %}
+    #MainContent {
+      overflow-y: visible !important;
+      z-index: 2 !important;
+    }
+    #shopify-section-{{ section.id }} {
+      position: relative;
+      z-index: 100;
+    }
+    .advisor-profiles-sh-{{ section.id }} {
+      border-bottom-left-radius: {{ section.settings.curve_radius_desktop | default: 65 }}px;
+      border-bottom-right-radius: {{ section.settings.curve_radius_desktop | default: 65 }}px;
+      margin-bottom: -{{ section.settings.curve_radius_desktop | default: 65 }}px;
+      position: relative;
+    }
+    @media screen and (max-width: 768px) {
+      .advisor-profiles-sh-{{ section.id }} {
+        border-bottom-left-radius: {{ section.settings.curve_radius_mobile | default: 28 }}px !important;
+        border-bottom-right-radius: {{ section.settings.curve_radius_mobile | default: 28 }}px !important;
+        margin-bottom: -{{ section.settings.curve_radius_mobile | default: 28 }}px !important;
+      }
+    }
+  {% endif %}
+
+  .advisor-profiles-sh-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 768px) {
+    .advisor-profiles-sh-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .advisor-profile-container {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .advisor-profile-container:last-child {
+    margin-bottom: 0;
+  }
+
+  .advisor-image-wrapper {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .advisor-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .advisor-text-wrapper {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .advisor-name {
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .advisor-subtitle {
+    color: {{ section.settings.text_color }};
+    font-size: 14px;
+    margin: 0 0 30px 0;
+  }
+
+  .advisor-bio {
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .advisor-bio p {
+    margin-bottom: 20px;
+  }
+  
+  .advisor-bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .advisor-profile-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 80px;
+      padding: 0 40px;
+    }
+    .advisor-profile-container:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .advisor-image-wrapper {
+      width: 45%;
+      margin-bottom: 0;
+    }
+    .advisor-text-wrapper {
+      width: 55%;
+      padding-top: 20px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .advisor-name {
+      font-size: 32px;
+    }
+  }
+{% endstyle %}
+
+<div class="advisor-profiles-sh-{{ section.id }}">
+  {%- for block in section.blocks -%}
+    <div class="advisor-profile-container" {{ block.shopify_attributes }}>
+      <div class="advisor-image-wrapper">
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800' }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      <div class="advisor-text-wrapper">
+        {%- if block.settings.name != blank -%}
+          <h3 class="advisor-name typography-{{ section.settings.name_style | default: 'h3' }}" style="{% render 'sonu-typography-style', preset: section.settings.name_style, prefix: 'name_style', settings: section.settings %}; color: {{ section.settings.heading_color }};">{{ block.settings.name }}</h3>
+        {%- endif -%}
+        
+        {%- if block.settings.subtitle != blank -%}
+          <div class="advisor-subtitle typography-{{ section.settings.subtitle_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: section.settings.subtitle_style, prefix: 'subtitle_style', settings: section.settings %}; color: {{ section.settings.text_color }};">{{ block.settings.subtitle }}</div>
+        {%- endif -%}
+        
+        {%- if block.settings.bio != blank -%}
+          <div class="advisor-bio typography-{{ section.settings.bio_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: section.settings.bio_style, prefix: 'bio_style', settings: section.settings %}; color: {{ section.settings.text_color }};">
+            {{ block.settings.bio }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Advisor Profiles (SH)",
+  "tag": "section",
+  "class": "section-advisor-profiles-sh",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Name Typography"
+    },
+    {
+      "type": "select",
+      "id": "name_style",
+      "label": "Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "name_style_font_size_desktop",
+      "label": "Name Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "name_style_font_size_mobile",
+      "label": "Name Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "name_style_font_weight",
+      "label": "Name Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "name_style_line_height",
+      "label": "Name Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "name_style_letter_spacing",
+      "label": "Name Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "name_style_text_transform",
+      "label": "Name Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Subtitle Typography"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style",
+      "label": "Subtitle Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_desktop",
+      "label": "Subtitle Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_mobile",
+      "label": "Subtitle Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style_font_weight",
+      "label": "Subtitle Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_style_line_height",
+      "label": "Subtitle Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_style_letter_spacing",
+      "label": "Subtitle Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style_text_transform",
+      "label": "Subtitle Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Bio Typography"
+    },
+    {
+      "type": "select",
+      "id": "bio_style",
+      "label": "Bio Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "bio_style_font_size_desktop",
+      "label": "Bio Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "bio_style_font_size_mobile",
+      "label": "Bio Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "bio_style_font_weight",
+      "label": "Bio Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "bio_style_line_height",
+      "label": "Bio Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "bio_style_letter_spacing",
+      "label": "Bio Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bio_style_text_transform",
+      "label": "Bio Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F4F5FB"
+    },
+    {
+      "type": "header",
+      "content": "Curved Overlap"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bottom_curve",
+      "label": "Enable Curved Bottom & Overlap Next Section",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "curve_radius_desktop",
+      "min": 0,
+      "max": 300,
+      "step": 5,
+      "default": 65,
+      "unit": "px",
+      "label": "Curve Radius (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "curve_radius_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Curve Radius (Mobile)"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Name Color",
+      "default": "#0A1C40"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom Padding (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "advisor",
+      "name": "Advisor",
+      "settings": [
+    {
+      "type": "header",
+      "content": "Name Typography"
+    },
+    {
+      "type": "select",
+      "id": "name_style",
+      "label": "Name Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "name_style_font_size_desktop",
+      "label": "Name Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "name_style_font_size_mobile",
+      "label": "Name Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "name_style_font_weight",
+      "label": "Name Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "name_style_line_height",
+      "label": "Name Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "name_style_letter_spacing",
+      "label": "Name Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "name_style_text_transform",
+      "label": "Name Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Subtitle Typography"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style",
+      "label": "Subtitle Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_desktop",
+      "label": "Subtitle Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "subtitle_style_font_size_mobile",
+      "label": "Subtitle Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style_font_weight",
+      "label": "Subtitle Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_style_line_height",
+      "label": "Subtitle Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_style_letter_spacing",
+      "label": "Subtitle Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_style_text_transform",
+      "label": "Subtitle Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Bio Typography"
+    },
+    {
+      "type": "select",
+      "id": "bio_style",
+      "label": "Bio Style",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "bio_style_font_size_desktop",
+      "label": "Bio Custom Size (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "bio_style_font_size_mobile",
+      "label": "Bio Custom Size (Mobile)",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "bio_style_font_weight",
+      "label": "Bio Custom Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "text",
+      "id": "bio_style_line_height",
+      "label": "Bio Custom Line Height",
+      "default": "1.6"
+    },
+    {
+      "type": "text",
+      "id": "bio_style_letter_spacing",
+      "label": "Bio Custom Letter Spacing (em / %)",
+      "default": "0"
+    },
+    {
+      "type": "select",
+      "id": "bio_style_text_transform",
+      "label": "Bio Custom Text Transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Benjamin Bleier, MD, FACS"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Professor at The Massachusetts Eye and Ear Infirmary, Harvard Medical School"
+        },
+        {
+          "type": "richtext",
+          "id": "bio",
+          "label": "Biography",
+          "default": "<p>Dr. Benjamin Bleier specializes in sinus, nasal, skull base, and orbital surgery...</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advisor Profiles (SH)",
+      "blocks": [
+        {
+          "type": "advisor"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
