@@ -1,4 +1,4 @@
-.carousel-heading-wrap{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
+{{ 'sonu-custom.css' | asset_url | stylesheet_tag }}
 
 <section class="science-bg-area">
   <div id="logos-and-carousel-{{ section.id }}" class="sonu-logos-and-carousel">
@@ -103,12 +103,20 @@
     }
 
     #shopify-section-{{ section.id }} .sonu-logos-and-carousel::before {
-      {% if section.settings.bg_image != blank %}
+      {% if section.settings.bg_image_mobile != blank %}
+        background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 1000 }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: {{ section.settings.mobile_bg_image_opacity | default: section.settings.bg_image_opacity | divided_by: 100.0 }};
+      {% elsif section.settings.bg_image != blank %}
         background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         opacity: {{ section.settings.mobile_bg_image_opacity | default: section.settings.bg_image_opacity | divided_by: 100.0 }};
+      {% else %}
+        opacity: 0;
       {% endif %}
     }
   }
@@ -177,6 +185,11 @@
       "type": "image_picker",
       "id": "bg_image",
       "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Mobile Background Image"
     },
     {
       "type": "range",
