@@ -41,10 +41,11 @@
       "type": "custom-about-image-text-sh",
       "settings": {
         "bg_color": "#f4f5fb",
+        "image": "shopify://shop_images/c737919506b595299e758ad9b0ec898d4690e38f.png",
         "show_scroll_btn": true,
         "text": "<p>What began as Paramesh's personal journey to combat lifelong allergies has transformed itself into an enterprise to help humanity breathe better with no medication. Our stellar team with Paramesh and Stanford Physicians Peter Hwang and Bryant Lin, is excited to bring the world's first FDA De Novo approved AI wearable with the efficacy of a nasal spray to market.</p>",
         "text_color": "#333333",
-        "text_style": "custom",
+        "text_style": "p",
         "text_style_font_size_desktop": 18,
         "text_style_font_size_mobile": 16,
         "text_style_font_weight": "400",
@@ -82,7 +83,7 @@
         "bg_color": "#f4f5fb",
         "heading": "The SoundHealth [[Difference]]",
         "heading_color": "#0a1c40",
-        "heading_style": "custom",
+        "heading_style": "h2",
         "heading_style_font_size_desktop": 60,
         "heading_style_font_size_mobile": 44,
         "heading_style_font_weight": "400",
@@ -148,7 +149,7 @@
         "number_style_font_size_mobile": 48,
         "number_style_font_weight": "400",
         "number_style_line_height": "1.1",
-        "subtitle_style": "custom",
+        "subtitle_style": "p",
         "subtitle_style_font_size_desktop": 20,
         "subtitle_style_font_size_mobile": 18,
         "subtitle_style_font_weight": "400",
@@ -166,6 +167,7 @@
         "block_1": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_173.png",
             "heading": "Strict Data Protection",
             "description": "We are GDPR compliant and employ the strictest data privacy standards to protect patient data at all times.",
             "button_label": "",
@@ -175,6 +177,7 @@
         "block_2": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_172.png",
             "heading": "Medical Advisory Board",
             "description": "Partnered with experts across the field to conduct research and advise in development of features.",
             "button_label": "Learn More",
@@ -195,7 +198,7 @@
         "padding_bottom_desktop": 60,
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
-        "heading_style": "h6",
+        "heading_style": "h3",
         "heading_style_font_size_desktop": 28,
         "heading_style_font_size_mobile": 18,
         "heading_style_font_weight": "400",
@@ -212,27 +215,39 @@
       "blocks": {
         "logo_1": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_21.png"
+          }
         },
         "logo_2": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_22.png"
+          }
         },
         "logo_3": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_20.png"
+          }
         },
         "logo_4": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_24.png"
+          }
         },
         "logo_5": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_23.png"
+          }
         },
         "logo_6": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/image_25.png"
+          }
         }
       },
       "block_order": [
@@ -247,7 +262,7 @@
         "bg_color": "#ffffff",
         "heading_color": "#0a1c40",
         "desc_color": "#333333",
-        "heading_style": "h6",
+        "heading_style": "h2",
         "heading_style_font_size_desktop": 36,
         "heading_style_font_size_mobile": 28,
         "heading_style_font_weight": "400",
