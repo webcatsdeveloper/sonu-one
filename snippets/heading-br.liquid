@@ -19,6 +19,36 @@
     assign clean_heading = clean_heading | replace: ' {br} ', '{br}' | replace: ' {br}', '{br}' | replace: '{br} ', '{br}' | replace: '{br}', '<span class="heading-br-space"> </span><br class="heading-br-line">'
   endif
 
+  if clean_heading contains '~~'
+    assign parts_mobile = clean_heading | split: '~~'
+    if parts_mobile.size > 1
+      assign clean_heading = ''
+      for part in parts_mobile
+        assign modulo = forloop.index | modulo: 2
+        if modulo == 0
+          assign clean_heading = clean_heading | append: '<span class="break-mobile">' | append: part | append: '</span>'
+        else
+          assign clean_heading = clean_heading | append: part
+        endif
+      endfor
+    endif
+  endif
+
+  if clean_heading contains '^^'
+    assign parts_desktop = clean_heading | split: '^^'
+    if parts_desktop.size > 1
+      assign clean_heading = ''
+      for part in parts_desktop
+        assign modulo = forloop.index | modulo: 2
+        if modulo == 0
+          assign clean_heading = clean_heading | append: '<span class="break-desktop">' | append: part | append: '</span>'
+        else
+          assign clean_heading = clean_heading | append: part
+        endif
+      endfor
+    endif
+  endif
+
   echo clean_heading
 -%}
 

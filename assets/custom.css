@@ -3055,5 +3055,21 @@ h6 em,
   color: #1E1E1E !important;
 }
 
+/* Responsive Quote-based Line Breaks */
+.break-mobile {
+  display: inline;
+}
+.break-desktop {
+  display: block;
+}
+@media (max-width: 768px) {
+  .break-mobile {
+    display: block;
+  }
+  .break-desktop {
+    display: inline;
+  }
+}
+
 
 
