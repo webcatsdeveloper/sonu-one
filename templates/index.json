@@ -1123,7 +1123,9 @@
         "feature_9VKqtL",
         "feature_TjqdpM"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.sonu-section-header {gap: 10px; }}"
+      ],
       "name": "Split Content",
       "settings": {
         "small_heading": "Why Sound?",
