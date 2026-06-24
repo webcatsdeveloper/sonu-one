@@ -1052,7 +1052,7 @@
       "name": "Logo Carousel",
       "settings": {
         "bg_image": "shopify://shop_images/bg_2_2.png",
-        "bg_image_opacity": 100,
+        "bg_image_opacity": 15,
         "mobile_bg_image_opacity": 35,
         "bg_color_desktop": "",
         "bg_color_desktop_solid": "rgba(0,0,0,0)",
