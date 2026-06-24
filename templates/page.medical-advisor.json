@@ -139,6 +139,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "container": "fixed",
         "container_font_size_desktop": 32,
