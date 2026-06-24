@@ -147,6 +147,10 @@
     }
     .custom-values-left .custom-values-heading,
     .custom-values-left .custom-values-desc {
+      display: block !important;
+      visibility: visible !important;
+      height: auto !important;
+      opacity: 1 !important;
       text-align: center;
       margin-left: auto;
       margin-right: auto;
@@ -186,11 +190,11 @@
       
       <div class="custom-values-left">
         <h2 class="custom-values-heading typography-{{ section.settings.heading_style | default: 'h6' }}"
-            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color | default: '#0A1C40' }}; display: block !important;">
+            style="{% render 'sonu-typography-style', preset: section.settings.heading_style, prefix: 'heading_style', settings: section.settings %}; color: {{ section.settings.heading_color | default: '#0A1C40' }};">
           {% if section.settings.left_heading != blank %}{{ section.settings.left_heading }}{% else %}Backed by{% endif %}
         </h2>
         <p class="custom-values-desc typography-{{ section.settings.desc_style | default: 'p' }}"
-           style="{% render 'sonu-typography-style', preset: section.settings.desc_style, prefix: 'desc_style', settings: section.settings %}; color: {{ section.settings.desc_color | default: '#333' }}; display: block !important;">
+           style="{% render 'sonu-typography-style', preset: section.settings.desc_style, prefix: 'desc_style', settings: section.settings %}; color: {{ section.settings.desc_color | default: '#333' }};">
           {% if section.settings.left_text != blank %}{{ section.settings.left_text }}{% else %}We are proud to be backed by top investors who bring deep expertise in the medical and consumer health industry.{% endif %}
         </p>
         
