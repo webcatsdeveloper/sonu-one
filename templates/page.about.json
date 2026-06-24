@@ -11,11 +11,51 @@
   "sections": {
     "custom_about_mission_sh": {
       "type": "custom-about-mission-sh",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f4f5fb",
+        "heading": "Our mission is to make [[health]] a daily practice.",
+        "heading_color": "#0a1c40",
+        "heading_style": "h2",
+        "heading_style_font_size_desktop": 72,
+        "heading_style_font_size_mobile": 44,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.1",
+        "heading_style_letter_spacing": "0",
+        "heading_style_text_transform": "none",
+        "text": "<p>SoundHealth is a medical technology company harnessing the power of artificial intelligence and medical science to improve respiratory health. The SoundHealth team consists of experienced medical professionals, data scientists and engineers who are passionate about improving healthcare.</p>",
+        "text_color": "#333333",
+        "text_style": "custom",
+        "text_style_font_size_desktop": 18,
+        "text_style_font_size_mobile": 16,
+        "text_style_font_weight": "400",
+        "text_style_line_height": "1.6",
+        "text_style_letter_spacing": "0",
+        "text_style_text_transform": "none",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
     },
     "custom_about_image_text_sh": {
       "type": "custom-about-image-text-sh",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f4f5fb",
+        "show_scroll_btn": true,
+        "text": "<p>What began as Paramesh's personal journey to combat lifelong allergies has transformed itself into an enterprise to help humanity breathe better with no medication. Our stellar team with Paramesh and Stanford Physicians Peter Hwang and Bryant Lin, is excited to bring the world's first FDA De Novo approved AI wearable with the efficacy of a nasal spray to market.</p>",
+        "text_color": "#333333",
+        "text_style": "custom",
+        "text_style_font_size_desktop": 18,
+        "text_style_font_size_mobile": 16,
+        "text_style_font_weight": "400",
+        "text_style_line_height": "1.6",
+        "text_style_letter_spacing": "0",
+        "text_style_text_transform": "none",
+        "padding_top": 20,
+        "padding_bottom": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 60
+      }
     },
     "custom_about_difference_sh": {
       "type": "custom-about-difference-sh",
@@ -38,7 +78,20 @@
         "block_2",
         "block_3"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#f4f5fb",
+        "heading": "The SoundHealth [[Difference]]",
+        "heading_color": "#0a1c40",
+        "heading_style": "custom",
+        "heading_style_font_size_desktop": 60,
+        "heading_style_font_size_mobile": 44,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.1",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
     },
     "custom_about_stats_sh": {
       "type": "custom-about-stats-sh",
@@ -82,7 +135,30 @@
         "block_3",
         "block_4"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#f4f5fb",
+        "text_color": "#0a1c40",
+        "desc_color": "#333333",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "number_style": "custom",
+        "number_style_font_size_desktop": 56,
+        "number_style_font_size_mobile": 48,
+        "number_style_font_weight": "400",
+        "number_style_line_height": "1.1",
+        "subtitle_style": "custom",
+        "subtitle_style_font_size_desktop": 20,
+        "subtitle_style_font_size_mobile": 18,
+        "subtitle_style_font_weight": "400",
+        "subtitle_style_line_height": "1.2",
+        "desc_style": "p",
+        "desc_style_font_size_desktop": 16,
+        "desc_style_font_size_mobile": 16,
+        "desc_style_font_weight": "400",
+        "desc_style_line_height": "1.5"
+      }
     },
     "custom_about_features_sh": {
       "type": "custom-about-features-sh",
@@ -91,7 +167,9 @@
           "type": "feature",
           "settings": {
             "heading": "Strict Data Protection",
-            "description": "We are GDPR compliant and employ the strictest data privacy standards to protect patient data at all times."
+            "description": "We are GDPR compliant and employ the strictest data privacy standards to protect patient data at all times.",
+            "button_label": "",
+            "button_link": ""
           }
         },
         "block_2": {
@@ -108,28 +186,53 @@
         "block_1",
         "block_2"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#f2f5fc",
+        "heading_color": "#0a1c40",
+        "desc_color": "#333333",
+        "columns_desktop": 2,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "heading_style": "h6",
+        "heading_style_font_size_desktop": 28,
+        "heading_style_font_size_mobile": 18,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "desc_style": "p",
+        "desc_style_font_size_desktop": 16,
+        "desc_style_font_size_mobile": 16,
+        "desc_style_font_weight": "400",
+        "desc_style_line_height": "1.5"
+      }
     },
     "custom_about_values_sh": {
       "type": "custom-about-values-sh",
       "blocks": {
         "logo_1": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         },
         "logo_2": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         },
         "logo_3": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         },
         "logo_4": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         },
         "logo_5": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         },
         "logo_6": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {}
         }
       },
       "block_order": [
@@ -140,7 +243,33 @@
         "logo_5",
         "logo_6"
       ],
-      "settings": {}
+      "settings": {
+        "bg_color": "#ffffff",
+        "heading_color": "#0a1c40",
+        "desc_color": "#333333",
+        "heading_style": "h6",
+        "heading_style_font_size_desktop": 36,
+        "heading_style_font_size_mobile": 28,
+        "heading_style_font_weight": "400",
+        "heading_style_line_height": "1.2",
+        "desc_style": "p",
+        "desc_style_font_size_desktop": 16,
+        "desc_style_font_size_mobile": 16,
+        "desc_style_font_weight": "400",
+        "desc_style_line_height": "1.6",
+        "left_heading": "Backed by",
+        "left_text": "We are proud to be backed by top investors who bring deep expertise in the medical and consumer health industry.",
+        "right_heading": "Our Value",
+        "right_subheading": "Care",
+        "right_text": "<p>We care deeply about your well being. Everything we develop --- from our wearables to our software is built to maximize your potential to thrive. Our company was founded by surgeons and physicians -- who always put patients first! Healing is in our DNA and we will never let technology or AI compromise our approach! We are grateful that you trust us with your health journey, and we don't take it lightly.</p>",
+        "enable_bottom_curve": true,
+        "curve_radius_desktop": 100,
+        "curve_radius_mobile": 40,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60
+      }
     }
   },
   "order": [
