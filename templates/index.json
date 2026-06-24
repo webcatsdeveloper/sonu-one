@@ -1145,7 +1145,7 @@
         "heading_style_letter_spacing": 0,
         "heading_style_text_transform": "none",
         "subheading": "((Powered)) by AI  ·  ((Delivered)) through sound.",
-        "subheading_style": "p",
+        "subheading_style": "h5",
         "subheading_style_font_size_desktop": 32,
         "subheading_style_font_size_mobile": 24,
         "subheading_style_font_weight": "400",
