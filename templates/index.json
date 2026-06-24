@@ -1167,8 +1167,8 @@
         "feature_text_style_line_height": 1.2,
         "feature_text_style_letter_spacing": 0,
         "feature_text_style_text_transform": "none",
-        "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_top": 96,
+        "padding_bottom": 96,
         "mobile_padding_top": 50,
         "mobile_padding_bottom": 26
       }
