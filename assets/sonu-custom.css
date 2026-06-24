@@ -2399,7 +2399,7 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #ffffff !important;
+  /* border: 1.5px solid #ffffff !important; */
   border-radius: 50% !important;
   background: rgba(0, 0, 0, 0.25) !important;
   backdrop-filter: blur(4px);
@@ -2408,7 +2408,7 @@
 
 .v2-desktop-video-container .swiper-button-prev:hover,
 .v2-desktop-video-container .swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.4) !important;
+  background: rgba(244, 244, 244, 0.4) !important;
 }
 
 .v2-desktop-video-container .swiper-button-prev {
