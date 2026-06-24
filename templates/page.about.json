@@ -63,15 +63,21 @@
       "blocks": {
         "block_1": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_169_1.png"
+          }
         },
         "block_2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_170.png"
+          }
         },
         "block_3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_171.png"
+          }
         }
       },
       "block_order": [
