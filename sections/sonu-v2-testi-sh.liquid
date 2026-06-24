@@ -176,15 +176,17 @@
   
   /* Navigation arrow overlays on video card */
   .v2-desktop-video-prev,
-  .v2-desktop-video-next {
+  .v2-desktop-video-next,
+  .swiper-button-prev,
+  .swiper-button-next {
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 44px !important;
-    height: 44px !important;
+    width: 42px !important;
+    height: 42px !important;
     border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid #ffffff !important;
+    background: transparent !important;
+    border: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -193,27 +195,46 @@
     z-index: 10 !important;
     transition: all 0.2s ease !important;
     margin: 0 !important;
+    box-shadow: none !important;
   }
   .v2-desktop-video-prev:hover,
-  .v2-desktop-video-next:hover {
-    background: rgba(255, 255, 255, 0.35) !important;
+  .v2-desktop-video-next:hover,
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: #ffffff !important;
+    color: #1E1E1E !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
   }
-  .v2-desktop-video-prev {
+  .v2-desktop-video-prev,
+  .swiper-button-prev {
     left: 20px !important;
+    right: auto !important;
   }
-  .v2-desktop-video-next {
+  .v2-desktop-video-next,
+  .swiper-button-next {
     right: 20px !important;
+    left: auto !important;
   }
   .v2-desktop-video-prev::after,
-  .v2-desktop-video-next::after {
+  .v2-desktop-video-next::after,
+  .v2-desktop-video-prev::before,
+  .v2-desktop-video-next::before,
+  .swiper-button-prev::after,
+  .swiper-button-next::after,
+  .swiper-button-prev::before,
+  .swiper-button-next::before {
     display: none !important;
+    content: none !important;
   }
   .v2-desktop-video-prev svg,
-  .v2-desktop-video-next svg {
-    width: 8px;
-    height: 14px;
-    display: block;
-    fill: none;
+  .v2-desktop-video-next svg,
+  .swiper-button-prev svg,
+  .swiper-button-next svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    fill: currentColor !important;
+    stroke: none !important;
   }
   
   /* Video Badge Overlay */
