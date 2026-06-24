@@ -703,10 +703,7 @@
 /* RESPONSIVE LAYOUT (Stacked Mobile) */
 @media screen and (max-width: 768px) {
 
-  .sonu-section-header {
-  gap: 10px;
- 
-}
+  
   .custom-prod-container {
     grid-template-columns: 1fr;
     padding: 0 0 40px 0 !important;
