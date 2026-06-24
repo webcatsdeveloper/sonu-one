@@ -1406,7 +1406,7 @@
       "name": "Testimonials Video sonu",
       "settings": {
         "heading": "Real Patients, [br] Real Results",
-        "heading_style": "h2",
+        "heading_style": "h3",
         "review_text_style": "p",
         "author_name_style": "h5",
         "author_role_style": "p",
