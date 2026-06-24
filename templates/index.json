@@ -1053,7 +1053,7 @@
       "settings": {
         "bg_image": "shopify://shop_images/bg_2_2.png",
         "bg_image_opacity": 15,
-        "mobile_bg_image_opacity": 35,
+        "mobile_bg_image_opacity": 80,
         "bg_color_desktop": "",
         "bg_color_desktop_solid": "rgba(0,0,0,0)",
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
