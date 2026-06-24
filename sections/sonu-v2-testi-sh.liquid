@@ -579,12 +579,7 @@
                           <img src="{{ block.settings.video_overlay_image | img_url: '150x' }}" alt="Product Overlay" loading="lazy">
                         </div>
                       {% endif %}
-                      {% if block.settings.video_text != blank %}
-                        <div class="v2-video-caption-overlay">
-                          <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
-                        </div>
-                        <span class="v2-video-caption-dot"></span>
-                      {% endif %}
+
                     </div>
                   </div>
                 {% endfor %}
@@ -616,12 +611,7 @@
                         <img src="{{ block.settings.video_overlay_image | img_url: '120x' }}" alt="Product Overlay" loading="lazy">
                       </div>
                     {%- endif -%}
-                    {% if block.settings.video_text != blank %}
-                      <div class="v2-video-caption-overlay">
-                        <span class="v2-video-caption-text">{{ block.settings.video_text }}</span>
-                      </div>
-                      <span class="v2-video-caption-dot"></span>
-                    {% endif %}
+
                   {%- else -%}
                     <div style="width: 100%; height: 100%; background: #eaeaea; display: flex; align-items: center; justify-content: center; font-family: sans-serif; color: #999; line-height: normal; padding: 20px; text-align: center;">
                       Upload Video Asset
