@@ -68,17 +68,15 @@
       
       {% if product.images.size > 1 %}
         <div class="custom-prod-gallery__controls">
-          <button class="custom-prod-gallery__arrow custom-prod-gallery__arrow--prev" aria-label="Previous">
-            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 9L1 5L5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+          {% render 'sonu-nav-arrows',
+            only_prev: true,
+            prev_class: 'custom-prod-gallery__arrow custom-prod-gallery__arrow--prev'
+          %}
           <div class="custom-prod-gallery__pagination"></div>
-          <button class="custom-prod-gallery__arrow custom-prod-gallery__arrow--next" aria-label="Next">
-            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+          {% render 'sonu-nav-arrows',
+            only_next: true,
+            next_class: 'custom-prod-gallery__arrow custom-prod-gallery__arrow--next'
+          %}
         </div>
       {% endif %}
     </div>

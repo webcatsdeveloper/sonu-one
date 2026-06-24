@@ -2965,10 +2965,10 @@ h6 em,
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 48px !important;
-  height: 48px !important;
+  width: 42px !important;
+  height: 42px !important;
   border-radius: 50% !important;
-  border: 1.5px solid rgba(0, 0, 0, 0.15) !important;
+  border: none !important;
   background: transparent !important;
   color: #1E1E1E !important;
   cursor: pointer !important;
@@ -2989,9 +2989,8 @@ h6 em,
 .hc-tm-btn:hover,
 .research-arrow:hover {
   background: #ffffff !important;
-  border-color: #1E1E1E !important;
   color: #1E1E1E !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
   transform: none !important;
 }
 
@@ -3006,11 +3005,11 @@ h6 em,
 .v2-mobile-nav-arrow svg,
 .hc-tm-btn svg,
 .research-arrow svg {
-  width: 8px !important;
-  height: 14px !important;
-  fill: none !important;
-  stroke: currentColor !important;
-  stroke-width: 1.5px !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  fill: currentColor !important;
+  stroke: none !important;
 }
 
 .custom-card-nav-btn.swiper-button-disabled,

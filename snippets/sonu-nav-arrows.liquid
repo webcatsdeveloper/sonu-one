@@ -6,27 +6,44 @@
       prev_id: 'carousel-prev-id',
       next_id: 'carousel-next-id',
       prev_class: 'carousel-prev',
-      next_class: 'carousel-next'
+      next_class: 'carousel-next',
+      only_prev: false,
+      only_next: false
 {%- endcomment -%}
 
-<button 
-  type="button"
-  class="sonu-arrow-btn {{ prev_class | default: 'sonu-prev-btn' }}" 
-  id="{{ prev_id }}" 
-  aria-label="{{ 'accessibility.slideshow_previous' | t }}"
->
-  <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</button>
+{%- liquid
+  assign show_prev = true
+  assign show_next = true
+  if only_prev
+    assign show_next = false
+  endif
+  if only_next
+    assign show_prev = false
+  endif
+-%}
 
-<button 
-  type="button"
-  class="sonu-arrow-btn {{ next_class | default: 'sonu-next-btn' }}" 
-  id="{{ next_id }}" 
-  aria-label="{{ 'accessibility.slideshow_next' | t }}"
->
-  <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</button>
+{%- if show_prev -%}
+  <button 
+    type="button"
+    class="sonu-arrow-btn {{ prev_class | default: 'sonu-prev-btn' }}" 
+    id="{{ prev_id }}" 
+    aria-label="{{ 'accessibility.slideshow_previous' | t }}"
+  >
+    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23.1797 30.8344C23.3564 31.0465 23.6717 31.0752 23.8839 30.8984C24.096 30.7216 24.1247 30.4063 23.9479 30.1942L23.5638 30.5143L23.1797 30.8344ZM16.0139 21.4544L15.6298 21.1343C15.4753 21.3197 15.4753 21.5891 15.6298 21.7745L16.0139 21.4544ZM23.9479 12.7146C24.1247 12.5025 24.096 12.1872 23.8839 12.0104C23.6717 11.8337 23.3564 11.8623 23.1797 12.0745L23.5638 12.3945L23.9479 12.7146ZM23.5638 30.5143L23.9479 30.1942L16.398 21.1343L16.0139 21.4544L15.6298 21.7745L23.1797 30.8344L23.5638 30.5143ZM16.0139 21.4544L16.398 21.7745L23.9479 12.7146L23.5638 12.3945L23.1797 12.0745L15.6298 21.1343L16.0139 21.4544ZM21 41.5L21 41C9.9543 41 0.999997 32.0457 0.999998 21L0.499998 21L-2.02253e-06 21C-3.03646e-06 32.598 9.40202 42 21 42L21 41.5ZM0.499998 21L0.999998 21C0.999999 9.95431 9.95431 1 21 1L21 0.500002L21 2.02253e-06C9.40202 1.0086e-06 -1.0086e-06 9.40202 -2.02253e-06 21L0.499998 21ZM21 0.500002L21 1C32.0457 1 41 9.95431 41 21L41.5 21L42 21C42 9.40202 32.598 3.03646e-06 21 2.02253e-06L21 0.500002ZM41.5 21L41 21C41 32.0457 32.0457 41 21 41L21 41.5L21 42C32.598 42 42 32.598 42 21L41.5 21Z" fill="currentColor"/>
+    </svg>
+  </button>
+{%- endif -%}
+
+{%- if show_next -%}
+  <button 
+    type="button"
+    class="sonu-arrow-btn {{ next_class | default: 'sonu-next-btn' }}" 
+    id="{{ next_id }}" 
+    aria-label="{{ 'accessibility.slideshow_next' | t }}"
+  >
+    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.8203 11.1656C18.6436 10.9535 18.3283 10.9248 18.1161 11.1016C17.904 11.2784 17.8753 11.5937 18.0521 11.8058L18.4362 11.4857L18.8203 11.1656ZM25.9861 20.5456L26.3702 20.8657C26.5247 20.6803 26.5247 20.4109 26.3702 20.2255L25.9861 20.5456ZM18.0521 29.2854C17.8753 29.4975 17.904 29.8128 18.1161 29.9896C18.3283 30.1663 18.6436 30.1377 18.8203 29.9255L18.4362 29.6055L18.0521 29.2854ZM18.4362 11.4857L18.0521 11.8058L25.602 20.8657L25.9861 20.5456L26.3702 20.2255L18.8203 11.1656L18.4362 11.4857ZM25.9861 20.5456L25.602 20.2255L18.0521 29.2854L18.4362 29.6055L18.8203 29.9255L26.3702 20.8657L25.9861 20.5456ZM21 0.5V1C32.0457 1 41 9.9543 41 21H41.5H42C42 9.40202 32.598 -5.36442e-07 21 0V0.5ZM41.5 21H41C41 32.0457 32.0457 41 21 41V41.5V42C32.598 42 42 32.598 42 21H41.5ZM21 41.5V41C9.9543 41 1 32.0457 1 21H0.5H0C5.06639e-07 32.598 9.40202 42 21 42V41.5ZM0.5 21H1C1 9.9543 9.9543 1 21 1V0.5V0C9.40202 5.06639e-07 -5.36442e-07 9.40202 0 21H0.5Z" fill="currentColor"/>
+    </svg>
+  </button>
+{%- endif -%}

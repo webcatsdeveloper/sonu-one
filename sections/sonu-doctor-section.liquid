@@ -398,16 +398,10 @@
         <div class="hc-tm-progress-bar"></div>
       </div>
       <div class="hc-tm-arrows">
-        <button class="hc-tm-btn hc-tm-prev-btn" type="button" aria-label="Previous Slide">
-          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="hc-tm-btn hc-tm-next-btn" type="button" aria-label="Next Slide">
-          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+        {% render 'sonu-nav-arrows',
+          prev_class: 'hc-tm-btn hc-tm-prev-btn',
+          next_class: 'hc-tm-btn hc-tm-next-btn'
+        %}
       </div>
     </div>
   {% endif %}

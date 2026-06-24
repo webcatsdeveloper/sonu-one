@@ -570,16 +570,10 @@
               </div>
             </div>
             {% if video_blocks.size > 1 %}
-              <button class="swiper-button-prev v2-desktop-video-prev" aria-label="Previous Slide">
-                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <button class="swiper-button-next v2-desktop-video-next" aria-label="Next Slide">
-                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              {% render 'sonu-nav-arrows',
+                prev_class: 'swiper-button-prev v2-desktop-video-prev',
+                next_class: 'swiper-button-next v2-desktop-video-next'
+              %}
             {% endif %}
           </div>
         </div>
@@ -617,16 +611,10 @@
             {% endfor %}
           </div>
           {% if video_blocks.size > 1 %}
-            <button class="v2-mobile-video-arrow v2-mobile-video-prev" aria-label="Previous Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button class="v2-mobile-video-arrow v2-mobile-video-next" aria-label="Next Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+            {% render 'sonu-nav-arrows',
+              prev_class: 'v2-mobile-video-arrow v2-mobile-video-prev',
+              next_class: 'v2-mobile-video-arrow v2-mobile-video-next'
+            %}
           {% endif %}
         </div>
       </div>
@@ -676,16 +664,10 @@
         </div>
         {%- if review_blocks.size > 1 -%}
           <div class="v2-mobile-nav-arrows">
-            <button class="v2-mobile-nav-arrow v2-mobile-prev-slide" aria-label="Previous Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <button class="v2-mobile-nav-arrow v2-mobile-next-slide" aria-label="Next Slide">
-              <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+            {% render 'sonu-nav-arrows',
+              prev_class: 'v2-mobile-nav-arrow v2-mobile-prev-slide',
+              next_class: 'v2-mobile-nav-arrow v2-mobile-next-slide'
+            %}
           </div>
         {%- endif -%}
       </div>

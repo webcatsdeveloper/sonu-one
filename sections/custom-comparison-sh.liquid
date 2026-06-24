@@ -219,16 +219,10 @@
       <!-- Navigation Controls (bottom right) -->
       <div class="custom-comp-controls-row">
         <div class="custom-comp-controls">
-          <button class="custom-comp-nav-btn custom-comp-nav-btn--prev" aria-label="Previous">
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 13L1 7L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <button class="custom-comp-nav-btn custom-comp-nav-btn--next" aria-label="Next">
-            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 13L7 7L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+          {% render 'sonu-nav-arrows',
+            prev_class: 'custom-comp-nav-btn custom-comp-nav-btn--prev',
+            next_class: 'custom-comp-nav-btn custom-comp-nav-btn--next'
+          %}
         </div>
       </div>
     </div>
