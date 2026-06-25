@@ -62,6 +62,9 @@
     padding-bottom: {{ section.settings.padding_bottom | default: 80 }}px !important;
     overflow: hidden;
   }
+  .typography-h3, .text-block.h3, h3, .h3, .text-block.h3 > *, .typography-h3 > *{
+  font-weight:600;
+}
 
   /* Background image with opacity overlay */
   #shopify-section-{{ section.id }} .sonu-logos-and-carousel::before {
