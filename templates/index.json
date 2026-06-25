@@ -551,7 +551,7 @@
             "card_heading_style_text_transform": "none",
             "description": "<p>Therapy tailored to you to revitalize your nasal breathing for  health and longetvity.</p>",
             "card_desc_style": "custom",
-            "card_desc_style_font_size_desktop": 12,
+            "card_desc_style_font_size_desktop": 14,
             "card_desc_style_font_size_mobile": 24,
             "card_desc_style_font_weight": "400",
             "card_desc_style_line_height": 1.2,
