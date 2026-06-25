@@ -708,7 +708,7 @@
         "carousel_heading": "<span style=\"white-space: nowrap;\">Precision therapeutics</span><br>\npowered by <span style=\"color:#656AE3;\"> AI & ~~sound science.~~</span>",
         "carousel_heading_tag": "h3",
         "carousel_heading_style": "custom",
-        "carousel_heading_style_font_size_desktop": 42,
+        "carousel_heading_style_font_size_desktop": 25,
         "carousel_heading_style_font_size_mobile": 24,
         "carousel_heading_style_font_weight": "500",
         "carousel_heading_style_line_height": 1.2,
