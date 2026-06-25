@@ -1060,7 +1060,7 @@
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
         "heading_tag": "h1",
-        "heading_style": "h2",
+        "heading_style": "h3",
         "heading_style_font_size_desktop": 32,
         "heading_style_font_size_mobile": 24,
         "heading_style_font_weight": "400",
