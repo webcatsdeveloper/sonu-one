@@ -36,27 +36,33 @@
       <div class="doctor-card">
 
         <!-- EXACT 244x270 IMAGE -->
-        <div class="img-wrap">
+        <div class="img-wrap" style="position: relative; overflow: hidden; border-radius: 12px;">
           {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.name }}" />
+            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
           {% else %}
             <div style="width: 100%; height: 100%; background: #ccc;"></div>
           {% endif %}
 
-          <div class="overlay"></div>
+          <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%); z-index: 1;"></div>
 
-          <div class="img-content">
-            <{{ section.settings.name_tag | default: 'h4' }} class="typography-{{ section.settings.name_style | default: 'h4' }}">{{ block.settings.name }}</{{ section.settings.name_tag | default: 'h4' }}>
-            <p class="typography-{{ section.settings.role_style | default: 'p' }}" style="{% render 'sonu-typography-style', preset: section.settings.role_style, prefix: 'role_style', settings: section.settings %}">{{ block.settings.role }}</p>
-          </div>
-
-          {% if section.settings.show_card_arrow %}
-            <div class="card-arrow">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5L15 11L9 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <!-- FIXED CONTAINER FOR INNER LAYOUT -->
+          <div class="img-content" style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between;">
+            
+            <div class="text-side" style="flex: 1; padding-right: 12px; color: #ffffff; text-align: left;">
+              <{{ section.settings.name_tag | default: 'h4' }} class="typography-{{ section.settings.name_style | default: 'h4' }}" style="margin: 0 0 4px 0; color: #ffffff;">{{ block.settings.name }}</{{ section.settings.name_tag | default: 'h4' }}>
+              <p class="typography-{{ section.settings.role_style | default: 'p' }}" style="margin: 0; padding: 0; color: rgba(255, 255, 255, 0.85); {% render 'sonu-typography-style', preset: section.settings.role_style, prefix: 'role_style', settings: section.settings %}">{{ block.settings.role }}</p>
             </div>
-          {% endif %}
+
+            {% if section.settings.show_card_arrow %}
+              <!-- PIXEL PERFECT FIGMA ARROW AND POSITION -->
+              <div class="card-arrow" style="width: 32px; height: 32px; border: 1.5px solid #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; margin-bottom: 4px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.5 5L15.5 12L8.5 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            {% endif %}
+
+          </div>
         </div>
 
         <!-- INDENTED DESCRIPTION -->
@@ -109,11 +115,6 @@
 
 </section>
 
-
-
-
-
-
 {% schema %}
 {
   "name": "Team Section",
@@ -129,30 +130,12 @@
       "id": "heading_tag",
       "label": "Heading type",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
       ],
       "default": "h2"
     },
@@ -161,38 +144,14 @@
       "id": "heading_style",
       "label": "Heading Style Preset",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        },
-        {
-          "value": "p",
-          "label": "Paragraph (P)"
-        },
-        {
-          "value": "custom",
-          "label": "Custom"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "h2"
     },
@@ -223,34 +182,13 @@
       "id": "heading_style_font_weight",
       "label": "Font Weight",
       "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
       ],
       "default": "400",
       "visible_if": "{{ section.settings.heading_style == 'custom' }}"
@@ -280,22 +218,10 @@
       "id": "heading_style_text_transform",
       "label": "Text Transform",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        }
+        { "value": "none", "label": "None" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
       ],
       "default": "none",
       "visible_if": "{{ section.settings.heading_style == 'custom' }}"
@@ -305,38 +231,14 @@
       "id": "name_tag",
       "label": "Name HTML Tag",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        },
-        {
-          "value": "p",
-          "label": "Paragraph (P)"
-        },
-        {
-          "value": "custom",
-          "label": "Custom"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "h4"
     },
@@ -367,34 +269,13 @@
       "id": "name_tag_font_weight",
       "label": "Font Weight",
       "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
       ],
       "default": "400",
       "visible_if": "{{ section.settings.name_tag == 'custom' }}"
@@ -424,22 +305,10 @@
       "id": "name_tag_text_transform",
       "label": "Text Transform",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        }
+        { "value": "none", "label": "None" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
       ],
       "default": "none",
       "visible_if": "{{ section.settings.name_tag == 'custom' }}"
@@ -449,38 +318,14 @@
       "id": "name_style",
       "label": "Name Typography Style",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        },
-        {
-          "value": "p",
-          "label": "Paragraph (P)"
-        },
-        {
-          "value": "custom",
-          "label": "Custom"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "h4"
     },
@@ -511,34 +356,13 @@
       "id": "name_style_font_weight",
       "label": "Font Weight",
       "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
       ],
       "default": "400",
       "visible_if": "{{ section.settings.name_style == 'custom' }}"
@@ -568,22 +392,10 @@
       "id": "name_style_text_transform",
       "label": "Text Transform",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        }
+        { "value": "none", "label": "None" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
       ],
       "default": "none",
       "visible_if": "{{ section.settings.name_style == 'custom' }}"
@@ -593,38 +405,14 @@
       "id": "role_style",
       "label": "Role Typography Style",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        },
-        {
-          "value": "p",
-          "label": "Paragraph (P)"
-        },
-        {
-          "value": "custom",
-          "label": "Custom"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "p"
     },
@@ -655,34 +443,13 @@
       "id": "role_style_font_weight",
       "label": "Font Weight",
       "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
       ],
       "default": "400",
       "visible_if": "{{ section.settings.role_style == 'custom' }}"
@@ -712,22 +479,10 @@
       "id": "role_style_text_transform",
       "label": "Text Transform",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        }
+        { "value": "none", "label": "None" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
       ],
       "default": "none",
       "visible_if": "{{ section.settings.role_style == 'custom' }}"
@@ -737,38 +492,14 @@
       "id": "desc_style",
       "label": "Description Typography Style",
       "options": [
-        {
-          "value": "h1",
-          "label": "H1"
-        },
-        {
-          "value": "h2",
-          "label": "H2"
-        },
-        {
-          "value": "h3",
-          "label": "H3"
-        },
-        {
-          "value": "h4",
-          "label": "H4"
-        },
-        {
-          "value": "h5",
-          "label": "H5"
-        },
-        {
-          "value": "h6",
-          "label": "H6"
-        },
-        {
-          "value": "p",
-          "label": "Paragraph (P)"
-        },
-        {
-          "value": "custom",
-          "label": "Custom"
-        }
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "p", "label": "Paragraph (P)" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "p"
     },
@@ -799,34 +530,13 @@
       "id": "desc_style_font_weight",
       "label": "Font Weight",
       "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Regular"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra Bold" },
+        { "value": "900", "label": "Black" }
       ],
       "default": "400",
       "visible_if": "{{ section.settings.desc_style == 'custom' }}"
@@ -856,22 +566,10 @@
       "id": "desc_style_text_transform",
       "label": "Text Transform",
       "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        }
+        { "value": "none", "label": "None" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
       ],
       "default": "none",
       "visible_if": "{{ section.settings.desc_style == 'custom' }}"
@@ -905,14 +603,8 @@
       "id": "desktop_layout",
       "label": "Desktop Layout",
       "options": [
-        {
-          "value": "grid",
-          "label": "Grid"
-        },
-        {
-          "value": "slider",
-          "label": "Slider"
-        }
+        { "value": "grid", "label": "Grid" },
+        { "value": "slider", "label": "Slider" }
       ],
       "default": "grid"
     },
@@ -921,14 +613,8 @@
       "id": "mobile_layout",
       "label": "Mobile Layout",
       "options": [
-        {
-          "value": "grid",
-          "label": "Grid"
-        },
-        {
-          "value": "slider",
-          "label": "Slider"
-        }
+        { "value": "grid", "label": "Grid" },
+        { "value": "slider", "label": "Slider" }
       ],
       "default": "slider"
     },
@@ -997,33 +683,15 @@
       "type": "doctor",
       "name": "Doctor",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Name"
-        },
-        {
-          "type": "text",
-          "id": "role",
-          "label": "Profession"
-        },
-        {
-          "type": "textarea",
-          "id": "desc",
-          "label": "Description"
-        }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "role", "label": "Profession" },
+        { "type": "textarea", "id": "desc", "label": "Description" }
       ]
     }
   ],
   "presets": [
-    {
-      "name": "sonu Team Section"
-    }
+    { "name": "sonu Team Section" }
   ]
 }
 {% endschema %}
