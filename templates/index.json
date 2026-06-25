@@ -1054,7 +1054,7 @@
         "bg_image_opacity": 0,
         "mobile_bg_image_opacity": 55,
         "bg_color_desktop": "radial-gradient(rgba(220, 237, 255, 1) 26%, rgba(222, 232, 255, 1) 37%, rgba(223, 228, 255, 1) 37%, rgba(225, 225, 255, 1) 37%, rgba(220, 237, 255, 1) 46.765%, rgba(218, 242, 255, 1) 48%, rgba(168, 255, 251, 1) 100%)",
-        "bg_color_desktop_solid": "#EFF1FF",
+        "bg_color_desktop_solid": "#eff1ff",
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
@@ -1127,6 +1127,7 @@
       ],
       "name": "Split Content",
       "settings": {
+        "group_bg_image": "shopify://shop_images/Rectangle_21_1.png",
         "small_heading": "Why Sound?",
         "small_heading_style": "p",
         "small_heading_style_font_size_desktop": 32,
@@ -1316,7 +1317,7 @@
             "name": "Jay G",
             "role": "Corporate Vice President @ Fortune 500 Company",
             "image": "shopify://shop_images/Ellipse_3.png",
-            "rating": 5
+            "rating": 0
           }
         },
         "review_2_slide_NCYPrX": {
@@ -1326,7 +1327,7 @@
             "name": "Ram G MD",
             "role": "Radiologist",
             "image": "shopify://shop_images/Ellipse_3.png",
-            "rating": 5
+            "rating": 0
           }
         },
         "review_3_slide_NCYPrX": {
@@ -1336,7 +1337,7 @@
             "name": "Julie K",
             "role": "Retired RN",
             "image": "shopify://shop_images/Ellipse_3.png",
-            "rating": 5
+            "rating": 0
           }
         },
         "review_4_slide_NCYPrX": {
@@ -1346,7 +1347,7 @@
             "name": "Lindsay M",
             "role": "Clinical Psychologist",
             "image": "shopify://shop_images/Ellipse_3.png",
-            "rating": 5
+            "rating": 0
           }
         },
         "review_1_slide_mXEA6L": {
@@ -1356,7 +1357,7 @@
             "name": "Jay G",
             "role": "Corporate Vice President @ Fortune 500 Company",
             "image": "shopify://shop_images/Ellipse_3.png",
-            "rating": 5
+            "rating": 0
           }
         },
         "review_2_slide_mXEA6L": {
@@ -1404,6 +1405,7 @@
       ],
       "name": "Testimonials Video sonu",
       "settings": {
+        "group_bg_image": "shopify://shop_images/bg_2_1_889f98c3-75f0-4bc7-8899-64cc0894edc4.png",
         "heading": "Real Patients, [br] Real Results",
         "heading_tag": "h3",
         "heading_style": "h3",
@@ -1414,7 +1416,7 @@
         "heading_style_letter_spacing": "0",
         "heading_style_text_transform": "none",
         "review_text_style": "p",
-        "author_name_style": "h5",
+        "author_name_style": "h6",
         "author_role_style": "p",
         "section_bg_color": "",
         "section_bg_gradient": "",
