@@ -1251,7 +1251,7 @@
         "heading_style_line_height": 1.2,
         "heading_style_letter_spacing": 0,
         "heading_style_text_transform": "none",
-        "name_tag": "h4",
+        "name_tag": "h5",
         "name_tag_font_size_desktop": 76,
         "name_tag_font_size_mobile": 24,
         "name_tag_font_weight": "400",
