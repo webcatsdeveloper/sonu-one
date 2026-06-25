@@ -1646,7 +1646,7 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 0,
         "bottom_border_radius": 0,
-        "mobile_bottom_border_radius": 66,
+        "mobile_bottom_border_radius": 46,
         "button_icon": "shopify://shop_images/Icon.png",
         "bg_image": "shopify://shop_images/Rectangle_34_1_c5976d67-0b8f-46f4-849c-6fe2cf6b1c30.png",
         "feature_image": "shopify://shop_images/Rectangle_35_1.png",
