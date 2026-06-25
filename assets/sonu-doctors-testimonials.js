@@ -15,10 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const imgHtml = data.querySelector('img') ? data.querySelector('img').outerHTML : '';
         modal.querySelector('.left').innerHTML = imgHtml;
         
+        const nameEl = data.querySelector('h1, h2, h3, h4, h5, h6');
+        const roleEl = data.querySelector('.role');
+        const descEl = data.querySelector('.role').nextElementSibling;
+
         modal.querySelector('.right').innerHTML = `
-          <h3>${data.querySelector('h3').innerText}</h3>
-          <p style="font-weight:500; color:#666; margin-bottom: 20px;">${data.querySelector('.role').innerText}</p>
-          <p style="line-height:1.6;">${data.querySelector('p:last-child').innerText}</p>
+          <h3>${nameEl ? nameEl.innerText : ''}</h3>
+          <p style="font-weight:500; color:#666; margin-bottom: 20px;">${roleEl ? roleEl.innerText : ''}</p>
+          <p style="line-height:1.6;">${descEl ? descEl.innerHTML : ''}</p>
         `;
       }
     });
