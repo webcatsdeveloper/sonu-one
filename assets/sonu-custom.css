@@ -1065,6 +1065,9 @@
   .carousel-inner {
     padding: 0 20px;
   }
+   .typography-h3, .text-block.h3, h3, .h3, .text-block.h3 > *, .typography-h3 > *{
+  font-weight:500!important;
+}
 
   /* Heading: Exact Figma — 32px / 500 / #001755 / centered */
   .carousel-heading {
