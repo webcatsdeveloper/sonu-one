@@ -594,7 +594,7 @@
   }
   
   #shopify-section-{{ section.id }} .v2-review-card {
-    background: {% if section.settings.card_bg_color == 'rgba(0,0,0,0)' or section.settings.card_bg_color == blank %}#F5F6FF{% else %}{{ section.settings.card_bg_color }}{% endif %} !important;
+    background: {% if section.settings.card_bg_color == blank %}#F5F6FF{% else %}{{ section.settings.card_bg_color }}{% endif %} !important;
     border-color: {{ section.settings.card_border_color | default: '#B8B7FF' }} !important;
     border-width: {{ section.settings.card_border_width | default: 1 }}px !important;
     border-style: solid !important;
