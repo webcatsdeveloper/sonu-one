@@ -707,7 +707,7 @@
         "logo_button_text_color": "#ffffff",
         "carousel_heading": "<span style=\"white-space: nowrap;\">Precision therapeutics</span><br>\npowered by <span style=\"color:#656AE3;\"> AI & ~~sound science.~~</span>",
         "carousel_heading_tag": "h3",
-        "carousel_heading_style": "h2",
+        "carousel_heading_style": "h3",
         "carousel_heading_style_font_size_desktop": 25,
         "carousel_heading_style_font_size_mobile": 24,
         "carousel_heading_style_font_weight": "500",
