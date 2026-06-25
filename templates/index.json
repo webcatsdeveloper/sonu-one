@@ -1059,7 +1059,7 @@
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
-        "heading_tag": "h1",
+        "heading_tag": "h2",
         "heading_style": "h2",
         "heading_style_font_size_desktop": 32,
         "heading_style_font_size_mobile": 24,
