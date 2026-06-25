@@ -5,10 +5,10 @@
     padding-bottom: {{ section.settings.padding_bottom | default: 120 }}px !important;
   }
   
-  /* Fix: Lock the heading width on desktop screens to force a 2-line break like the editor */
+  /* Fix: Expanded width constraint to perfectly match the 2-line wrap from Figma (image_22f8eb.png) */
   @media screen and (min-width: 769px) {
     #shopify-section-{{ section.id }} .split-left .main-heading {
-      max-width: 520px !important;
+      max-width: 680px !important;
       width: 100% !important;
       display: block !important;
     }
@@ -25,6 +25,7 @@
   <div class="sonu-split-page-width">
     <div class="split-grid">
 
+      <!-- LEFT -->
       <div class="split-left sonu-blur-in">
         {%- assign heading_style = 'color: ' | append: section.settings.heading_color -%}
         {% render 'sonu-section-header',
@@ -42,6 +43,7 @@
         %}
       </div>
 
+      <!-- RIGHT -->
       <div class="split-right animate-blur delay-1">
 
         {% if section.settings.description != blank %}
