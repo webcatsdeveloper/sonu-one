@@ -124,16 +124,48 @@
             "bio_style_line_height": "1.6",
             "bio_style_letter_spacing": "0",
             "bio_style_text_transform": "none",
+            "image": "shopify://shop_images/Rectangle_170_1.png",
             "name": "Clete A. Kushida, MD, PhD",
             "subtitle": "Professor of Psychiatry and Behavioral Sciences (Sleep Medicine), Stanford Uniersity",
             "bio": "<p>Dr. Clete A. Kushida is a neurologist who specializes in the diagnosis and management of sleep related breathing disorders (e.g., obstructive sleep apnea), sleep-related movement disorders (e.g., restless legs syndrome), and parasomnias (e.g., sleepwalking, REM sleep behavior disorder). He is a neurologist, a Professor in the Department of Psychiatry and Behavioral Sciences at Stanford; Associate Chair, Division Chief, and Medical Director of Stanford Sleep Medicine; and Director of the Stanford Center for Human Sleep Research. He is the inaugural President of the World Sleep Society, past President of the World Sleep Federation, past President of the American Academy of Sleep Medicine, and founding President of the California Sleep Society. Dr. Kushida has conducted basic and clinical sleep research since 1977, served as Principal Investigator for numerous large federally and industry sponsored studies, and his research interests include the anatomic and physiologic changes associated with sleep apnea, the management of restless legs syndrome, and countermeasures for sleep loss. He has authored or edited over 300 publications including six books, and serves as editor-in-chief of the journal Sleep Science and Practice as well as the largest publication on the field of sleep to date, the Encyclopedia of Sleep and Circadian Rhythms (2nd edition, 6 volumes, 454 chapters, 827 authors, 3,835 pages).</p>"
+          }
+        },
+        "advisor_7N9eTL": {
+          "type": "advisor",
+          "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
+            "image": "shopify://shop_images/Rectangle_171_1.png",
+            "name": "Kari C Nadeau, MD, PhD",
+            "subtitle": "Harvard University - John Rock Professor of Climate and Population Studies",
+            "bio": "<p>Dr. Kari Nadeau is the Chair of the Department of Environmental Health at Harvard School of Public Health and John Rock Professor of Climate and Population Studies. She practices Allergy, Asthma, Immunology in children and adults. She has published over 400+ papers, many in the field of climate change and health. Dr. Nadeau, with a team of individuals and patients and families, has been able to help major progress and impact in the clinical fields of immunology, infection, asthma and allergy. Dr. Nadeau is a member of the National Academy of Medicine and the U.S. EPA Children's Health Protection Committee.  For more than 30 years, she has devoted herself to understanding how environmental and genetic factors affect the risk of developing allergies and asthma, especially wildfire-induced air pollution. Her laboratory has been studying air pollution and wildfire effects on children and adults, including wildland firefighters. Many of the health issues involving individuals and the public are increasing because of global warming, sustainability practices, and extreme weather conditions. She oversees a team working on air pollution and wildfire research along with a multidisciplinary group of community leaders, firefighters, engineers, scientists, lawyers, and policy makers. Dr. Nadeau was appointed as a member of the U.S. Federal Wildfire Commission in 2022.  Dr. Nadeau works with other organizations and institutes across the world. She is working with the WHO on a scoping review and report for health ministers and policy makers on wildland fires: how to mitigate, adapt, and follow UN SDG's to create resiliency and co-benefits in communities, especially LMICs....</p>"
           }
         }
       },
       "block_order": [
         "advisor_1",
         "advisor_2",
-        "advisor_a9zAPq"
+        "advisor_a9zAPq",
+        "advisor_7N9eTL"
       ],
       "settings": {
         "name_style": "custom",
