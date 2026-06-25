@@ -1238,7 +1238,7 @@
 
 .main-heading {
   font-family: var(--sonu-font-primary) !important;
-  font-size: 68px !important;
+  font-size: 48px !important;
   line-height: 1.1 !important;
   font-weight: 500 !important;
   color: #001755 !important;
@@ -1434,7 +1434,7 @@
   }
 
   .main-heading {
-    max-width: 281px !important;
+    max-width: 241px !important;
     font-size: 32px !important;
     line-height: 39px !important;
     text-align: center !important;
