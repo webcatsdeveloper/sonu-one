@@ -1051,11 +1051,10 @@
       ],
       "name": "Logo Carousel",
       "settings": {
-        "bg_image": "shopify://shop_images/bg_2_2.png",
-        "bg_image_opacity": 80,
+        "bg_image_opacity": 0,
         "mobile_bg_image_opacity": 55,
         "bg_color_desktop": "radial-gradient(rgba(220, 237, 255, 1) 26%, rgba(222, 232, 255, 1) 37%, rgba(223, 228, 255, 1) 37%, rgba(225, 225, 255, 1) 37%, rgba(220, 237, 255, 1) 46.765%, rgba(218, 242, 255, 1) 48%, rgba(168, 255, 251, 1) 100%)",
-        "bg_color_desktop_solid": "rgba(0,0,0,0)",
+        "bg_color_desktop_solid": "#EFF1FF",
         "bg_color_mobile": "linear-gradient(90deg, rgba(242, 237, 244, 1), rgba(238, 241, 250, 1) 45%, rgba(232, 242, 255, 1) 100%)",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
         "heading": "As Featured In",
