@@ -1243,8 +1243,8 @@
       "name": "sonu Team Section",
       "settings": {
         "heading": "Trusted by doctors",
-        "heading_tag": "h2",
-        "heading_style": "h2",
+        "heading_tag": "h4",
+        "heading_style": "h4",
         "heading_style_font_size_desktop": 32,
         "heading_style_font_size_mobile": 24,
         "heading_style_font_weight": "400",
