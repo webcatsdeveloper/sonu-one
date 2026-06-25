@@ -64,10 +64,58 @@
   </div>
 </section>
 
+{% if section.settings.group_bg_image != blank %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const splitContentSection = document.getElementById('shopify-section-{{ section.id }}');
+    if (splitContentSection) {
+      const prev = splitContentSection.previousElementSibling;
+      const next = splitContentSection.nextElementSibling;
+      
+      if (prev && next) {
+        const wrapper = document.createElement('div');
+        wrapper.style.backgroundImage = 'url({{ section.settings.group_bg_image | image_url: width: 2000 }})';
+        wrapper.style.backgroundSize = 'cover';
+        wrapper.style.backgroundPosition = 'center';
+        wrapper.className = 'custom-grouped-bg-wrapper';
+        
+        splitContentSection.parentNode.insertBefore(wrapper, prev);
+        wrapper.appendChild(prev);
+        wrapper.appendChild(splitContentSection);
+        wrapper.appendChild(next);
+        
+        // Make backgrounds transparent so the image shows through
+        [prev, splitContentSection, next].forEach(el => {
+          el.style.setProperty('background', 'transparent', 'important');
+          el.style.setProperty('background-color', 'transparent', 'important');
+          
+          const innerElements = el.querySelectorAll('.science-bg-area, .split-content-container, .sonu-doctors-bg, .split-content, .sonu-split-page-width');
+          innerElements.forEach(inner => {
+            inner.style.setProperty('background', 'transparent', 'important');
+            inner.style.setProperty('background-color', 'transparent', 'important');
+            inner.style.setProperty('background-image', 'none', 'important');
+          });
+        });
+      }
+    }
+  });
+</script>
+{% endif %}
+
 {% schema %}
 {
   "name": "Split Content",
   "settings": [
+    {
+      "type": "header",
+      "content": "Group Background Wrapper"
+    },
+    {
+      "type": "image_picker",
+      "id": "group_bg_image",
+      "label": "Common Background Image",
+      "info": "This will wrap the section above, this section, and the section below into one container with this background."
+    },
     {
       "type": "text",
       "id": "small_heading",

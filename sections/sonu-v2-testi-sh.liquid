@@ -1327,10 +1327,56 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
 <script src="{{ 'sonu-v2-testi.js' | asset_url }}" defer="defer"></script>
 
+{% if section.settings.group_bg_image != blank %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const testiSection = document.getElementById('shopify-section-{{ section.id }}');
+    if (testiSection) {
+      const next = testiSection.nextElementSibling;
+      
+      if (next) {
+        const wrapper = document.createElement('div');
+        wrapper.style.backgroundImage = 'url({{ section.settings.group_bg_image | image_url: width: 2000 }})';
+        wrapper.style.backgroundSize = 'cover';
+        wrapper.style.backgroundPosition = 'center';
+        wrapper.className = 'custom-grouped-bg-wrapper-v2';
+        
+        testiSection.parentNode.insertBefore(wrapper, testiSection);
+        wrapper.appendChild(testiSection);
+        wrapper.appendChild(next);
+        
+        // Make backgrounds transparent so the image shows through
+        [testiSection, next].forEach(el => {
+          el.style.setProperty('background', 'transparent', 'important');
+          el.style.setProperty('background-color', 'transparent', 'important');
+          
+          const innerElements = el.querySelectorAll('.v2-testimonial-video-section, .sonu-flex-banner, .flex-banner-container, .sonu-doctors-bg');
+          innerElements.forEach(inner => {
+            inner.style.setProperty('background', 'transparent', 'important');
+            inner.style.setProperty('background-color', 'transparent', 'important');
+            inner.style.setProperty('background-image', 'none', 'important');
+          });
+        });
+      }
+    }
+  });
+</script>
+{% endif %}
+
 {% schema %}
 {
   "name": "Testimonials Video sonu",
   "settings": [
+    {
+      "type": "header",
+      "content": "Group Background Wrapper"
+    },
+    {
+      "type": "image_picker",
+      "id": "group_bg_image",
+      "label": "Common Background Image",
+      "info": "This will wrap this section and the section below it into one container with this background."
+    },
     {
       "type": "text",
       "id": "heading",
