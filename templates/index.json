@@ -1266,7 +1266,7 @@
         "name_style_letter_spacing": 0,
         "name_style_text_transform": "none",
         "role_style": "custom",
-        "role_style_font_size_desktop": 14,
+        "role_style_font_size_desktop": 12,
         "role_style_font_size_mobile": 12,
         "role_style_font_weight": "400",
         "role_style_line_height": 1.4,
