@@ -15,7 +15,7 @@
         "bg_color": "#f4f5fb",
         "heading": "Meet Our<br>Medical Advisors",
         "heading_color": "#0a1c40",
-        "heading_style": "custom",
+        "heading_style": "h2",
         "heading_style_font_size_desktop": 72,
         "heading_style_font_size_mobile": 44,
         "heading_style_font_weight": "400",
