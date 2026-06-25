@@ -974,7 +974,7 @@
     display: none;
   }
 
-  /* HIGHLY SPECIFIC MOBILE OVERRIDES TO MATCH FIGMA (image_2284c7.png) AND FORCE OVERWRITE OF EXTERNAL CSS */
+  /* STRICT MOBILE OVERRIDES WITH EXTENDED SPECIFICITY */
   @media screen and (max-width: 768px) {
     body #shopify-section-{{ section.id }} .v2-testimonial-video-section {
       padding-top: {{ section.settings.mobile_padding_top | default: 30 }}px !important;
@@ -994,8 +994,16 @@
       {%- endif -%}
     }
     
+    /* FIX: Constrain Title size and break into exactly 2 lines matching image_228c67.png */
     body #shopify-section-{{ section.id }} .v2-section-title {
       margin-bottom: {{ section.settings.mobile_heading_margin_bottom | default: 16 }}px !important;
+      max-width: 250px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      font-size: 28px !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.01em !important;
+      word-break: break-word !important;
     }
 
     body #shopify-section-{{ section.id }} .v2-desktop-layout {
@@ -1068,7 +1076,6 @@
       margin: 0 auto 14px auto !important;
     }
 
-    /* FIX: Force exact button size & line properties to mimic image_2284c7.png */
     body #shopify-section-{{ section.id }} .v2-mobile-nav-arrows {
       display: flex !important;
       justify-content: center !important;
@@ -1076,11 +1083,15 @@
       margin-top: 24px !important;
       width: 100% !important;
     }
+
+    /* FIX: Force exact button size constraints matching 41x41px scale from image_228cc2.png */
     body #shopify-section-{{ section.id }} .v2-mobile-nav-arrow {
-      width: 52px !important;
-      min-width: 52px !important;
-      height: 52px !important;
-      min-height: 52px !important;
+      width: 41px !important;
+      min-width: 41px !important;
+      max-width: 41px !important;
+      height: 41px !important;
+      min-height: 41px !important;
+      max-height: 41px !important;
       flex-shrink: 0 !important;
       border: 1px solid {{ section.settings.nav_border_color | default: '#001755' }} !important;
       border-radius: 50% !important;
@@ -1092,14 +1103,33 @@
       cursor: pointer !important;
       box-sizing: border-box !important;
       padding: 0 !important;
+      position: relative !important;
     }
+
+    /* Clear snippet elements that skew circle layouts */
     body #shopify-section-{{ section.id }} .v2-mobile-nav-arrow svg {
-      width: 12px !important; /* Slightly enlarged arrow vector inside button to match Figma */
-      height: 18px !important;
+      display: none !important;
+    }
+
+    /* Rebuild sharp Figma line chevrons through CSS pseudo-elements */
+    body #shopify-section-{{ section.id }} .v2-mobile-nav-arrow::after {
+      content: "" !important;
       display: block !important;
-      fill: none !important;
-      stroke: currentColor !important; /* Forces color usage instead of invisible elements */
-      stroke-width: 1.5px !important;
+      width: 8px !important;
+      height: 8px !important;
+      border-top: 1.5px solid currentColor !important;
+      border-right: 1.5px solid currentColor !important;
+      box-sizing: border-box !important;
+    }
+
+    body #shopify-section-{{ section.id }} .v2-mobile-prev-slide::after {
+      transform: rotate(-135deg) !important;
+      margin-left: 3px !important;
+    }
+
+    body #shopify-section-{{ section.id }} .v2-mobile-next-slide::after {
+      transform: rotate(45deg) !important;
+      margin-right: 3px !important;
     }
   }
 {%- endstyle -%}
