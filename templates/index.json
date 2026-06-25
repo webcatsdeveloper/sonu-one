@@ -1405,6 +1405,7 @@
       ],
       "name": "Testimonials Video sonu",
       "settings": {
+        "group_bg_image": "shopify://shop_images/bg_2_1_889f98c3-75f0-4bc7-8899-64cc0894edc4.png",
         "heading": "Real Patients, [br] Real Results",
         "heading_tag": "h3",
         "heading_style": "h3",
