@@ -189,6 +189,36 @@
             "subtitle": "Professor, Chief of Sleep Surgery. Advisor, Stanford Byers Center for Biodesign Stanford University",
             "bio": "<p>Dr. Capasso is the Chief of Sleep Surgery, Professor of Otolaryngology and Head and Neck Surgery, Associate Dean of Research at Stanford University School of Medicine and Advisor to the Stanford Byers Center for Biodesign. His medical training includes Head and Neck Surgery, Neurosciences and Sleep Medicine. He has done research and published extensively on pre-treatment evaluation and surgical treatment of obstructive sleep apnea and currently his research interests have a focus on clinical utilization of large datasets and consumer-based devices for sleep disordered breathing management. The local and international recognition of this work is often associated with one of his favorite tasks: lecturing and trading knowledge nationally and internationally. He has been a mentor or supervisor to hundreds of medical students, residents, fellows or visiting scholars from more than 30 countries, and dozens of Stanford Biodesign students who developed healthcare companies in the Bay Area, Japan, Brazil and Singapore, with the goal to utilize this acquired experience to foster health innovation training of multidisciplinary teams and engineers with broad impact globally. He is a member of the Stanford Medical Leadership Academy, an initiative to foster the development of innovative leadership across and outside departments at the School of Medicine and in the role of Associate Dean of Research I assist the Dean’s office and our CTSA group for the strategic development of translational research.</p>"
           }
+        },
+        "advisor_X7dnfT": {
+          "type": "advisor",
+          "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
+            "image": "shopify://shop_images/Rectangle_175.png",
+            "name": "Ash Khanwalkar, MD",
+            "subtitle": "Assistant Professor, Otolaryngology - Head and Neck Surgery",
+            "bio": "<p>Ash Khanwalkar, MD, is an assistant professor in the Department of Otorhinolaryngology – Head and Neck Surgery at University of Colorado – Anschutz Medical Campus .  Dr Khanwalkar specializes in performing endoscopic nasal, sinus, and skull base surgery, including but not limited to the management of nasal obstruction, inflammatory sinus disease, sinonasal masses/tumors, CSF leaks, skull base tumors, and epistaxis. He works closely with colleagues in allergy, pulmonology, neurosurgery, ophthalmology, facial plastic surgery, among other specialties. Dr Khanwalkar obtained his M from University of Chicago Division of the Biological Sciences The Pritzker School of Medicine. He is a member of American Academy of Otolaryngology - Head and Neck Surgery, American Rhinologic Society and American Medical Association.</p>"
+          }
         }
       },
       "block_order": [
@@ -196,7 +226,8 @@
         "advisor_2",
         "advisor_a9zAPq",
         "advisor_7N9eTL",
-        "advisor_CGeWmt"
+        "advisor_CGeWmt",
+        "advisor_X7dnfT"
       ],
       "settings": {
         "name_style": "custom",
