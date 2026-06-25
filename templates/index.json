@@ -533,7 +533,7 @@
             "enable_parallax": false,
             "badge_text": "AI Personalization",
             "badge_text_style": "custom",
-            "badge_text_style_font_size_desktop": 14,
+            "badge_text_style_font_size_desktop": 12,
             "badge_text_style_font_size_mobile": 16,
             "badge_text_style_font_weight": "400",
             "badge_text_style_line_height": 1.2,
