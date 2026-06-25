@@ -159,13 +159,44 @@
             "subtitle": "Harvard University - John Rock Professor of Climate and Population Studies",
             "bio": "<p>Dr. Kari Nadeau is the Chair of the Department of Environmental Health at Harvard School of Public Health and John Rock Professor of Climate and Population Studies. She practices Allergy, Asthma, Immunology in children and adults. She has published over 400+ papers, many in the field of climate change and health. Dr. Nadeau, with a team of individuals and patients and families, has been able to help major progress and impact in the clinical fields of immunology, infection, asthma and allergy. Dr. Nadeau is a member of the National Academy of Medicine and the U.S. EPA Children's Health Protection Committee.  For more than 30 years, she has devoted herself to understanding how environmental and genetic factors affect the risk of developing allergies and asthma, especially wildfire-induced air pollution. Her laboratory has been studying air pollution and wildfire effects on children and adults, including wildland firefighters. Many of the health issues involving individuals and the public are increasing because of global warming, sustainability practices, and extreme weather conditions. She oversees a team working on air pollution and wildfire research along with a multidisciplinary group of community leaders, firefighters, engineers, scientists, lawyers, and policy makers. Dr. Nadeau was appointed as a member of the U.S. Federal Wildfire Commission in 2022.  Dr. Nadeau works with other organizations and institutes across the world. She is working with the WHO on a scoping review and report for health ministers and policy makers on wildland fires: how to mitigate, adapt, and follow UN SDG's to create resiliency and co-benefits in communities, especially LMICs....</p>"
           }
+        },
+        "advisor_CGeWmt": {
+          "type": "advisor",
+          "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
+            "image": "shopify://shop_images/Rectangle_174.png",
+            "name": "Robson Capasso, MD",
+            "subtitle": "Professor, Chief of Sleep Surgery. Advisor, Stanford Byers Center for Biodesign Stanford University",
+            "bio": "<p>Dr. Capasso is the Chief of Sleep Surgery, Professor of Otolaryngology and Head and Neck Surgery, Associate Dean of Research at Stanford University School of Medicine and Advisor to the Stanford Byers Center for Biodesign. His medical training includes Head and Neck Surgery, Neurosciences and Sleep Medicine. He has done research and published extensively on pre-treatment evaluation and surgical treatment of obstructive sleep apnea and currently his research interests have a focus on clinical utilization of large datasets and consumer-based devices for sleep disordered breathing management. The local and international recognition of this work is often associated with one of his favorite tasks: lecturing and trading knowledge nationally and internationally. He has been a mentor or supervisor to hundreds of medical students, residents, fellows or visiting scholars from more than 30 countries, and dozens of Stanford Biodesign students who developed healthcare companies in the Bay Area, Japan, Brazil and Singapore, with the goal to utilize this acquired experience to foster health innovation training of multidisciplinary teams and engineers with broad impact globally. He is a member of the Stanford Medical Leadership Academy, an initiative to foster the development of innovative leadership across and outside departments at the School of Medicine and in the role of Associate Dean of Research I assist the Dean’s office and our CTSA group for the strategic development of translational research.</p>"
+          }
         }
       },
       "block_order": [
         "advisor_1",
         "advisor_2",
         "advisor_a9zAPq",
-        "advisor_7N9eTL"
+        "advisor_7N9eTL",
+        "advisor_CGeWmt"
       ],
       "settings": {
         "name_style": "custom",
