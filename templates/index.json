@@ -686,7 +686,7 @@
         "mobile_padding_bottom": 60,
         "logo_heading": "",
         "logo_heading_tag": "h3",
-        "logo_heading_style": "h2",
+        "logo_heading_style": "h3",
         "logo_heading_style_font_size_desktop": 32,
         "logo_heading_style_font_size_mobile": 24,
         "logo_heading_style_font_weight": "400",
