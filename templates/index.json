@@ -1652,7 +1652,7 @@
         "feature_image": "shopify://shop_images/Rectangle_35_1.png",
         "badge": "Featured Article",
         "title": "SONU is one of TIME's 2025 Best Inventions",
-        "title_tag": "h6",
+        "title_tag": "h5",
         "button_text": "READ MORE",
         "button_link": "",
         "mobile_press_layout": "slider",
