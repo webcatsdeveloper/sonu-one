@@ -1282,7 +1282,7 @@
         "grad_color_1": "#daf2ff",
         "grad_color_2": "#daf2ff",
         "grad_color_3": "#daf2ff",
-        "grad_color_4": "#DAF2FF",
+        "grad_color_4": "#daf2ff",
         "desktop_layout": "slider",
         "mobile_layout": "slider",
         "trim_words": 20,
@@ -1290,7 +1290,7 @@
         "padding_bottom": 40,
         "mobile_padding_top": 38,
         "mobile_padding_bottom": 38,
-        "show_card_arrow": false
+        "show_card_arrow": true
       }
     },
     "sonu_v2_testi_tExVrX": {
