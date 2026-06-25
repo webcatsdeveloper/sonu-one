@@ -680,7 +680,7 @@
         "bg_color_desktop_solid": "rgba(0,0,0,0)",
         "bg_color_mobile": "",
         "bg_color_mobile_solid": "rgba(0,0,0,0)",
-        "padding_top": 80,
+        "padding_top": 40,
         "padding_bottom": 80,
         "mobile_padding_top": 60,
         "mobile_padding_bottom": 60,
