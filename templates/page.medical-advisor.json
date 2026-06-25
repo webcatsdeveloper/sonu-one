@@ -95,15 +95,45 @@
             "bio_style_letter_spacing": "0",
             "bio_style_text_transform": "none",
             "image": "shopify://shop_images/Rectangle_169_2.png",
-            "name": "Bryant Lin, MD, MEng",
-            "subtitle": "Professor at The Massachusetts Eye and Ear Infirmary, Harvard Medical School",
-            "bio": "<p>Dr. Benjamin Bleier specializes in sinus, nasal, skull base, and orbital surgery and is committed to providing only the highest quality patient care. As Director of Endoscopic Skull Base Surgery, he focuses on revision and complex sinus surgery as well as state-of-the-art endoscopic management of sinus, orbit, and skull base lesions including sinonasal tumors, cerebrospinal fluid (CSF) leaks, and encephaloceles.</p><p>As Co-Director of the Center for Thyroid Eye Disease and Orbital Surgery, he has helped pioneer several new minimally invasive approaches for orbital tumors and has authored more than 175 peer-reviewed articles and book chapters, as well as two textbooks in the field of orbit and sinus-related disease. He lectures both nationally and internationally on topics including the management of orbit and skull base tumors, endoscopic dacryocystorhinostomy, causes and treatments of sinusitis, and intranasal drug delivery techniques to the brain.</p><p>As Director of Otolaryngology Translational Research, Dr. Bleier is an R01 funded surgeon-scientist, holds multiple patents, and has been recognized by the Michael J. Fox Foundation, Boston Magazine, Harvard Medicine Magazine, and The Scientist Magazine for his work.</p>"
+            "name": "Amber Luong, MD, PhD",
+            "subtitle": "Assistant professor in the Department of Otorhinolaryngology at McGovern Medical School at UTHealth Houston ",
+            "bio": "<p>Amber Luong, MD, PhD, is an assistant professor in the Department of Otorhinolaryngology at McGovern Medical School at UTHealth Houston.  She obtained her doctorate under the Nobel laureates Drs. Michael Brown and Joseph Goldstein for the identification and biochemical characterization of a novel human enzyme, acetyl coA synthetase. Dr. Luong has co-authored over 80 peer-reviewed articles and book chapters. Her primary research interest focuses on understanding the pathophysiology of allergic fungal rhinosinusitis (AFRS) as a model for studying the local immune response of the paranasal sinuses.  Board-certified in otorhinolaryngology, Dr. Luong’s clinical interests include medical and surgical management of refractory chronic rhinosinusitis, sinonasal tumors, cerebrospinal fluid leak repairs, and endoscopic orbital and dacryocystorhinostomy surgery.</p>"
+          }
+        },
+        "advisor_a9zAPq": {
+          "type": "advisor",
+          "settings": {
+            "name_style": "custom",
+            "name_style_font_size_desktop": 18,
+            "name_style_font_size_mobile": 16,
+            "name_style_font_weight": "400",
+            "name_style_line_height": "1.6",
+            "name_style_letter_spacing": "0",
+            "name_style_text_transform": "none",
+            "subtitle_style": "custom",
+            "subtitle_style_font_size_desktop": 18,
+            "subtitle_style_font_size_mobile": 16,
+            "subtitle_style_font_weight": "400",
+            "subtitle_style_line_height": "1.6",
+            "subtitle_style_letter_spacing": "0",
+            "subtitle_style_text_transform": "none",
+            "bio_style": "custom",
+            "bio_style_font_size_desktop": 18,
+            "bio_style_font_size_mobile": 16,
+            "bio_style_font_weight": "400",
+            "bio_style_line_height": "1.6",
+            "bio_style_letter_spacing": "0",
+            "bio_style_text_transform": "none",
+            "name": "Clete A. Kushida, MD, PhD",
+            "subtitle": "Professor of Psychiatry and Behavioral Sciences (Sleep Medicine), Stanford Uniersity",
+            "bio": "<p>Dr. Clete A. Kushida is a neurologist who specializes in the diagnosis and management of sleep related breathing disorders (e.g., obstructive sleep apnea), sleep-related movement disorders (e.g., restless legs syndrome), and parasomnias (e.g., sleepwalking, REM sleep behavior disorder). He is a neurologist, a Professor in the Department of Psychiatry and Behavioral Sciences at Stanford; Associate Chair, Division Chief, and Medical Director of Stanford Sleep Medicine; and Director of the Stanford Center for Human Sleep Research. He is the inaugural President of the World Sleep Society, past President of the World Sleep Federation, past President of the American Academy of Sleep Medicine, and founding President of the California Sleep Society. Dr. Kushida has conducted basic and clinical sleep research since 1977, served as Principal Investigator for numerous large federally and industry sponsored studies, and his research interests include the anatomic and physiologic changes associated with sleep apnea, the management of restless legs syndrome, and countermeasures for sleep loss. He has authored or edited over 300 publications including six books, and serves as editor-in-chief of the journal Sleep Science and Practice as well as the largest publication on the field of sleep to date, the Encyclopedia of Sleep and Circadian Rhythms (2nd edition, 6 volumes, 454 chapters, 827 authors, 3,835 pages).</p>"
           }
         }
       },
       "block_order": [
         "advisor_1",
-        "advisor_2"
+        "advisor_2",
+        "advisor_a9zAPq"
       ],
       "settings": {
         "name_style": "custom",
