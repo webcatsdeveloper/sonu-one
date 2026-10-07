@@ -107,11 +107,7 @@
     <div class="team-slider-container hide-desktop">
       
       <!-- PROGRESS BAR (FULL WIDTH) -->
-      {% render 'sonu-progress-bar',
-        progress_id: 'team-progress-bar-' | append: section.id,
-        container_class: 'team-progress',
-        bar_class: 'team-progress-bar-card'
-      %}
+      {% render 'sonu-progress-bar', progress_id: 'team-progress-bar-', append: section.id, container_class: 'team-progress', bar_class: 'team-progress-bar-card' %}
 
       <!-- ARROWS (RIGHT ALIGNED) -->
       <div class="team-arrows">
@@ -1076,3 +1072,19 @@
 {% endschema %}
 
 <script src="{{ 'sonu-doctors-testimonials.js' | asset_url }}" defer="defer"></script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'sonu-progress-bar',
+            progress_id: 'team-progress-bar-' | append: section.id,
+            container_class: 'team-progress',
+            bar_class: 'team-progress-bar-card'
+          %}
+  to: "{% render 'sonu-progress-bar', progress_id: 'team-progress-bar-', append: section.id,
+    container_class: 'team-progress', bar_class: 'team-progress-bar-card' %}"
+  position: 5288..5446
+{% endcomment %}

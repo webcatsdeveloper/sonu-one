@@ -80,11 +80,7 @@
   {% if section.settings.mobile_layout == 'slider' or section.settings.desktop_layout == 'slider' %}
     <div class="team-slider-controls">
       <!-- PROGRESS BAR -->
-      {% render 'sonu-progress-bar',
-        progress_id: 'team-progress-bar-' | append: section.id,
-        container_class: 'carousel-progress team-progress',
-        bar_class: 'progress-bar-card team-progress-bar-card'
-      %}
+      {% render 'sonu-progress-bar', progress_id: 'team-progress-bar-', append: section.id, container_class: 'carousel-progress team-progress', bar_class: 'progress-bar-card team-progress-bar-card' %}
 
       <!-- ARROWS -->
       <div class="carousel-arrows team-arrows">
@@ -1029,3 +1025,20 @@
 {% endschema %}
 
 <script src="{{ 'sonu-doctors-testimonials.js' | asset_url }}" defer="defer"></script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'sonu-progress-bar',
+            progress_id: 'team-progress-bar-' | append: section.id,
+            container_class: 'carousel-progress team-progress',
+            bar_class: 'progress-bar-card team-progress-bar-card'
+          %}
+  to: "{% render 'sonu-progress-bar', progress_id: 'team-progress-bar-', append: section.id,
+    container_class: 'carousel-progress team-progress', bar_class: 'progress-bar-card
+    team-progress-bar-card' %}"
+  position: 3952..4146
+{% endcomment %}

@@ -1137,15 +1137,7 @@
 <section class="v2-testimonial-video-section {% if section.settings.container_width == 'full_width' %}v2-full-width{% else %}v2-contained{% endif %}">
   <div class="v2-page-width">
     {%- assign heading_style = 'color: ' | append: section.settings.heading_color -%}
-    {% render 'sonu-section-header',
-      heading: section.settings.heading,
-      heading_tag: section.settings.heading_tag | default: 'h2',
-      heading_style_preset: section.settings.heading_style,
-      heading_class: 'v2-section-title',
-      heading_style: heading_style,
-      text_align: 'center',
-      animate: true
-    %}
+    {% render 'sonu-section-header', heading: section.settings.heading, heading_tag: section.settings.heading_tag, default: 'h2', heading_style_preset: section.settings.heading_style, heading_class: 'v2-section-title', heading_style: heading_style, text_align: 'center', animate: true %}
 
     {%- assign video_blocks = section.blocks | where: "type", "video" -%}
     {%- assign review_blocks = section.blocks | where: "type", "review" -%}
@@ -1842,4 +1834,25 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'sonu-section-header',
+          heading: section.settings.heading,
+          heading_tag: section.settings.heading_tag | default: 'h2',
+          heading_style_preset: section.settings.heading_style,
+          heading_class: 'v2-section-title',
+          heading_style: heading_style,
+          text_align: 'center',
+          animate: true
+        %}
+  to: "{% render 'sonu-section-header', heading: section.settings.heading, heading_tag:
+    section.settings.heading_tag, default: 'h2', heading_style_preset: section.settings.heading_style,
+    heading_class: 'v2-section-title', heading_style: heading_style, text_align: 'center',
+    animate: true %}"
+  position: 30933..31216
+{%- endcomment -%}

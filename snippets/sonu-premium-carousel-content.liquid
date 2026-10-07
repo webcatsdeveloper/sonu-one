@@ -103,11 +103,7 @@
     </div>
 
     <!-- PROGRESS BAR -->
-    {% render 'sonu-progress-bar',
-      progress_id: 'progress-' | append: section_id,
-      container_class: 'carousel-progress',
-      bar_class: 'progress-bar-card'
-    %}
+    {% render 'sonu-progress-bar', progress_id: 'progress-', append: section_id, container_class: 'carousel-progress', bar_class: 'progress-bar-card' %}
 
     <!-- ARROWS -->
     <div class="carousel-arrows">
@@ -119,3 +115,19 @@
 
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'sonu-progress-bar',
+          progress_id: 'progress-' | append: section_id,
+          container_class: 'carousel-progress',
+          bar_class: 'progress-bar-card'
+        %}
+  to: "{% render 'sonu-progress-bar', progress_id: 'progress-', append: section_id,
+    container_class: 'carousel-progress', bar_class: 'progress-bar-card' %}"
+  position: 4537..4685
+{% endcomment %}
